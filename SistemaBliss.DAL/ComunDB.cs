@@ -11,7 +11,7 @@ namespace SistemaElParaisal.DAL
 {
     public class ComunDB
     {
-        const string strConexion = @"Data Source=MarioSintigo\SQLEXPRESS;Initial Catalog=SistemaBlissBD;Integrated Security=True;Trust Server Certificate=True";
+        const string strConexion = @"Data Source=MariSintigo\SQLEXPRESS;Initial Catalog=SistemaBlissBD;Integrated Security=True;Trust Server Certificate=True";
 
         private static SqlConnection ObtenerConexion()
         {
