@@ -13,7 +13,6 @@ namespace SistemaBliss.EN
         public byte IdDepartamento { get; set; }
         public short IdMunicipio { get; set; }
         public byte IdEstado { get; set; }
-
         public string Nombre { get; set;}
         public string Apellido { get; set; }
         public string Telefono { get; set; }
