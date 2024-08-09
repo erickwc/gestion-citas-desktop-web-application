@@ -9,8 +9,7 @@ namespace SistemaBliss.EN
     public class Profesión
     {
         public int IdProfesión { get; set; } 
-
-        public int Nombre;  { get; set; }
+        public int Nombre  { get; set; }
 
     }
 }

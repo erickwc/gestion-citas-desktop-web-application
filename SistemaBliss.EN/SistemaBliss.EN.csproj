@@ -46,7 +46,6 @@
     <Compile Include="Cita.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Departamento.cs" />
-    <Compile Include="DetaleCita.cs" />
     <Compile Include="DetalleCita.cs" />
     <Compile Include="DetalleProfesión.cs" />
     <Compile Include="Empresa.cs" />

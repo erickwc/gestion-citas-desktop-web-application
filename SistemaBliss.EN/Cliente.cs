@@ -11,6 +11,8 @@ namespace SistemaBliss.EN
         public int IdCliente { get; set; }
         public int IdUsuario { get; set; }
         public int ServiciosAcumulados { get; set; }
+
+        // Propiedades virtuales para llaves foraneas (FK) para representar la Asociacion
         public virtual Usuario Usuario { get; set; }
     }
 }
