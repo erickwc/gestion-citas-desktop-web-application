@@ -53,7 +53,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@UrlImagen", pUsuario.UrlImagen);
             return ComunDB.EjecutarComando(comando);
         }
-        #endregion
+        
 
         
     }
