@@ -30,6 +30,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Duracion", pServicio.Duracion);
             comando.Parameters.AddWithValue("@Imagen", pServicio.Imagen);
             return ComunDB.EjecutarComando(comando);
+
         }
 
         public static int Modificar(Servicio pServicio)
