@@ -41,7 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriaProductoBL.cs" />
+    <Compile Include="CategoriaServicioBL.cs" />
+    <Compile Include="CitaBL.cs" />
+    <Compile Include="ClienteBL.cs" />
+    <Compile Include="DepartamentoBL.cs" />
+    <Compile Include="DetalleCitaBL.cs" />
+    <Compile Include="DetalleProfesionBL.cs" />
+    <Compile Include="DetalleVentaBL.cs" />
+    <Compile Include="EmpresaBL.cs" />
+    <Compile Include="EstadoBL.cs" />
+    <Compile Include="HorariosEmpresaBL.cs" />
+    <Compile Include="MunicipioBL.cs" />
+    <Compile Include="ProductoBL.cs" />
+    <Compile Include="ProfesionBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolBL.cs" />
+    <Compile Include="ServicioBL.cs" />
+    <Compile Include="UsuarioBL.cs" />
+    <Compile Include="VentaBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SistemaBliss.DAL\SistemaBliss.DAL.csproj">
