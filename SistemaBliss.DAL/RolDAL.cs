@@ -15,7 +15,6 @@ namespace SistemaBliss.DAL
 {
     public class RolDAL
     {
-        #region Metodos de Busqueda
         public static Rol ObtenerPorId(byte pIdRol)
         {
             Rol obj = new Rol();
@@ -34,48 +33,24 @@ namespace SistemaBliss.DAL
             }
             return obj;
         }
-        #endregion
-        public static List<Rol> Buscar(Rol pRol)
+
+        public static Rol ObtenerPorNombre(byte pNombreRol)
         {
-            List<Rol> lista = new List<Rol>();
+            Rol obj = new Rol();
 
-            #region Proceso
-            using (SqlCommand comando = ComunDB.ObtenerComando())
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_ObtenerRolPorNombre";
+            comando.Parameters.AddWithValue("@Nombre", pNombreRol);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
             {
-                byte contador = 0;
-                string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 c.IdCargo, c.Nombre
-                            FROM Cargo c ";
-
-                // Validar filtros
-                if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " c.Nombre LIKE @Nombre ";
-                    comando.Parameters.AddWithValue("@Nombre", "%" + pRol.Nombre + "%");
-                }
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
-                }
-                comando.CommandText = consulta + whereSQL;
-
-                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-                while (reader.Read())
-                {
-                    Rol obj = new Rol();
-                    // Orden de las columnas depende de la Consulta SELECT utilizada
-                    obj.IdRol = reader.GetByte(0);
-                    obj.Nombre = reader.GetString(1);
-                    lista.Add(obj);
-                }
-                comando.Connection.Dispose();
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.IdRol = reader.GetByte(0); // Columna [0] cero
+                obj.Nombre = reader.GetString(1);  // Columna [1] uno
             }
-            #endregion
-            return lista;
+            return obj;
         }
 
 
