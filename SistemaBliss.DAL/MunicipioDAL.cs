@@ -33,9 +33,9 @@ namespace SistemaBliss.DAL
         }
         #endregion
 
-        public static Departamento ObtenerPorNombre(byte pNombreMunicipio)
+        public static Municipio ObtenerPorNombre(string pNombreMunicipio)
         {
-            Departamento obj = new Departamento();
+            Municipio obj = new Municipio();
 
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
@@ -46,7 +46,7 @@ namespace SistemaBliss.DAL
             while (reader.Read())
             {
                 // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdDepartamento = reader.GetByte(0); // Columna [0] cero
+                obj.IdMunicipio = reader.GetByte(0); // Columna [0] cero
                 obj.Nombre = reader.GetString(1);  // Columna [1] uno
             }
             return obj;

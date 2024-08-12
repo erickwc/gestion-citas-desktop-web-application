@@ -31,7 +31,7 @@ namespace SistemaBliss.DAL
             return obj;
         }
 
-        public static Estado ObtenerPorNombre(byte pNombreEstado)
+        public static Estado ObtenerPorNombre(string pNombreEstado)
         {
             Estado obj = new Estado();
 

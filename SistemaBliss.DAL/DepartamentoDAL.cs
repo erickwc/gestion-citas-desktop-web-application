@@ -33,7 +33,7 @@ namespace SistemaBliss.DAL
         }
         #endregion
 
-        public static Departamento ObtenerPorNombre(byte pNombreDepartamento)
+        public static Departamento ObtenerPorNombre(string pNombreDepartamento)
         {
             Departamento obj = new Departamento();
 

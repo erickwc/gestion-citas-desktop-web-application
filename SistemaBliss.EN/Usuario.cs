@@ -16,7 +16,7 @@ namespace SistemaBliss.EN
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Telefono { get; set; }
-        public byte[] Contraseña { get; set; }
+        public string Contraseña { get; set; }
         public string CorreoElectronico { get; set; }
         public string Dui { get; set; }
         public string Direccion { get; set; }

@@ -34,7 +34,7 @@ namespace SistemaBliss.DAL
             return obj;
         }
 
-        public static Rol ObtenerPorNombre(byte pNombreRol)
+        public static Rol ObtenerPorNombre(string pNombreRol)
         {
             Rol obj = new Rol();
 
