@@ -32,6 +32,18 @@ namespace SistemaBliss.DAL
             }
             return obj;
         }
+
+        public static int Guardar(Cliente pCliente)
+        {
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_InsertarCliente";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@IdUsuario", pCliente.IdUsuario);
+            comando.Parameters.AddWithValue("@ServiviosAcumulados", pCliente.ServiciosAcumulados);
+            return ComunDB.EjecutarComando(comando);
+        }
+
         #endregion
+
     }
 }

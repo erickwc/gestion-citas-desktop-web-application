@@ -17,8 +17,11 @@ namespace SistemaBliss.BL
         {
             return ClienteDAL.ObtenerPorId(pIdCliente);
         }
-        
-        
+
+        public int Guardar(Cliente pCliente)
+        {
+            return ClienteDAL.Guardar(pCliente);
+        }
     }
 
 }
