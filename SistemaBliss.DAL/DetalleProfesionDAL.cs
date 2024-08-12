@@ -11,6 +11,35 @@ namespace SistemaBliss.DAL
 {
     public class DetalleProfesionDAL
     {
+        #region Metodos GUARDAR, MODIFICAR Y ELIMINAR
+        public static int Guardar(DetalleProfesión pDetalleProfesion)
+        {
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_InsertarEmpleado";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@IdProfesion", pDetalleProfesion.IdProfesion);
+            comando.Parameters.AddWithValue("@Usuario", pDetalleProfesion.IdUsuario);
+            return ComunDB.EjecutarComando(comando);
+        }
+        #endregion
+        public static int Modificar(DetalleProfesión pDetalleProfesion)
+        {
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_ModificarDetalleProfesion";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@IdProfesion", pDetalleProfesion.IdProfesion);
+            comando.Parameters.AddWithValue("@Usuario", pDetalleProfesion.IdUsuario);
+            return ComunDB.EjecutarComando(comando);
+            return ComunDB.EjecutarComando(comando);
+        }
+        public static int Eliminar(DetalleProfesión pDetalleProfesion)
+        {
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_EliminarEmpleado";
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@IdDetalleProfesion", pDetalleProfesion.IdDetalleProfesion);
+            return ComunDB.EjecutarComando(comando);
+        }
         public static DetalleProfesión ObtenerPorId(byte pIdDetalleProfesion)
         {
             DetalleProfesión obj = new DetalleProfesión();

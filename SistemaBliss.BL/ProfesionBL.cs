@@ -25,14 +25,14 @@ namespace SistemaBliss.BL
             }
             return hashString;
         }
-        public int Guardar(Profesión pServicio)
+        public int Guardar(Profesión pProfesion)
         {
-            return ProfesionDAL.Guardar(pServicio);
+            return ProfesionDAL.Guardar(pProfesion);
         }
 
-        public int Modificar(Profesión pServicio)
+        public int Modificar(Profesión pProfesion)
         {
-            return ProfesionDAL.Modificar(pServicio);
+            return ProfesionDAL.Modificar(pProfesion);
         }
 
         
