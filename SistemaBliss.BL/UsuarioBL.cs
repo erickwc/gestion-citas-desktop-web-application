@@ -26,12 +26,12 @@ namespace SistemaBliss.BL
         }
         public int Guardar(Usuario pUsuario)
         {
-            pUsuario.Contraseña = CifrarHashSha256(pUsuario.Contraseña);
+            pUsuario.Contrasena = CifrarHashSha256(pUsuario.Contrasena);
             return UsuarioDAL.Guardar(pUsuario);
         }
         public int Modificar(Usuario pUsuario)
         {
-            pUsuario.Contraseña = CifrarHashSha256(pUsuario.Contraseña);
+            pUsuario.Contrasena = CifrarHashSha256(pUsuario.Contrasena);
             return UsuarioDAL.Modificar(pUsuario);
         }
 

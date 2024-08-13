@@ -16,11 +16,11 @@ namespace SistemaBliss.EN
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Telefono { get; set; }
-        public string Contraseña { get; set; }
+        public string Contrasena { get; set; }
         public string CorreoElectronico { get; set; }
         public string Dui { get; set; }
         public string Direccion { get; set; }
-        public byte[] UrlImagen { get; set; }
+        public string UrlImagen { get; set; }
 
         //Propiedades virtuales para llaves foraneas (FK) para representar la asociacion
         public virtual Rol Rol { get; set; }

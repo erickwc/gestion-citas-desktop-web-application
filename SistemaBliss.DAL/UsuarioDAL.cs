@@ -25,7 +25,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Nombre", pUsuario.Nombre);
             comando.Parameters.AddWithValue("@Apellido", pUsuario.Apellido);
             comando.Parameters.AddWithValue("@Telefono", pUsuario.Telefono);
-            comando.Parameters.AddWithValue("@Contraseña", pUsuario.Contraseña);
+            comando.Parameters.AddWithValue("@Contrasena", pUsuario.Contrasena);
             comando.Parameters.AddWithValue("@CorreoElectronico", pUsuario.CorreoElectronico);
             comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
             comando.Parameters.AddWithValue("@Direccion", pUsuario.Direccion);
@@ -46,7 +46,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Nombre", pUsuario.Nombre);
             comando.Parameters.AddWithValue("@Apellido", pUsuario.Apellido);
             comando.Parameters.AddWithValue("@Telefono", pUsuario.Telefono);
-            comando.Parameters.AddWithValue("@Contraseña", pUsuario.Contraseña);
+            comando.Parameters.AddWithValue("@Contrasena", pUsuario.Contrasena);
             comando.Parameters.AddWithValue("@CorreoElectronico", pUsuario.CorreoElectronico);
             comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
             comando.Parameters.AddWithValue("@Direccion", pUsuario.Direccion);
@@ -77,7 +77,7 @@ namespace SistemaBliss.DAL
                 obj.Nombre = reader.GetString(5); // Columna [4] cuatro
                 obj.Apellido = reader.GetString(6); // Columna [4] cuatro
                 obj.Telefono = reader.GetString(7); // Columna [4] cuatro
-                obj.Contraseña = reader.GetString(8); // Columna [4] cuatro
+                obj.Contrasena = reader.GetString(8); // Columna [4] cuatro
                 obj.Dui = reader.GetString(9); // Columna [4] cuatro
                 obj.Direccion = reader.GetString(10); // Columna [4] cuatro
             }
@@ -142,7 +142,7 @@ namespace SistemaBliss.DAL
                     obj.Nombre = reader.GetString(5); 
                     obj.Apellido = reader.GetString(6);
                     obj.Telefono = reader.GetString(7); 
-                    obj.Contraseña = reader.GetString(8); 
+                    obj.Contrasena = reader.GetString(8); 
                     obj.Dui = reader.GetString(9); 
                     obj.Direccion = reader.GetString(10); 
                 }
