@@ -33,23 +33,49 @@ namespace SistemaBliss.DAL
         }
         #endregion
 
-        public static Municipio ObtenerPorNombre(string pNombreMunicipio)
+        public static List<Municipio> Buscar(Municipio pMunicipio)
         {
-            Municipio obj = new Municipio();
+            List<Municipio> lista = new List<Municipio>();
 
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_ObtenerMunicipioPorNombre";
-            comando.Parameters.AddWithValue("@Nombre", pNombreMunicipio);
-
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdMunicipio = reader.GetByte(0); // Columna [0] cero
-                obj.Nombre = reader.GetString(1);  // Columna [1] uno
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdMunicipio, Nombre
+                                    FROM Municipio ";
+
+                // Validar filtros
+                if (pMunicipio.Nombre != null && pMunicipio.Nombre.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    // @ValorNA = Valor Nombre/Apellido
+                    whereSQL += " (Nombre LIKE @ValorNA ";
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pMunicipio.Nombre + "%");
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Municipio obj = new Municipio();
+                   
+                    obj.IdMunicipio = reader.GetInt16(0); 
+                    obj.Nombre = reader.GetString(1);
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
             }
-            return obj;
+            #endregion
+
+            return lista;
         }
 
     }

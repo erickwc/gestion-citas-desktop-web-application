@@ -14,9 +14,9 @@ namespace SistemaBliss.BL
         {
             return RolDAL.ObtenerPorId(pIdRol);
         }
-        public Rol ObtenerPorNombre(string pNombreRol)
+        public List<Rol> Buscar(Rol pRol)
         {
-            return RolDAL.ObtenerPorNombre(pNombreRol);
+            return RolDAL.Buscar(pRol);
         }
     }
 }

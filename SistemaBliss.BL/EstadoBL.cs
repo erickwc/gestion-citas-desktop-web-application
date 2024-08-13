@@ -14,9 +14,9 @@ namespace SistemaBliss.BL
         {
             return EstadoDAL.ObtenerPorId(pIdEstado);
         }
-        public Estado ObtenerPorNombre(string pNombreEstado)
+        public List<Estado> Buscar(Estado pEstado)
         {
-            return EstadoDAL.ObtenerPorNombre(pNombreEstado);
+            return EstadoDAL.Buscar(pEstado);
         }
     }
 }

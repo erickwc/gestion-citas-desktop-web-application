@@ -55,6 +55,103 @@ namespace SistemaBliss.DAL
         }
 
         #endregion
+        #region Metodos de Busqueda
+        public static Usuario ObtenerPorId(short pIdUsuario)
+        {
+            Usuario obj = new Usuario();
 
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_ObtenerUsuarioPorId";
+            comando.Parameters.AddWithValue("@IdUsuario", pIdUsuario);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.IdUsuario = reader.GetInt16(0); // Columna [0] cero
+                obj.IdRol = reader.GetByte(1); // Columna [0] cero
+                obj.IdDepartamento = reader.GetByte(2);  // Columna [1] uno
+                obj.IdMunicipio = reader.GetByte(3); // Columna [2] dos
+                obj.IdEstado = reader.GetByte(4); // Columna [4] cuatro
+                obj.Nombre = reader.GetString(5); // Columna [4] cuatro
+                obj.Apellido = reader.GetString(6); // Columna [4] cuatro
+                obj.Telefono = reader.GetString(7); // Columna [4] cuatro
+                obj.Contraseña = reader.GetString(8); // Columna [4] cuatro
+                obj.Dui = reader.GetString(9); // Columna [4] cuatro
+                obj.Direccion = reader.GetString(10); // Columna [4] cuatro
+            }
+            return obj;
+        }
+
+        public static List<Usuario> Buscar(Usuario pUsuario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdMunicipio, IdEstado, Nombre, Apellido, Telefono, Contrasena, Dui, Direccion
+	                                FROM Usuario ";
+
+                // Validar filtros
+                if (pUsuario.Telefono != null && pUsuario.Telefono.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Telefono = @Telefono ";
+                    comando.Parameters.AddWithValue("@Telefono", pUsuario.Telefono);
+                }
+                if (pUsuario.Nombre != null && pUsuario.Nombre.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    // @ValorNA = Valor Nombre/Apellido
+                    whereSQL += " (Nombre LIKE @ValorNA OR Apellido LIKE @ValorNA) ";
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pUsuario.Nombre + "%");
+                }
+                if (pUsuario.Dui != null && pUsuario.Dui.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Dui = @Dui ";
+                    comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Usuario obj = new Usuario();
+                    
+                    obj.IdUsuario = reader.GetInt16(0); 
+                    obj.IdRol = reader.GetByte(1);
+                    obj.IdDepartamento = reader.GetByte(2);  
+                    obj.IdMunicipio = reader.GetByte(3); 
+                    obj.IdEstado = reader.GetByte(4); 
+                    obj.Nombre = reader.GetString(5); 
+                    obj.Apellido = reader.GetString(6);
+                    obj.Telefono = reader.GetString(7); 
+                    obj.Contraseña = reader.GetString(8); 
+                    obj.Dui = reader.GetString(9); 
+                    obj.Direccion = reader.GetString(10); 
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+        #endregion
     }
 }

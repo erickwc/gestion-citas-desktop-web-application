@@ -14,9 +14,11 @@ namespace SistemaBliss.BL
         {
             return DepartamentoDAL.ObtenerPorId(pIdDepartamento);
         }
-        public Departamento ObtenerPorNombre(string pNombreDepartamento)
+
+        public List<Departamento> Buscar(Departamento pDepartamento)
         {
-            return DepartamentoDAL.ObtenerPorNombre(pNombreDepartamento);
+            return DepartamentoDAL.Buscar(pDepartamento);
         }
+
     }
 }

@@ -14,9 +14,10 @@ namespace SistemaBliss.BL
         {
             return MunicipioDAL.ObtenerPorId(pIdMunicipio);
         }
-        public Municipio ObtenerPorNombre(string pNombreMunicipio)
+        
+        public List<Municipio> Buscar(Municipio pMunicipio)
         {
-            return MunicipioDAL.ObtenerPorNombre(pNombreMunicipio);
+            return MunicipioDAL.Buscar(pMunicipio);
         }
     }
 }

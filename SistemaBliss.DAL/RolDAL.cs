@@ -34,23 +34,49 @@ namespace SistemaBliss.DAL
             return obj;
         }
 
-        public static Rol ObtenerPorNombre(string pNombreRol)
+        public static List<Rol> Buscar(Rol pRol)
         {
-            Rol obj = new Rol();
+            List<Rol> lista = new List<Rol>();
 
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_ObtenerRolPorNombre";
-            comando.Parameters.AddWithValue("@Nombre", pNombreRol);
-
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdRol = reader.GetByte(0); // Columna [0] cero
-                obj.Nombre = reader.GetString(1);  // Columna [1] uno
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdRol, Nombre
+                                    FROM Rol ";
+
+                // Validar filtros
+                if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    // @ValorNA = Valor Nombre/Apellido
+                    whereSQL += " (Nombre LIKE @ValorNA ";
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pRol.Nombre + "%");
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Rol obj = new Rol();
+
+                    obj.IdRol = reader.GetInt16(0);
+                    obj.Nombre = reader.GetString(1);
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
             }
-            return obj;
+            #endregion
+
+            return lista;
         }
 
 

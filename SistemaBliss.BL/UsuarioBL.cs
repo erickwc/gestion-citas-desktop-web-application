@@ -34,6 +34,15 @@ namespace SistemaBliss.BL
             pUsuario.Contraseña = CifrarHashSha256(pUsuario.Contraseña);
             return UsuarioDAL.Modificar(pUsuario);
         }
-        
+
+        public Usuario ObtenerPorId(short pIdEmpleado)
+        {
+            return UsuarioDAL.ObtenerPorId(pIdEmpleado);
+        }
+        public List<Usuario> Buscar(Usuario pEmpleado)
+        {
+            return UsuarioDAL.Buscar(pEmpleado);
+        }
+
     }
 }
