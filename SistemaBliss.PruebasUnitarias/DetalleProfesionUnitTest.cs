@@ -30,9 +30,10 @@ namespace SistemaBliss.PruebasUnitarias
         public void T2_Modificar()
         {
             // instancia de Empleado con los datos a modificar
-            DetalleProfesión detalleProfesión = detalleProfesionBL.ObtenerPorId(1);
-            detalleProfesión.IdProfesion = 1;
+            DetalleProfesión detalleProfesión = new DetalleProfesión();
+            detalleProfesión.IdDetalleProfesion = 10;
             detalleProfesión.IdUsuario = 1;
+            detalleProfesión.IdProfesion = 2;
             // Ejecutar metodo
             int resultado = detalleProfesionBL.Modifiar(detalleProfesión);
 
@@ -40,6 +41,10 @@ namespace SistemaBliss.PruebasUnitarias
             // si resultado es igual a 1, la Empleado se modifico correctamente
             Assert.AreEqual(1, resultado);
         }
+
+
+
+
         [TestMethod]
         public void T3_Buscar()
         {
@@ -53,11 +58,10 @@ namespace SistemaBliss.PruebasUnitarias
         public void T4_ObtenerPorId()
         {
             // Buscar el empleado con id = 1
-            DetalleProfesión detalleProfesión = detalleProfesionBL.ObtenerPorId(1);
-             
+            DetalleProfesión rol = detalleProfesionBL.ObtenerPorId(1);
+
             // Comprobacion de la prueba
-            // si el Id de Empleado es diferente de 0, la Empleado se obtuvo por Id correctamente
-            Assert.AreNotEqual(0, detalleProfesión.IdDetalleProfesion);
+            Assert.AreNotEqual(0, rol.IdDetalleProfesion);
         }
 
     }

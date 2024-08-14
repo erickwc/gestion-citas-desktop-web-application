@@ -9,11 +9,11 @@ namespace SistemaBliss.PruebasUnitarias
 {
     [TestClass]
     public class ProfesionUnitTest1
-    { 
+    {
         // Conexion a la tabla de Profesion en la DB mediante una instancia de CargoBL
         ProfesionBL profesionBL = new ProfesionBL();
 
-        [TestMethod] 
+        [TestMethod]
         public void T1_ObtenerPorId()
         {
             // Buscar el cargo con id = 1
@@ -26,7 +26,7 @@ namespace SistemaBliss.PruebasUnitarias
         [TestMethod]
         public void T2_Buscar()
         {
-            List<Profesión> lista = profesionBL.Buscar(new Profesión { Nombre = "ADMIN" });
+            List<Profesión> lista = profesionBL.Buscar(new Profesión { Nombre = "Barbero" });
 
             // Comprobacion de la prueba
             // si el total de la lista es diferente de 0, los Cargos se buscaron correctamente
@@ -37,7 +37,7 @@ namespace SistemaBliss.PruebasUnitarias
             // instancia de Empleado con los datos a guardar
             Profesión profesion = new Profesión();
             profesion.IdProfesión = 1;
-            profesion.Nombre  = "Erick";
+            profesion.Nombre = "Erick";
             // Ejecutar metodo 
             int resultado = profesionBL.Guardar(profesion);
 
@@ -49,7 +49,7 @@ namespace SistemaBliss.PruebasUnitarias
         {
             // instancia de Empleado con los datos a modificar
             Profesión profesión = profesionBL.ObtenerPorId(1);
-            profesión.IdProfesión = 1; 
+            profesión.IdProfesión = 1;
             profesión.Nombre = "Mario";
             // Ejecutar metodo
             int resultado = profesionBL.Modificar(profesión);
