@@ -24,9 +24,9 @@ namespace SistemaBliss.BL
             return DetalleProfesionDAL.Guardar(pDetalleProfesion);
         }
 
-        public int Modifiar(DetalleProfesión pDetallesProfesion)
+        public int Modifiar(DetalleProfesión pDetalleProfesion)
         {
-            return DetalleProfesionDAL.Modificar(pDetallesProfesion);
+            return DetalleProfesionDAL.Modificar(pDetalleProfesion);
         }
 
         public int Eliminar(DetalleProfesión pDetalleProfesion)

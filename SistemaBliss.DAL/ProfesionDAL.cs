@@ -31,6 +31,66 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Nombre", pProfesion.Nombre);
             return ComunDB.EjecutarComando(comando);
         }
+        public static Profesión ObtenerPorId(byte pProfesion)
+        {
+            Profesión obj = new Profesión();
 
-    }                                                           
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_ObtenerProfesionPorId";
+            comando.Parameters.AddWithValue("@IdProfesion", pProfesion);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.IdProfesión = reader.GetByte(0); // Columna [0] cero
+                obj.Nombre = reader.GetString(1);  // Columna [1] uno
+            }
+            return obj;
+        }
+        public static List<Profesión> Buscar(Profesión pProfesion)
+        {
+            List<Profesión> lista = new List<Profesión>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 c.IdProfesion, c.Nombre
+                            FROM Profesion c ";
+
+                // Validar filtros
+                if (pProfesion.Nombre != null && pProfesion.Nombre.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " c.Nombre LIKE @Usuario ";
+                    comando.Parameters.AddWithValue("@Usuario", "%" + pProfesion.Nombre + "%");
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Profesión obj = new Profesión();
+                    // Orden de las columnas depende de la Consulta SELECT utilizada
+                    obj.IdProfesión = reader.GetByte(0);
+                    obj.Nombre = reader.GetString(1);
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+            return lista;
+        }
+
+    }
 }

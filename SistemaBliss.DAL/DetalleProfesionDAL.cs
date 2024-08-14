@@ -30,7 +30,6 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@IdProfesion", pDetalleProfesion.IdProfesion);
             comando.Parameters.AddWithValue("@Usuario", pDetalleProfesion.IdUsuario);
             return ComunDB.EjecutarComando(comando);
-            return ComunDB.EjecutarComando(comando);
         }
         public static int Eliminar(DetalleProfesión pDetalleProfesion)
         {

@@ -34,7 +34,14 @@ namespace SistemaBliss.BL
         {
             return ProfesionDAL.Modificar(pProfesion);
         }
+        public Profesión ObtenerPorId(byte pProfesion)
+        {
+            return ProfesionDAL.ObtenerPorId(pProfesion);
+        }
+        public List<Profesión> Buscar(Profesión pProfesion)
+        {
+            return ProfesionDAL.Buscar(pProfesion);
+        }
 
-        
     }
 }
