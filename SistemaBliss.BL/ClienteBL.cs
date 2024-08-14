@@ -11,8 +11,6 @@ namespace SistemaBliss.BL
 {
     public class ClienteBL
     {
-      
-
         public Cliente ObtenerPorId(byte pIdCliente)
         {
             return ClienteDAL.ObtenerPorId(pIdCliente);
@@ -21,6 +19,11 @@ namespace SistemaBliss.BL
         public int Guardar(Cliente pCliente)
         {
             return ClienteDAL.Guardar(pCliente);
+        }
+
+        public List<Cliente> Buscar(Cliente pCliente)
+        {
+            return ClienteDAL.Buscar(pCliente);
         }
     }
 

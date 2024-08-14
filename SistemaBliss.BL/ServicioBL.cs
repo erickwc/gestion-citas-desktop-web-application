@@ -21,15 +21,14 @@ namespace SistemaBliss.BL
             return ServicioDAL.Modificar(pServicio);
         }
 
-        public int Eliminar(Servicio pServicio)
+        public Servicio ObtenerPorId(short pServicio)
         {
-            return ServicioDAL.Eliminar(pServicio);
+            return ServicioDAL.ObtenerPorId(pServicio);
         }
 
-        public static Servicio ObtenerPorId(short pServicio)
+        public List<Servicio> Buscar(Servicio pServicio)
         {
-           return ServicioDAL.ObtenerPorId(pServicio);
+            return ServicioDAL.Buscar(pServicio);
         }
     }
 }
-

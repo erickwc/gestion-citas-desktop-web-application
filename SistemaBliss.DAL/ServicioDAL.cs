@@ -28,7 +28,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Restricciones", pServicio.Restricciones);
             comando.Parameters.AddWithValue("@Precio", pServicio.Precio);
             comando.Parameters.AddWithValue("@Duracion", pServicio.Duracion);
-            comando.Parameters.AddWithValue("@Imagen", pServicio.Imagen);
+            comando.Parameters.AddWithValue("@UrlImagen", pServicio.Imagen);
             return ComunDB.EjecutarComando(comando);
 
         }
@@ -36,8 +36,9 @@ namespace SistemaBliss.DAL
         public static int Modificar(Servicio pServicio)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_ModificarUsuario";
+            comando.CommandText = "SP_ModificarServicio";
             comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@IdServicio", pServicio.IdCategoriaServicio);
             comando.Parameters.AddWithValue("@IdCategoriaServicio", pServicio.IdCategoriaServicio);
             comando.Parameters.AddWithValue("@IdEstado", pServicio.IdEstado);
             comando.Parameters.AddWithValue("@Nombre", pServicio.Nombre);
@@ -46,7 +47,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Restricciones", pServicio.Restricciones);
             comando.Parameters.AddWithValue("@Precio", pServicio.Precio);
             comando.Parameters.AddWithValue("@Duracion", pServicio.Duracion);
-            comando.Parameters.AddWithValue("@Imagen", pServicio.Imagen);
+            comando.Parameters.AddWithValue("@UrlImagen", pServicio.Imagen);
             return ComunDB.EjecutarComando(comando);
         }
 
@@ -68,26 +69,87 @@ namespace SistemaBliss.DAL
                 obj.IdEstado = reader.GetByte(2); //Colummna [1] uno
                 obj.Nombre = reader.GetString(3);  // Columna [2] uno
                 obj.Descripción = reader.GetString(4); // Columna [3] dos
-                obj.DiasAnticipacion = reader.GetInt16(5); // Columna [4] cuatro
+                //obj.DiasAnticipacion = reader.GetInt16(5); // Columna [4] cuatro
                 obj.Restricciones = reader.GetString(6); // Columna [5] cuatro
                 obj.Precio = reader.GetDecimal(7); // Columna [6] cuatro
-                obj.Duracion = reader.GetDateTime(8); // Columna [7] cuatro
-                obj.Imagen = reader.GetByte(9); // Columna [8] cuatro
+                obj.Duracion = reader.GetTimeSpan(8); // Columna [7] cuatro
+                //obj.Imagen = reader.GetString(9); // Columna [8] cuatro
             }
             return obj;
 
         }
-        public static int Eliminar(Servicio pServicio)
+
+        public static List<Servicio> Buscar(Servicio pServicio)
         {
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_EliminarServicio";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdServicio", pServicio.IdServicio);
-            return ComunDB.EjecutarComando(comando);
+            List<Servicio> lista = new List<Servicio>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion FROM Servicio ";
+
+                // Validar filtros
+                if (pServicio.IdCategoriaServicio > 0)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdCategoriaServicio = @IdCategoriaServicio ";
+                    comando.Parameters.AddWithValue("@IdCategoriaServicio", pServicio.IdCategoriaServicio);
+                }
+                if (pServicio.Nombre != null && pServicio.Nombre.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " (Nombre LIKE @ValorNA) ";
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pServicio.Nombre + "%");
+                }
+                if (pServicio.IdEstado > 0)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdEstado = @IdEstado ";
+                    comando.Parameters.AddWithValue("@IdEstado", pServicio.IdEstado);
+                }
+
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Servicio obj = new Servicio();
+
+                    obj.IdServicio = reader.GetByte(0); // Columna [0] cero
+                    obj.IdCategoriaServicio = reader.GetByte(1); // Columna [0] cero
+                    obj.IdEstado = reader.GetByte(2); //Colummna [1] uno
+                    obj.Nombre = reader.GetString(3);  // Columna [2] uno
+                    obj.Descripción = reader.GetString(4); // Columna [3] dos
+                                                           //   obj.DiasAnticipacion = reader.GetInt16(5); // Columna [4] cuatro
+                    obj.Restricciones = reader.GetString(6); // Columna [5] cuatro
+                    obj.Precio = reader.GetDecimal(7); // Columna [6] cuatro
+                    obj.Duracion = reader.GetTimeSpan(8); // Columna [7] cuatro
+                                                          //  obj.Imagen = reader.GetString(9); // Columna [8] cuatro
+
+                    // Agregar el objeto Servicio a la lista
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
         }
         #endregion
 
     }
-
 
 }

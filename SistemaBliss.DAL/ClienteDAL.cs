@@ -1,4 +1,5 @@
-﻿using SistemaElParaisal.DAL;
+﻿
+using SistemaElParaisal.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -20,15 +21,16 @@ namespace SistemaBliss.DAL
 
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_ObtenerCargoPorId";
-            comando.Parameters.AddWithValue("@IdCargo", pIdCliente);
+            comando.CommandText = "SP_ObtenerClientePorId";
+            comando.Parameters.AddWithValue("@IdCliente", pIdCliente);
 
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
             {
                 // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdCliente = reader.GetByte(0); // Columna [0] cero
-                obj.IdUsuario = reader.GetByte(1);  // Columna [1] uno
+                obj.IdCliente = reader.GetInt32(0); // Columna [0] cero
+                obj.IdUsuario = reader.GetInt32(1);  // Columna [1] uno
+                obj.ServiciosAcumulados = reader.GetInt32(2);  // Columna [1] uno
             }
             return obj;
         }
@@ -39,8 +41,45 @@ namespace SistemaBliss.DAL
             comando.CommandText = "SP_InsertarCliente";
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@IdUsuario", pCliente.IdUsuario);
-            comando.Parameters.AddWithValue("@ServiviosAcumulados", pCliente.ServiciosAcumulados);
+            comando.Parameters.AddWithValue("@ServiciosAcumulados", pCliente.ServiciosAcumulados);
             return ComunDB.EjecutarComando(comando);
+        }
+
+        public static List<Cliente> Buscar(Cliente pCliente)
+        {
+            List<Cliente> lista = new List<Cliente>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdCliente, IdUsuario, ServiciosAcumulados FROM Cliente ";
+
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Cliente obj = new Cliente();
+
+                    obj.IdCliente = reader.GetInt32(0); // Columna [0] cero
+                    obj.IdUsuario = reader.GetInt32(1);  // Columna [1] uno
+                    obj.ServiciosAcumulados = reader.GetInt32(2);  // Columna [1] uno
+
+                    // Agregar el objeto Usuario a la lista
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
         }
 
         #endregion

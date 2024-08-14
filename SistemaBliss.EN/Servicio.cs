@@ -9,17 +9,17 @@ namespace SistemaBliss.EN
 {
     public class Servicio
     {
-        public byte IdServicio { get; set; }  
+        public byte IdServicio { get; set; }
         public byte IdCategoriaServicio { get; set; }
 
         public byte IdEstado { get; set; }
         public string Nombre { get; set; }
         public string Descripción { get; set; }
-        public int DiasAnticipacion { get; set; }
+        public short DiasAnticipacion { get; set; }
         public string Restricciones { get; set; }
         public decimal Precio { get; set; }
-        public DateTime Duracion { get; set; }
-        public byte Imagen { get; set; }
+        public TimeSpan Duracion { get; set; }
+        public string Imagen { get; set; }
 
 
         // Propiedades virtuales para llaves foraneas (FK) para representar la Asociacion
