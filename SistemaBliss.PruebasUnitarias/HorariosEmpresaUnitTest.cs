@@ -4,7 +4,7 @@ using System;
 namespace SistemaBliss.PruebasUnitarias
 {
     [TestClass]
-    public class UnitTest1
+    public class HorariosEmpresaUnitTest
     {
         [TestMethod]
         public void TestMethod1()
