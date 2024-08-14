@@ -35,13 +35,13 @@ namespace SistemaBliss.BL
             return UsuarioDAL.Modificar(pUsuario);
         }
 
-        public Usuario ObtenerPorId(short pIdEmpleado)
+        public Usuario ObtenerPorId(int pIdUsuario)
         {
-            return UsuarioDAL.ObtenerPorId(pIdEmpleado);
+            return UsuarioDAL.ObtenerPorId(pIdUsuario);
         }
-        public List<Usuario> Buscar(Usuario pEmpleado)
+        public List<Usuario> Buscar(Usuario pUsuario)
         {
-            return UsuarioDAL.Buscar(pEmpleado);
+            return UsuarioDAL.Buscar(pUsuario);
         }
 
     }

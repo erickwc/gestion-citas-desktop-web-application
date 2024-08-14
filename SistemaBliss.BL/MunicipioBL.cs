@@ -10,11 +10,11 @@ namespace SistemaBliss.BL
 {
     public class MunicipioBL
     {
-        public Municipio ObtenerPorId(byte pIdMunicipio)
+        public Municipio ObtenerPorId(Int16 pIdMunicipio)
         {
             return MunicipioDAL.ObtenerPorId(pIdMunicipio);
         }
-        
+
         public List<Municipio> Buscar(Municipio pMunicipio)
         {
             return MunicipioDAL.Buscar(pMunicipio);

@@ -1,7 +1,9 @@
 ﻿using SistemaBliss.DAL;
 using SistemaBliss.EN;
+using SistemaElParaisal.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,11 @@ namespace SistemaBliss.BL
         public Empresa ObtenerPorId(byte pIdEmpresa)
         {
             return EmpresaDAL.ObtenerPorId(pIdEmpresa);
+        }
+
+        public List<Empresa> Buscar(Empresa pEmpresa)
+        {
+            return EmpresaDAL.Buscar(pEmpresa);
         }
 
     }
