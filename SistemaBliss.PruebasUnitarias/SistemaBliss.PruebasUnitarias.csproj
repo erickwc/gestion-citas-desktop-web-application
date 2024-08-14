@@ -65,6 +65,7 @@
     <Compile Include="ProfesionUnitTest.cs" />
     <Compile Include="RolUnitTest.cs" />
     <Compile Include="ServicioUnitTest.cs" />
+    <Compile Include="EstadoUnitTest.cs" />
     <Compile Include="VentaUnitTest.cs" />
     <Compile Include="UsuarioUnitTest.cs" />
   </ItemGroup>
