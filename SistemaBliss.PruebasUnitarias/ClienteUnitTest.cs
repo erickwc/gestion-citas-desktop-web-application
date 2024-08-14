@@ -19,7 +19,7 @@ namespace SistemaBliss.PruebasUnitarias
             Cliente cliente = new Cliente();
             cliente.IdCliente = 11;
             cliente.IdUsuario = 11;
-            cliente.ServiciosAcumulados = 5;
+            cliente.ServiciosAcumulados = 9;
 
             // Ejecutar metodo 
             int resultado = clienteBL.Guardar(cliente);
