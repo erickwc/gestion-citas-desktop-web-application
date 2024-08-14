@@ -13,7 +13,7 @@ namespace SistemaBliss.DAL
     public class MunicipioDAL
     {
         #region Metodos de Busqueda
-        public static Municipio ObtenerPorId(byte pIdMunicipio)
+        public static Municipio ObtenerPorId(Int16 pIdMunicipio)
         {
             Municipio obj = new Municipio();
 
@@ -26,7 +26,7 @@ namespace SistemaBliss.DAL
             while (reader.Read())
             {
                 // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdMunicipio = reader.GetByte(0); // Columna [0] cero
+                obj.IdMunicipio = reader.GetInt16(0); // Columna [0] cero
                 obj.Nombre = reader.GetString(1);  // Columna [1] uno
             }
             return obj;
@@ -42,8 +42,7 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdMunicipio, Nombre
-                                    FROM Municipio ";
+                string consulta = @"SELECT TOP 100 IdMunicipio, Nombre FROM Municipio ";
 
                 // Validar filtros
                 if (pMunicipio.Nombre != null && pMunicipio.Nombre.Trim() != string.Empty)
@@ -51,8 +50,7 @@ namespace SistemaBliss.DAL
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    // @ValorNA = Valor Nombre/Apellido
-                    whereSQL += " (Nombre LIKE @ValorNA ";
+                    whereSQL += " (Nombre LIKE @ValorNA) ";
                     comando.Parameters.AddWithValue("@ValorNA", "%" + pMunicipio.Nombre + "%");
                 }
                 // Agregar filtros
@@ -66,9 +64,11 @@ namespace SistemaBliss.DAL
                 while (reader.Read())
                 {
                     Municipio obj = new Municipio();
-                   
-                    obj.IdMunicipio = reader.GetInt16(0); 
-                    obj.Nombre = reader.GetString(1);
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdMunicipio = reader.GetInt16(0);
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+
                     lista.Add(obj);
                 }
                 comando.Connection.Dispose();

@@ -56,7 +56,7 @@ namespace SistemaBliss.DAL
 
         #endregion
         #region Metodos de Busqueda
-        public static Usuario ObtenerPorId(short pIdUsuario)
+        public static Usuario ObtenerPorId(int pIdUsuario)
         {
             Usuario obj = new Usuario();
 
@@ -69,10 +69,10 @@ namespace SistemaBliss.DAL
             while (reader.Read())
             {
                 // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdUsuario = reader.GetInt16(0); // Columna [0] cero
+                obj.IdUsuario = reader.GetInt32(0);
                 obj.IdRol = reader.GetByte(1); // Columna [0] cero
                 obj.IdDepartamento = reader.GetByte(2);  // Columna [1] uno
-                obj.IdMunicipio = reader.GetByte(3); // Columna [2] dos
+                                                         // obj.IdMunicipio = reader.GetInt32(3); // Columna [2] dos
                 obj.IdEstado = reader.GetByte(4); // Columna [4] cuatro
                 obj.Nombre = reader.GetString(5); // Columna [4] cuatro
                 obj.Apellido = reader.GetString(6); // Columna [4] cuatro
@@ -94,7 +94,7 @@ namespace SistemaBliss.DAL
                 byte contador = 0;
                 string whereSQL = " ";
                 string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdMunicipio, IdEstado, Nombre, Apellido, Telefono, Contrasena, Dui, Direccion
-	                                FROM Usuario ";
+                            FROM Usuario ";
 
                 // Validar filtros
                 if (pUsuario.Telefono != null && pUsuario.Telefono.Trim() != string.Empty)
@@ -110,7 +110,6 @@ namespace SistemaBliss.DAL
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    // @ValorNA = Valor Nombre/Apellido
                     whereSQL += " (Nombre LIKE @ValorNA OR Apellido LIKE @ValorNA) ";
                     comando.Parameters.AddWithValue("@ValorNA", "%" + pUsuario.Nombre + "%");
                 }
@@ -133,18 +132,21 @@ namespace SistemaBliss.DAL
                 while (reader.Read())
                 {
                     Usuario obj = new Usuario();
-                    
-                    obj.IdUsuario = reader.GetInt16(0); 
+
+                    obj.IdUsuario = reader.GetInt32(0);
                     obj.IdRol = reader.GetByte(1);
-                    obj.IdDepartamento = reader.GetByte(2);  
-                    obj.IdMunicipio = reader.GetByte(3); 
-                    obj.IdEstado = reader.GetByte(4); 
-                    obj.Nombre = reader.GetString(5); 
+                    obj.IdDepartamento = reader.GetByte(2);
+                    // obj.IdMunicipio = reader.GetByte(3);
+                    obj.IdEstado = reader.GetByte(4);
+                    obj.Nombre = reader.GetString(5);
                     obj.Apellido = reader.GetString(6);
-                    obj.Telefono = reader.GetString(7); 
-                    obj.Contrasena = reader.GetString(8); 
-                    obj.Dui = reader.GetString(9); 
-                    obj.Direccion = reader.GetString(10); 
+                    obj.Telefono = reader.GetString(7);
+                    obj.Contrasena = reader.GetString(8);
+                    obj.Dui = reader.GetString(9);
+                    obj.Direccion = reader.GetString(10);
+
+                    // Agregar el objeto Usuario a la lista
+                    lista.Add(obj);
                 }
                 comando.Connection.Dispose();
             }
@@ -152,6 +154,7 @@ namespace SistemaBliss.DAL
 
             return lista;
         }
+
         #endregion
     }
 }

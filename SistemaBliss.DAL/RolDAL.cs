@@ -43,8 +43,7 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdRol, Nombre
-                                    FROM Rol ";
+                string consulta = @"SELECT TOP 100 IdRol, Nombre FROM Rol ";
 
                 // Validar filtros
                 if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)
@@ -52,8 +51,7 @@ namespace SistemaBliss.DAL
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    // @ValorNA = Valor Nombre/Apellido
-                    whereSQL += " (Nombre LIKE @ValorNA ";
+                    whereSQL += " (Nombre LIKE @ValorNA) ";
                     comando.Parameters.AddWithValue("@ValorNA", "%" + pRol.Nombre + "%");
                 }
                 // Agregar filtros
@@ -68,8 +66,10 @@ namespace SistemaBliss.DAL
                 {
                     Rol obj = new Rol();
 
-                    obj.IdRol = reader.GetInt16(0);
-                    obj.Nombre = reader.GetString(1);
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdRol = reader.IsDBNull(0) ? 0 : Convert.ToInt32(reader.GetValue(0));
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+
                     lista.Add(obj);
                 }
                 comando.Connection.Dispose();
@@ -78,6 +78,7 @@ namespace SistemaBliss.DAL
 
             return lista;
         }
+
 
 
     }

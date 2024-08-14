@@ -46,24 +46,43 @@ namespace SistemaBliss.DAL
             return ComunDB.EjecutarComando(comando);
         }
 
-        public static HorariosEmpresa ObtenerHorariosEmpresa()
+        public static List<HorariosEmpresa> Buscar(HorariosEmpresa pHorariosEmpresa)
         {
-            HorariosEmpresa obj = new HorariosEmpresa();
+            List<HorariosEmpresa> lista = new List<HorariosEmpresa>();
 
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_ObtenerHorariosEmpresa";
-
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                obj.IdHorariosEmpresa = reader.GetByte(0); 
-                obj.IdEmpresa = reader.GetByte(1); 
-                obj.Dias = reader.GetString(1);  
-                obj.HoraEntrada = reader.GetTimeSpan(1);
-                obj.HoraSalida = reader.GetTimeSpan(1);  
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT * FROM HorariosEmpresa ";
+
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    HorariosEmpresa obj = new HorariosEmpresa();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdHorariosEmpresa = reader.GetByte(0);
+                    obj.IdEmpresa = reader.GetByte(1);
+                    obj.Dias = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+                    obj.HoraEntrada = reader.GetTimeSpan(3);
+                    obj.HoraEntrada = reader.GetTimeSpan(4);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
             }
-            return obj;
+            #endregion
+
+            return lista;
         }
     }
 }

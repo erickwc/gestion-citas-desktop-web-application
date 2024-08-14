@@ -33,20 +33,60 @@ namespace SistemaBliss.DAL
 
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_ObtenerEmpresaPorId";        
+            comando.CommandText = "SP_ObtenerEmpresaPorId";
 
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
             {
-                obj.IdEmpresa = reader.GetByte(0); 
-                obj.Nombre = reader.GetString(1); 
-                obj.Telefono = reader.GetString(2); 
-                obj.Direccion = reader.GetString(3); 
-                obj.CorreoElectronico = reader.GetString(4);  
+                obj.IdEmpresa = reader.GetByte(0);
+                obj.Nombre = reader.GetString(1);
+                obj.Telefono = reader.GetString(2);
+                obj.Direccion = reader.GetString(3);
+                obj.CorreoElectronico = reader.GetString(4);
             }
             return obj;
         }
         #endregion
+
+
+        public static List<Empresa> Buscar(Empresa pEmpresa)
+        {
+            List<Empresa> lista = new List<Empresa>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT * FROM Empresa ";
+
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Empresa obj = new Empresa();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdEmpresa = reader.GetByte(0);
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+                    obj.Direccion = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
+                    obj.Telefono = reader.IsDBNull(3) ? string.Empty : reader.GetString(3);
+                    obj.CorreoElectronico = reader.IsDBNull(4) ? string.Empty : reader.GetString(4);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
 
         #endregion
     }

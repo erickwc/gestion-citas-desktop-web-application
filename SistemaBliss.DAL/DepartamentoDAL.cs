@@ -42,8 +42,7 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdDepartamento, Nombre
-                                    FROM Departamento ";
+                string consulta = @"SELECT TOP 100 IdDepartamento, Nombre FROM Departamento ";
 
                 // Validar filtros
                 if (pDepartamento.Nombre != null && pDepartamento.Nombre.Trim() != string.Empty)
@@ -51,8 +50,7 @@ namespace SistemaBliss.DAL
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    // @ValorNA = Valor Nombre/Apellido
-                    whereSQL += " (Nombre LIKE @ValorNA ";
+                    whereSQL += " (Nombre LIKE @ValorNA) ";
                     comando.Parameters.AddWithValue("@ValorNA", "%" + pDepartamento.Nombre + "%");
                 }
                 // Agregar filtros
@@ -66,9 +64,11 @@ namespace SistemaBliss.DAL
                 while (reader.Read())
                 {
                     Departamento obj = new Departamento();
-                  
-                    obj.IdDepartamento = reader.GetInt16(0);
-                    obj.Nombre = reader.GetString(1); 
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdDepartamento = reader.GetByte(0);
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+
                     lista.Add(obj);
                 }
                 comando.Connection.Dispose();

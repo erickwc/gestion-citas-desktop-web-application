@@ -19,7 +19,7 @@ namespace SistemaBliss.DAL
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "SP_ObtenerEstadoPorId";
-            comando.Parameters.AddWithValue("@Nombre", pIdEstado);
+            comando.Parameters.AddWithValue("@IdEstado", pIdEstado);
 
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
@@ -31,7 +31,7 @@ namespace SistemaBliss.DAL
             return obj;
         }
 
-        public static List<Estado> Buscar(Estado pEstado)
+        public static List<Estado> Buscar(Estado pRol)
         {
             List<Estado> lista = new List<Estado>();
 
@@ -40,18 +40,16 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdRol, Nombre
-                                    FROM Rol ";
+                string consulta = @"SELECT TOP 100 IdEstado, Nombre FROM Estado ";
 
                 // Validar filtros
-                if (pEstado.Nombre != null && pEstado.Nombre.Trim() != string.Empty)
+                if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)
                 {
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    // @ValorNA = Valor Nombre/Apellido
-                    whereSQL += " (Nombre LIKE @ValorNA ";
-                    comando.Parameters.AddWithValue("@ValorNA", "%" + pEstado.Nombre + "%");
+                    whereSQL += " (Nombre LIKE @ValorNA) ";
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pRol.Nombre + "%");
                 }
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)
@@ -65,8 +63,10 @@ namespace SistemaBliss.DAL
                 {
                     Estado obj = new Estado();
 
-                    obj.IdEstado = reader.GetInt16(0);
-                    obj.Nombre = reader.GetString(1);
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdEstado = reader.IsDBNull(0) ? 0 : Convert.ToInt32(reader.GetValue(0));
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+
                     lista.Add(obj);
                 }
                 comando.Connection.Dispose();
