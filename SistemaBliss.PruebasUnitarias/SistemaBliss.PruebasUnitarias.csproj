@@ -50,6 +50,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CategoriaProductoUnitTest.cs" />
+    <Compile Include="CategoriaServicioUnitTest.cs" />
+    <Compile Include="CitaUnitTest.cs" />
+    <Compile Include="ClienteUnitTest.cs" />
+    <Compile Include="DepartamentoUnitTest.cs" />
+    <Compile Include="DetalleCitaUnitTest.cs" />
+    <Compile Include="DetalleProfesionUnitTest.cs" />
+    <Compile Include="DetalleVenta.cs" />
+    <Compile Include="EmpresaUnitTest.cs" />
+    <Compile Include="HorariosEmpresaUnitTest.cs" />
+    <Compile Include="MunicipioUnitTest.cs" />
+    <Compile Include="ProductoUnitTest.cs" />
+    <Compile Include="ProfesionUnitTest.cs" />
+    <Compile Include="RolUnitTest.cs" />
+    <Compile Include="ServicioUnitTest.cs" />
+    <Compile Include="VentaUnitTest.cs" />
     <Compile Include="UsuarioUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>

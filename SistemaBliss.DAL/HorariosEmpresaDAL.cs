@@ -57,12 +57,11 @@ namespace SistemaBliss.DAL
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
             {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdHorariosEmpresa = reader.GetByte(0); // Columna [0] cero
-                obj.IdEmpresa = reader.GetByte(1);  // Columna [1] uno
-                obj.Dias = reader.GetString(1);  // Columna [1] uno
-                obj.HoraEntrada = reader.GetTimeSpan(1);  // Columna [1] uno
-                obj.HoraSalida = reader.GetTimeSpan(1);  // Columna [1] uno
+                obj.IdHorariosEmpresa = reader.GetByte(0); 
+                obj.IdEmpresa = reader.GetByte(1); 
+                obj.Dias = reader.GetString(1);  
+                obj.HoraEntrada = reader.GetTimeSpan(1);
+                obj.HoraSalida = reader.GetTimeSpan(1);  
             }
             return obj;
         }
