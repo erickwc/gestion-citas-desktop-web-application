@@ -1,6 +1,6 @@
-﻿namespace SistemaBliss.UI.WinForms.Clientes.Registro
+﻿namespace SistemaBliss.UI.WinForms
 {
-    partial class RegistroClienteForm
+    partial class RegistroEmpleadoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "RegistroClienteForm";
+            this.Text = "RegistroEmpleadoForm";
         }
 
         #endregion

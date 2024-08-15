@@ -46,36 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes\Administracion\AdminClienteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Clientes\Administracion\AdminClienteForm.Designer.cs">
-      <DependentUpon>AdminClienteForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\Registro\RegistroClienteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Clientes\Registro\RegistroClienteForm.Designer.cs">
-      <DependentUpon>RegistroClienteForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Empleados\Administracion\AdminEmpleadoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empleados\Administracion\AdminEmpleadoForm.Designer.cs">
-      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Empleados\Registro\RegistroEmpleadoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empleados\Registro\RegistroEmpleadoForm.Designer.cs">
-      <DependentUpon>RegistroEmpleadoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Empresa\Administracion\AdminEmpresaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empresa\Administracion\AdminEmpresaForm.Designer.cs">
-      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\Administracion\AdminLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,9 +58,54 @@
     <Compile Include="Profesion\Administracion\AdminProfesionForm.Designer.cs">
       <DependentUpon>AdminProfesionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Empresa\Administracion\AdminEmpresaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresa\Administracion\AdminEmpresaForm.Designer.cs">
+      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Administracion\AdminEmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado\Administracion\AdminEmpleadoForm.Designer.cs">
+      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Administracion\AdminClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\Administracion\AdminClienteForm.Designer.cs">
+      <DependentUpon>AdminClienteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Cliente\Registro\RegistroClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\Registro\RegistroClienteForm.Designer.cs">
+      <DependentUpon>RegistroClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Registro\RegistroEmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado\Registro\RegistroEmpleadoForm.Designer.cs">
+      <DependentUpon>RegistroEmpleadoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToolsForms.cs" />
+    <EmbeddedResource Include="Cliente\Administracion\AdminClienteForm.resx">
+      <DependentUpon>AdminClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleado\Administracion\AdminEmpleadoForm.resx">
+      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresa\Administracion\AdminEmpresaForm.resx">
+      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\Administracion\AdminLoginForm.resx">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesion\Administracion\AdminProfesionForm.resx">
+      <DependentUpon>AdminProfesionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Cliente\Registro\RegistroClienteForm.resx">
+      <DependentUpon>RegistroClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

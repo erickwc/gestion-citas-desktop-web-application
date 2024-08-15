@@ -1,4 +1,4 @@
-﻿namespace SistemaBliss.UI.WinForms.Login.Administracion
+﻿namespace SistemaBliss.UI.WinForms
 {
     partial class AdminLoginForm
     {
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AdminLoginForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(805, 451);
+            this.Name = "AdminLoginForm";
             this.Text = "AdminLoginForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

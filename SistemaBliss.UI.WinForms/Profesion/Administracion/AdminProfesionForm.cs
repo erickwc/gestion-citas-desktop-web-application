@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaBliss.UI.WinForms.Profesion.Administracion
+namespace SistemaBliss.UI.WinForms
 {
     public partial class AdminProfesionForm : Form
     {

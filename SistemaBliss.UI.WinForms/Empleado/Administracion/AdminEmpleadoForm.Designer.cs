@@ -1,4 +1,4 @@
-﻿namespace SistemaBliss.UI.WinForms.Empleados.Administracion
+﻿namespace SistemaBliss.UI.WinForms
 {
     partial class AdminEmpleadoForm
     {
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // AdminEmpleadoForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(794, 449);
+            this.Name = "AdminEmpleadoForm";
             this.Text = "AdminEmpleadoForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
