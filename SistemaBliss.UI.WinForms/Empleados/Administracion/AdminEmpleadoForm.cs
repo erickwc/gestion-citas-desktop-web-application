@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SistemaBliss.UI.WinForms
+namespace SistemaBliss.UI.WinForms.Empleados.Administracion
 {
-    public partial class Form1 : Form
+    public partial class AdminEmpleadoForm : Form
     {
-        public Form1()
+        public AdminEmpleadoForm()
         {
             InitializeComponent();
         }
