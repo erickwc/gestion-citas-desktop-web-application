@@ -38,27 +38,27 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.TelefonoAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.telefonoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.TelefonoAggClienteLabel = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.MunicipioAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.municipioTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.MunicipioAggClienteLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.NombresAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.nombresTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.NombresAggClienteLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.DUIAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.duiTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.DUIAggClienteLabel = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.ApellidoAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.apellidoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.ApellidosAggClienteLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.DepartamentoAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.departamentoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.DepartamenteoAggClienteLabel = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -67,11 +67,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.CitasAcumuladasAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.citasAcumuladasTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.CitasAcumuladasAggClienteLabel = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.DireccionAggClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.direccionTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.DireccionAggClienteLabel = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -289,7 +289,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.TelefonoAggClienteTextBox);
+            this.panel7.Controls.Add(this.telefonoTextBox);
             this.panel7.Controls.Add(this.label15);
             this.panel7.Controls.Add(this.TelefonoAggClienteLabel);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -299,28 +299,28 @@
             this.panel7.Size = new System.Drawing.Size(239, 89);
             this.panel7.TabIndex = 19;
             // 
-            // TelefonoAggClienteTextBox
+            // telefonoTextBox
             // 
-            this.TelefonoAggClienteTextBox.Animated = true;
-            this.TelefonoAggClienteTextBox.BorderRadius = 10;
-            this.TelefonoAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TelefonoAggClienteTextBox.DefaultText = "";
-            this.TelefonoAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TelefonoAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TelefonoAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TelefonoAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TelefonoAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TelefonoAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.TelefonoAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TelefonoAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.TelefonoAggClienteTextBox.Location = new System.Drawing.Point(0, 46);
-            this.TelefonoAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.TelefonoAggClienteTextBox.Name = "TelefonoAggClienteTextBox";
-            this.TelefonoAggClienteTextBox.PasswordChar = '\0';
-            this.TelefonoAggClienteTextBox.PlaceholderText = "";
-            this.TelefonoAggClienteTextBox.SelectedText = "";
-            this.TelefonoAggClienteTextBox.Size = new System.Drawing.Size(239, 43);
-            this.TelefonoAggClienteTextBox.TabIndex = 17;
+            this.telefonoTextBox.Animated = true;
+            this.telefonoTextBox.BorderRadius = 10;
+            this.telefonoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.telefonoTextBox.DefaultText = "";
+            this.telefonoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.telefonoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.telefonoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.telefonoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.telefonoTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.telefonoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.telefonoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.telefonoTextBox.Location = new System.Drawing.Point(0, 46);
+            this.telefonoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.telefonoTextBox.Name = "telefonoTextBox";
+            this.telefonoTextBox.PasswordChar = '\0';
+            this.telefonoTextBox.PlaceholderText = "";
+            this.telefonoTextBox.SelectedText = "";
+            this.telefonoTextBox.Size = new System.Drawing.Size(239, 43);
+            this.telefonoTextBox.TabIndex = 17;
             // 
             // label15
             // 
@@ -348,7 +348,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.MunicipioAggClienteTextBox);
+            this.panel6.Controls.Add(this.municipioTextBox);
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.MunicipioAggClienteLabel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -358,28 +358,28 @@
             this.panel6.Size = new System.Drawing.Size(241, 89);
             this.panel6.TabIndex = 18;
             // 
-            // MunicipioAggClienteTextBox
+            // municipioTextBox
             // 
-            this.MunicipioAggClienteTextBox.Animated = true;
-            this.MunicipioAggClienteTextBox.BorderRadius = 10;
-            this.MunicipioAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.MunicipioAggClienteTextBox.DefaultText = "";
-            this.MunicipioAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.MunicipioAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.MunicipioAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.MunicipioAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.MunicipioAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MunicipioAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.MunicipioAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MunicipioAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.MunicipioAggClienteTextBox.Location = new System.Drawing.Point(0, 46);
-            this.MunicipioAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.MunicipioAggClienteTextBox.Name = "MunicipioAggClienteTextBox";
-            this.MunicipioAggClienteTextBox.PasswordChar = '\0';
-            this.MunicipioAggClienteTextBox.PlaceholderText = "";
-            this.MunicipioAggClienteTextBox.SelectedText = "";
-            this.MunicipioAggClienteTextBox.Size = new System.Drawing.Size(241, 43);
-            this.MunicipioAggClienteTextBox.TabIndex = 18;
+            this.municipioTextBox.Animated = true;
+            this.municipioTextBox.BorderRadius = 10;
+            this.municipioTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.municipioTextBox.DefaultText = "";
+            this.municipioTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.municipioTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.municipioTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.municipioTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.municipioTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.municipioTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.municipioTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.municipioTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.municipioTextBox.Location = new System.Drawing.Point(0, 46);
+            this.municipioTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.municipioTextBox.Name = "municipioTextBox";
+            this.municipioTextBox.PasswordChar = '\0';
+            this.municipioTextBox.PlaceholderText = "";
+            this.municipioTextBox.SelectedText = "";
+            this.municipioTextBox.Size = new System.Drawing.Size(241, 43);
+            this.municipioTextBox.TabIndex = 18;
             // 
             // label17
             // 
@@ -407,7 +407,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.NombresAggClienteTextBox);
+            this.panel4.Controls.Add(this.nombresTextBox);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.NombresAggClienteLabel);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -417,28 +417,29 @@
             this.panel4.Size = new System.Drawing.Size(239, 89);
             this.panel4.TabIndex = 15;
             // 
-            // NombresAggClienteTextBox
+            // nombresTextBox
             // 
-            this.NombresAggClienteTextBox.Animated = true;
-            this.NombresAggClienteTextBox.BorderRadius = 10;
-            this.NombresAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.NombresAggClienteTextBox.DefaultText = "";
-            this.NombresAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.NombresAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.NombresAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.NombresAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.NombresAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.NombresAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.NombresAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NombresAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.NombresAggClienteTextBox.Location = new System.Drawing.Point(0, 46);
-            this.NombresAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.NombresAggClienteTextBox.Name = "NombresAggClienteTextBox";
-            this.NombresAggClienteTextBox.PasswordChar = '\0';
-            this.NombresAggClienteTextBox.PlaceholderText = "";
-            this.NombresAggClienteTextBox.SelectedText = "";
-            this.NombresAggClienteTextBox.Size = new System.Drawing.Size(239, 43);
-            this.NombresAggClienteTextBox.TabIndex = 16;
+            this.nombresTextBox.Animated = true;
+            this.nombresTextBox.BorderRadius = 10;
+            this.nombresTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nombresTextBox.DefaultText = "";
+            this.nombresTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.nombresTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nombresTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.nombresTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.nombresTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.nombresTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.nombresTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombresTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.nombresTextBox.Location = new System.Drawing.Point(0, 46);
+            this.nombresTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.nombresTextBox.Name = "nombresTextBox";
+            this.nombresTextBox.PasswordChar = '\0';
+            this.nombresTextBox.PlaceholderText = "";
+            this.nombresTextBox.SelectedText = "";
+            this.nombresTextBox.Size = new System.Drawing.Size(239, 43);
+            this.nombresTextBox.TabIndex = 16;
+            this.nombresTextBox.TextChanged += new System.EventHandler(this.NombresAggClienteTextBox_TextChanged);
             // 
             // label11
             // 
@@ -466,7 +467,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.DUIAggClienteTextBox);
+            this.panel2.Controls.Add(this.duiTextBox);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.DUIAggClienteLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -476,28 +477,28 @@
             this.panel2.Size = new System.Drawing.Size(241, 89);
             this.panel2.TabIndex = 1;
             // 
-            // DUIAggClienteTextBox
+            // duiTextBox
             // 
-            this.DUIAggClienteTextBox.Animated = true;
-            this.DUIAggClienteTextBox.BorderRadius = 10;
-            this.DUIAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.DUIAggClienteTextBox.DefaultText = "";
-            this.DUIAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.DUIAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.DUIAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.DUIAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.DUIAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DUIAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.DUIAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DUIAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.DUIAggClienteTextBox.Location = new System.Drawing.Point(0, 46);
-            this.DUIAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.DUIAggClienteTextBox.Name = "DUIAggClienteTextBox";
-            this.DUIAggClienteTextBox.PasswordChar = '\0';
-            this.DUIAggClienteTextBox.PlaceholderText = "";
-            this.DUIAggClienteTextBox.SelectedText = "";
-            this.DUIAggClienteTextBox.Size = new System.Drawing.Size(241, 43);
-            this.DUIAggClienteTextBox.TabIndex = 17;
+            this.duiTextBox.Animated = true;
+            this.duiTextBox.BorderRadius = 10;
+            this.duiTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.duiTextBox.DefaultText = "";
+            this.duiTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.duiTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.duiTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.duiTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.duiTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.duiTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.duiTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.duiTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.duiTextBox.Location = new System.Drawing.Point(0, 46);
+            this.duiTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.duiTextBox.Name = "duiTextBox";
+            this.duiTextBox.PasswordChar = '\0';
+            this.duiTextBox.PlaceholderText = "";
+            this.duiTextBox.SelectedText = "";
+            this.duiTextBox.Size = new System.Drawing.Size(241, 43);
+            this.duiTextBox.TabIndex = 17;
             // 
             // label14
             // 
@@ -525,7 +526,7 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.ApellidoAggClienteTextBox);
+            this.panel13.Controls.Add(this.apellidoTextBox);
             this.panel13.Controls.Add(this.label13);
             this.panel13.Controls.Add(this.ApellidosAggClienteLabel);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -535,28 +536,28 @@
             this.panel13.Size = new System.Drawing.Size(239, 89);
             this.panel13.TabIndex = 0;
             // 
-            // ApellidoAggClienteTextBox
+            // apellidoTextBox
             // 
-            this.ApellidoAggClienteTextBox.Animated = true;
-            this.ApellidoAggClienteTextBox.BorderRadius = 10;
-            this.ApellidoAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ApellidoAggClienteTextBox.DefaultText = "";
-            this.ApellidoAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ApellidoAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ApellidoAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ApellidoAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ApellidoAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ApellidoAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.ApellidoAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApellidoAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.ApellidoAggClienteTextBox.Location = new System.Drawing.Point(0, 46);
-            this.ApellidoAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.ApellidoAggClienteTextBox.Name = "ApellidoAggClienteTextBox";
-            this.ApellidoAggClienteTextBox.PasswordChar = '\0';
-            this.ApellidoAggClienteTextBox.PlaceholderText = "";
-            this.ApellidoAggClienteTextBox.SelectedText = "";
-            this.ApellidoAggClienteTextBox.Size = new System.Drawing.Size(239, 43);
-            this.ApellidoAggClienteTextBox.TabIndex = 17;
+            this.apellidoTextBox.Animated = true;
+            this.apellidoTextBox.BorderRadius = 10;
+            this.apellidoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.apellidoTextBox.DefaultText = "";
+            this.apellidoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.apellidoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.apellidoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.apellidoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.apellidoTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.apellidoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.apellidoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apellidoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.apellidoTextBox.Location = new System.Drawing.Point(0, 46);
+            this.apellidoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.apellidoTextBox.Name = "apellidoTextBox";
+            this.apellidoTextBox.PasswordChar = '\0';
+            this.apellidoTextBox.PlaceholderText = "";
+            this.apellidoTextBox.SelectedText = "";
+            this.apellidoTextBox.Size = new System.Drawing.Size(239, 43);
+            this.apellidoTextBox.TabIndex = 17;
             // 
             // label13
             // 
@@ -584,7 +585,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.DepartamentoAggClienteTextBox);
+            this.panel3.Controls.Add(this.departamentoTextBox);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.DepartamenteoAggClienteLabel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -594,29 +595,29 @@
             this.panel3.Size = new System.Drawing.Size(239, 89);
             this.panel3.TabIndex = 16;
             // 
-            // DepartamentoAggClienteTextBox
+            // departamentoTextBox
             // 
-            this.DepartamentoAggClienteTextBox.Animated = true;
-            this.DepartamentoAggClienteTextBox.BorderRadius = 10;
-            this.DepartamentoAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.DepartamentoAggClienteTextBox.DefaultText = "";
-            this.DepartamentoAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.DepartamentoAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.DepartamentoAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.DepartamentoAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.DepartamentoAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DepartamentoAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.DepartamentoAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DepartamentoAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.DepartamentoAggClienteTextBox.Location = new System.Drawing.Point(0, 46);
-            this.DepartamentoAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.DepartamentoAggClienteTextBox.Name = "DepartamentoAggClienteTextBox";
-            this.DepartamentoAggClienteTextBox.PasswordChar = '\0';
-            this.DepartamentoAggClienteTextBox.PlaceholderText = "";
-            this.DepartamentoAggClienteTextBox.SelectedText = "";
-            this.DepartamentoAggClienteTextBox.Size = new System.Drawing.Size(239, 43);
-            this.DepartamentoAggClienteTextBox.TabIndex = 17;
-            this.DepartamentoAggClienteTextBox.TextChanged += new System.EventHandler(this.DepartamentoAggClienteTextBox_TextChanged);
+            this.departamentoTextBox.Animated = true;
+            this.departamentoTextBox.BorderRadius = 10;
+            this.departamentoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.departamentoTextBox.DefaultText = "";
+            this.departamentoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.departamentoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.departamentoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.departamentoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.departamentoTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.departamentoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.departamentoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departamentoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.departamentoTextBox.Location = new System.Drawing.Point(0, 46);
+            this.departamentoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.departamentoTextBox.Name = "departamentoTextBox";
+            this.departamentoTextBox.PasswordChar = '\0';
+            this.departamentoTextBox.PlaceholderText = "";
+            this.departamentoTextBox.SelectedText = "";
+            this.departamentoTextBox.Size = new System.Drawing.Size(239, 43);
+            this.departamentoTextBox.TabIndex = 17;
+            this.departamentoTextBox.TextChanged += new System.EventHandler(this.DepartamentoAggClienteTextBox_TextChanged);
             // 
             // label16
             // 
@@ -705,7 +706,7 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.CitasAcumuladasAggClienteTextBox);
+            this.panel11.Controls.Add(this.citasAcumuladasTextBox);
             this.panel11.Controls.Add(this.label19);
             this.panel11.Controls.Add(this.CitasAcumuladasAggClienteLabel);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -715,28 +716,28 @@
             this.panel11.Size = new System.Drawing.Size(245, 99);
             this.panel11.TabIndex = 21;
             // 
-            // CitasAcumuladasAggClienteTextBox
+            // citasAcumuladasTextBox
             // 
-            this.CitasAcumuladasAggClienteTextBox.Animated = true;
-            this.CitasAcumuladasAggClienteTextBox.BorderRadius = 10;
-            this.CitasAcumuladasAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.CitasAcumuladasAggClienteTextBox.DefaultText = "";
-            this.CitasAcumuladasAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.CitasAcumuladasAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.CitasAcumuladasAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CitasAcumuladasAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.CitasAcumuladasAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CitasAcumuladasAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.CitasAcumuladasAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CitasAcumuladasAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.CitasAcumuladasAggClienteTextBox.Location = new System.Drawing.Point(0, 56);
-            this.CitasAcumuladasAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.CitasAcumuladasAggClienteTextBox.Name = "CitasAcumuladasAggClienteTextBox";
-            this.CitasAcumuladasAggClienteTextBox.PasswordChar = '\0';
-            this.CitasAcumuladasAggClienteTextBox.PlaceholderText = "";
-            this.CitasAcumuladasAggClienteTextBox.SelectedText = "";
-            this.CitasAcumuladasAggClienteTextBox.Size = new System.Drawing.Size(245, 43);
-            this.CitasAcumuladasAggClienteTextBox.TabIndex = 17;
+            this.citasAcumuladasTextBox.Animated = true;
+            this.citasAcumuladasTextBox.BorderRadius = 10;
+            this.citasAcumuladasTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.citasAcumuladasTextBox.DefaultText = "";
+            this.citasAcumuladasTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.citasAcumuladasTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.citasAcumuladasTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.citasAcumuladasTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.citasAcumuladasTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.citasAcumuladasTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.citasAcumuladasTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.citasAcumuladasTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.citasAcumuladasTextBox.Location = new System.Drawing.Point(0, 56);
+            this.citasAcumuladasTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.citasAcumuladasTextBox.Name = "citasAcumuladasTextBox";
+            this.citasAcumuladasTextBox.PasswordChar = '\0';
+            this.citasAcumuladasTextBox.PlaceholderText = "";
+            this.citasAcumuladasTextBox.SelectedText = "";
+            this.citasAcumuladasTextBox.Size = new System.Drawing.Size(245, 43);
+            this.citasAcumuladasTextBox.TabIndex = 17;
             // 
             // label19
             // 
@@ -764,7 +765,7 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.DireccionAggClienteTextBox);
+            this.panel9.Controls.Add(this.direccionTextBox);
             this.panel9.Controls.Add(this.label9);
             this.panel9.Controls.Add(this.DireccionAggClienteLabel);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -774,28 +775,28 @@
             this.panel9.Size = new System.Drawing.Size(509, 99);
             this.panel9.TabIndex = 20;
             // 
-            // DireccionAggClienteTextBox
+            // direccionTextBox
             // 
-            this.DireccionAggClienteTextBox.Animated = true;
-            this.DireccionAggClienteTextBox.BorderRadius = 10;
-            this.DireccionAggClienteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.DireccionAggClienteTextBox.DefaultText = "";
-            this.DireccionAggClienteTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.DireccionAggClienteTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.DireccionAggClienteTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.DireccionAggClienteTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.DireccionAggClienteTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DireccionAggClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.DireccionAggClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DireccionAggClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.DireccionAggClienteTextBox.Location = new System.Drawing.Point(0, 56);
-            this.DireccionAggClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.DireccionAggClienteTextBox.Name = "DireccionAggClienteTextBox";
-            this.DireccionAggClienteTextBox.PasswordChar = '\0';
-            this.DireccionAggClienteTextBox.PlaceholderText = "";
-            this.DireccionAggClienteTextBox.SelectedText = "";
-            this.DireccionAggClienteTextBox.Size = new System.Drawing.Size(509, 43);
-            this.DireccionAggClienteTextBox.TabIndex = 17;
+            this.direccionTextBox.Animated = true;
+            this.direccionTextBox.BorderRadius = 10;
+            this.direccionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.direccionTextBox.DefaultText = "";
+            this.direccionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.direccionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.direccionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.direccionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.direccionTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.direccionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.direccionTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.direccionTextBox.Location = new System.Drawing.Point(0, 56);
+            this.direccionTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.direccionTextBox.Name = "direccionTextBox";
+            this.direccionTextBox.PasswordChar = '\0';
+            this.direccionTextBox.PlaceholderText = "";
+            this.direccionTextBox.SelectedText = "";
+            this.direccionTextBox.Size = new System.Drawing.Size(509, 43);
+            this.direccionTextBox.TabIndex = 17;
             // 
             // label9
             // 
@@ -1259,6 +1260,7 @@
             this.RegistrarClienteButton.Size = new System.Drawing.Size(124, 46);
             this.RegistrarClienteButton.TabIndex = 2;
             this.RegistrarClienteButton.Text = "Registrar";
+            this.RegistrarClienteButton.Click += new System.EventHandler(this.RegistrarClienteButton_Click);
             // 
             // IndicacionAgregarCliente
             // 
@@ -1292,6 +1294,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarClienteForm";
             this.Text = "AgregarClienteForm";
+            this.Load += new System.EventHandler(this.AgregarClienteForm_Load);
             this.mainPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
@@ -1343,27 +1346,27 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel7;
-        private Guna.UI2.WinForms.Guna2TextBox TelefonoAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox telefonoTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label TelefonoAggClienteLabel;
         private System.Windows.Forms.Panel panel6;
-        private Guna.UI2.WinForms.Guna2TextBox MunicipioAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox municipioTextBox;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label MunicipioAggClienteLabel;
         private System.Windows.Forms.Panel panel4;
-        private Guna.UI2.WinForms.Guna2TextBox NombresAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox nombresTextBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label NombresAggClienteLabel;
         private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2TextBox DUIAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox duiTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label DUIAggClienteLabel;
         private System.Windows.Forms.Panel panel13;
-        private Guna.UI2.WinForms.Guna2TextBox ApellidoAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox apellidoTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label ApellidosAggClienteLabel;
         private System.Windows.Forms.Panel panel3;
-        private Guna.UI2.WinForms.Guna2TextBox DepartamentoAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox departamentoTextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label DepartamenteoAggClienteLabel;
         private System.Windows.Forms.Panel panel14;
@@ -1403,11 +1406,11 @@
         private System.Windows.Forms.Label IndicacionResgistroCliente;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel11;
-        private Guna.UI2.WinForms.Guna2TextBox CitasAcumuladasAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox citasAcumuladasTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label CitasAcumuladasAggClienteLabel;
         private System.Windows.Forms.Panel panel9;
-        private Guna.UI2.WinForms.Guna2TextBox DireccionAggClienteTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox direccionTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label DireccionAggClienteLabel;
     }

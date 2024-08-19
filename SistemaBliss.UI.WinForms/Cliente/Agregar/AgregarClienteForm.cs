@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaBliss.EN;
+using SistemaBliss.BL;
 
 namespace SistemaBliss.UI.WinForms
 {
     public partial class AgregarClienteForm : Form
     {
+        // Conexion a la tabla de Clientes en la DB
+        ClienteBL clienteBL = new ClienteBL();
+        //Variables
+        List<Cliente> Lista = new List<Cliente>();
+
         public AgregarClienteForm()
         {
             InitializeComponent();
@@ -33,6 +40,22 @@ namespace SistemaBliss.UI.WinForms
         }
 
         private void DepartamentoAggClienteTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistrarClienteButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AgregarClienteForm_Load(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void NombresAggClienteTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
