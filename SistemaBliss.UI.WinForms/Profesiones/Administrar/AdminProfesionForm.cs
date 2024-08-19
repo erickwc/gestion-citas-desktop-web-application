@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SistemaBliss.UI.WinForms
 {
-    public partial class RegistroClienteForm : Form
+    public partial class AdminProfesionForm : Form
     {
-        public RegistroClienteForm()
+        public AdminProfesionForm()
         {
             InitializeComponent();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

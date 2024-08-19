@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace SistemaBliss.UI.WinForms
 {
-    public partial class AdminDashboardForm : Form
+    public partial class AdminClienteForm : Form
     {
-        public AdminDashboardForm()
+        public AdminClienteForm()
         {
             InitializeComponent();
+        }
+
+        NavegacionUI navegacionUI = new NavegacionUI();
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            navegacionUI.AbrirFormEnPanel(typeof(AgregarClienteForm), "Estadistica Completa");
         }
     }
 }

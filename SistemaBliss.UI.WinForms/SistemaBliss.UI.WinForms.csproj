@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,74 +67,81 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dashboard\AdminDashboardForm.cs">
+    <Compile Include="Login\AdminLoginForm\AdminLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard\AdminDashboardForm.Designer.cs">
-      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Login\Administracion\AdminLoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login\Administracion\AdminLoginForm.Designer.cs">
+    <Compile Include="Login\AdminLoginForm\AdminLoginForm.Designer.cs">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profesion\Administracion\AdminProfesionForm.cs">
+    <Compile Include="Cliente\Administrar\AdminClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profesion\Administracion\AdminProfesionForm.Designer.cs">
-      <DependentUpon>AdminProfesionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Empresa\Administracion\AdminEmpresaForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empresa\Administracion\AdminEmpresaForm.Designer.cs">
-      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado\Administracion\AdminEmpleadoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empleado\Administracion\AdminEmpleadoForm.Designer.cs">
-      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cliente\Administracion\AdminClienteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cliente\Administracion\AdminClienteForm.Designer.cs">
+    <Compile Include="Cliente\Administrar\AdminClienteForm.Designer.cs">
       <DependentUpon>AdminClienteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\Administrar\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\Administrar\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Administrar\AdminEmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado\Administrar\AdminEmpleadoForm.Designer.cs">
+      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa\Administrar\AdminEmpresaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresa\Administrar\AdminEmpresaForm.Designer.cs">
+      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profesiones\Administrar\AdminProfesionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesiones\Administrar\AdminProfesionForm.Designer.cs">
+      <DependentUpon>AdminProfesionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Agregar\AgregarClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cliente\Agregar\AgregarClienteForm.Designer.cs">
+      <DependentUpon>AgregarClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Agregar\AgregarEmpleadoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleado\Agregar\AgregarEmpleadoForm.Designer.cs">
+      <DependentUpon>AgregarEmpleadoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavegacionUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Cliente\Registro\RegistroClienteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cliente\Registro\RegistroClienteForm.Designer.cs">
-      <DependentUpon>RegistroClienteForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado\Registro\RegistroEmpleadoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Empleado\Registro\RegistroEmpleadoForm.Designer.cs">
-      <DependentUpon>RegistroEmpleadoForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ToolsForms.cs" />
-    <EmbeddedResource Include="Cliente\Administracion\AdminClienteForm.resx">
-      <DependentUpon>AdminClienteForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard\AdminDashboardForm.resx">
-      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Empleado\Administracion\AdminEmpleadoForm.resx">
-      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Empresa\Administracion\AdminEmpresaForm.resx">
-      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\Administracion\AdminLoginForm.resx">
+    <EmbeddedResource Include="Login\AdminLoginForm\AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profesion\Administracion\AdminProfesionForm.resx">
+    <EmbeddedResource Include="Cliente\Administrar\AdminClienteForm.resx">
+      <DependentUpon>AdminClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\Administrar\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleado\Administrar\AdminEmpleadoForm.resx">
+      <DependentUpon>AdminEmpleadoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empresa\Administrar\AdminEmpresaForm.resx">
+      <DependentUpon>AdminEmpresaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesiones\Administrar\AdminProfesionForm.resx">
       <DependentUpon>AdminProfesionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\Agregar\AgregarClienteForm.resx">
+      <DependentUpon>AgregarClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleado\Agregar\AgregarEmpleadoForm.resx">
+      <DependentUpon>AgregarEmpleadoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,10 +151,8 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Cliente\Registro\RegistroClienteForm.resx">
-      <DependentUpon>RegistroClienteForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -160,6 +180,42 @@
   <ItemGroup>
     <Folder Include="Reportes\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-contraseña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-telefono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-inactivos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-activos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-totales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-AñadirCliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-flecha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace SistemaBliss.UI.WinForms
 {
-    public partial class AdminProfesionForm : Form
+    public partial class AdminLoginForm : Form
     {
-        public AdminProfesionForm()
+        public AdminLoginForm()
         {
             InitializeComponent();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            AdminDashboardForm adminDashboardForm = new AdminDashboardForm();
+            adminDashboardForm.Show();
+            this.Visible = false;
         }
     }
 }

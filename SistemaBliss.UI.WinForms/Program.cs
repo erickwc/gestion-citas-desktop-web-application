@@ -16,7 +16,7 @@ namespace SistemaBliss.UI.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminClienteForm());
+            Application.Run(new AdminLoginForm());
         }
     }
 }

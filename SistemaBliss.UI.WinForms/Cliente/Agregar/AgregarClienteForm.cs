@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace SistemaBliss.UI.WinForms
 {
-    public partial class RegistroEmpleadoForm : Form
+    public partial class AgregarClienteForm : Form
     {
-        public RegistroEmpleadoForm()
+        public AgregarClienteForm()
         {
             InitializeComponent();
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

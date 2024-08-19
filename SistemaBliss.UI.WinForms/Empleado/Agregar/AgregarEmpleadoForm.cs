@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SistemaBliss.UI.WinForms
 {
-    public partial class AdminClienteForm : Form
+    public partial class AgregarEmpleadoForm : Form
     {
-        public AdminClienteForm()
+        public AgregarEmpleadoForm()
         {
             InitializeComponent();
-        }
-
-        private void AdminClienteForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
