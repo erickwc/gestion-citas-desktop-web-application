@@ -21,9 +21,9 @@ namespace SistemaBliss.BL
             return ServicioDAL.Modificar(pServicio);
         }
 
-        public Servicio ObtenerPorId(short pServicio)
+        public Servicio ObtenerPorId(short pIdServicio)
         {
-            return ServicioDAL.ObtenerPorId(pServicio);
+            return ServicioDAL.ObtenerPorId(pIdServicio);
         }
 
         public List<Servicio> Buscar(Servicio pServicio)

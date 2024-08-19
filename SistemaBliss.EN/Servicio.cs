@@ -15,7 +15,7 @@ namespace SistemaBliss.EN
         public byte IdEstado { get; set; }
         public string Nombre { get; set; }
         public string Descripción { get; set; }
-        public short DiasAnticipacion { get; set; }
+        public byte DiasAnticipacion { get; set; }
         public string Restricciones { get; set; }
         public decimal Precio { get; set; }
         public TimeSpan Duracion { get; set; }

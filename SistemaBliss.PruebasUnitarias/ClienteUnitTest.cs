@@ -17,8 +17,8 @@ namespace SistemaBliss.PruebasUnitarias
         {
             // instancia de Empleado con los datos a guardar
             Cliente cliente = new Cliente();
-            cliente.IdCliente = 11;
-            cliente.IdUsuario = 11;
+            cliente.IdCliente = 9;
+            cliente.IdUsuario = 9;
             cliente.ServiciosAcumulados = 9;
 
             // Ejecutar metodo 

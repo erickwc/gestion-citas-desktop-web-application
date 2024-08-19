@@ -11,7 +11,7 @@ namespace SistemaBliss.EN
         public int IdUsuario { get; set; }
         public byte IdRol { get; set; }
         public byte IdDepartamento { get; set; }
-        public short IdMunicipio { get; set; }
+        public Int16 IdMunicipio { get; set; }
         public byte IdEstado { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

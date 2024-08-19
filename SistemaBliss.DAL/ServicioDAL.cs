@@ -69,7 +69,7 @@ namespace SistemaBliss.DAL
                 obj.IdEstado = reader.GetByte(2); //Colummna [1] uno
                 obj.Nombre = reader.GetString(3);  // Columna [2] uno
                 obj.Descripción = reader.GetString(4); // Columna [3] dos
-                //obj.DiasAnticipacion = reader.GetInt16(5); // Columna [4] cuatro
+                obj.DiasAnticipacion = reader.GetByte(5); // Columna [4] cuatro
                 obj.Restricciones = reader.GetString(6); // Columna [5] cuatro
                 obj.Precio = reader.GetDecimal(7); // Columna [6] cuatro
                 obj.Duracion = reader.GetTimeSpan(8); // Columna [7] cuatro

@@ -72,7 +72,7 @@ namespace SistemaBliss.DAL
                 obj.IdUsuario = reader.GetInt32(0);
                 obj.IdRol = reader.GetByte(1); // Columna [0] cero
                 obj.IdDepartamento = reader.GetByte(2);  // Columna [1] uno
-                                                         // obj.IdMunicipio = reader.GetInt32(3); // Columna [2] dos
+                obj.IdMunicipio = reader.GetInt16(3);
                 obj.IdEstado = reader.GetByte(4); // Columna [4] cuatro
                 obj.Nombre = reader.GetString(5); // Columna [4] cuatro
                 obj.Apellido = reader.GetString(6); // Columna [4] cuatro

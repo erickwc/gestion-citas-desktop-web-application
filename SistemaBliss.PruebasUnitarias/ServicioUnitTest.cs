@@ -74,7 +74,7 @@ namespace SistemaBliss.PruebasUnitarias
         [TestMethod]
         public void T4_Buscar()
         {
-            List<Servicio> lista = servicioBL.Buscar(new Servicio { Nombre = "Corte de bigote" });
+            List<Servicio> lista = servicioBL.Buscar(new Servicio { Nombre = "Corte de Cabello para Hombres" });
 
             // Comprobacion de la prueba
             // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
