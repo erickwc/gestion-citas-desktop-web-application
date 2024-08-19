@@ -26,5 +26,15 @@ namespace SistemaBliss.UI.WinForms
         {
 
         }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DepartamentoAggClienteTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
