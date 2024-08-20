@@ -255,5 +255,10 @@ namespace SistemaBliss.UI.WinForms
             cancelarButton.Visible = false;
             eliminarButton.Visible = true;
         }
+
+        private void eliminarButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

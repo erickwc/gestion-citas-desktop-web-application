@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
@@ -59,10 +62,12 @@
             this.AgregarClienteButton = new Guna.UI2.WinForms.Guna2Button();
             this.IndicacionAgregarClienteLabel = new System.Windows.Forms.Label();
             this.IndicacionClienteLabel = new System.Windows.Forms.Label();
+            this.listaClientesDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             this.ClientesActivosInactivosTabControl.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -72,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -172,6 +178,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listaClientesDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -212,6 +219,7 @@
             this.BarraDeBusquedaClienteTextBox.SelectedText = "";
             this.BarraDeBusquedaClienteTextBox.Size = new System.Drawing.Size(335, 46);
             this.BarraDeBusquedaClienteTextBox.TabIndex = 4;
+            this.BarraDeBusquedaClienteTextBox.TextChanged += new System.EventHandler(this.BarraDeBusquedaClienteTextBox_TextChanged);
             // 
             // IndicacionAdministrarClientesLabel
             // 
@@ -516,6 +524,59 @@
             this.IndicacionClienteLabel.TabIndex = 0;
             this.IndicacionClienteLabel.Text = "Agregar cliente";
             // 
+            // listaClientesDataGridView
+            // 
+            this.listaClientesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listaClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listaClientesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.listaClientesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaClientesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listaClientesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaClientesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.listaClientesDataGridView.ColumnHeadersHeight = 45;
+            this.listaClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listaClientesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.listaClientesDataGridView.EnableHeadersVisualStyles = false;
+            this.listaClientesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.listaClientesDataGridView.Location = new System.Drawing.Point(9, 3);
+            this.listaClientesDataGridView.Name = "listaClientesDataGridView";
+            this.listaClientesDataGridView.ReadOnly = true;
+            this.listaClientesDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaClientesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.listaClientesDataGridView.RowHeadersVisible = false;
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.listaClientesDataGridView.RowTemplate.Height = 60;
+            this.listaClientesDataGridView.RowTemplate.ReadOnly = true;
+            this.listaClientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listaClientesDataGridView.Size = new System.Drawing.Size(1030, 251);
+            this.listaClientesDataGridView.TabIndex = 36;
+            // 
             // AdminClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,11 +586,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminClienteForm";
             this.Text = "AdminClienteForm";
+            this.Load += new System.EventHandler(this.AdminClienteForm_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
             this.ClientesActivosInactivosTabControl.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
@@ -543,6 +606,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -579,5 +643,6 @@
         private System.Windows.Forms.Label IndicacionAdministrarClientesLabel;
         private System.Windows.Forms.Label InstruccionClientesRegistradosLabel;
         private Guna.UI2.WinForms.Guna2ComboBox FiltroClienteComboBox;
+        private System.Windows.Forms.DataGridView listaClientesDataGridView;
     }
 }
