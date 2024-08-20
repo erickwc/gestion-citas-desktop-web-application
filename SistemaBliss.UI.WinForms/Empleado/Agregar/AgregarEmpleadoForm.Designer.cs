@@ -42,7 +42,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.telefonoLabel = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.municipioTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.municipioLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -58,7 +57,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.apellidoLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.departamentoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.departamentoLabel = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -77,19 +75,17 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.guna2TextBox8 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.guna2TextBox10 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.correoElectronicoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.guna2TextBox12 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.contrasenaTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.guna2TextBox13 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -103,6 +99,10 @@
             this.guardarButton = new Guna.UI2.WinForms.Guna2Button();
             this.IntruccionNuevoEmpLabel = new System.Windows.Forms.Label();
             this.RegistroEmpleadoLabel = new System.Windows.Forms.Label();
+            this.departamentoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.municipioComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.estadoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.rolComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.mainPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -140,7 +140,7 @@
             this.mainPanel.Controls.Add(this.tableLayoutPanel1);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
-            this.mainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(21, 20, 21, 20);
             this.mainPanel.Size = new System.Drawing.Size(1467, 779);
@@ -154,7 +154,7 @@
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 20);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -186,7 +186,7 @@
             this.DatosEmpleadoTabControl.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.DatosEmpleadoTabControl.ItemSize = new System.Drawing.Size(180, 40);
             this.DatosEmpleadoTabControl.Location = new System.Drawing.Point(13, 12);
-            this.DatosEmpleadoTabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DatosEmpleadoTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.DatosEmpleadoTabControl.Name = "DatosEmpleadoTabControl";
             this.DatosEmpleadoTabControl.SelectedIndex = 0;
             this.DatosEmpleadoTabControl.Size = new System.Drawing.Size(1378, 548);
@@ -214,7 +214,7 @@
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(133, 0, 133, 0);
             this.tabPage1.Size = new System.Drawing.Size(1370, 500);
@@ -258,11 +258,11 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 219F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 225F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1104, 225);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -352,7 +352,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.municipioTextBox);
+            this.panel6.Controls.Add(this.municipioComboBox);
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.municipioLabel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -361,29 +361,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(322, 113);
             this.panel6.TabIndex = 18;
-            // 
-            // municipioTextBox
-            // 
-            this.municipioTextBox.Animated = true;
-            this.municipioTextBox.BorderRadius = 10;
-            this.municipioTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.municipioTextBox.DefaultText = "";
-            this.municipioTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.municipioTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.municipioTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.municipioTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.municipioTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.municipioTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.municipioTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.municipioTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.municipioTextBox.Location = new System.Drawing.Point(0, 60);
-            this.municipioTextBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.municipioTextBox.Name = "municipioTextBox";
-            this.municipioTextBox.PasswordChar = '\0';
-            this.municipioTextBox.PlaceholderText = "";
-            this.municipioTextBox.SelectedText = "";
-            this.municipioTextBox.Size = new System.Drawing.Size(322, 53);
-            this.municipioTextBox.TabIndex = 18;
             // 
             // label17
             // 
@@ -596,7 +573,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.departamentoTextBox);
+            this.panel3.Controls.Add(this.departamentoComboBox);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.departamentoLabel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -605,29 +582,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(321, 113);
             this.panel3.TabIndex = 16;
-            // 
-            // departamentoTextBox
-            // 
-            this.departamentoTextBox.Animated = true;
-            this.departamentoTextBox.BorderRadius = 10;
-            this.departamentoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.departamentoTextBox.DefaultText = "";
-            this.departamentoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.departamentoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.departamentoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.departamentoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.departamentoTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.departamentoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.departamentoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departamentoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.departamentoTextBox.Location = new System.Drawing.Point(0, 60);
-            this.departamentoTextBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.departamentoTextBox.Name = "departamentoTextBox";
-            this.departamentoTextBox.PasswordChar = '\0';
-            this.departamentoTextBox.PlaceholderText = "";
-            this.departamentoTextBox.SelectedText = "";
-            this.departamentoTextBox.Size = new System.Drawing.Size(321, 53);
-            this.departamentoTextBox.TabIndex = 17;
             // 
             // label16
             // 
@@ -759,9 +713,9 @@
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1370, 500);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Profesiones";
@@ -776,7 +730,7 @@
             this.guna2Panel3.BorderRadius = 10;
             this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Location = new System.Drawing.Point(684, 17);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(535, 454);
             this.guna2Panel3.TabIndex = 6;
@@ -827,7 +781,7 @@
             this.tableLayoutPanel5.Controls.Add(this.guna2Panel5, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(133, 0);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
@@ -848,7 +802,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 380F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 389F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1104, 389);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -875,7 +829,7 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.guna2TextBox8);
+            this.panel8.Controls.Add(this.estadoComboBox);
             this.panel8.Controls.Add(this.label21);
             this.panel8.Controls.Add(this.label22);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -884,29 +838,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(339, 129);
             this.panel8.TabIndex = 19;
-            // 
-            // guna2TextBox8
-            // 
-            this.guna2TextBox8.Animated = true;
-            this.guna2TextBox8.BorderRadius = 10;
-            this.guna2TextBox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox8.DefaultText = "";
-            this.guna2TextBox8.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox8.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2TextBox8.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox8.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox8.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox8.Location = new System.Drawing.Point(0, 76);
-            this.guna2TextBox8.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.guna2TextBox8.Name = "guna2TextBox8";
-            this.guna2TextBox8.PasswordChar = '\0';
-            this.guna2TextBox8.PlaceholderText = "";
-            this.guna2TextBox8.SelectedText = "";
-            this.guna2TextBox8.Size = new System.Drawing.Size(339, 53);
-            this.guna2TextBox8.TabIndex = 17;
             // 
             // label21
             // 
@@ -931,12 +862,12 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(203, 31);
             this.label22.TabIndex = 13;
-            this.label22.Text = "Telefono";
+            this.label22.Text = "Estado";
             this.label22.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.guna2TextBox10);
+            this.panel10.Controls.Add(this.correoElectronicoTextBox);
             this.panel10.Controls.Add(this.label25);
             this.panel10.Controls.Add(this.label26);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -946,35 +877,35 @@
             this.panel10.Size = new System.Drawing.Size(339, 129);
             this.panel10.TabIndex = 15;
             // 
-            // guna2TextBox10
+            // correoElectronicoTextBox
             // 
-            this.guna2TextBox10.Animated = true;
-            this.guna2TextBox10.BorderRadius = 10;
-            this.guna2TextBox10.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox10.DefaultText = "";
-            this.guna2TextBox10.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox10.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2TextBox10.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox10.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox10.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox10.Location = new System.Drawing.Point(0, 76);
-            this.guna2TextBox10.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.guna2TextBox10.Name = "guna2TextBox10";
-            this.guna2TextBox10.PasswordChar = '\0';
-            this.guna2TextBox10.PlaceholderText = "";
-            this.guna2TextBox10.SelectedText = "";
-            this.guna2TextBox10.Size = new System.Drawing.Size(339, 53);
-            this.guna2TextBox10.TabIndex = 16;
+            this.correoElectronicoTextBox.Animated = true;
+            this.correoElectronicoTextBox.BorderRadius = 10;
+            this.correoElectronicoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.correoElectronicoTextBox.DefaultText = "";
+            this.correoElectronicoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.correoElectronicoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.correoElectronicoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.correoElectronicoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.correoElectronicoTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.correoElectronicoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.correoElectronicoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.correoElectronicoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.correoElectronicoTextBox.Location = new System.Drawing.Point(0, 76);
+            this.correoElectronicoTextBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.correoElectronicoTextBox.Name = "correoElectronicoTextBox";
+            this.correoElectronicoTextBox.PasswordChar = '\0';
+            this.correoElectronicoTextBox.PlaceholderText = "";
+            this.correoElectronicoTextBox.SelectedText = "";
+            this.correoElectronicoTextBox.Size = new System.Drawing.Size(339, 53);
+            this.correoElectronicoTextBox.TabIndex = 16;
             // 
             // label25
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label25.Location = new System.Drawing.Point(96, 39);
+            this.label25.Location = new System.Drawing.Point(183, 39);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(25, 31);
@@ -992,12 +923,12 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(203, 31);
             this.label26.TabIndex = 13;
-            this.label26.Text = "Nombres";
+            this.label26.Text = "Correo Electronico";
             this.label26.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.guna2TextBox12);
+            this.panel12.Controls.Add(this.contrasenaTextBox);
             this.panel12.Controls.Add(this.label29);
             this.panel12.Controls.Add(this.label30);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1007,35 +938,35 @@
             this.panel12.Size = new System.Drawing.Size(340, 129);
             this.panel12.TabIndex = 0;
             // 
-            // guna2TextBox12
+            // contrasenaTextBox
             // 
-            this.guna2TextBox12.Animated = true;
-            this.guna2TextBox12.BorderRadius = 10;
-            this.guna2TextBox12.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox12.DefaultText = "";
-            this.guna2TextBox12.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox12.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2TextBox12.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox12.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox12.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox12.Location = new System.Drawing.Point(0, 76);
-            this.guna2TextBox12.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.guna2TextBox12.Name = "guna2TextBox12";
-            this.guna2TextBox12.PasswordChar = '\0';
-            this.guna2TextBox12.PlaceholderText = "";
-            this.guna2TextBox12.SelectedText = "";
-            this.guna2TextBox12.Size = new System.Drawing.Size(340, 53);
-            this.guna2TextBox12.TabIndex = 17;
+            this.contrasenaTextBox.Animated = true;
+            this.contrasenaTextBox.BorderRadius = 10;
+            this.contrasenaTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.contrasenaTextBox.DefaultText = "";
+            this.contrasenaTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.contrasenaTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.contrasenaTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.contrasenaTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.contrasenaTextBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.contrasenaTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.contrasenaTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contrasenaTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.contrasenaTextBox.Location = new System.Drawing.Point(0, 76);
+            this.contrasenaTextBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.contrasenaTextBox.Name = "contrasenaTextBox";
+            this.contrasenaTextBox.PasswordChar = '\0';
+            this.contrasenaTextBox.PlaceholderText = "";
+            this.contrasenaTextBox.SelectedText = "";
+            this.contrasenaTextBox.Size = new System.Drawing.Size(340, 53);
+            this.contrasenaTextBox.TabIndex = 17;
             // 
             // label29
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label29.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label29.Location = new System.Drawing.Point(83, 39);
+            this.label29.Location = new System.Drawing.Point(111, 39);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(25, 31);
@@ -1053,12 +984,13 @@
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(239, 31);
             this.label30.TabIndex = 8;
-            this.label30.Text = "Apellido";
+            this.label30.Text = "Contraseña";
             this.label30.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.guna2TextBox13);
+            this.panel15.Controls.Add(this.rolComboBox);
             this.panel15.Controls.Add(this.label31);
             this.panel15.Controls.Add(this.label32);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1068,35 +1000,12 @@
             this.panel15.Size = new System.Drawing.Size(340, 129);
             this.panel15.TabIndex = 16;
             // 
-            // guna2TextBox13
-            // 
-            this.guna2TextBox13.Animated = true;
-            this.guna2TextBox13.BorderRadius = 10;
-            this.guna2TextBox13.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox13.DefaultText = "";
-            this.guna2TextBox13.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox13.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox13.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2TextBox13.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox13.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox13.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox13.Location = new System.Drawing.Point(0, 76);
-            this.guna2TextBox13.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.guna2TextBox13.Name = "guna2TextBox13";
-            this.guna2TextBox13.PasswordChar = '\0';
-            this.guna2TextBox13.PlaceholderText = "";
-            this.guna2TextBox13.SelectedText = "";
-            this.guna2TextBox13.Size = new System.Drawing.Size(340, 53);
-            this.guna2TextBox13.TabIndex = 17;
-            // 
             // label31
             // 
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label31.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label31.Location = new System.Drawing.Point(148, 39);
+            this.label31.Location = new System.Drawing.Point(48, 39);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(25, 31);
@@ -1114,7 +1023,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(203, 31);
             this.label32.TabIndex = 13;
-            this.label32.Text = "Departamento";
+            this.label32.Text = "Rol";
             this.label32.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // guna2Panel4
@@ -1143,7 +1052,7 @@
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
             this.guna2Button3.Location = new System.Drawing.Point(65, 318);
-            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(197, 57);
             this.guna2Button3.TabIndex = 3;
@@ -1155,7 +1064,7 @@
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Location = new System.Drawing.Point(33, 41);
-            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2CirclePictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(267, 246);
@@ -1232,12 +1141,13 @@
             this.cancelarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.cancelarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.cancelarButton.Location = new System.Drawing.Point(1046, 62);
-            this.cancelarButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelarButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
             this.cancelarButton.Size = new System.Drawing.Size(151, 57);
             this.cancelarButton.TabIndex = 4;
             this.cancelarButton.Text = "Cancelar";
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // guardarButton
             // 
@@ -1254,11 +1164,12 @@
             this.guardarButton.ForeColor = System.Drawing.Color.White;
             this.guardarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
             this.guardarButton.Location = new System.Drawing.Point(1213, 62);
-            this.guardarButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guardarButton.Margin = new System.Windows.Forms.Padding(4);
             this.guardarButton.Name = "guardarButton";
             this.guardarButton.Size = new System.Drawing.Size(165, 57);
             this.guardarButton.TabIndex = 2;
-            this.guardarButton.Text = "Registrar";
+            this.guardarButton.Text = "Guardar";
+            this.guardarButton.Click += new System.EventHandler(this.guardarButton_Click);
             // 
             // IntruccionNuevoEmpLabel
             // 
@@ -1284,6 +1195,79 @@
             this.RegistroEmpleadoLabel.TabIndex = 0;
             this.RegistroEmpleadoLabel.Text = "Registro de un nuevo empleado";
             // 
+            // departamentoComboBox
+            // 
+            this.departamentoComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.departamentoComboBox.BorderRadius = 10;
+            this.departamentoComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.departamentoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.departamentoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.departamentoComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.departamentoComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.departamentoComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departamentoComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.departamentoComboBox.ItemHeight = 39;
+            this.departamentoComboBox.Location = new System.Drawing.Point(0, 68);
+            this.departamentoComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.departamentoComboBox.Name = "departamentoComboBox";
+            this.departamentoComboBox.Size = new System.Drawing.Size(321, 45);
+            this.departamentoComboBox.TabIndex = 17;
+            // 
+            // municipioComboBox
+            // 
+            this.municipioComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.municipioComboBox.BorderRadius = 10;
+            this.municipioComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.municipioComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.municipioComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.municipioComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.municipioComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.municipioComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.municipioComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.municipioComboBox.ItemHeight = 39;
+            this.municipioComboBox.Location = new System.Drawing.Point(0, 68);
+            this.municipioComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.municipioComboBox.Name = "municipioComboBox";
+            this.municipioComboBox.Size = new System.Drawing.Size(322, 45);
+            this.municipioComboBox.TabIndex = 18;
+            // 
+            // estadoComboBox
+            // 
+            this.estadoComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.estadoComboBox.BorderRadius = 10;
+            this.estadoComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.estadoComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.estadoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.estadoComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.estadoComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.estadoComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.estadoComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.estadoComboBox.ItemHeight = 39;
+            this.estadoComboBox.Location = new System.Drawing.Point(0, 84);
+            this.estadoComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.estadoComboBox.Name = "estadoComboBox";
+            this.estadoComboBox.Size = new System.Drawing.Size(339, 45);
+            this.estadoComboBox.TabIndex = 18;
+            // 
+            // rolComboBox
+            // 
+            this.rolComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.rolComboBox.BorderRadius = 10;
+            this.rolComboBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rolComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.rolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rolComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.rolComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.rolComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rolComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.rolComboBox.ItemHeight = 39;
+            this.rolComboBox.Location = new System.Drawing.Point(0, 84);
+            this.rolComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.rolComboBox.Name = "rolComboBox";
+            this.rolComboBox.Size = new System.Drawing.Size(340, 45);
+            this.rolComboBox.TabIndex = 18;
+            this.rolComboBox.SelectedIndexChanged += new System.EventHandler(this.RolComboBox_SelectedIndexChanged);
+            // 
             // AgregarEmpleadoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1292,9 +1276,10 @@
             this.ClientSize = new System.Drawing.Size(1467, 779);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AgregarEmpleadoForm";
             this.Text = "AgregarEmpleadoForm";
+            this.Load += new System.EventHandler(this.AgregarEmpleadoForm_Load);
             this.mainPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
@@ -1375,11 +1360,9 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private Guna.UI2.WinForms.Guna2TextBox telefonoTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox municipioTextBox;
         private Guna.UI2.WinForms.Guna2TextBox nombreTextBox;
         private Guna.UI2.WinForms.Guna2TextBox duiTextBox;
         private Guna.UI2.WinForms.Guna2TextBox apellidoTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox departamentoTextBox;
         private Guna.UI2.WinForms.Guna2TextBox direccionTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
@@ -1390,19 +1373,17 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel8;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox8;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel10;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox10;
+        private Guna.UI2.WinForms.Guna2TextBox correoElectronicoTextBox;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel12;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox12;
+        private Guna.UI2.WinForms.Guna2TextBox contrasenaTextBox;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Panel panel15;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox13;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
@@ -1410,5 +1391,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private Guna.UI2.WinForms.Guna2ComboBox municipioComboBox;
+        private Guna.UI2.WinForms.Guna2ComboBox departamentoComboBox;
+        private Guna.UI2.WinForms.Guna2ComboBox estadoComboBox;
+        private Guna.UI2.WinForms.Guna2ComboBox rolComboBox;
     }
 }
