@@ -148,7 +148,7 @@ namespace SistemaBliss.UI.WinForms
             direccionTextBox.Text = empresa.Direccion;
             telefonoTextBox.Text = empresa.Telefono;
             correoElectronicoTextBox.Text = empresa.CorreoElectronico;
-            listaHorariosDatGridView.RowTemplate.Height = 65;
+            listaHorariosDatGridView.RowTemplate.Height = 50;
             CargarLista();
         }
 
@@ -188,12 +188,11 @@ namespace SistemaBliss.UI.WinForms
 
                     if (resultado > 0)
                     {
-                        validacionCampos.CampoValidoAparienciaComboBox(diaCombobox);
-                        validacionCampos.CampoValidoAparienciaComboBox(horaAperturaCombobox);
-                        validacionCampos.CampoValidoAparienciaComboBox(minutoAperturaCombobox);
-                        validacionCampos.CampoValidoAparienciaComboBox(horaCierreCombobox);
-                        validacionCampos.CampoValidoAparienciaComboBox(minutoCierreCombobox);
-                        
+                        diaCombobox.SelectedIndex = -1;
+                        horaCierreCombobox.SelectedIndex = -1;
+                        minutoCierreCombobox.SelectedIndex = -1;
+                        horaAperturaCombobox.SelectedIndex = -1;
+                        minutoAperturaCombobox.SelectedIndex = -1;
                     }
                     else
                     {
@@ -235,9 +234,9 @@ namespace SistemaBliss.UI.WinForms
                 minutoCierreCombobox.Text = minutosSalida;
 
                 // Actualizar lista simulando click en boton de BUSCAR
-                CargarLista();
+                
 
-                agregarHorarioButton.Text = "Modificar horario";
+                agregarHorarioButton.Text = "Guardar cambios";
                 modificarButton.Visible = false;
                 eliminarButton.Visible = false;
                 cancelarButton.Visible = true;

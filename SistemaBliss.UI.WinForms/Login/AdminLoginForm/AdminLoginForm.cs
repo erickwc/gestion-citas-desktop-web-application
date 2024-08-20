@@ -19,9 +19,12 @@ namespace SistemaBliss.UI.WinForms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            // Crear y mostrar el formulario del panel de control
             AdminDashboardForm adminDashboardForm = new AdminDashboardForm();
             adminDashboardForm.Show();
-            this.Visible = false;
+
+            // Cerrar la ventana de inicio de sesión
+            this.Close();
         }
     }
 }

@@ -12,16 +12,27 @@ namespace SistemaBliss.UI.WinForms
 {
     public partial class AdminDashboardForm : Form
     {
-        
+
         public AdminDashboardForm()
         {
             InitializeComponent();
-         
+
         }
-        
+
         NavegacionUI navegacionUI = new NavegacionUI();
 
+        private void AbrirFormEnPanel(object Form)
+        {
+            if (this.mainPanel.Controls.Count > 0)
+                this.mainPanel.Controls.RemoveAt(0);
+            Form fh = Form as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.mainPanel.Controls.Add(fh);
+            this.mainPanel.Tag = fh;
+            fh.Show();
 
+        }
         private void AdminDashboardForm_Load(object sender, EventArgs e)
         {
 
@@ -29,18 +40,18 @@ namespace SistemaBliss.UI.WinForms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            navegacionUI.AbrirFormEnPanel(typeof(AdminClienteForm), "Estadistica Completa");
+            AbrirFormEnPanel(new AdminClienteForm());
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            navegacionUI.AbrirFormEnPanel(typeof(AdminEmpleadoForm), "Estadistica Completa");
+            AbrirFormEnPanel(new AdminEmpleadoForm());
 
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            navegacionUI.AbrirFormEnPanel(typeof(AdminEmpresaForm), "Estadistica Completa");
+            AbrirFormEnPanel(new AdminEmpresaForm());
 
         }
 
