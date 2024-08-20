@@ -93,60 +93,59 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdMunicipio, IdEstado, Nombre, Apellido, Telefono, Contrasena, Dui, Direccion
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, Nombre, Apellido, Telefono, Dui
                             FROM Usuario ";
 
                 // Validar filtros
-                if (pUsuario.Telefono != null && pUsuario.Telefono.Trim() != string.Empty)
+                
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
                 {
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    whereSQL += " Telefono = @Telefono ";
-                    comando.Parameters.AddWithValue("@Telefono", pUsuario.Telefono);
+                    whereSQL += " Nombre LIKE @Nombre ";
+                    comando.Parameters.AddWithValue("@Nombre", "%" + pUsuario.Nombre + "%");
                 }
-                if (pUsuario.Nombre != null && pUsuario.Nombre.Trim() != string.Empty)
+                if (!string.IsNullOrWhiteSpace(pUsuario.Apellido))
                 {
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    whereSQL += " (Nombre LIKE @ValorNA OR Apellido LIKE @ValorNA) ";
-                    comando.Parameters.AddWithValue("@ValorNA", "%" + pUsuario.Nombre + "%");
+                    whereSQL += " Apellido LIKE @Apellido ";
+                    comando.Parameters.AddWithValue("@Apellido", "%" + pUsuario.Apellido + "%");
                 }
-                if (pUsuario.Dui != null && pUsuario.Dui.Trim() != string.Empty)
+                if (!string.IsNullOrWhiteSpace(pUsuario.Telefono))
                 {
                     if (contador > 0)
                         whereSQL += " AND ";
                     contador += 1;
-                    whereSQL += " Dui = @Dui ";
-                    comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
+                    whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
+                    comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
                 }
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)
                 {
                     whereSQL = " WHERE " + whereSQL;
                 }
+
                 comando.CommandText = consulta + whereSQL;
 
-                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-                while (reader.Read())
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
                 {
-                    Usuario obj = new Usuario();
+                    while (reader.Read())
+                    {
+                        Usuario obj = new Usuario
+                        {
+                            IdUsuario = reader.GetInt32(0),
+                            Nombre = reader.GetString(1),
+                            Apellido = reader.GetString(2),
+                            Telefono = reader.GetString(3),
+                            Dui = reader.GetString(4)
+                        };
 
-                    obj.IdUsuario = reader.GetInt32(0);
-                    obj.IdRol = reader.GetByte(1);
-                    obj.IdDepartamento = reader.GetByte(2);
-                    // obj.IdMunicipio = reader.GetByte(3);
-                    obj.IdEstado = reader.GetByte(4);
-                    obj.Nombre = reader.GetString(5);
-                    obj.Apellido = reader.GetString(6);
-                    obj.Telefono = reader.GetString(7);
-                    obj.Contrasena = reader.GetString(8);
-                    obj.Dui = reader.GetString(9);
-                    obj.Direccion = reader.GetString(10);
-
-                    // Agregar el objeto Usuario a la lista
-                    lista.Add(obj);
+                        // Agregar el objeto Usuario a la lista
+                        lista.Add(obj);
+                    }
                 }
                 comando.Connection.Dispose();
             }
@@ -154,6 +153,7 @@ namespace SistemaBliss.DAL
 
             return lista;
         }
+
 
         #endregion
     }

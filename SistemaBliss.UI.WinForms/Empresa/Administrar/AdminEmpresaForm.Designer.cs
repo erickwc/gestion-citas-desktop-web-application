@@ -59,6 +59,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cancelarButton = new Guna.UI2.WinForms.Guna2Button();
             this.listaHorariosDatGridView = new System.Windows.Forms.DataGridView();
             this.eliminarButton = new Guna.UI2.WinForms.Guna2Button();
             this.modificarButton = new Guna.UI2.WinForms.Guna2Button();
@@ -94,7 +95,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.cancelarButton = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -207,7 +207,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1029, 843);
+            this.tabPage1.Size = new System.Drawing.Size(1029, 1009);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Empresa";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -554,6 +554,30 @@
             this.tabPage2.Text = "Horarios";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // cancelarButton
+            // 
+            this.cancelarButton.Animated = true;
+            this.cancelarButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
+            this.cancelarButton.BorderRadius = 10;
+            this.cancelarButton.BorderThickness = 1;
+            this.cancelarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cancelarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.cancelarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.cancelarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.cancelarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.cancelarButton.FillColor = System.Drawing.Color.Empty;
+            this.cancelarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
+            this.cancelarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
+            this.cancelarButton.Location = new System.Drawing.Point(242, 468);
+            this.cancelarButton.Name = "cancelarButton";
+            this.cancelarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
+            this.cancelarButton.Size = new System.Drawing.Size(124, 46);
+            this.cancelarButton.TabIndex = 36;
+            this.cancelarButton.Text = "Cancelar";
+            this.cancelarButton.Visible = false;
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
+            // 
             // listaHorariosDatGridView
             // 
             this.listaHorariosDatGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -566,7 +590,7 @@
             this.listaHorariosDatGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -576,7 +600,7 @@
             this.listaHorariosDatGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -590,7 +614,7 @@
             this.listaHorariosDatGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -626,6 +650,7 @@
             this.eliminarButton.Size = new System.Drawing.Size(109, 46);
             this.eliminarButton.TabIndex = 34;
             this.eliminarButton.Text = "Eliminar";
+            this.eliminarButton.Click += new System.EventHandler(this.eliminarButton_Click);
             // 
             // modificarButton
             // 
@@ -1205,30 +1230,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // cancelarButton
-            // 
-            this.cancelarButton.Animated = true;
-            this.cancelarButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.cancelarButton.BorderRadius = 10;
-            this.cancelarButton.BorderThickness = 1;
-            this.cancelarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.cancelarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.cancelarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.cancelarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cancelarButton.FillColor = System.Drawing.Color.Empty;
-            this.cancelarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.cancelarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.cancelarButton.Location = new System.Drawing.Point(242, 468);
-            this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.cancelarButton.Size = new System.Drawing.Size(124, 46);
-            this.cancelarButton.TabIndex = 36;
-            this.cancelarButton.Text = "Cancelar";
-            this.cancelarButton.Visible = false;
-            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
             // 
             // AdminEmpresaForm
             // 
