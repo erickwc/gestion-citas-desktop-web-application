@@ -59,7 +59,7 @@ namespace SistemaBliss.UI.WinForms
         {
             AdminLoginForm login = new AdminLoginForm();
             login.Show();
-            this.Visible = false;
+           
         }
     }
 }

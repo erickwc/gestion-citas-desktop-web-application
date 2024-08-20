@@ -25,6 +25,7 @@ namespace SistemaBliss.UI.WinForms
 
             // Cerrar la ventana de inicio de sesión
             this.Close();
+
         }
     }
 }
