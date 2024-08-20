@@ -68,13 +68,12 @@ namespace SistemaBliss.DAL
                 while (reader.Read())
                 {
                     HorariosEmpresa obj = new HorariosEmpresa();
-
                     // Manejar posibles valores nulos y conversiones adecuadas
                     obj.IdHorariosEmpresa = reader.GetByte(0);
                     obj.IdEmpresa = reader.GetByte(1);
                     obj.Dias = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
                     obj.HoraEntrada = reader.GetTimeSpan(3);
-                    obj.HoraEntrada = reader.GetTimeSpan(4);
+                    obj.HoraSalida = reader.GetTimeSpan(4);
 
                     lista.Add(obj);
                 }

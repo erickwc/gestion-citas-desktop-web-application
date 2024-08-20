@@ -42,7 +42,7 @@ namespace SistemaBliss.PruebasUnitarias
             horariosEmpresa.HoraSalida = new TimeSpan(12, 30, 00);
 
             // Ejecutar metodo 
-            int resultado = horariosBl.Modifiar(horariosEmpresa);
+            int resultado = horariosBl.Modificar(horariosEmpresa);
 
             // Comprobacion de la prueba
             // si resultado es igual a 1, la Empleado se guardo correctamente

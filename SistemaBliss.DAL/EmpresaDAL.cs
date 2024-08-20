@@ -34,14 +34,14 @@ namespace SistemaBliss.DAL
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "SP_ObtenerEmpresaPorId";
-
+            comando.Parameters.AddWithValue("@IdEmpresa", pIdEmpresa);
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
             {
                 obj.IdEmpresa = reader.GetByte(0);
                 obj.Nombre = reader.GetString(1);
-                obj.Telefono = reader.GetString(2);
-                obj.Direccion = reader.GetString(3);
+                obj.Direccion = reader.GetString(2);
+                obj.Telefono = reader.GetString(3);
                 obj.CorreoElectronico = reader.GetString(4);
             }
             return obj;

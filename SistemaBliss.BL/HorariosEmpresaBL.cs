@@ -15,7 +15,7 @@ namespace SistemaBliss.BL
             return HorariosEmpresaDAL.Guardar(pHorariosEmpresa);
         }
 
-        public int Modifiar(HorariosEmpresa pHorariosEmpresa)
+        public int Modificar(HorariosEmpresa pHorariosEmpresa)
         {
             return HorariosEmpresaDAL.Modificar(pHorariosEmpresa);
         }

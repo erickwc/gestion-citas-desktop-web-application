@@ -119,6 +119,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolsForms.cs" />
+    <Compile Include="ValidacionCampos.cs" />
     <EmbeddedResource Include="Login\AdminLoginForm\AdminLoginForm.resx">
       <DependentUpon>AdminLoginForm.cs</DependentUpon>
     </EmbeddedResource>
