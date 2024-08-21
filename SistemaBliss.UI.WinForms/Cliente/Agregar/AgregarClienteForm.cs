@@ -59,5 +59,10 @@ namespace SistemaBliss.UI.WinForms
         {
 
         }
+
+        private void CancelarClienteButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

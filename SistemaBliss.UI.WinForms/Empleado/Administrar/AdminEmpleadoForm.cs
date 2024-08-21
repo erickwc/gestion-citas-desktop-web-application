@@ -10,6 +10,8 @@ using System.Windows.Forms;
 //REFERENCIAS DEL PROYECTO
 using SistemaBliss.EN;
 using SistemaBliss.BL;
+//referencias 
+using ToolsForms;
 
 namespace SistemaBliss.UI.WinForms
 {
@@ -24,7 +26,7 @@ namespace SistemaBliss.UI.WinForms
         }
 
         NavegacionUI navegacionUI = new NavegacionUI();
-
+        
 
         private void btn_profesiones_Click(object sender, EventArgs e)
         {
@@ -50,5 +52,29 @@ namespace SistemaBliss.UI.WinForms
             AgregarEmpleadoForm agregarEmpleado = new AgregarEmpleadoForm();
             agregarEmpleado.ShowDialog();
         }
+        private void modificarEmpButton_Click(object sender, EventArgs e)
+        {
+            // Obtener la llave primaria (PK) del registro seleccionado
+            short idTabla = (short)ToolsForm.ObtenerIdGrid(TablaEmpleadoDataGridView);
+            if (idTabla > 0)
+            {
+                // Abrir formulario para modificar el empleado seleccionado
+                AgregarEmpleadoForm formModificar = new AgregarEmpleadoForm();
+               //ESTA TAMBIEN DA ERROR formModificar.idUsuario = idTabla;
+                formModificar.ShowDialog();
+
+                // Actualizar lista simulando click en el botón de BUSCAR
+               // ESTA DA ERROR guardarButton_Click.PerformClick();
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+       
     }
+
+
 }
+    
+

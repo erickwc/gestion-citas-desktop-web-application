@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
@@ -64,6 +64,7 @@
             this.AgregarEmpleadoButton = new Guna.UI2.WinForms.Guna2Button();
             this.IntruccionEmpleadoLabel = new System.Windows.Forms.Label();
             this.AgregareEmpleadoLabel = new System.Windows.Forms.Label();
+            this.modificarEmpButton = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -115,6 +116,7 @@
             this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
             this.guna2Panel5.BorderRadius = 10;
             this.guna2Panel5.BorderThickness = 1;
+            this.guna2Panel5.Controls.Add(this.modificarEmpButton);
             this.guna2Panel5.Controls.Add(this.btn_profesiones);
             this.guna2Panel5.Controls.Add(this.FiltroEmpleadoComboBox);
             this.guna2Panel5.Controls.Add(this.EmpActivosInactivosTabControl);
@@ -144,7 +146,7 @@
             this.btn_profesiones.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btn_profesiones.ForeColor = System.Drawing.Color.White;
             this.btn_profesiones.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.btn_profesiones.Location = new System.Drawing.Point(1221, 25);
+            this.btn_profesiones.Location = new System.Drawing.Point(1156, 10);
             this.btn_profesiones.Margin = new System.Windows.Forms.Padding(4);
             this.btn_profesiones.Name = "btn_profesiones";
             this.btn_profesiones.Size = new System.Drawing.Size(183, 57);
@@ -218,26 +220,26 @@
             // 
             // TablaEmpleadoDataGridView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.TablaEmpleadoDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TablaEmpleadoDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.TablaEmpleadoDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TablaEmpleadoDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.TablaEmpleadoDataGridView.ColumnHeadersHeight = 4;
             this.TablaEmpleadoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TablaEmpleadoDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TablaEmpleadoDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.TablaEmpleadoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TablaEmpleadoDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.TablaEmpleadoDataGridView.Location = new System.Drawing.Point(4, 4);
@@ -300,7 +302,7 @@
             this.BarraDeBusquedaEmpleadoTextBox.PasswordChar = '\0';
             this.BarraDeBusquedaEmpleadoTextBox.PlaceholderText = "Buscador";
             this.BarraDeBusquedaEmpleadoTextBox.SelectedText = "";
-            this.BarraDeBusquedaEmpleadoTextBox.Size = new System.Drawing.Size(447, 57);
+            this.BarraDeBusquedaEmpleadoTextBox.Size = new System.Drawing.Size(375, 57);
             this.BarraDeBusquedaEmpleadoTextBox.TabIndex = 4;
             // 
             // AdminEmpleadosLabel
@@ -624,6 +626,28 @@
             this.AgregareEmpleadoLabel.TabIndex = 0;
             this.AgregareEmpleadoLabel.Text = "Agregar empleado";
             // 
+            // modificarEmpButton
+            // 
+            this.modificarEmpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modificarEmpButton.Animated = true;
+            this.modificarEmpButton.BorderRadius = 10;
+            this.modificarEmpButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.modificarEmpButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.modificarEmpButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.modificarEmpButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.modificarEmpButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.modificarEmpButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.modificarEmpButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.modificarEmpButton.ForeColor = System.Drawing.Color.White;
+            this.modificarEmpButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
+            this.modificarEmpButton.Location = new System.Drawing.Point(1156, 75);
+            this.modificarEmpButton.Margin = new System.Windows.Forms.Padding(4);
+            this.modificarEmpButton.Name = "modificarEmpButton";
+            this.modificarEmpButton.Size = new System.Drawing.Size(183, 57);
+            this.modificarEmpButton.TabIndex = 9;
+            this.modificarEmpButton.Text = "Modificar";
+            this.modificarEmpButton.Click += new System.EventHandler(this.modificarEmpButton_Click);
+            // 
             // AdminEmpleadoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -695,5 +719,7 @@
         private System.Windows.Forms.Label AgregareEmpleadoLabel;
         private Guna.UI2.WinForms.Guna2Button btn_profesiones;
         private Guna.UI2.WinForms.Guna2DataGridView TablaEmpleadoDataGridView;
+        private Guna.UI2.WinForms.Guna2Button modificarButton;
+        private Guna.UI2.WinForms.Guna2Button modificarEmpButton;
     }
 }
