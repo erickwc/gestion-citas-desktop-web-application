@@ -24,7 +24,7 @@ namespace SistemaBliss.UI.WinForms
             adminDashboardForm.Show();
 
             // Cerrar la ventana de inicio de sesión
-            this.Close();
+            this.Visible = true;
 
         }
     }

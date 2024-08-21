@@ -22,7 +22,8 @@ namespace SistemaBliss.UI.WinForms
             InitializeComponent();
         }
         ValidacionCampos validacionCampos = new ValidacionCampos();
-
+        short idUsuario;
+              UsuarioBL usuarioBL = new UsuarioBL();
 
         private bool ValidarCampos()
         {
@@ -147,6 +148,53 @@ namespace SistemaBliss.UI.WinForms
 
         private void guardarButton_Click(object sender, EventArgs e)
         {
+            int resultado = 0; // resultado del comando en la DB
+            try
+            {
+                if (ValidarCampos() == true)
+                {
+                    // Capturar datos del formulario
+                    Usuario usuario = new Usuario(); // instancia de empleado
+                    usuario.Nombre = nombreTextBox.Text;
+                    usuario.Apellido = apellidoTextBox.Text;
+                    usuario.Telefono = telefonoTextBox.Text;
+                    usuario.Contrasena = contrasenaTextBox.Text;
+                    usuario.CorreoElectronico = correoElectronicoTextBox.Text;
+                    usuario.Dui = duiTextBox.Text;
+                    usuario.Direccion = direccionTextBox.Text;
+                    usuario.UrlImagen = "foto"; ; 
+
+                    // Convertir los valores seleccionados en los ComboBox al tipo adecuado
+                    usuario.IdRol = Convert.ToByte(rolComboBox.SelectedValue);
+                    usuario.IdDepartamento = Convert.ToByte(departamentoComboBox.SelectedValue);
+                    usuario.IdEstado = Convert.ToByte(estadoComboBox.SelectedValue);
+                    usuario.IdMunicipio = Convert.ToInt16(municipioComboBox.SelectedValue);
+
+                    if (idUsuario == 0)
+                    {
+                        resultado = usuarioBL.Guardar(usuario); // Se está guardando un nuevo empleado
+                    }
+                    else
+                    {
+                        usuario.IdUsuario = idUsuario;
+                        resultado = usuarioBL.Modificar(usuario); // Se está modificando un empleado existente
+                    }
+                    // Verificación del resultado en la base de datos
+                    if (resultado > 0)
+                    {
+                        MessageBox.Show("Registro guardado exitosamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error, por favor inténtelo de nuevo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
