@@ -39,10 +39,134 @@ namespace SistemaBliss.BL
         {
             return UsuarioDAL.ObtenerPorId(pIdUsuario);
         }
-        public List<Usuario> Buscar(Usuario pUsuario)
+
+        public Usuario ObtenerPorIdLogin(string Telefono, string Contrasena)
         {
-            return UsuarioDAL.Buscar(pUsuario);
+            return UsuarioDAL.ObtenerPorIdLogin(Telefono, Contrasena);
         }
+
+        public Usuario ContarTotalClientes()
+        {
+            return UsuarioDAL.ContarTotalClientes();
+        }
+
+        public Usuario ContarClientesActivos()
+        {
+            return UsuarioDAL.ContarClientesActivos();
+        }
+
+        public Usuario ContarClientesInactivos()
+        {
+            return UsuarioDAL.ContarClientesInactivos();
+        }
+
+        public Usuario ContarEmpleadosTotales()
+        {
+            return UsuarioDAL.ContarEmpleadosTotal();
+        }
+
+        public Usuario ContarEmpleadosActivos()
+        {
+            return UsuarioDAL.ContarEmpleadosActivos();
+        }
+
+        public Usuario ContarEmpleadosInactivos()
+        {
+            return UsuarioDAL.ContarEmpleadosInactivos();
+        }
+
+        public Usuario ObtenerUltimoIdUsuario(string pCorreoElectronico)
+        {
+            return UsuarioDAL.ObtenerUltimoIdUsuario(pCorreoElectronico);
+        }
+        public List<Usuario> BuscarClientesActivos(Usuario pUsuario)
+        {
+            return UsuarioDAL.BuscarClientesActivos(pUsuario);
+        }
+
+        public List<Usuario> BuscarClientesInctivos(Usuario pUsuario)
+        {
+            return UsuarioDAL.BuscarClientesInactivos(pUsuario);
+        }
+
+
+
+        public List<Usuario> BuscarEmpleadosActivos(Usuario pUsuario)
+        {
+            return UsuarioDAL.BuscarEmpleadosActivos(pUsuario);
+        }
+
+        public List<Usuario> BuscarEmpleadosInactivos(Usuario pUsuario)
+        {
+            return UsuarioDAL.BuscarEmpleadosInactivos(pUsuario);
+        }
+
+        public void CargarEstadoVirtual(List<Usuario> pLista, Action<List<Estado>> pAccion = null)
+        {
+            // Método para cargar los datos de la propiedad virtual de Cargo
+            if (pLista.Count > 0)
+            {
+                // Obtener array de ids de estado de la lista de usuarios
+                byte[] arrayIdEstado = pLista.Select(x => x.IdEstado).Distinct().ToArray();
+
+                // Crear Diccionario de Estados buscando en la base de datos
+                Dictionary<byte, Estado> diccionario = EstadoDAL.ObtenerDiccionario(arrayIdEstado);
+
+
+
+                // Bucle para validar los Cargos e inyectarlo a los Empleados en su propiedad virtual
+                foreach (var item in pLista)
+                {
+                    // Verificar si existe el Cargo en el diccionario
+                    if (diccionario.ContainsKey(item.IdEstado) == true)
+                    {
+                        // Si existe, inyectar el Cargo desde el diccionario
+                        item.Estado = diccionario[item.IdEstado];
+                    }
+                }
+
+                // Accion auxiliar para sobrecargar otra propiedad virtual dentro de la clase Cargo
+                if (pAccion != null && diccionario.Count > 0)
+                {
+                    pAccion(diccionario.Select(x => x.Value).ToList());
+                }
+            }
+        }
+
+
+        public void CargarRolVirtual(List<Usuario> pLista, Action<List<Rol>> pAccion = null)
+        {
+            // Método para cargar los datos de la propiedad virtual de Cargo
+            if (pLista.Count > 0)
+            {
+                // Obtener array de ids de estado de la lista de usuarios
+                byte[] arrayIdRol = pLista.Select(x => x.IdRol).Distinct().ToArray();
+
+                // Crear Diccionario de Estados buscando en la base de datos
+                Dictionary<byte, Rol> diccionario = RolDAL.ObtenerDiccionario(arrayIdRol);
+
+
+
+                // Bucle para validar los Cargos e inyectarlo a los Empleados en su propiedad virtual
+                foreach (var item in pLista)
+                {
+                    // Verificar si existe el Cargo en el diccionario
+                    if (diccionario.ContainsKey(item.IdRol) == true)
+                    {
+                        // Si existe, inyectar el Cargo desde el diccionario
+                        item.Rol = diccionario[item.IdRol];
+                    }
+                }
+
+                // Accion auxiliar para sobrecargar otra propiedad virtual dentro de la clase Cargo
+                if (pAccion != null && diccionario.Count > 0)
+                {
+                    pAccion(diccionario.Select(x => x.Value).ToList());
+                }
+            }
+        }
+
+
 
     }
 }

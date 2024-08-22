@@ -27,12 +27,7 @@ namespace SistemaBliss.UI.WinForms
 
         NavegacionUI navegacionUI = new NavegacionUI();
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-            navegacionUI.AbrirFormEnPanel(typeof(AgregarClienteForm), "Estadistica Completa");
-        }
-
-        public void CargarUsuarios()
+        public void CargarFiltros()
         {
             // Conexion a la tabla de cliente en la BD
 
@@ -56,32 +51,78 @@ namespace SistemaBliss.UI.WinForms
             FiltroClienteComboBox.ValueMember = "Value";
             // FiltroClienteComboBox.ValueMember = "IdCliente";
         }
-        private void AdminClienteForm_Load(object sender, EventArgs e)
-        {
-            //Cargar ComboBoxs en el formulario
-            CargarUsuarios();
 
+        private void OcultarColumnas(DataGridView datagrid)
+        {
+            datagrid.Columns["IdMunicipio"].Visible = false;
+            datagrid.Columns["IdDepartamento"].Visible = false;
+            //datagrid.Columns["IdRol"].Visible = false;
+            datagrid.Columns["IdUsuario"].Visible = false;
+            datagrid.Columns["Contrasena"].Visible = false;
+            datagrid.Columns["Direccion"].Visible = false;
+            datagrid.Columns["UrlImagen"].Visible = false;
+            datagrid.Columns["CorreoElectronico"].Visible = false;
+            datagrid.Columns["Dui"].Visible = false;
         }
+
         private void CargarLista()
         {
-            listaClientesDataGridView.DataSource = ""; // Vaciar DataGridView
-            listaClientesDataGridView.DataSource = Lista; // Agregar objetos de lista
-            listaClientesDataGridView.Columns["IdMunicipio"].Visible = false;
-            listaClientesDataGridView.Columns["IdDepartamento"].Visible = false;
-            listaClientesDataGridView.Columns["IdRol"].Visible = false;
-            listaClientesDataGridView.Columns["IdEstado"].Visible = false;
-            listaClientesDataGridView.Columns["Municipio"].Visible = false;
-            listaClientesDataGridView.Columns["Rol"].Visible = false;
-            listaClientesDataGridView.Columns["Estado"].Visible = false;
-            listaClientesDataGridView.Columns["Departamento"].Visible = false;
-            listaClientesDataGridView.Columns["IdEstado"].Visible = false;
-            listaClientesDataGridView.Columns["Contrasena"].Visible = false;
-            listaClientesDataGridView.Columns["Direccion"].Visible = false;
-            listaClientesDataGridView.Columns["UrlImagen"].Visible = false;
-            listaClientesDataGridView.Columns["CorreoElectronico"].Visible = false;
+            var selectedTab = tabControlGuna.SelectedTab;
+
+            if (selectedTab.Text == "Activos")
+            {
+                listaClientesDataGridView.DataSource = "";
+                usuarioBL.CargarEstadoVirtual(Lista);
+                usuarioBL.CargarRolVirtual(Lista);
+                listaClientesDataGridView.DataSource = Lista.Select(x => new UsuarioVM(x)).ToList();
+                OcultarColumnas(listaClientesDataGridView);
+            }
+            if (selectedTab.Text == "Inactivos")
+            {
+                listaClientesInactivosDataGridView.DataSource = "";
+                usuarioBL.CargarEstadoVirtual(Lista);
+                usuarioBL.CargarRolVirtual(Lista);
+                listaClientesInactivosDataGridView.DataSource = Lista.Select(x => new UsuarioVM(x)).ToList();
+                OcultarColumnas(listaClientesInactivosDataGridView);
+            }
         }
+
+        private void CargarTarjetas()
+        {
+            UsuarioBL usuarioBL = new UsuarioBL();
+
+            Usuario totalClientes = usuarioBL.ContarTotalClientes();
+            Usuario clientesActivos = usuarioBL.ContarClientesActivos();
+            Usuario clientesInactivos = usuarioBL.ContarClientesInactivos();
+
+            // Asignación de los valores a las etiquetas
+            ClientesTotalesLabel.Text = totalClientes.ClientesTotales.ToString();
+            ClientesActivosLabel.Text = clientesActivos.ClientesActivos.ToString();
+            ClientesInactivosLabel.Text = clientesInactivos.ClientesInactivos.ToString();
+        }
+
+        
+        private void AdminClienteForm_Load(object sender, EventArgs e)
+        {
+
+            CargarTarjetas();
+
+
+            //Cargar ComboBoxs en el formulario
+            CargarFiltros();
+
+        }
+       
         private void BarraDeBusquedaClienteTextBox_TextChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(BarraDeBusquedaClienteTextBox.Text))
+            {
+                // Limpiar las tablas
+                listaClientesDataGridView.DataSource = null;
+                listaClientesInactivosDataGridView.DataSource = null;
+                return;
+            }
+
             // Obtener los filtros de busquedas
             Usuario usuario = new Usuario();
             switch (FiltroClienteComboBox.SelectedValue)
@@ -100,10 +141,119 @@ namespace SistemaBliss.UI.WinForms
                     return;
             }
 
+            var selectedTab = tabControlGuna.SelectedTab;
 
-            // Ejecutar busqueda
-            Lista = usuarioBL.Buscar(usuario);
-            CargarLista();
+            if (selectedTab.Text == "Activos")
+            {
+                Lista = usuarioBL.BuscarClientesActivos(usuario);
+                CargarLista();
+                CargarTarjetas();
+
+            }
+            if (selectedTab.Text == "Inactivos")
+            {
+
+                Lista = usuarioBL.BuscarClientesInctivos(usuario);
+                CargarLista();
+                CargarTarjetas();
+
+            }
+        }
+
+        private void FiltroClienteComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            BarraDeBusquedaClienteTextBox.Text = "";
+        }
+
+        
+
+        private void modificarClienteButton_Click(object sender, EventArgs e)
+        {
+            var selectedTab = tabControlGuna.SelectedTab;
+
+            if (selectedTab.Text == "Activos")
+            {
+                short idTabla = (short)ToolsForm.ObtenerIdGrid(listaClientesDataGridView);
+                if (idTabla > 0)
+                {
+                    // Abrir formulario para modificar el empleado seleccionado
+                    AgregarClienteForm formModificar = new AgregarClienteForm();
+                    formModificar.idUsuario = idTabla;
+                    formModificar.ShowDialog();
+
+                    Usuario usuario = new Usuario();
+                    switch (FiltroClienteComboBox.SelectedValue)
+                    {
+                        case 1: // Nombre
+                            usuario.Nombre = BarraDeBusquedaClienteTextBox.Text;
+                            break;
+                        case 2: // Apellido
+                            usuario.Apellido = BarraDeBusquedaClienteTextBox.Text;
+                            break;
+                        case 3: // Telefono
+                            usuario.Telefono = BarraDeBusquedaClienteTextBox.Text;
+                            break;
+                        default:
+                            // Si no se selecciona ningún filtro válido, puedes retornar o manejar el caso
+                            return;
+                    }
+
+                    Lista = usuarioBL.BuscarClientesActivos(usuario);
+                    CargarLista();
+                    CargarTarjetas();
+                }
+                else
+                {
+                    MessageBox.Show("Primero debe seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            if (selectedTab.Text == "Inactivos")
+            {
+
+                short idTabla = (short)ToolsForm.ObtenerIdGrid(listaClientesInactivosDataGridView);
+                if (idTabla > 0)
+                {
+                    // Abrir formulario para modificar el empleado seleccionado
+                    AgregarEmpleadoForm formModificar = new AgregarEmpleadoForm();
+                    formModificar.idUsuario = idTabla;
+                    formModificar.ShowDialog();
+
+                    Usuario usuario = new Usuario();
+                    switch (FiltroClienteComboBox.SelectedValue)
+                    {
+                        case 1: // Nombre
+                            usuario.Nombre = BarraDeBusquedaClienteTextBox.Text;
+                            break;
+                        case 2: // Apellido
+                            usuario.Apellido = BarraDeBusquedaClienteTextBox.Text;
+                            break;
+                        case 3: // Telefono
+                            usuario.Telefono = BarraDeBusquedaClienteTextBox.Text;
+                            break;
+                        default:
+                            // Si no se selecciona ningún filtro válido, puedes retornar o manejar el caso
+                            return;
+                    }
+
+                    Lista = usuarioBL.BuscarClientesInctivos(usuario);
+                    CargarLista();
+                    CargarTarjetas();
+                }
+                else
+                {
+                    MessageBox.Show("Primero debe seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
+
+        private void AgregarClienteButton_Click(object sender, EventArgs e)
+        {
+            AgregarClienteForm agregarEmpleado = new AgregarClienteForm();
+            agregarEmpleado.ShowDialog();
+
+            CargarTarjetas();
         }
     }
 }

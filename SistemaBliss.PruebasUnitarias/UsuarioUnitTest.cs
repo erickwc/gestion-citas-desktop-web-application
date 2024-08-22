@@ -73,14 +73,6 @@ namespace SistemaBliss.PruebasUnitarias
             Assert.AreNotEqual(0, usuario.IdUsuario);
         }
 
-        [TestMethod]
-        public void T4_Buscar()
-        {
-            List<Usuario> lista = usuarioBL.Buscar(new Usuario { Nombre = "Erick Wilfredo" });
-
-            // Comprobacion de la prueba
-            // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
-            Assert.AreNotEqual(0, lista.Count);
-        }
+        
     }
 }

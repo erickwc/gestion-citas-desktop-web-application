@@ -15,14 +15,14 @@ namespace SistemaBliss.DAL
     public class ClienteDAL
     {
         #region Metodos de Busqueda
-        public static Cliente ObtenerPorId(byte pIdCliente)
+        public static Cliente ObtenerPorId(int pIdCliente)
         {
             Cliente obj = new Cliente();
 
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "SP_ObtenerClientePorId";
-            comando.Parameters.AddWithValue("@IdCliente", pIdCliente);
+            comando.Parameters.AddWithValue("@IdUsuario", pIdCliente);
 
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
@@ -52,7 +52,6 @@ namespace SistemaBliss.DAL
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                byte contador = 0;
                 string whereSQL = " ";
                 string consulta = @"SELECT TOP 100 IdCliente, IdUsuario, ServiciosAcumulados FROM Cliente ";
 

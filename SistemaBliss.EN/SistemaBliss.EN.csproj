@@ -54,6 +54,7 @@
     <Compile Include="Empresa.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="HorariosEmpresa.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Municipio.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Profesión.cs" />

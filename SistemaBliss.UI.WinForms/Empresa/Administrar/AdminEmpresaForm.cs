@@ -116,18 +116,20 @@ namespace SistemaBliss.UI.WinForms
                     empresa.Nombre = nombreTextBox.Text;
                     empresa.Telefono = telefonoTextBox.Text;
                     empresa.Direccion = direccionTextBox.Text;
-                    empresa.CorreoElectronico = telefonoTextBox.Text;
+                    empresa.CorreoElectronico = correoElectronicoTextBox.Text;
 
                     empresa.IdEmpresa = 1;
                     resultado = empresaBL.Modificar(empresa); 
                    
                     if (resultado > 0)
                     {
-                        validacionCampos.CampoValidoAparienciaTextBox(nombreTextBox);
-                        validacionCampos.CampoValidoAparienciaTextBox(telefonoTextBox);
-                        validacionCampos.CampoValidoAparienciaTextBox(direccionTextBox);
-                        validacionCampos.CampoValidoAparienciaTextBox(correoElectronicoTextBox);
                         MessageBox.Show("Registro guardado exitosamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        empresa = empresaBL.ObtenerPorId(1);
+                        nombreTextBox.Text = empresa.Nombre;
+                        direccionTextBox.Text = empresa.Direccion;
+                        telefonoTextBox.Text = empresa.Telefono;
+                        correoElectronicoTextBox.Text = empresa.CorreoElectronico;
                     }
                     else
                     {
@@ -256,6 +258,11 @@ namespace SistemaBliss.UI.WinForms
         }
 
         private void eliminarButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
 
         }

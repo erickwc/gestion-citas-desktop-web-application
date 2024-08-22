@@ -8,7 +8,7 @@ namespace SistemaBliss.EN
 {
     public class Municipio
     {
-        public int IdMunicipio { get; set; }
+        public Int16 IdMunicipio { get; set; }
         public string Nombre { get; set; }
     }
 }

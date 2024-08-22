@@ -67,7 +67,7 @@ namespace SistemaBliss.DAL
                     Rol obj = new Rol();
 
                     // Manejar posibles valores nulos y conversiones adecuadas
-                    obj.IdRol = reader.IsDBNull(0) ? 0 : Convert.ToInt32(reader.GetValue(0));
+                    obj.IdRol = Convert.ToByte(reader.GetValue(0));
                     obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
 
                     lista.Add(obj);
@@ -79,6 +79,44 @@ namespace SistemaBliss.DAL
             return lista;
         }
 
+
+
+        // TRATAMIENTO DE DATOS
+        public static Dictionary<byte, Rol> ObtenerDiccionario(byte[] pArrayIdRol)
+        {
+            List<Rol> lista = new List<Rol>();
+
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string consulta = @"SELECT r.IdRol, r.Nombre
+            FROM Rol r
+            WHERE r.IdRol IN (" + string.Join(",", pArrayIdRol.Select((id, index) => "@Id" + index)) + ")";
+
+                comando.CommandText = consulta;
+
+                // Añadir los parámetros
+                for (int i = 0; i < pArrayIdRol.Length; i++)
+                {
+                    comando.Parameters.AddWithValue("@Id" + i, pArrayIdRol[i]);
+                }
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Rol obj = new Rol();
+                    // Orden de las columnas depende de la Consulta SELECT utilizada
+                    obj.IdRol = reader.GetByte(0); // Asumiendo que IdEstado es de tipo int
+                    obj.Nombre = reader.GetString(1);
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+
+            }
+
+            // El return se puede explicar como: "x" es una instancia de cargo
+            // y el metodo debe devolver un diccionario <byte, Cargo>, IdCargo es de tipo byte y Cargo es de tipo Cargo 
+            return lista.ToDictionary(x => x.IdRol, x => x);
+        }
 
 
     }

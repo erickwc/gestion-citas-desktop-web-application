@@ -32,69 +32,57 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@IdUsuario", pDetalleProfesion.IdUsuario);
             return ComunDB.EjecutarComando(comando);
         }
-        public static int Eliminar(DetalleProfesión pDetalleProfesion)
+        public static int Eliminar(int pDetalleProfesion)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_EliminarDetalleProfesion";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdDetalleProfesion", pDetalleProfesion.IdDetalleProfesion);
+            comando.Parameters.AddWithValue("@IdDetalleProfesion", pDetalleProfesion);
             return ComunDB.EjecutarComando(comando);
         }
-        public static DetalleProfesión ObtenerPorId(Int32 pIdDetalleProfesion)
-        {
-            DetalleProfesión obj = new DetalleProfesión();
 
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.CommandText = "SP_ObtenerDetalleProfesionPorId";
-            comando.Parameters.AddWithValue("@IdDetalleProfesion", pIdDetalleProfesion);
 
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
-            {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdDetalleProfesion = reader.GetInt32(0); // Columna [0] cero
-                obj.IdUsuario = reader.GetInt32(1);  // Columna [1] uno
-                //obj.IdProfesion = reader.GetInt32(2);  // Columna [1] uno
-            }
-            return obj;
-        }
-
-        public static List<DetalleProfesión> Buscar(DetalleProfesión pDetalleProfesion)
+        public static List<DetalleProfesión> Buscar(int pIdUsuario)
         {
             List<DetalleProfesión> lista = new List<DetalleProfesión>();
 
-            #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                byte contador = 0;
-                string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdDetalleProfesion, IdUsuario, IdProfesion
-                            FROM DetalleProfesion ";
+                string consulta = @"
+            SELECT 
+                P.IdProfesion,
+                P.Nombre AS NombreProfesion,
+                DP.IdDetalleProfesion
+            FROM 
+                DetalleProfesion DP
+            INNER JOIN 
+                Profesion P ON DP.IdProfesion = P.IdProfesion
+            WHERE 
+                DP.IdUsuario = @IdUsuario";
 
+                // Asignar el parámetro
+                comando.CommandText = consulta;
+                comando.Parameters.AddWithValue("@IdUsuario", pIdUsuario);
 
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
+                // Ejecutar la consulta
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
                 {
-                    whereSQL = " WHERE " + whereSQL;
+                    while (reader.Read())
+                    {
+                        DetalleProfesión detalle = new DetalleProfesión()
+                        {
+                            IdProfesion = Convert.ToInt32(reader["IdProfesion"]),
+                            NombreProfesion = reader["NombreProfesion"].ToString(),
+                            IdDetalleProfesion = Convert.ToInt32(reader["IdDetalleProfesion"])
+                        };
+                        lista.Add(detalle);
+                    }
                 }
-                comando.CommandText = consulta + whereSQL;
-
-                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-                while (reader.Read())
-                {
-                    DetalleProfesión obj = new DetalleProfesión();
-                    // Orden de las columnas depende de la Consulta SELECT utilizada
-                    obj.IdDetalleProfesion = reader.GetInt32(0);
-                    obj.IdUsuario = reader.GetInt32(1);
-                    obj.IdProfesion = reader.GetByte(2);
-                    lista.Add(obj);
-                }
-                comando.Connection.Dispose();
             }
-            #endregion
+
             return lista;
         }
+
 
     }
 }

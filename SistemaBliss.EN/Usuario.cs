@@ -27,5 +27,16 @@ namespace SistemaBliss.EN
         public virtual Estado Estado { get; set; }
         public virtual Departamento Departamento { get; set; }
         public virtual Municipio Municipio { get; set; }
+
+
+
+        public int ClientesTotales { get; set; }
+        public int ClientesActivos { get; set; }
+        public int ClientesInactivos { get; set; }
+
+        public int EmpleadosTotales { get; set; }
+        public int EmpleadosActivos { get; set; }
+        public int EmpleadosInactivos { get; set; }
+
     }
 }

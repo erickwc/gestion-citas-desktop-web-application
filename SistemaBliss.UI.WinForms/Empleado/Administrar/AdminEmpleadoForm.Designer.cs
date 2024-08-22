@@ -28,18 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.modificarEmpButton = new Guna.UI2.WinForms.Guna2Button();
             this.btn_profesiones = new Guna.UI2.WinForms.Guna2Button();
             this.FiltroEmpleadoComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.EmpActivosInactivosTabControl = new Guna.UI2.WinForms.Guna2TabControl();
+            this.tabControlGuna = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listaEmpleadosDataGridView = new System.Windows.Forms.DataGridView();
             this.TablaEmpleadoDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listaEmpleadosInactivosDataGridView = new System.Windows.Forms.DataGridView();
             this.BarraDeBusquedaEmpleadoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.AdminEmpleadosLabel = new System.Windows.Forms.Label();
             this.EmpleadosRegistradosLabel = new System.Windows.Forms.Label();
@@ -64,13 +73,15 @@
             this.AgregarEmpleadoButton = new Guna.UI2.WinForms.Guna2Button();
             this.IntruccionEmpleadoLabel = new System.Windows.Forms.Label();
             this.AgregareEmpleadoLabel = new System.Windows.Forms.Label();
-            this.modificarEmpButton = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            this.EmpActivosInactivosTabControl.SuspendLayout();
+            this.tabControlGuna.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaEmpleadosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaEmpleadoDataGridView)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaEmpleadosInactivosDataGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.EmpleadosInactivosPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -88,27 +99,25 @@
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(21, 20, 0, 20);
-            this.panel1.Size = new System.Drawing.Size(1467, 779);
+            this.panel1.Padding = new System.Windows.Forms.Padding(16, 16, 0, 16);
+            this.panel1.Size = new System.Drawing.Size(1100, 633);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel5, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 20);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1446, 739);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1084, 601);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel5
@@ -119,18 +128,40 @@
             this.guna2Panel5.Controls.Add(this.modificarEmpButton);
             this.guna2Panel5.Controls.Add(this.btn_profesiones);
             this.guna2Panel5.Controls.Add(this.FiltroEmpleadoComboBox);
-            this.guna2Panel5.Controls.Add(this.EmpActivosInactivosTabControl);
+            this.guna2Panel5.Controls.Add(this.tabControlGuna);
             this.guna2Panel5.Controls.Add(this.BarraDeBusquedaEmpleadoTextBox);
             this.guna2Panel5.Controls.Add(this.AdminEmpleadosLabel);
             this.guna2Panel5.Controls.Add(this.EmpleadosRegistradosLabel);
             this.guna2Panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(0, 241);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(0, 20, 21, 0);
+            this.guna2Panel5.Location = new System.Drawing.Point(0, 196);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(0, 16, 16, 0);
             this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.guna2Panel5.Size = new System.Drawing.Size(1425, 498);
+            this.guna2Panel5.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2Panel5.Size = new System.Drawing.Size(1068, 405);
             this.guna2Panel5.TabIndex = 1;
+            // 
+            // modificarEmpButton
+            // 
+            this.modificarEmpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modificarEmpButton.Animated = true;
+            this.modificarEmpButton.BorderRadius = 10;
+            this.modificarEmpButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.modificarEmpButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.modificarEmpButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.modificarEmpButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.modificarEmpButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.modificarEmpButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.modificarEmpButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.modificarEmpButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(134)))), ((int)(((byte)(47)))));
+            this.modificarEmpButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(134)))), ((int)(((byte)(47)))));
+            this.modificarEmpButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.modificarEmpButton.Location = new System.Drawing.Point(916, 19);
+            this.modificarEmpButton.Name = "modificarEmpButton";
+            this.modificarEmpButton.Size = new System.Drawing.Size(137, 46);
+            this.modificarEmpButton.TabIndex = 9;
+            this.modificarEmpButton.Text = "Modificar";
+            this.modificarEmpButton.Click += new System.EventHandler(this.modificarEmpButton_Click);
             // 
             // btn_profesiones
             // 
@@ -146,10 +177,9 @@
             this.btn_profesiones.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btn_profesiones.ForeColor = System.Drawing.Color.White;
             this.btn_profesiones.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.btn_profesiones.Location = new System.Drawing.Point(1156, 10);
-            this.btn_profesiones.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_profesiones.Location = new System.Drawing.Point(768, 19);
             this.btn_profesiones.Name = "btn_profesiones";
-            this.btn_profesiones.Size = new System.Drawing.Size(183, 57);
+            this.btn_profesiones.Size = new System.Drawing.Size(137, 46);
             this.btn_profesiones.TabIndex = 8;
             this.btn_profesiones.Text = "Profesiones";
             this.btn_profesiones.Click += new System.EventHandler(this.btn_profesiones_Click);
@@ -166,57 +196,110 @@
             this.FiltroEmpleadoComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FiltroEmpleadoComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.FiltroEmpleadoComboBox.ItemHeight = 39;
-            this.FiltroEmpleadoComboBox.Location = new System.Drawing.Point(460, 25);
-            this.FiltroEmpleadoComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.FiltroEmpleadoComboBox.Location = new System.Drawing.Point(250, 20);
             this.FiltroEmpleadoComboBox.Name = "FiltroEmpleadoComboBox";
-            this.FiltroEmpleadoComboBox.Size = new System.Drawing.Size(280, 45);
+            this.FiltroEmpleadoComboBox.Size = new System.Drawing.Size(211, 45);
             this.FiltroEmpleadoComboBox.TabIndex = 7;
+            this.FiltroEmpleadoComboBox.SelectedValueChanged += new System.EventHandler(this.FiltroEmpleadoComboBox_SelectedValueChanged);
             // 
-            // EmpActivosInactivosTabControl
+            // tabControlGuna
             // 
-            this.EmpActivosInactivosTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControlGuna.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmpActivosInactivosTabControl.Controls.Add(this.tabPage1);
-            this.EmpActivosInactivosTabControl.Controls.Add(this.tabPage2);
-            this.EmpActivosInactivosTabControl.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.EmpActivosInactivosTabControl.ItemSize = new System.Drawing.Size(180, 40);
-            this.EmpActivosInactivosTabControl.Location = new System.Drawing.Point(11, 106);
-            this.EmpActivosInactivosTabControl.Margin = new System.Windows.Forms.Padding(4);
-            this.EmpActivosInactivosTabControl.Name = "EmpActivosInactivosTabControl";
-            this.EmpActivosInactivosTabControl.SelectedIndex = 0;
-            this.EmpActivosInactivosTabControl.Size = new System.Drawing.Size(1404, 383);
-            this.EmpActivosInactivosTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.EmpActivosInactivosTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.White;
-            this.EmpActivosInactivosTabControl.TabButtonHoverState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmpActivosInactivosTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.EmpActivosInactivosTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.Empty;
-            this.EmpActivosInactivosTabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.EmpActivosInactivosTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.White;
-            this.EmpActivosInactivosTabControl.TabButtonIdleState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmpActivosInactivosTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
-            this.EmpActivosInactivosTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.Empty;
-            this.EmpActivosInactivosTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.EmpActivosInactivosTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.White;
-            this.EmpActivosInactivosTabControl.TabButtonSelectedState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.EmpActivosInactivosTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.EmpActivosInactivosTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.EmpActivosInactivosTabControl.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.EmpActivosInactivosTabControl.TabIndex = 5;
-            this.EmpActivosInactivosTabControl.TabMenuBackColor = System.Drawing.Color.White;
-            this.EmpActivosInactivosTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            this.tabControlGuna.Controls.Add(this.tabPage1);
+            this.tabControlGuna.Controls.Add(this.tabPage2);
+            this.tabControlGuna.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tabControlGuna.ItemSize = new System.Drawing.Size(180, 40);
+            this.tabControlGuna.Location = new System.Drawing.Point(8, 86);
+            this.tabControlGuna.Name = "tabControlGuna";
+            this.tabControlGuna.SelectedIndex = 0;
+            this.tabControlGuna.Size = new System.Drawing.Size(1052, 311);
+            this.tabControlGuna.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonHoverState.FillColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabButtonHoverState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlGuna.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.tabControlGuna.TabButtonHoverState.InnerColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonIdleState.FillColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabButtonIdleState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlGuna.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.tabControlGuna.TabButtonIdleState.InnerColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonSelectedState.FillColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabButtonSelectedState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tabControlGuna.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.tabControlGuna.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.tabControlGuna.TabButtonSize = new System.Drawing.Size(180, 40);
+            this.tabControlGuna.TabIndex = 5;
+            this.tabControlGuna.TabMenuBackColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listaEmpleadosDataGridView);
             this.tabPage1.Controls.Add(this.TablaEmpleadoDataGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1396, 335);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1044, 263);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Activos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listaEmpleadosDataGridView
+            // 
+            this.listaEmpleadosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listaEmpleadosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listaEmpleadosDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.listaEmpleadosDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaEmpleadosDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listaEmpleadosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaEmpleadosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.listaEmpleadosDataGridView.ColumnHeadersHeight = 45;
+            this.listaEmpleadosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listaEmpleadosDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.listaEmpleadosDataGridView.EnableHeadersVisualStyles = false;
+            this.listaEmpleadosDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.listaEmpleadosDataGridView.Location = new System.Drawing.Point(4, 6);
+            this.listaEmpleadosDataGridView.Name = "listaEmpleadosDataGridView";
+            this.listaEmpleadosDataGridView.ReadOnly = true;
+            this.listaEmpleadosDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaEmpleadosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.listaEmpleadosDataGridView.RowHeadersVisible = false;
+            this.listaEmpleadosDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.listaEmpleadosDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.listaEmpleadosDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.listaEmpleadosDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.listaEmpleadosDataGridView.RowTemplate.Height = 60;
+            this.listaEmpleadosDataGridView.RowTemplate.ReadOnly = true;
+            this.listaEmpleadosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listaEmpleadosDataGridView.Size = new System.Drawing.Size(1036, 251);
+            this.listaEmpleadosDataGridView.TabIndex = 37;
+            this.listaEmpleadosDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listaEmpleadosDataGridView_CellContentClick_1);
             // 
             // TablaEmpleadoDataGridView
             // 
@@ -242,12 +325,13 @@
             this.TablaEmpleadoDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.TablaEmpleadoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TablaEmpleadoDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.TablaEmpleadoDataGridView.Location = new System.Drawing.Point(4, 4);
+            this.TablaEmpleadoDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.TablaEmpleadoDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.TablaEmpleadoDataGridView.Name = "TablaEmpleadoDataGridView";
             this.TablaEmpleadoDataGridView.RowHeadersVisible = false;
             this.TablaEmpleadoDataGridView.RowHeadersWidth = 51;
             this.TablaEmpleadoDataGridView.RowTemplate.Height = 24;
-            this.TablaEmpleadoDataGridView.Size = new System.Drawing.Size(1388, 327);
+            this.TablaEmpleadoDataGridView.Size = new System.Drawing.Size(1038, 257);
             this.TablaEmpleadoDataGridView.TabIndex = 0;
             this.TablaEmpleadoDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.TablaEmpleadoDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -273,14 +357,68 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listaEmpleadosInactivosDataGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1396, 335);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1044, 263);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Inactivos";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // listaEmpleadosInactivosDataGridView
+            // 
+            this.listaEmpleadosInactivosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listaEmpleadosInactivosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listaEmpleadosInactivosDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.listaEmpleadosInactivosDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaEmpleadosInactivosDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listaEmpleadosInactivosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaEmpleadosInactivosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.listaEmpleadosInactivosDataGridView.ColumnHeadersHeight = 45;
+            this.listaEmpleadosInactivosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listaEmpleadosInactivosDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            this.listaEmpleadosInactivosDataGridView.EnableHeadersVisualStyles = false;
+            this.listaEmpleadosInactivosDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.listaEmpleadosInactivosDataGridView.Location = new System.Drawing.Point(4, 6);
+            this.listaEmpleadosInactivosDataGridView.Name = "listaEmpleadosInactivosDataGridView";
+            this.listaEmpleadosInactivosDataGridView.ReadOnly = true;
+            this.listaEmpleadosInactivosDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaEmpleadosInactivosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.listaEmpleadosInactivosDataGridView.RowHeadersVisible = false;
+            this.listaEmpleadosInactivosDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.listaEmpleadosInactivosDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.listaEmpleadosInactivosDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.listaEmpleadosInactivosDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.listaEmpleadosInactivosDataGridView.RowTemplate.Height = 60;
+            this.listaEmpleadosInactivosDataGridView.RowTemplate.ReadOnly = true;
+            this.listaEmpleadosInactivosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listaEmpleadosInactivosDataGridView.Size = new System.Drawing.Size(1037, 251);
+            this.listaEmpleadosInactivosDataGridView.TabIndex = 38;
             // 
             // BarraDeBusquedaEmpleadoTextBox
             // 
@@ -296,24 +434,24 @@
             this.BarraDeBusquedaEmpleadoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.BarraDeBusquedaEmpleadoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BarraDeBusquedaEmpleadoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.BarraDeBusquedaEmpleadoTextBox.Location = new System.Drawing.Point(760, 25);
-            this.BarraDeBusquedaEmpleadoTextBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.BarraDeBusquedaEmpleadoTextBox.Location = new System.Drawing.Point(475, 20);
+            this.BarraDeBusquedaEmpleadoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.BarraDeBusquedaEmpleadoTextBox.Name = "BarraDeBusquedaEmpleadoTextBox";
             this.BarraDeBusquedaEmpleadoTextBox.PasswordChar = '\0';
             this.BarraDeBusquedaEmpleadoTextBox.PlaceholderText = "Buscador";
             this.BarraDeBusquedaEmpleadoTextBox.SelectedText = "";
-            this.BarraDeBusquedaEmpleadoTextBox.Size = new System.Drawing.Size(375, 57);
+            this.BarraDeBusquedaEmpleadoTextBox.Size = new System.Drawing.Size(281, 46);
             this.BarraDeBusquedaEmpleadoTextBox.TabIndex = 4;
+            this.BarraDeBusquedaEmpleadoTextBox.TextChanged += new System.EventHandler(this.BarraDeBusquedaEmpleadoTextBox_TextChanged);
             // 
             // AdminEmpleadosLabel
             // 
             this.AdminEmpleadosLabel.AutoSize = true;
             this.AdminEmpleadosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminEmpleadosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.AdminEmpleadosLabel.Location = new System.Drawing.Point(21, 57);
-            this.AdminEmpleadosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AdminEmpleadosLabel.Location = new System.Drawing.Point(16, 46);
             this.AdminEmpleadosLabel.Name = "AdminEmpleadosLabel";
-            this.AdminEmpleadosLabel.Size = new System.Drawing.Size(480, 32);
+            this.AdminEmpleadosLabel.Size = new System.Drawing.Size(380, 25);
             this.AdminEmpleadosLabel.TabIndex = 3;
             this.AdminEmpleadosLabel.Text = "Administra todos los empleados registrados";
             // 
@@ -322,10 +460,9 @@
             this.EmpleadosRegistradosLabel.AutoSize = true;
             this.EmpleadosRegistradosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmpleadosRegistradosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.EmpleadosRegistradosLabel.Location = new System.Drawing.Point(21, 25);
-            this.EmpleadosRegistradosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EmpleadosRegistradosLabel.Location = new System.Drawing.Point(16, 20);
             this.EmpleadosRegistradosLabel.Name = "EmpleadosRegistradosLabel";
-            this.EmpleadosRegistradosLabel.Size = new System.Drawing.Size(259, 32);
+            this.EmpleadosRegistradosLabel.Size = new System.Drawing.Size(205, 25);
             this.EmpleadosRegistradosLabel.TabIndex = 2;
             this.EmpleadosRegistradosLabel.Text = "Empleados registrados";
             // 
@@ -346,8 +483,8 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 222F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1446, 221);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1084, 180);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // EmpleadosInactivosPanel
@@ -361,18 +498,17 @@
             this.EmpleadosInactivosPanel.Controls.Add(this.CantidadEmpInactivosLabel);
             this.EmpleadosInactivosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmpleadosInactivosPanel.FillColor = System.Drawing.Color.White;
-            this.EmpleadosInactivosPanel.Location = new System.Drawing.Point(1156, 0);
-            this.EmpleadosInactivosPanel.Margin = new System.Windows.Forms.Padding(0, 0, 21, 0);
+            this.EmpleadosInactivosPanel.Location = new System.Drawing.Point(865, 0);
+            this.EmpleadosInactivosPanel.Margin = new System.Windows.Forms.Padding(0, 0, 16, 0);
             this.EmpleadosInactivosPanel.Name = "EmpleadosInactivosPanel";
-            this.EmpleadosInactivosPanel.Size = new System.Drawing.Size(269, 221);
+            this.EmpleadosInactivosPanel.Size = new System.Drawing.Size(203, 180);
             this.EmpleadosInactivosPanel.TabIndex = 3;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox4.Image = global::SistemaBliss.UI.WinForms.Properties.Resources.icon_inactivos;
-            this.pictureBox4.Location = new System.Drawing.Point(219, 21);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Location = new System.Drawing.Point(165, 17);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 20);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -384,10 +520,9 @@
             this.EmpleadosInactivosLabel.AutoSize = true;
             this.EmpleadosInactivosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmpleadosInactivosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.EmpleadosInactivosLabel.Location = new System.Drawing.Point(21, 21);
-            this.EmpleadosInactivosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EmpleadosInactivosLabel.Location = new System.Drawing.Point(16, 17);
             this.EmpleadosInactivosLabel.Name = "EmpleadosInactivosLabel";
-            this.EmpleadosInactivosLabel.Size = new System.Drawing.Size(230, 32);
+            this.EmpleadosInactivosLabel.Size = new System.Drawing.Size(183, 25);
             this.EmpleadosInactivosLabel.TabIndex = 3;
             this.EmpleadosInactivosLabel.Text = "Empleados inactivos";
             // 
@@ -397,10 +532,9 @@
             this.RegistrosEmpInactivosLabel.AutoSize = true;
             this.RegistrosEmpInactivosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrosEmpInactivosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.RegistrosEmpInactivosLabel.Location = new System.Drawing.Point(21, 161);
-            this.RegistrosEmpInactivosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RegistrosEmpInactivosLabel.Location = new System.Drawing.Point(16, 131);
             this.RegistrosEmpInactivosLabel.Name = "RegistrosEmpInactivosLabel";
-            this.RegistrosEmpInactivosLabel.Size = new System.Drawing.Size(111, 32);
+            this.RegistrosEmpInactivosLabel.Size = new System.Drawing.Size(89, 25);
             this.RegistrosEmpInactivosLabel.TabIndex = 4;
             this.RegistrosEmpInactivosLabel.Text = "Registros";
             // 
@@ -410,10 +544,9 @@
             this.CantidadEmpInactivosLabel.AutoSize = true;
             this.CantidadEmpInactivosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Bold);
             this.CantidadEmpInactivosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.CantidadEmpInactivosLabel.Location = new System.Drawing.Point(4, 46);
-            this.CantidadEmpInactivosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CantidadEmpInactivosLabel.Location = new System.Drawing.Point(3, 37);
             this.CantidadEmpInactivosLabel.Name = "CantidadEmpInactivosLabel";
-            this.CantidadEmpInactivosLabel.Size = new System.Drawing.Size(94, 112);
+            this.CantidadEmpInactivosLabel.Size = new System.Drawing.Size(75, 89);
             this.CantidadEmpInactivosLabel.TabIndex = 2;
             this.CantidadEmpInactivosLabel.Text = "0";
             // 
@@ -428,18 +561,17 @@
             this.EmpleadosActivosPanel.Controls.Add(this.CantidadEmpActivosLabel);
             this.EmpleadosActivosPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmpleadosActivosPanel.FillColor = System.Drawing.Color.White;
-            this.EmpleadosActivosPanel.Location = new System.Drawing.Point(867, 0);
-            this.EmpleadosActivosPanel.Margin = new System.Windows.Forms.Padding(0, 0, 21, 0);
+            this.EmpleadosActivosPanel.Location = new System.Drawing.Point(649, 0);
+            this.EmpleadosActivosPanel.Margin = new System.Windows.Forms.Padding(0, 0, 16, 0);
             this.EmpleadosActivosPanel.Name = "EmpleadosActivosPanel";
-            this.EmpleadosActivosPanel.Size = new System.Drawing.Size(268, 221);
+            this.EmpleadosActivosPanel.Size = new System.Drawing.Size(200, 180);
             this.EmpleadosActivosPanel.TabIndex = 2;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.Image = global::SistemaBliss.UI.WinForms.Properties.Resources.icon_activos;
-            this.pictureBox3.Location = new System.Drawing.Point(220, 21);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Location = new System.Drawing.Point(164, 17);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(21, 20);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -451,10 +583,9 @@
             this.EmpleadosActivosLabel.AutoSize = true;
             this.EmpleadosActivosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmpleadosActivosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.EmpleadosActivosLabel.Location = new System.Drawing.Point(21, 21);
-            this.EmpleadosActivosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EmpleadosActivosLabel.Location = new System.Drawing.Point(16, 17);
             this.EmpleadosActivosLabel.Name = "EmpleadosActivosLabel";
-            this.EmpleadosActivosLabel.Size = new System.Drawing.Size(210, 32);
+            this.EmpleadosActivosLabel.Size = new System.Drawing.Size(167, 25);
             this.EmpleadosActivosLabel.TabIndex = 3;
             this.EmpleadosActivosLabel.Text = "Empleados activos";
             // 
@@ -464,10 +595,9 @@
             this.RegistrosEmpActivosLabel.AutoSize = true;
             this.RegistrosEmpActivosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrosEmpActivosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.RegistrosEmpActivosLabel.Location = new System.Drawing.Point(21, 161);
-            this.RegistrosEmpActivosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RegistrosEmpActivosLabel.Location = new System.Drawing.Point(16, 131);
             this.RegistrosEmpActivosLabel.Name = "RegistrosEmpActivosLabel";
-            this.RegistrosEmpActivosLabel.Size = new System.Drawing.Size(111, 32);
+            this.RegistrosEmpActivosLabel.Size = new System.Drawing.Size(89, 25);
             this.RegistrosEmpActivosLabel.TabIndex = 4;
             this.RegistrosEmpActivosLabel.Text = "Registros";
             // 
@@ -477,10 +607,9 @@
             this.CantidadEmpActivosLabel.AutoSize = true;
             this.CantidadEmpActivosLabel.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Bold);
             this.CantidadEmpActivosLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.CantidadEmpActivosLabel.Location = new System.Drawing.Point(4, 46);
-            this.CantidadEmpActivosLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CantidadEmpActivosLabel.Location = new System.Drawing.Point(3, 37);
             this.CantidadEmpActivosLabel.Name = "CantidadEmpActivosLabel";
-            this.CantidadEmpActivosLabel.Size = new System.Drawing.Size(94, 112);
+            this.CantidadEmpActivosLabel.Size = new System.Drawing.Size(75, 89);
             this.CantidadEmpActivosLabel.TabIndex = 2;
             this.CantidadEmpActivosLabel.Text = "0";
             // 
@@ -495,18 +624,17 @@
             this.EmpleadosTotalesPanel.Controls.Add(this.CantidadEmpTotalLabel);
             this.EmpleadosTotalesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmpleadosTotalesPanel.FillColor = System.Drawing.Color.White;
-            this.EmpleadosTotalesPanel.Location = new System.Drawing.Point(578, 0);
-            this.EmpleadosTotalesPanel.Margin = new System.Windows.Forms.Padding(0, 0, 21, 0);
+            this.EmpleadosTotalesPanel.Location = new System.Drawing.Point(433, 0);
+            this.EmpleadosTotalesPanel.Margin = new System.Windows.Forms.Padding(0, 0, 16, 0);
             this.EmpleadosTotalesPanel.Name = "EmpleadosTotalesPanel";
-            this.EmpleadosTotalesPanel.Size = new System.Drawing.Size(268, 221);
+            this.EmpleadosTotalesPanel.Size = new System.Drawing.Size(200, 180);
             this.EmpleadosTotalesPanel.TabIndex = 1;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::SistemaBliss.UI.WinForms.Properties.Resources.icon_totales;
-            this.pictureBox2.Location = new System.Drawing.Point(217, 21);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(162, 17);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(21, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -518,10 +646,9 @@
             this.EmpleadosTotalesLabel.AutoSize = true;
             this.EmpleadosTotalesLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmpleadosTotalesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.EmpleadosTotalesLabel.Location = new System.Drawing.Point(21, 21);
-            this.EmpleadosTotalesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EmpleadosTotalesLabel.Location = new System.Drawing.Point(16, 17);
             this.EmpleadosTotalesLabel.Name = "EmpleadosTotalesLabel";
-            this.EmpleadosTotalesLabel.Size = new System.Drawing.Size(208, 32);
+            this.EmpleadosTotalesLabel.Size = new System.Drawing.Size(165, 25);
             this.EmpleadosTotalesLabel.TabIndex = 3;
             this.EmpleadosTotalesLabel.Text = "Empleados totales";
             // 
@@ -531,10 +658,9 @@
             this.RegistrosEmpTotalesLabel.AutoSize = true;
             this.RegistrosEmpTotalesLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrosEmpTotalesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.RegistrosEmpTotalesLabel.Location = new System.Drawing.Point(21, 161);
-            this.RegistrosEmpTotalesLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.RegistrosEmpTotalesLabel.Location = new System.Drawing.Point(16, 131);
             this.RegistrosEmpTotalesLabel.Name = "RegistrosEmpTotalesLabel";
-            this.RegistrosEmpTotalesLabel.Size = new System.Drawing.Size(111, 32);
+            this.RegistrosEmpTotalesLabel.Size = new System.Drawing.Size(89, 25);
             this.RegistrosEmpTotalesLabel.TabIndex = 4;
             this.RegistrosEmpTotalesLabel.Text = "Registros";
             // 
@@ -544,10 +670,9 @@
             this.CantidadEmpTotalLabel.AutoSize = true;
             this.CantidadEmpTotalLabel.Font = new System.Drawing.Font("Yu Gothic UI", 50F, System.Drawing.FontStyle.Bold);
             this.CantidadEmpTotalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.CantidadEmpTotalLabel.Location = new System.Drawing.Point(4, 46);
-            this.CantidadEmpTotalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CantidadEmpTotalLabel.Location = new System.Drawing.Point(3, 37);
             this.CantidadEmpTotalLabel.Name = "CantidadEmpTotalLabel";
-            this.CantidadEmpTotalLabel.Size = new System.Drawing.Size(94, 112);
+            this.CantidadEmpTotalLabel.Size = new System.Drawing.Size(75, 89);
             this.CantidadEmpTotalLabel.TabIndex = 2;
             this.CantidadEmpTotalLabel.Text = "0";
             // 
@@ -563,17 +688,17 @@
             this.AgregarEmpleadoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AgregarEmpleadoPanel.FillColor = System.Drawing.Color.White;
             this.AgregarEmpleadoPanel.Location = new System.Drawing.Point(0, 0);
-            this.AgregarEmpleadoPanel.Margin = new System.Windows.Forms.Padding(0, 0, 21, 0);
+            this.AgregarEmpleadoPanel.Margin = new System.Windows.Forms.Padding(0, 0, 16, 0);
             this.AgregarEmpleadoPanel.Name = "AgregarEmpleadoPanel";
-            this.AgregarEmpleadoPanel.Size = new System.Drawing.Size(557, 221);
+            this.AgregarEmpleadoPanel.Size = new System.Drawing.Size(417, 180);
             this.AgregarEmpleadoPanel.TabIndex = 0;
+            this.AgregarEmpleadoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AgregarEmpleadoPanel_Paint);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::SistemaBliss.UI.WinForms.Properties.Resources.icon_AñadirCliente;
-            this.pictureBox1.Location = new System.Drawing.Point(505, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(378, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 20);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -594,10 +719,9 @@
             this.AgregarEmpleadoButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.AgregarEmpleadoButton.ForeColor = System.Drawing.Color.White;
             this.AgregarEmpleadoButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.AgregarEmpleadoButton.Location = new System.Drawing.Point(288, 136);
-            this.AgregarEmpleadoButton.Margin = new System.Windows.Forms.Padding(4);
+            this.AgregarEmpleadoButton.Location = new System.Drawing.Point(202, 110);
             this.AgregarEmpleadoButton.Name = "AgregarEmpleadoButton";
-            this.AgregarEmpleadoButton.Size = new System.Drawing.Size(243, 70);
+            this.AgregarEmpleadoButton.Size = new System.Drawing.Size(194, 46);
             this.AgregarEmpleadoButton.TabIndex = 2;
             this.AgregarEmpleadoButton.Text = "Agregar empleado";
             this.AgregarEmpleadoButton.Click += new System.EventHandler(this.AgregarEmpleadoButton_Click);
@@ -607,10 +731,9 @@
             this.IntruccionEmpleadoLabel.AutoSize = true;
             this.IntruccionEmpleadoLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IntruccionEmpleadoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.IntruccionEmpleadoLabel.Location = new System.Drawing.Point(21, 53);
-            this.IntruccionEmpleadoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.IntruccionEmpleadoLabel.Location = new System.Drawing.Point(16, 43);
             this.IntruccionEmpleadoLabel.Name = "IntruccionEmpleadoLabel";
-            this.IntruccionEmpleadoLabel.Size = new System.Drawing.Size(451, 32);
+            this.IntruccionEmpleadoLabel.Size = new System.Drawing.Size(357, 25);
             this.IntruccionEmpleadoLabel.TabIndex = 1;
             this.IntruccionEmpleadoLabel.Text = "Agrega un nuevo empleado a la barberia";
             // 
@@ -619,44 +742,20 @@
             this.AgregareEmpleadoLabel.AutoSize = true;
             this.AgregareEmpleadoLabel.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AgregareEmpleadoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.AgregareEmpleadoLabel.Location = new System.Drawing.Point(21, 21);
-            this.AgregareEmpleadoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.AgregareEmpleadoLabel.Location = new System.Drawing.Point(16, 17);
             this.AgregareEmpleadoLabel.Name = "AgregareEmpleadoLabel";
-            this.AgregareEmpleadoLabel.Size = new System.Drawing.Size(217, 32);
+            this.AgregareEmpleadoLabel.Size = new System.Drawing.Size(171, 25);
             this.AgregareEmpleadoLabel.TabIndex = 0;
             this.AgregareEmpleadoLabel.Text = "Agregar empleado";
             // 
-            // modificarEmpButton
-            // 
-            this.modificarEmpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.modificarEmpButton.Animated = true;
-            this.modificarEmpButton.BorderRadius = 10;
-            this.modificarEmpButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.modificarEmpButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.modificarEmpButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.modificarEmpButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.modificarEmpButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.modificarEmpButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.modificarEmpButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.modificarEmpButton.ForeColor = System.Drawing.Color.White;
-            this.modificarEmpButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.modificarEmpButton.Location = new System.Drawing.Point(1156, 75);
-            this.modificarEmpButton.Margin = new System.Windows.Forms.Padding(4);
-            this.modificarEmpButton.Name = "modificarEmpButton";
-            this.modificarEmpButton.Size = new System.Drawing.Size(183, 57);
-            this.modificarEmpButton.TabIndex = 9;
-            this.modificarEmpButton.Text = "Modificar";
-            this.modificarEmpButton.Click += new System.EventHandler(this.modificarEmpButton_Click);
-            // 
             // AdminEmpleadoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1467, 779);
+            this.ClientSize = new System.Drawing.Size(1100, 633);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminEmpleadoForm";
             this.Text = "AdminEmpleadosForm";
             this.Load += new System.EventHandler(this.AdminEmpleadoForm_Load);
@@ -664,9 +763,12 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
-            this.EmpActivosInactivosTabControl.ResumeLayout(false);
+            this.tabControlGuna.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listaEmpleadosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TablaEmpleadoDataGridView)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listaEmpleadosInactivosDataGridView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.EmpleadosInactivosPanel.ResumeLayout(false);
             this.EmpleadosInactivosPanel.PerformLayout();
@@ -690,7 +792,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2ComboBox FiltroEmpleadoComboBox;
-        private Guna.UI2.WinForms.Guna2TabControl EmpActivosInactivosTabControl;
+        private Guna.UI2.WinForms.Guna2TabControl tabControlGuna;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private Guna.UI2.WinForms.Guna2TextBox BarraDeBusquedaEmpleadoTextBox;
@@ -721,5 +823,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView TablaEmpleadoDataGridView;
         private Guna.UI2.WinForms.Guna2Button modificarButton;
         private Guna.UI2.WinForms.Guna2Button modificarEmpButton;
+        private System.Windows.Forms.DataGridView listaEmpleadosDataGridView;
+        private System.Windows.Forms.DataGridView listaEmpleadosInactivosDataGridView;
     }
 }

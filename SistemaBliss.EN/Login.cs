@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaBliss.EN
 {
-    public class Profesión
+    public class Login
     {
-        public byte IdProfesión { get; set; } 
-        public string Nombre  { get; set; }
-
+        string Telefono { get; set; }
+        string Contraseña { get; set; }
     }
 }

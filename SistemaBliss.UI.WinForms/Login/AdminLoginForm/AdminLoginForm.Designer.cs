@@ -28,41 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2TextBox5 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.telefonoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.contraseñaTexBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.iniciarSesionButton = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2TextBox5
+            // telefonoTextBox
             // 
-            this.guna2TextBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2TextBox5.Animated = true;
-            this.guna2TextBox5.BorderRadius = 10;
-            this.guna2TextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox5.DefaultText = "";
-            this.guna2TextBox5.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox5.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox5.Location = new System.Drawing.Point(482, 289);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.guna2TextBox5.Name = "guna2TextBox5";
-            this.guna2TextBox5.PasswordChar = '\0';
-            this.guna2TextBox5.PlaceholderText = "Ingrese su numero de telefono";
-            this.guna2TextBox5.SelectedText = "";
-            this.guna2TextBox5.Size = new System.Drawing.Size(409, 43);
-            this.guna2TextBox5.TabIndex = 18;
+            this.telefonoTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.telefonoTextBox.Animated = true;
+            this.telefonoTextBox.BorderRadius = 10;
+            this.telefonoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.telefonoTextBox.DefaultText = "";
+            this.telefonoTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.telefonoTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.telefonoTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.telefonoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.telefonoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.telefonoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.telefonoTextBox.Location = new System.Drawing.Point(482, 289);
+            this.telefonoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.telefonoTextBox.Name = "telefonoTextBox";
+            this.telefonoTextBox.PasswordChar = '\0';
+            this.telefonoTextBox.PlaceholderText = "Ingrese su numero de telefono";
+            this.telefonoTextBox.SelectedText = "";
+            this.telefonoTextBox.Size = new System.Drawing.Size(409, 43);
+            this.telefonoTextBox.TabIndex = 18;
             // 
             // label4
             // 
@@ -76,28 +76,28 @@
             this.label4.Text = "Telefono";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // guna2TextBox1
+            // contraseñaTexBox
             // 
-            this.guna2TextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderRadius = 10;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(482, 399);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "Ingrese su contraseña";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(409, 43);
-            this.guna2TextBox1.TabIndex = 20;
+            this.contraseñaTexBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.contraseñaTexBox.Animated = true;
+            this.contraseñaTexBox.BorderRadius = 10;
+            this.contraseñaTexBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.contraseñaTexBox.DefaultText = "";
+            this.contraseñaTexBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.contraseñaTexBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.contraseñaTexBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.contraseñaTexBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.contraseñaTexBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.contraseñaTexBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contraseñaTexBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.contraseñaTexBox.Location = new System.Drawing.Point(482, 399);
+            this.contraseñaTexBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.contraseñaTexBox.Name = "contraseñaTexBox";
+            this.contraseñaTexBox.PasswordChar = '\0';
+            this.contraseñaTexBox.PlaceholderText = "Ingrese su contraseña";
+            this.contraseñaTexBox.SelectedText = "";
+            this.contraseñaTexBox.Size = new System.Drawing.Size(409, 43);
+            this.contraseñaTexBox.TabIndex = 20;
             // 
             // label1
             // 
@@ -157,26 +157,26 @@
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
-            // guna2Button1
+            // iniciarSesionButton
             // 
-            this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.guna2Button1.Location = new System.Drawing.Point(482, 496);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(409, 46);
-            this.guna2Button1.TabIndex = 25;
-            this.guna2Button1.Text = "Iniciar Sesión";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.iniciarSesionButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iniciarSesionButton.Animated = true;
+            this.iniciarSesionButton.BorderRadius = 10;
+            this.iniciarSesionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iniciarSesionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.iniciarSesionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.iniciarSesionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.iniciarSesionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.iniciarSesionButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.iniciarSesionButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.iniciarSesionButton.ForeColor = System.Drawing.Color.White;
+            this.iniciarSesionButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
+            this.iniciarSesionButton.Location = new System.Drawing.Point(482, 496);
+            this.iniciarSesionButton.Name = "iniciarSesionButton";
+            this.iniciarSesionButton.Size = new System.Drawing.Size(409, 46);
+            this.iniciarSesionButton.TabIndex = 25;
+            this.iniciarSesionButton.Text = "Iniciar Sesión";
+            this.iniciarSesionButton.Click += new System.EventHandler(this.iniciarSesionButton_Click);
             // 
             // AdminLoginForm
             // 
@@ -184,14 +184,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1350, 709);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.iniciarSesionButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.contraseñaTexBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2TextBox5);
+            this.Controls.Add(this.telefonoTextBox);
             this.Controls.Add(this.label4);
             this.Name = "AdminLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -206,14 +206,14 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox telefonoTextBox;
         private System.Windows.Forms.Label label4;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox contraseñaTexBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button iniciarSesionButton;
     }
 }

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SistemaBliss.BL;
+using SistemaBliss.EN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,15 +20,75 @@ namespace SistemaBliss.UI.WinForms
             InitializeComponent();
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        ValidacionCampos validacionCampos = new ValidacionCampos();
+        private bool ValidarCampos()
         {
-            // Crear y mostrar el formulario del panel de control
-            AdminDashboardForm adminDashboardForm = new AdminDashboardForm();
-            adminDashboardForm.Show();
+            bool camposValidos = true;
 
-            // Cerrar la ventana de inicio de sesión
-            this.Visible = true;
+            if (telefonoTextBox.Text.Length == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaTextBox(telefonoTextBox);
+                camposValidos = false;
+            }
+            if (contraseñaTexBox.Text.Length == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaTextBox(contraseñaTexBox);
+                camposValidos = false;
+            }
+            return camposValidos;
+        }
 
+        private static string CifrarHashSha256(string pTexto)
+        {
+            byte[] bytes = Encoding.Unicode.GetBytes(pTexto);
+            SHA256Managed hashstring = new SHA256Managed();
+            byte[] hash = hashstring.ComputeHash(bytes);
+            string hashString = string.Empty;
+            foreach (byte x in hash)
+            {
+                hashString += string.Format("{0:x2}", x);
+            }
+            return hashString;
+        }
+
+       
+
+        private void iniciarSesionButton_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    if (ValidarCampos() == true)
+            //{
+            //    string contrasena = contraseñaTexBox.Text;
+            //    string contrasenaCifrada = CifrarHashSha256(contrasena);
+
+            //    UsuarioBL usuarioBL = new UsuarioBL();
+            //    Usuario usuario = usuarioBL.ObtenerPorIdLogin(telefonoTextBox.Text, contrasenaCifrada);
+
+            //    if (usuario != null)
+            //    {
+            //        AdminDashboardForm dashboardForm = new AdminDashboardForm();
+            //        dashboardForm.Show();
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //    }
+
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+
+
+
+
+            AdminDashboardForm dashboardform = new AdminDashboardForm();
+            dashboardform.Show();
         }
     }
 }

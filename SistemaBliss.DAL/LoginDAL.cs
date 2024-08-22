@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaBliss.EN
+namespace SistemaBliss.DAL
 {
-    public class Rol
+    internal class LoginDAL
     {
-        public byte IdRol { get; set; }
-        public string Nombre { get; set; }
     }
 }

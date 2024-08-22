@@ -31,13 +31,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.modificarClienteButton = new Guna.UI2.WinForms.Guna2Button();
             this.FiltroClienteComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.ClientesActivosInactivosTabControl = new Guna.UI2.WinForms.Guna2TabControl();
+            this.tabControlGuna = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listaClientesDataGridView = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listaClientesInactivosDataGridView = new System.Windows.Forms.DataGridView();
             this.BarraDeBusquedaClienteTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.IndicacionAdministrarClientesLabel = new System.Windows.Forms.Label();
             this.InstruccionClientesRegistradosLabel = new System.Windows.Forms.Label();
@@ -62,12 +68,14 @@
             this.AgregarClienteButton = new Guna.UI2.WinForms.Guna2Button();
             this.IndicacionAgregarClienteLabel = new System.Windows.Forms.Label();
             this.IndicacionClienteLabel = new System.Windows.Forms.Label();
-            this.listaClientesDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
-            this.ClientesActivosInactivosTabControl.SuspendLayout();
+            this.tabControlGuna.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesDataGridView)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesInactivosDataGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -77,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaClientesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -112,8 +119,9 @@
             this.guna2Panel5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
             this.guna2Panel5.BorderRadius = 10;
             this.guna2Panel5.BorderThickness = 1;
+            this.guna2Panel5.Controls.Add(this.modificarClienteButton);
             this.guna2Panel5.Controls.Add(this.FiltroClienteComboBox);
-            this.guna2Panel5.Controls.Add(this.ClientesActivosInactivosTabControl);
+            this.guna2Panel5.Controls.Add(this.tabControlGuna);
             this.guna2Panel5.Controls.Add(this.BarraDeBusquedaClienteTextBox);
             this.guna2Panel5.Controls.Add(this.IndicacionAdministrarClientesLabel);
             this.guna2Panel5.Controls.Add(this.InstruccionClientesRegistradosLabel);
@@ -125,6 +133,28 @@
             this.guna2Panel5.Padding = new System.Windows.Forms.Padding(5);
             this.guna2Panel5.Size = new System.Drawing.Size(1068, 405);
             this.guna2Panel5.TabIndex = 1;
+            // 
+            // modificarClienteButton
+            // 
+            this.modificarClienteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.modificarClienteButton.Animated = true;
+            this.modificarClienteButton.BorderRadius = 10;
+            this.modificarClienteButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.modificarClienteButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.modificarClienteButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.modificarClienteButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.modificarClienteButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.modificarClienteButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.modificarClienteButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.modificarClienteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(134)))), ((int)(((byte)(47)))));
+            this.modificarClienteButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(134)))), ((int)(((byte)(47)))));
+            this.modificarClienteButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
+            this.modificarClienteButton.Location = new System.Drawing.Point(948, 20);
+            this.modificarClienteButton.Name = "modificarClienteButton";
+            this.modificarClienteButton.Size = new System.Drawing.Size(103, 46);
+            this.modificarClienteButton.TabIndex = 10;
+            this.modificarClienteButton.Text = "Editar";
+            this.modificarClienteButton.Click += new System.EventHandler(this.modificarClienteButton_Click);
             // 
             // FiltroClienteComboBox
             // 
@@ -138,43 +168,44 @@
             this.FiltroClienteComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FiltroClienteComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.FiltroClienteComboBox.ItemHeight = 39;
-            this.FiltroClienteComboBox.Location = new System.Drawing.Point(491, 20);
+            this.FiltroClienteComboBox.Location = new System.Drawing.Point(373, 20);
             this.FiltroClienteComboBox.Name = "FiltroClienteComboBox";
             this.FiltroClienteComboBox.Size = new System.Drawing.Size(211, 45);
             this.FiltroClienteComboBox.TabIndex = 7;
+            this.FiltroClienteComboBox.SelectedValueChanged += new System.EventHandler(this.FiltroClienteComboBox_SelectedValueChanged);
             // 
-            // ClientesActivosInactivosTabControl
+            // tabControlGuna
             // 
-            this.ClientesActivosInactivosTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControlGuna.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClientesActivosInactivosTabControl.Controls.Add(this.tabPage1);
-            this.ClientesActivosInactivosTabControl.Controls.Add(this.tabPage2);
-            this.ClientesActivosInactivosTabControl.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.ClientesActivosInactivosTabControl.ItemSize = new System.Drawing.Size(180, 40);
-            this.ClientesActivosInactivosTabControl.Location = new System.Drawing.Point(8, 86);
-            this.ClientesActivosInactivosTabControl.Name = "ClientesActivosInactivosTabControl";
-            this.ClientesActivosInactivosTabControl.SelectedIndex = 0;
-            this.ClientesActivosInactivosTabControl.Size = new System.Drawing.Size(1052, 311);
-            this.ClientesActivosInactivosTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.ClientesActivosInactivosTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.White;
-            this.ClientesActivosInactivosTabControl.TabButtonHoverState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientesActivosInactivosTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
-            this.ClientesActivosInactivosTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.Empty;
-            this.ClientesActivosInactivosTabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.ClientesActivosInactivosTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.White;
-            this.ClientesActivosInactivosTabControl.TabButtonIdleState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientesActivosInactivosTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
-            this.ClientesActivosInactivosTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.Empty;
-            this.ClientesActivosInactivosTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.ClientesActivosInactivosTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.White;
-            this.ClientesActivosInactivosTabControl.TabButtonSelectedState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.ClientesActivosInactivosTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.ClientesActivosInactivosTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.ClientesActivosInactivosTabControl.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.ClientesActivosInactivosTabControl.TabIndex = 5;
-            this.ClientesActivosInactivosTabControl.TabMenuBackColor = System.Drawing.Color.White;
-            this.ClientesActivosInactivosTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            this.tabControlGuna.Controls.Add(this.tabPage1);
+            this.tabControlGuna.Controls.Add(this.tabPage2);
+            this.tabControlGuna.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tabControlGuna.ItemSize = new System.Drawing.Size(180, 40);
+            this.tabControlGuna.Location = new System.Drawing.Point(8, 86);
+            this.tabControlGuna.Name = "tabControlGuna";
+            this.tabControlGuna.SelectedIndex = 0;
+            this.tabControlGuna.Size = new System.Drawing.Size(1052, 311);
+            this.tabControlGuna.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonHoverState.FillColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabButtonHoverState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlGuna.TabButtonHoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(176)))), ((int)(((byte)(176)))), ((int)(((byte)(176)))));
+            this.tabControlGuna.TabButtonHoverState.InnerColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonIdleState.FillColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabButtonIdleState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlGuna.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.tabControlGuna.TabButtonIdleState.InnerColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlGuna.TabButtonSelectedState.FillColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabButtonSelectedState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tabControlGuna.TabButtonSelectedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.tabControlGuna.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.tabControlGuna.TabButtonSize = new System.Drawing.Size(180, 40);
+            this.tabControlGuna.TabIndex = 5;
+            this.tabControlGuna.TabMenuBackColor = System.Drawing.Color.White;
+            this.tabControlGuna.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
             // 
             // tabPage1
             // 
@@ -187,8 +218,62 @@
             this.tabPage1.Text = "Activos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // listaClientesDataGridView
+            // 
+            this.listaClientesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listaClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listaClientesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.listaClientesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaClientesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listaClientesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaClientesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.listaClientesDataGridView.ColumnHeadersHeight = 45;
+            this.listaClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listaClientesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.listaClientesDataGridView.EnableHeadersVisualStyles = false;
+            this.listaClientesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.listaClientesDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.listaClientesDataGridView.Name = "listaClientesDataGridView";
+            this.listaClientesDataGridView.ReadOnly = true;
+            this.listaClientesDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaClientesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.listaClientesDataGridView.RowHeadersVisible = false;
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.listaClientesDataGridView.RowTemplate.Height = 60;
+            this.listaClientesDataGridView.RowTemplate.ReadOnly = true;
+            this.listaClientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listaClientesDataGridView.Size = new System.Drawing.Size(1036, 251);
+            this.listaClientesDataGridView.TabIndex = 36;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listaClientesInactivosDataGridView);
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -196,6 +281,59 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Inactivos";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listaClientesInactivosDataGridView
+            // 
+            this.listaClientesInactivosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listaClientesInactivosDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.listaClientesInactivosDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.listaClientesInactivosDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listaClientesInactivosDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listaClientesInactivosDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaClientesInactivosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.listaClientesInactivosDataGridView.ColumnHeadersHeight = 45;
+            this.listaClientesInactivosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listaClientesInactivosDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            this.listaClientesInactivosDataGridView.EnableHeadersVisualStyles = false;
+            this.listaClientesInactivosDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.listaClientesInactivosDataGridView.Location = new System.Drawing.Point(0, 2);
+            this.listaClientesInactivosDataGridView.Name = "listaClientesInactivosDataGridView";
+            this.listaClientesInactivosDataGridView.ReadOnly = true;
+            this.listaClientesInactivosDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaClientesInactivosDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.listaClientesInactivosDataGridView.RowHeadersVisible = false;
+            this.listaClientesInactivosDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.listaClientesInactivosDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+            this.listaClientesInactivosDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.listaClientesInactivosDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.listaClientesInactivosDataGridView.RowTemplate.Height = 60;
+            this.listaClientesInactivosDataGridView.RowTemplate.ReadOnly = true;
+            this.listaClientesInactivosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listaClientesInactivosDataGridView.Size = new System.Drawing.Size(1037, 251);
+            this.listaClientesInactivosDataGridView.TabIndex = 37;
             // 
             // BarraDeBusquedaClienteTextBox
             // 
@@ -211,7 +349,7 @@
             this.BarraDeBusquedaClienteTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.BarraDeBusquedaClienteTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BarraDeBusquedaClienteTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.BarraDeBusquedaClienteTextBox.Location = new System.Drawing.Point(716, 20);
+            this.BarraDeBusquedaClienteTextBox.Location = new System.Drawing.Point(598, 20);
             this.BarraDeBusquedaClienteTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.BarraDeBusquedaClienteTextBox.Name = "BarraDeBusquedaClienteTextBox";
             this.BarraDeBusquedaClienteTextBox.PasswordChar = '\0';
@@ -500,7 +638,7 @@
             this.AgregarClienteButton.Size = new System.Drawing.Size(169, 46);
             this.AgregarClienteButton.TabIndex = 2;
             this.AgregarClienteButton.Text = "Agregar cliente";
-            this.AgregarClienteButton.Click += new System.EventHandler(this.guna2Button1_Click);
+            this.AgregarClienteButton.Click += new System.EventHandler(this.AgregarClienteButton_Click);
             // 
             // IndicacionAgregarClienteLabel
             // 
@@ -524,59 +662,6 @@
             this.IndicacionClienteLabel.TabIndex = 0;
             this.IndicacionClienteLabel.Text = "Agregar cliente";
             // 
-            // listaClientesDataGridView
-            // 
-            this.listaClientesDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listaClientesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.listaClientesDataGridView.BackgroundColor = System.Drawing.Color.White;
-            this.listaClientesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listaClientesDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.listaClientesDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listaClientesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.listaClientesDataGridView.ColumnHeadersHeight = 45;
-            this.listaClientesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.listaClientesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.listaClientesDataGridView.EnableHeadersVisualStyles = false;
-            this.listaClientesDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
-            this.listaClientesDataGridView.Location = new System.Drawing.Point(9, 3);
-            this.listaClientesDataGridView.Name = "listaClientesDataGridView";
-            this.listaClientesDataGridView.ReadOnly = true;
-            this.listaClientesDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listaClientesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.listaClientesDataGridView.RowHeadersVisible = false;
-            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.listaClientesDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.listaClientesDataGridView.RowTemplate.Height = 60;
-            this.listaClientesDataGridView.RowTemplate.ReadOnly = true;
-            this.listaClientesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaClientesDataGridView.Size = new System.Drawing.Size(1030, 251);
-            this.listaClientesDataGridView.TabIndex = 36;
-            // 
             // AdminClienteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,8 +676,11 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2Panel5.ResumeLayout(false);
             this.guna2Panel5.PerformLayout();
-            this.ClientesActivosInactivosTabControl.ResumeLayout(false);
+            this.tabControlGuna.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesDataGridView)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesInactivosDataGridView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
@@ -606,7 +694,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.listaClientesDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -636,13 +723,15 @@
         private System.Windows.Forms.Label IndicacionRegistroTotalesLabel;
         private System.Windows.Forms.Label ClientesTotalesLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Guna.UI2.WinForms.Guna2TabControl ClientesActivosInactivosTabControl;
+        private Guna.UI2.WinForms.Guna2TabControl tabControlGuna;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private Guna.UI2.WinForms.Guna2TextBox BarraDeBusquedaClienteTextBox;
         private System.Windows.Forms.Label IndicacionAdministrarClientesLabel;
         private System.Windows.Forms.Label InstruccionClientesRegistradosLabel;
         private Guna.UI2.WinForms.Guna2ComboBox FiltroClienteComboBox;
+        private System.Windows.Forms.DataGridView listaClientesInactivosDataGridView;
         private System.Windows.Forms.DataGridView listaClientesDataGridView;
+        private Guna.UI2.WinForms.Guna2Button modificarClienteButton;
     }
 }

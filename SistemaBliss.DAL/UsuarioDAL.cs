@@ -78,13 +78,38 @@ namespace SistemaBliss.DAL
                 obj.Apellido = reader.GetString(6); // Columna [4] cuatro
                 obj.Telefono = reader.GetString(7); // Columna [4] cuatro
                 obj.Contrasena = reader.GetString(8); // Columna [4] cuatro
-                obj.Dui = reader.GetString(9); // Columna [4] cuatro
-                obj.Direccion = reader.GetString(10); // Columna [4] cuatro
+                obj.CorreoElectronico = reader.GetString(9); // Columna [4] cuatro
+                obj.Dui = reader.GetString(10); // Columna [4] cuatro
+                obj.Direccion = reader.GetString(11); // Columna [4] cuatro
+                //obj.UrlImagen = reader.GetString(12); // Columna [4] cuatro
             }
             return obj;
         }
 
-        public static List<Usuario> Buscar(Usuario pUsuario)
+        public static Usuario ObtenerPorIdLogin(string Telefono, string Contrasena)
+        {
+            Usuario obj = null; // Inicializar como null
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_Login";
+            comando.Parameters.AddWithValue("@Telefono", Telefono);
+            comando.Parameters.AddWithValue("@Contrasena", Contrasena);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            if (reader.Read()) // Verifica si se encontró un usuario
+            {
+                obj = new Usuario
+                {
+                    Telefono = reader.GetString(0),
+                    Contrasena = reader.GetString(1)
+                };
+            }
+
+            return obj;
+        }
+
+        public static List<Usuario> BuscarClientesActivos(Usuario pUsuario)
         {
             List<Usuario> lista = new List<Usuario>();
 
@@ -93,11 +118,11 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, Nombre, Apellido, Telefono, Dui
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
                             FROM Usuario ";
 
                 // Validar filtros
-                
+
                 if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
                 {
                     if (contador > 0)
@@ -122,6 +147,20 @@ namespace SistemaBliss.DAL
                     whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
                     comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
                 }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdEstado=1 ";
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdRol=2 ";
+                }
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)
                 {
@@ -136,11 +175,110 @@ namespace SistemaBliss.DAL
                     {
                         Usuario obj = new Usuario
                         {
-                            IdUsuario = reader.GetInt32(0),
-                            Nombre = reader.GetString(1),
-                            Apellido = reader.GetString(2),
-                            Telefono = reader.GetString(3),
-                            Dui = reader.GetString(4)
+                            IdUsuario = reader.GetInt32(0),                // 0 -> IdUsuario
+                            IdRol = reader.GetByte(1),                     // 1 -> IdRol
+                            IdDepartamento = reader.GetByte(2),            // 2 -> IdDepartamento
+                            IdEstado = reader.GetByte(3),                  // 3 -> IdEstado
+                            Nombre = reader.GetString(4),                  // 4 -> Nombre
+                            Apellido = reader.GetString(5),                // 5 -> Apellido
+                            Telefono = reader.GetString(6),                // 6 -> Telefono
+                            Contrasena = reader.GetString(7),              // 7 -> Contrasena
+                            CorreoElectronico = reader.GetString(8),       // 8 -> CorreoElectronico
+                            Dui = reader.GetString(9),                     // 9 -> Dui
+                            Direccion = reader.GetString(10),              // 10 -> Direccion
+                            //UrlImagen = reader.GetString(11)               // 11 -> UrlImagen
+                        };
+
+                        // Agregar el objeto Usuario a la lista
+                        lista.Add(obj);
+                    }
+                }
+
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
+        public static List<Usuario> BuscarClientesInactivos(Usuario pUsuario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
+                            FROM Usuario ";
+
+                // Validar filtros
+
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Nombre LIKE @Nombre ";
+                    comando.Parameters.AddWithValue("@Nombre", "%" + pUsuario.Nombre + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Apellido))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Apellido LIKE @Apellido ";
+                    comando.Parameters.AddWithValue("@Apellido", "%" + pUsuario.Apellido + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Telefono))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
+                    comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdEstado=2 ";
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdRol=2 ";
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+
+                comando.CommandText = consulta + whereSQL;
+
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
+                {
+                    while (reader.Read())
+                    {
+                        Usuario obj = new Usuario
+                        {
+                            IdUsuario = reader.GetInt32(0),                // 0 -> IdUsuario
+                            IdRol = reader.GetByte(1),                     // 1 -> IdRol
+                            IdDepartamento = reader.GetByte(2),            // 2 -> IdDepartamento
+                            IdEstado = reader.GetByte(3),                  // 3 -> IdEstado
+                            Nombre = reader.GetString(4),                  // 4 -> Nombre
+                            Apellido = reader.GetString(5),                // 5 -> Apellido
+                            Telefono = reader.GetString(6),                // 6 -> Telefono
+                            Contrasena = reader.GetString(7),              // 7 -> Contrasena
+                            CorreoElectronico = reader.GetString(8),       // 8 -> CorreoElectronico
+                            Dui = reader.GetString(9),                     // 9 -> Dui
+                            Direccion = reader.GetString(10),              // 10 -> Direccion
+                            //UrlImagen = reader.GetString(11)               // 11 -> UrlImagen
                         };
 
                         // Agregar el objeto Usuario a la lista
@@ -156,5 +294,322 @@ namespace SistemaBliss.DAL
 
 
         #endregion
+
+
+
+        public static List<Usuario> BuscarEmpleadosActivos(Usuario pUsuario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
+                            FROM Usuario ";
+
+                // Validar filtros
+
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Nombre LIKE @Nombre ";
+                    comando.Parameters.AddWithValue("@Nombre", "%" + pUsuario.Nombre + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Apellido))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Apellido LIKE @Apellido ";
+                    comando.Parameters.AddWithValue("@Apellido", "%" + pUsuario.Apellido + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Telefono))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
+                    comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdEstado=1 ";
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdRol=1 ";
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+
+                comando.CommandText = consulta + whereSQL;
+
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
+                {
+                    while (reader.Read())
+                    {
+                        Usuario obj = new Usuario
+                        {
+                            IdUsuario = reader.GetInt32(0),                // 0 -> IdUsuario
+                            IdRol = reader.GetByte(1),                     // 1 -> IdRol
+                            IdDepartamento = reader.GetByte(2),            // 2 -> IdDepartamento
+                            IdEstado = reader.GetByte(3),                  // 3 -> IdEstado
+                            Nombre = reader.GetString(4),                  // 4 -> Nombre
+                            Apellido = reader.GetString(5),                // 5 -> Apellido
+                            Telefono = reader.GetString(6),                // 6 -> Telefono
+                            Contrasena = reader.GetString(7),              // 7 -> Contrasena
+                            CorreoElectronico = reader.GetString(8),       // 8 -> CorreoElectronico
+                            Dui = reader.GetString(9),                     // 9 -> Dui
+                            Direccion = reader.GetString(10),              // 10 -> Direccion
+                            //UrlImagen = reader.GetString(11)               // 11 -> UrlImagen
+                        };
+
+                        // Agregar el objeto Usuario a la lista
+                        lista.Add(obj);
+                    }
+                }
+
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
+        public static List<Usuario> BuscarEmpleadosInactivos(Usuario pUsuario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
+                            FROM Usuario ";
+
+                // Validar filtros
+
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Nombre LIKE @Nombre ";
+                    comando.Parameters.AddWithValue("@Nombre", "%" + pUsuario.Nombre + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Apellido))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " Apellido LIKE @Apellido ";
+                    comando.Parameters.AddWithValue("@Apellido", "%" + pUsuario.Apellido + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Telefono))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
+                    comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdEstado=2 ";
+                }
+                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " IdRol=1 ";
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+
+                comando.CommandText = consulta + whereSQL;
+
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
+                {
+                    while (reader.Read())
+                    {
+                        Usuario obj = new Usuario
+                        {
+                            IdUsuario = reader.GetInt32(0),                // 0 -> IdUsuario
+                            IdRol = reader.GetByte(1),                     // 1 -> IdRol
+                            IdDepartamento = reader.GetByte(2),            // 2 -> IdDepartamento
+                            IdEstado = reader.GetByte(3),                  // 3 -> IdEstado
+                            Nombre = reader.GetString(4),                  // 4 -> Nombre
+                            Apellido = reader.GetString(5),                // 5 -> Apellido
+                            Telefono = reader.GetString(6),                // 6 -> Telefono
+                            Contrasena = reader.GetString(7),              // 7 -> Contrasena
+                            CorreoElectronico = reader.GetString(8),       // 8 -> CorreoElectronico
+                            Dui = reader.GetString(9),                     // 9 -> Dui
+                            Direccion = reader.GetString(10),              // 10 -> Direccion
+                            //UrlImagen = reader.GetString(11)               // 11 -> UrlImagen
+                        };
+
+                        // Agregar el objeto Usuario a la lista
+                        lista.Add(obj);
+                    }
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
+
+        public static Usuario ObtenerUltimoIdUsuario(string pCorreoElectronico)
+        {
+            Usuario obj = new Usuario();
+
+
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_ObtenerIdUltimoUsuario";
+            comando.Parameters.AddWithValue("@CorreoElectronico", pCorreoElectronico);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.IdUsuario = reader.GetInt32(0);
+               
+            }
+            return obj;
+        }
+
+
+        public static Usuario ContarTotalClientes()
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "ContarTotalClientes";
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.ClientesTotales = reader.GetInt32(0);
+                
+            }
+            return obj;
+        }
+
+        public static Usuario ContarClientesActivos()
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "ContarClientesActivos";
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.ClientesActivos = reader.GetInt32(0);
+
+            }
+            return obj;
+        }
+
+        public static Usuario ContarClientesInactivos()
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "ContarClientesInactivos";
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.ClientesInactivos = reader.GetInt32(0);
+
+            }
+            return obj;
+        }
+
+
+        public static Usuario ContarEmpleadosTotal()
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "ContarTotalEmpleados";
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.EmpleadosTotales = reader.GetInt32(0);
+
+            }
+            return obj;
+        }
+
+        public static Usuario ContarEmpleadosActivos()
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "ContarEmpleadosActivos";
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.EmpleadosActivos = reader.GetInt32(0);
+
+            }
+            return obj;
+        }
+
+        public static Usuario ContarEmpleadosInactivos()
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "ContarEmpleadosInactivos";
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.EmpleadosInactivos = reader.GetInt32(0);
+
+            }
+            return obj;
+        }
     }
 }

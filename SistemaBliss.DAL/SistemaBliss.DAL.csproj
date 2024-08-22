@@ -56,6 +56,7 @@
     <Compile Include="EmpresaDAL.cs" />
     <Compile Include="EstadoDAL.cs" />
     <Compile Include="HorariosEmpresaDAL.cs" />
+    <Compile Include="LoginDAL.cs" />
     <Compile Include="MunicipioDAL.cs" />
     <Compile Include="ProductoDAL.cs" />
     <Compile Include="ProfesionDAL.cs" />

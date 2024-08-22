@@ -11,6 +11,7 @@ namespace SistemaBliss.EN
         public int IdDetalleProfesion { get; set; }
         public int IdUsuario { get; set; }
         public int IdProfesion { get; set; }
+        public string NombreProfesion { get; set; }
         public virtual Usuario Usuario { get; set; }
 
 

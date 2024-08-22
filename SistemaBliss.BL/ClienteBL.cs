@@ -11,7 +11,7 @@ namespace SistemaBliss.BL
 {
     public class ClienteBL
     {
-        public Cliente ObtenerPorId(byte pIdCliente)
+        public Cliente ObtenerPorId(int pIdCliente)
         {
             return ClienteDAL.ObtenerPorId(pIdCliente);
         }

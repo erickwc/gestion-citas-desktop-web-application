@@ -56,7 +56,7 @@ namespace SistemaBliss.DAL
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                byte contador = 0;
+             
                 string whereSQL = " ";
                 string consulta = @"SELECT * FROM Empresa ";
 

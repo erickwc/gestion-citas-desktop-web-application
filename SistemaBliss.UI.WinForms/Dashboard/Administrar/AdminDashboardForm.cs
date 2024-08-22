@@ -35,23 +35,27 @@ namespace SistemaBliss.UI.WinForms
         }
         private void AdminDashboardForm_Load(object sender, EventArgs e)
         {
-
+            AbrirFormEnPanel(new AdminClienteForm());
+            nombreSeccionLabel.Text = "Clientes";
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new AdminClienteForm());
+            nombreSeccionLabel.Text = "Clientes";
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new AdminEmpleadoForm());
+            nombreSeccionLabel.Text = "Empleados";
 
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new AdminEmpresaForm());
+            nombreSeccionLabel.Text = "Empresa";
 
         }
 

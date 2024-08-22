@@ -12,6 +12,9 @@ using SistemaBliss.EN;
 using SistemaBliss.BL;
 //REFERNCIAS
 using ToolsForms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Web.UI.WebControls;
+using Guna.UI2.WinForms;
 
 namespace SistemaBliss.UI.WinForms
 {
@@ -21,9 +24,11 @@ namespace SistemaBliss.UI.WinForms
         {
             InitializeComponent();
         }
+
         ValidacionCampos validacionCampos = new ValidacionCampos();
-        short idUsuario;
-              UsuarioBL usuarioBL = new UsuarioBL();
+        public short idUsuario;
+        UsuarioBL usuarioBL = new UsuarioBL();
+        List<DetalleProfesión> lista = new List<DetalleProfesión>();
 
         private bool ValidarCampos()
         {
@@ -49,9 +54,9 @@ namespace SistemaBliss.UI.WinForms
                 validacionCampos.CampoInvalidoAparienciaTextBox(telefonoTextBox);
                 camposValidos = false;
             }
-            if (departamentoComboBox.Text.Length == 0)
+            if (departamentosComboBox.Text.Length == 0)
             {
-                validacionCampos.CampoInvalidoAparienciaComboBox(departamentoComboBox);
+                validacionCampos.CampoInvalidoAparienciaComboBox(departamentosComboBox);
                 camposValidos = false;
             }
             if (municipioComboBox.Text.Length == 0)
@@ -95,11 +100,11 @@ namespace SistemaBliss.UI.WinForms
 
             // Obtener lista de Cargos de la DB
             departamentos.AddRange(departamentoBL.Buscar(new Departamento()));
-           departamentoComboBox.DataSource = departamentos;
+            departamentosComboBox.DataSource = departamentos;
 
             // Configurar texto y valor de la lista de seleccion
-            departamentoComboBox.DisplayMember = "Nombre";
-            departamentoComboBox.ValueMember = "IdDepartamento";
+            departamentosComboBox.DisplayMember = "Nombre";
+            departamentosComboBox.ValueMember = "IdDepartamento";
         }
         public void CargarRol()
         {
@@ -136,15 +141,97 @@ namespace SistemaBliss.UI.WinForms
             estadoComboBox.ValueMember = "IdEstado";
         }
 
+        public void CargarProfesiones()
+        {
+            // Conexion a la tabla de Cargo en la DB
+            ProfesionBL profesionesBL = new ProfesionBL();
+
+            // Inicializar lista 
+            List<Profesión> profesion = new List<Profesión>();
+            profesion.Add(new Profesión { IdProfesión = 0, Nombre = "SELECCIONAR" });
+
+            // Obtener lista de Cargos de la DB
+            profesion.AddRange(profesionesBL.Buscar(new Profesión()));
+            profesionComboBox.DataSource = profesion;
+
+            // Configurar texto y valor de la lista de seleccion
+            profesionComboBox.DisplayMember = "Nombre";
+            profesionComboBox.ValueMember = "IdProfesión";
+        }
 
         private void AgregarEmpleadoForm_Load(object sender, EventArgs e)
         {
+            if (idUsuario == 0)
+            {
+                listaProfesionesAgregadas.Columns.Add("IdProfesion", "ID Profesión");
+                listaProfesionesAgregadas.Columns.Add("NombreProfesion", "Nombre Profesión");
+            }
+            else if(idUsuario > 0)
+            {
+                //listaProfesionesAgregadas.Columns["IdProfesion"].Visible = false;
+                //listaProfesionesAgregadas.Columns["IdDetalleProfesion"].Visible = false;
+
+            }
+
+
+
             CargarMunicipios();
             CargarDepartamento();
             CargarEstado();
             CargarRol();
-            
+            CargarProfesiones();
+
+            if (idUsuario > 0)
+            {
+                // Si "idEmpleado" es mayor que cero se esta modificando un empleado
+                Usuario usuario = usuarioBL.ObtenerPorId(idUsuario); // buscar por id al empleado
+
+
+                // Cargar datos del empleado en los controles del formulario
+                nombreTextBox.Text = usuario.Nombre;
+                apellidoTextBox.Text = usuario.Apellido;
+                duiTextBox.Text = usuario.Dui;
+                telefonoTextBox.Text = usuario.Telefono;
+                direccionTextBox.Text = usuario.Direccion;
+                correoElectronicoTextBox.Text = usuario.CorreoElectronico;
+                departamentosComboBox.SelectedValue = usuario.IdRol; 
+                municipioComboBox.SelectedValue = usuario.IdMunicipio; 
+                estadoComboBox.SelectedValue = usuario.IdEstado;
+                rolComboBox.SelectedValue = usuario.IdRol;
+
+                usuario.IdRol = Convert.ToByte(rolComboBox.SelectedValue);
+
+                RegistroEmpleadoLabel.Text = "Edita un empleado existente";
+                IntruccionNuevoEmpLabel.Text = "Edita los campos para actualizar la informacion del empleado";
+
+                contrasenaTextBox.Enabled = false;
+                CargarLista();
+
+
+            }
+
         }
+
+        private void CargarLista()
+        {
+            DetalleProfesionBL detalleProfesionBL = new DetalleProfesionBL();
+            List<DetalleProfesión> lista = detalleProfesionBL.Buscar(idUsuario);
+
+            listaProfesionesAgregadas.DataSource = null; // Limpiar el DataGridView
+            listaProfesionesAgregadas.DataSource = lista; // Asignar la nueva lista
+
+            listaProfesionesAgregadas.Columns["IdProfesion"].Visible = false;
+            listaProfesionesAgregadas.Columns["IdDetalleProfesion"].Visible = false;
+            listaProfesionesAgregadas.Columns["NombreProfesion"].Visible = true;
+
+            // Asegúrate de que estas columnas existan en el DataGridView
+            listaProfesionesAgregadas.Columns["IdUsuario"].Visible = false;
+            listaProfesionesAgregadas.Columns["Usuario"].Visible = false;
+            listaProfesionesAgregadas.Columns["Profesión"].Visible = false;
+            //listaProfesionesAgregadas.Columns["ID Profesión"].Visible = false;
+            //listaProfesionesAgregadas.Columns["Nombre Profesión"].Visible = false;
+        }
+
 
         private void guardarButton_Click(object sender, EventArgs e)
         {
@@ -153,6 +240,7 @@ namespace SistemaBliss.UI.WinForms
             {
                 if (ValidarCampos() == true)
                 {
+
                     // Capturar datos del formulario
                     Usuario usuario = new Usuario(); // instancia de empleado
                     usuario.Nombre = nombreTextBox.Text;
@@ -165,14 +253,33 @@ namespace SistemaBliss.UI.WinForms
                     usuario.UrlImagen = "foto"; ; 
 
                     // Convertir los valores seleccionados en los ComboBox al tipo adecuado
-                    usuario.IdRol = Convert.ToByte(rolComboBox.SelectedValue);
-                    usuario.IdDepartamento = Convert.ToByte(departamentoComboBox.SelectedValue);
+                    usuario.IdRol = 1;
+                    usuario.IdDepartamento = Convert.ToByte(departamentosComboBox.SelectedValue);
                     usuario.IdEstado = Convert.ToByte(estadoComboBox.SelectedValue);
                     usuario.IdMunicipio = Convert.ToInt16(municipioComboBox.SelectedValue);
 
                     if (idUsuario == 0)
                     {
                         resultado = usuarioBL.Guardar(usuario); // Se está guardando un nuevo empleado
+
+                        foreach (DataGridViewRow row in listaProfesionesAgregadas.Rows)
+                        {
+                            // Obtén el IdProfesion o la profesión (dependiendo de cómo la tienes en el DataGridView)
+                            int idProfesion = Convert.ToInt32(row.Cells["IdProfesion"].Value);
+
+
+                            UsuarioBL usuarioBL = new UsuarioBL();
+                            usuario = usuarioBL.ObtenerUltimoIdUsuario(correoElectronicoTextBox.Text);
+
+
+                            // Crea una instancia de DetalleProfesión
+                            DetalleProfesión detalleProfesion = new DetalleProfesión();
+                            detalleProfesion.IdProfesion = idProfesion;
+                            detalleProfesion.IdUsuario = usuario.IdUsuario;
+
+                            // Guarda la relación entre el empleado y la profesión
+                            DetalleProfesionBL.Guardar(detalleProfesion);
+                        }
                     }
                     else
                     {
@@ -182,6 +289,8 @@ namespace SistemaBliss.UI.WinForms
                     // Verificación del resultado en la base de datos
                     if (resultado > 0)
                     {
+                        
+
                         MessageBox.Show("Registro guardado exitosamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
@@ -211,6 +320,127 @@ namespace SistemaBliss.UI.WinForms
         private void RolComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void departamentosComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                    }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            int resultado = 0;
+
+            if (idUsuario == 0)
+            {
+                if (listaProfesionesAgregadas.SelectedRows.Count > 0)
+                {
+                    int rowIndex = listaProfesionesAgregadas.SelectedRows[0].Index;
+                    listaProfesionesAgregadas.Rows.RemoveAt(rowIndex);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una fila para eliminar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                if (listaProfesionesAgregadas.SelectedRows.Count > 0)
+                {
+                    int idProfesion = Convert.ToInt32(listaProfesionesAgregadas.SelectedRows[0].Cells["IdDetalleProfesion"].Value);
+
+                    resultado = DetalleProfesionBL.Eliminar(idProfesion);
+                    CargarLista();
+                }
+                else
+                {
+                    MessageBox.Show("Primero debe seleccionar el registro que desea eliminar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+            }
+
+        }
+
+        private void agregarProfesionButton_Click(object sender, EventArgs e)
+        {
+            int resultado = 0;
+            if (idUsuario == 0)
+            {
+                // Paso 2: Obtener la opción seleccionada del ComboBox como objeto
+                var profesionSeleccionada = profesionComboBox.SelectedItem as Profesión;
+
+                // Paso 3: Verificar que no sea null y agregar la propiedad deseada al DataGridView
+                if (profesionSeleccionada != null)
+                {
+                    // Agregar tanto el ID como el Nombre de la profesión al DataGridView
+                    listaProfesionesAgregadas.Rows.Add(profesionSeleccionada.IdProfesión, profesionSeleccionada.Nombre);
+                }
+            }
+            else
+            {
+                DetalleProfesión detalleProfesion = new DetalleProfesión(); // instancia de empleado
+                detalleProfesion.IdUsuario = idUsuario;
+                detalleProfesion.IdProfesion = Convert.ToInt32(profesionComboBox.SelectedValue);
+                
+                resultado = DetalleProfesionBL.Guardar(detalleProfesion);
+
+                CargarLista();
+
+            }
+                
+        }
+
+        private void telefonoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Cancelar el evento si la tecla presionada no es un dígito ni la tecla de retroceso
+                e.Handled = true;
+            }
+
+            // Limitar la longitud a 8 caracteres
+            Guna2TextBox textBox = sender as Guna2TextBox;
+            if (textBox != null && textBox.Text.Length >= 8 && e.KeyChar != (char)Keys.Back)
+            {
+                // Cancelar el evento si se han ingresado 8 caracteres y se presiona una tecla
+                e.Handled = true;
+            }
+        }
+
+        private void duiTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Cancelar el evento si la tecla presionada no es un dígito ni la tecla de retroceso
+                e.Handled = true;
+            }
+
+            // Limitar la longitud a 8 caracteres
+            Guna2TextBox textBox = sender as Guna2TextBox;
+            if (textBox != null && textBox.Text.Length >= 9 && e.KeyChar != (char)Keys.Back)
+            {
+                // Cancelar el evento si se han ingresado 8 caracteres y se presiona una tecla
+                e.Handled = true;
+            }
+        }
+
+        private void nombreTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                // Cancelar el evento si la tecla presionada no es una letra ni la tecla de retroceso
+                e.Handled = true;
+            }
         }
     }
 }

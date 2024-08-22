@@ -11,25 +11,25 @@ namespace SistemaBliss.BL
 {
     public class DetalleProfesionBL
     {
-        public DetalleProfesión ObtenerPorId(byte pIdDetalleProfesion)
+        //public DetalleProfesión ObtenerPorId(short pIdDetalleProfesion)
+        //{
+        //    return DetalleProfesionDAL.ObtenerPorId(pIdDetalleProfesion);
+        //}
+        public List<DetalleProfesión> Buscar(int pIdDetalleProfesion)
         {
-            return DetalleProfesionDAL.ObtenerPorId(pIdDetalleProfesion);
+            return DetalleProfesionDAL.Buscar(pIdDetalleProfesion);
         }
-        public List<DetalleProfesión> Buscar(DetalleProfesión pDetalleProfesion)
-        {
-            return DetalleProfesionDAL.Buscar(pDetalleProfesion);
-        }
-        public int Guardar(DetalleProfesión pDetalleProfesion)
+        public static int Guardar(DetalleProfesión pDetalleProfesion)
         {
             return DetalleProfesionDAL.Guardar(pDetalleProfesion);
         }
 
-        public int Modifiar(DetalleProfesión pDetalleProfesion)
+        public static int Modifiar(DetalleProfesión pDetalleProfesion)
         {
             return DetalleProfesionDAL.Modificar(pDetalleProfesion);
         }
 
-        public int Eliminar(DetalleProfesión pDetalleProfesion)
+        public static int Eliminar(int pDetalleProfesion)
         {
             return DetalleProfesionDAL.Eliminar(pDetalleProfesion);
         }

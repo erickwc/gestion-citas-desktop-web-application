@@ -38,10 +38,14 @@ namespace SistemaBliss.BL
         {
             return ProfesionDAL.ObtenerPorId(pProfesion);
         }
-        public List<Profesión> Buscar(Profesión pProfesion)
+        public  List<Profesión> Buscar(Profesión pProfesion)
         {
             return ProfesionDAL.Buscar(pProfesion);
         }
 
+        public List<Profesión> BuscarSinParametro()
+        {
+            return ProfesionDAL.BuscarSinParametro();
+        }
     }
 }

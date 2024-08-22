@@ -58,17 +58,13 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 c.IdProfesion, c.Nombre
-                            FROM Profesion c ";
+                string consulta = @"SELECT TOP 100 IdProfesion, Nombre
+                            FROM Profesion  ";
 
                 // Validar filtros
                 if (pProfesion.Nombre != null && pProfesion.Nombre.Trim() != string.Empty)
                 {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " c.Nombre LIKE @Usuario ";
-                    comando.Parameters.AddWithValue("@Usuario", "%" + pProfesion.Nombre + "%");
+                    
                 }
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)
@@ -92,5 +88,41 @@ namespace SistemaBliss.DAL
             return lista;
         }
 
+
+
+        public static List<Profesión> BuscarSinParametro()
+        {
+            List<Profesión> lista = new List<Profesión>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdProfesion, Nombre
+                            FROM Profesion  ";
+
+              
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Profesión obj = new Profesión();
+                    // Orden de las columnas depende de la Consulta SELECT utilizada
+                    obj.IdProfesión = reader.GetByte(0);
+                    obj.Nombre = reader.GetString(1);
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+            return lista;
+        }
     }
 }

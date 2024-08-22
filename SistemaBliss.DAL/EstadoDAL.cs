@@ -64,7 +64,7 @@ namespace SistemaBliss.DAL
                     Estado obj = new Estado();
 
                     // Manejar posibles valores nulos y conversiones adecuadas
-                    obj.IdEstado = reader.IsDBNull(0) ? 0 : Convert.ToInt32(reader.GetValue(0));
+                    obj.IdEstado = Convert.ToByte(reader.GetValue(0));
                     obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
 
                     lista.Add(obj);
@@ -74,6 +74,43 @@ namespace SistemaBliss.DAL
             #endregion
 
             return lista;
+        }
+
+        // TRATAMIENTO DE DATOS
+        public static Dictionary<byte, Estado> ObtenerDiccionario(byte[] pArrayIdEstado)
+        {
+            List<Estado> lista = new List<Estado>();
+
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string consulta = @"SELECT e.IdEstado, e.Nombre
+            FROM Estado e
+            WHERE e.IdEstado IN (" + string.Join(",", pArrayIdEstado.Select((id, index) => "@Id" + index)) + ")";
+
+                comando.CommandText = consulta;
+
+                // Añadir los parámetros
+                for (int i = 0; i < pArrayIdEstado.Length; i++)
+                {
+                    comando.Parameters.AddWithValue("@Id" + i, pArrayIdEstado[i]);
+                }
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Estado obj = new Estado();
+                    // Orden de las columnas depende de la Consulta SELECT utilizada
+                    obj.IdEstado = reader.GetByte(0); // Asumiendo que IdEstado es de tipo int
+                    obj.Nombre = reader.GetString(1);
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+
+            }
+
+            // El return se puede explicar como: "x" es una instancia de cargo
+            // y el metodo debe devolver un diccionario <byte, Cargo>, IdCargo es de tipo byte y Cargo es de tipo Cargo 
+            return lista.ToDictionary(x => x.IdEstado, x => x);
         }
     }
 }
