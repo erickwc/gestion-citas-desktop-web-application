@@ -55,40 +55,39 @@ namespace SistemaBliss.UI.WinForms
 
         private void iniciarSesionButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (ValidarCampos() == true)
-            //{
-            //    string contrasena = contraseñaTexBox.Text;
-            //    string contrasenaCifrada = CifrarHashSha256(contrasena);
+            try
+            {
+                if (ValidarCampos() == true)
+            {
+                string contrasena = contraseñaTexBox.Text;
+                string contrasenaCifrada = CifrarHashSha256(contrasena);
 
-            //    UsuarioBL usuarioBL = new UsuarioBL();
-            //    Usuario usuario = usuarioBL.ObtenerPorIdLogin(telefonoTextBox.Text, contrasenaCifrada);
+                UsuarioBL usuarioBL = new UsuarioBL();
+                Usuario usuario = usuarioBL.ObtenerPorIdLogin(telefonoTextBox.Text, contrasenaCifrada);
 
-            //    if (usuario != null)
-            //    {
-            //        AdminDashboardForm dashboardForm = new AdminDashboardForm();
-            //        dashboardForm.Show();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //    }
-
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                if (usuario != null)
+                {
+                    AdminDashboardForm dashboardForm = new AdminDashboardForm();
+                    dashboardForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                }
 
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
 
-            AdminDashboardForm dashboardform = new AdminDashboardForm();
-            dashboardform.Show();
+
+
+            
         }
     }
 }
