@@ -166,6 +166,23 @@ namespace SistemaBliss.BL
             }
         }
 
+        public Usuario ObtenerClavePorTelefono(string telefono)
+        {
+            return UsuarioDAL.ObtenerClavePorTelefono(telefono);
+        }
+
+
+        public int ActualizarClaveNoCifrada(Usuario pUsuario)
+        {
+            pUsuario.Contrasena = CifrarHashSha256(pUsuario.Contrasena);
+            return UsuarioDAL.ActualizarClaveNoCifrada(pUsuario);
+        }
+
+        public bool EsContraseñaCifrada(string contrasena)
+        {
+            // Verifica si la longitud es igual a 64 caracteres hexadecimales (para SHA-256)
+            return contrasena.Length == 64;
+        }
 
 
     }

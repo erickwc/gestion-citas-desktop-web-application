@@ -58,26 +58,57 @@ namespace SistemaBliss.UI.WinForms
             try
             {
                 if (ValidarCampos() == true)
-            {
-                string contrasena = contraseñaTexBox.Text;
-                string contrasenaCifrada = CifrarHashSha256(contrasena);
-
-                UsuarioBL usuarioBL = new UsuarioBL();
-                Usuario usuario = usuarioBL.ObtenerPorIdLogin(telefonoTextBox.Text, contrasenaCifrada);
-
-                if (usuario != null)
                 {
-                    AdminDashboardForm dashboardForm = new AdminDashboardForm();
-                    dashboardForm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                }
 
+                    UsuarioBL usuarioBL = new UsuarioBL();
+                    Usuario usuario = new Usuario();
+
+                    usuario = usuarioBL.ObtenerClavePorTelefono(telefonoTextBox.Text);
+
+                    if(usuario.Contrasena == contraseñaTexBox.Text)
+                    {
+                        usuarioBL.ActualizarClaveNoCifrada(usuario);
+
+                        string contrasena = contraseñaTexBox.Text;
+                        string contrasenaCifrada = CifrarHashSha256(contrasena);
+
+                   
+                        usuario = usuarioBL.ObtenerPorIdLogin(telefonoTextBox.Text, contrasenaCifrada);
+
+                        if (usuario != null)
+                        {
+                            AdminDashboardForm dashboardForm = new AdminDashboardForm();
+                            dashboardForm.Show();
+                            this.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        string contrasena = contraseñaTexBox.Text;
+                        string contrasenaCifrada = CifrarHashSha256(contrasena);
+
+
+                        usuario = usuarioBL.ObtenerPorIdLogin(telefonoTextBox.Text, contrasenaCifrada);
+
+                        if (usuario != null)
+                        {
+                            AdminDashboardForm dashboardForm = new AdminDashboardForm();
+                            dashboardForm.Show();
+                            this.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario no encontrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
 
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

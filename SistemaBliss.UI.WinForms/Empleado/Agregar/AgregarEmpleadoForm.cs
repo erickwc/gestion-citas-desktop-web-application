@@ -49,19 +49,39 @@ namespace SistemaBliss.UI.WinForms
                 validacionCampos.CampoInvalidoAparienciaTextBox(direccionTextBox);
                 camposValidos = false;
             }
+            if (contrasenaTextBox.Text.Length == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaTextBox(contrasenaTextBox);
+                camposValidos = false;
+            }
+            if (correoElectronicoTextBox.Text.Length == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaTextBox(correoElectronicoTextBox);
+                camposValidos = false;
+            }
             if (telefonoTextBox.Text.Length == 0)
             {
                 validacionCampos.CampoInvalidoAparienciaTextBox(telefonoTextBox);
                 camposValidos = false;
             }
-            if (departamentosComboBox.Text.Length == 0)
+            if (Convert.ToInt32(departamentosComboBox.SelectedValue) == 0)
             {
                 validacionCampos.CampoInvalidoAparienciaComboBox(departamentosComboBox);
                 camposValidos = false;
             }
-            if (municipioComboBox.Text.Length == 0)
+            if (Convert.ToInt32(municipioComboBox.SelectedValue) == 0)
             {
                 validacionCampos.CampoInvalidoAparienciaComboBox(municipioComboBox);
+                camposValidos = false;
+            }
+            if (Convert.ToInt32(profesionComboBox.SelectedValue) == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaComboBox(profesionComboBox);
+                camposValidos = false;
+            }
+            if (Convert.ToInt32(estadoComboBox.SelectedValue) == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaComboBox(estadoComboBox);
                 camposValidos = false;
             }
             if (duiTextBox.Text.Length == 0)
@@ -165,6 +185,9 @@ namespace SistemaBliss.UI.WinForms
             {
                 listaProfesionesAgregadas.Columns.Add("IdProfesion", "ID Profesión");
                 listaProfesionesAgregadas.Columns.Add("NombreProfesion", "Nombre Profesión");
+                 listaProfesionesAgregadas.Columns["IdProfesion"].Visible = false;
+
+
             }
             else if(idUsuario > 0)
             {

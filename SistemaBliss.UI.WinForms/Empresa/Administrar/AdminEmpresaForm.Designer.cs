@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -58,7 +59,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.cancelarButton = new Guna.UI2.WinForms.Guna2Button();
             this.listaHorariosDatGridView = new System.Windows.Forms.DataGridView();
             this.eliminarButton = new Guna.UI2.WinForms.Guna2Button();
             this.modificarButton = new Guna.UI2.WinForms.Guna2Button();
@@ -491,7 +491,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.cancelarButton);
             this.tabPage2.Controls.Add(this.listaHorariosDatGridView);
             this.tabPage2.Controls.Add(this.eliminarButton);
             this.tabPage2.Controls.Add(this.modificarButton);
@@ -529,30 +528,6 @@
             this.tabPage2.Text = "Horarios";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // cancelarButton
-            // 
-            this.cancelarButton.Animated = true;
-            this.cancelarButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.cancelarButton.BorderRadius = 10;
-            this.cancelarButton.BorderThickness = 1;
-            this.cancelarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cancelarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.cancelarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.cancelarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.cancelarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cancelarButton.FillColor = System.Drawing.Color.Empty;
-            this.cancelarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.cancelarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.cancelarButton.Location = new System.Drawing.Point(242, 468);
-            this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.cancelarButton.Size = new System.Drawing.Size(124, 46);
-            this.cancelarButton.TabIndex = 36;
-            this.cancelarButton.Text = "Cancelar";
-            this.cancelarButton.Visible = false;
-            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
-            // 
             // listaHorariosDatGridView
             // 
             this.listaHorariosDatGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -563,39 +538,46 @@
             this.listaHorariosDatGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listaHorariosDatGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.listaHorariosDatGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listaHorariosDatGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.listaHorariosDatGridView.ColumnHeadersHeight = 45;
-            this.listaHorariosDatGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.listaHorariosDatGridView.DefaultCellStyle = dataGridViewCellStyle5;
-            this.listaHorariosDatGridView.EnableHeadersVisualStyles = false;
-            this.listaHorariosDatGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
-            this.listaHorariosDatGridView.Location = new System.Drawing.Point(25, 650);
-            this.listaHorariosDatGridView.Name = "listaHorariosDatGridView";
-            this.listaHorariosDatGridView.ReadOnly = true;
-            this.listaHorariosDatGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaHorariosDatGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.listaHorariosDatGridView.ColumnHeadersHeight = 45;
+            this.listaHorariosDatGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.listaHorariosDatGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listaHorariosDatGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.listaHorariosDatGridView.EnableHeadersVisualStyles = false;
+            this.listaHorariosDatGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
+            this.listaHorariosDatGridView.Location = new System.Drawing.Point(25, 650);
+            this.listaHorariosDatGridView.MultiSelect = false;
+            this.listaHorariosDatGridView.Name = "listaHorariosDatGridView";
+            this.listaHorariosDatGridView.ReadOnly = true;
+            this.listaHorariosDatGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listaHorariosDatGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.listaHorariosDatGridView.RowHeadersVisible = false;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.listaHorariosDatGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.listaHorariosDatGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.listaHorariosDatGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.listaHorariosDatGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
@@ -616,12 +598,13 @@
             this.eliminarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.eliminarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.eliminarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.eliminarButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
+            this.eliminarButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(211)))));
             this.eliminarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.eliminarButton.ForeColor = System.Drawing.Color.White;
-            this.eliminarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.eliminarButton.Location = new System.Drawing.Point(754, 576);
+            this.eliminarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
+            this.eliminarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(211)))));
+            this.eliminarButton.Location = new System.Drawing.Point(782, 576);
             this.eliminarButton.Name = "eliminarButton";
+            this.eliminarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
             this.eliminarButton.Size = new System.Drawing.Size(109, 46);
             this.eliminarButton.TabIndex = 34;
             this.eliminarButton.Text = "Eliminar";
@@ -631,21 +614,23 @@
             // 
             this.modificarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.modificarButton.Animated = true;
+            this.modificarButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.modificarButton.BorderRadius = 10;
+            this.modificarButton.BorderThickness = 1;
             this.modificarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modificarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.modificarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.modificarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.modificarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.modificarButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(134)))), ((int)(((byte)(47)))));
+            this.modificarButton.FillColor = System.Drawing.Color.White;
             this.modificarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.modificarButton.ForeColor = System.Drawing.Color.White;
-            this.modificarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(120)))), ((int)(((byte)(70)))));
-            this.modificarButton.Location = new System.Drawing.Point(879, 576);
+            this.modificarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.modificarButton.HoverState.FillColor = System.Drawing.Color.White;
+            this.modificarButton.Location = new System.Drawing.Point(905, 576);
             this.modificarButton.Name = "modificarButton";
-            this.modificarButton.Size = new System.Drawing.Size(118, 46);
+            this.modificarButton.Size = new System.Drawing.Size(92, 46);
             this.modificarButton.TabIndex = 33;
-            this.modificarButton.Text = "Modificar";
+            this.modificarButton.Text = "Editar";
             this.modificarButton.Click += new System.EventHandler(this.modificarButton_Click);
             // 
             // minutoCierreCombobox
@@ -653,12 +638,14 @@
             this.minutoCierreCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minutoCierreCombobox.BackColor = System.Drawing.Color.Transparent;
             this.minutoCierreCombobox.BorderRadius = 10;
+            this.minutoCierreCombobox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minutoCierreCombobox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.minutoCierreCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.minutoCierreCombobox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.minutoCierreCombobox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.minutoCierreCombobox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minutoCierreCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.minutoCierreCombobox.IntegralHeight = false;
             this.minutoCierreCombobox.ItemHeight = 39;
             this.minutoCierreCombobox.Items.AddRange(new object[] {
             "00",
@@ -721,6 +708,7 @@
             "57",
             "58",
             "59"});
+            this.minutoCierreCombobox.ItemsAppearance.BackColor = System.Drawing.Color.White;
             this.minutoCierreCombobox.Location = new System.Drawing.Point(770, 427);
             this.minutoCierreCombobox.Name = "minutoCierreCombobox";
             this.minutoCierreCombobox.Size = new System.Drawing.Size(174, 45);
@@ -731,12 +719,14 @@
             this.horaCierreCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.horaCierreCombobox.BackColor = System.Drawing.Color.Transparent;
             this.horaCierreCombobox.BorderRadius = 10;
+            this.horaCierreCombobox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.horaCierreCombobox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.horaCierreCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.horaCierreCombobox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.horaCierreCombobox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.horaCierreCombobox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaCierreCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.horaCierreCombobox.IntegralHeight = false;
             this.horaCierreCombobox.ItemHeight = 39;
             this.horaCierreCombobox.Items.AddRange(new object[] {
             "01",
@@ -751,22 +741,26 @@
             "10",
             "11",
             "12"});
+            this.horaCierreCombobox.ItemsAppearance.BackColor = System.Drawing.Color.White;
             this.horaCierreCombobox.Location = new System.Drawing.Point(580, 427);
             this.horaCierreCombobox.Name = "horaCierreCombobox";
             this.horaCierreCombobox.Size = new System.Drawing.Size(174, 45);
             this.horaCierreCombobox.TabIndex = 31;
+            this.horaCierreCombobox.SelectedIndexChanged += new System.EventHandler(this.horaCierreCombobox_SelectedIndexChanged);
             // 
             // minutoAperturaCombobox
             // 
             this.minutoAperturaCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minutoAperturaCombobox.BackColor = System.Drawing.Color.Transparent;
             this.minutoAperturaCombobox.BorderRadius = 10;
+            this.minutoAperturaCombobox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minutoAperturaCombobox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.minutoAperturaCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.minutoAperturaCombobox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.minutoAperturaCombobox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.minutoAperturaCombobox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minutoAperturaCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.minutoAperturaCombobox.IntegralHeight = false;
             this.minutoAperturaCombobox.ItemHeight = 39;
             this.minutoAperturaCombobox.Items.AddRange(new object[] {
             "00",
@@ -829,6 +823,7 @@
             "57",
             "58",
             "59"});
+            this.minutoAperturaCombobox.ItemsAppearance.BackColor = System.Drawing.Color.White;
             this.minutoAperturaCombobox.Location = new System.Drawing.Point(770, 235);
             this.minutoAperturaCombobox.Name = "minutoAperturaCombobox";
             this.minutoAperturaCombobox.Size = new System.Drawing.Size(174, 45);
@@ -839,12 +834,14 @@
             this.horaAperturaCombobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.horaAperturaCombobox.BackColor = System.Drawing.Color.Transparent;
             this.horaAperturaCombobox.BorderRadius = 10;
+            this.horaAperturaCombobox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.horaAperturaCombobox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.horaAperturaCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.horaAperturaCombobox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.horaAperturaCombobox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.horaAperturaCombobox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaAperturaCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.horaAperturaCombobox.IntegralHeight = false;
             this.horaAperturaCombobox.ItemHeight = 39;
             this.horaAperturaCombobox.Items.AddRange(new object[] {
             "01",
@@ -859,6 +856,7 @@
             "10",
             "11",
             "12"});
+            this.horaAperturaCombobox.ItemsAppearance.BackColor = System.Drawing.Color.White;
             this.horaAperturaCombobox.Location = new System.Drawing.Point(580, 235);
             this.horaAperturaCombobox.Name = "horaAperturaCombobox";
             this.horaAperturaCombobox.Size = new System.Drawing.Size(174, 45);
@@ -911,7 +909,7 @@
             this.agregarHorarioButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
             this.agregarHorarioButton.Location = new System.Drawing.Point(25, 468);
             this.agregarHorarioButton.Name = "agregarHorarioButton";
-            this.agregarHorarioButton.Size = new System.Drawing.Size(201, 46);
+            this.agregarHorarioButton.Size = new System.Drawing.Size(179, 46);
             this.agregarHorarioButton.TabIndex = 25;
             this.agregarHorarioButton.Text = "Agregar horario";
             this.agregarHorarioButton.Click += new System.EventHandler(this.agregarHorarioButton_Click);
@@ -994,12 +992,14 @@
             this.diaCombobox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
             this.diaCombobox.BackColor = System.Drawing.Color.Transparent;
             this.diaCombobox.BorderRadius = 10;
+            this.diaCombobox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.diaCombobox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.diaCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.diaCombobox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.diaCombobox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.diaCombobox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.diaCombobox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.diaCombobox.IntegralHeight = false;
             this.diaCombobox.ItemHeight = 39;
             this.diaCombobox.Items.AddRange(new object[] {
             "Lunes",
@@ -1009,6 +1009,7 @@
             "Viernes",
             "Sabado",
             "Domingo"});
+            this.diaCombobox.ItemsAppearance.BackColor = System.Drawing.Color.White;
             this.diaCombobox.Location = new System.Drawing.Point(580, 54);
             this.diaCombobox.Name = "diaCombobox";
             this.diaCombobox.Size = new System.Drawing.Size(360, 45);
@@ -1276,6 +1277,5 @@
         private Guna.UI2.WinForms.Guna2Button eliminarButton;
         private Guna.UI2.WinForms.Guna2Button modificarButton;
         private System.Windows.Forms.DataGridView listaHorariosDatGridView;
-        private Guna.UI2.WinForms.Guna2Button cancelarButton;
     }
 }

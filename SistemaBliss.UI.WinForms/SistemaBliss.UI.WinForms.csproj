@@ -219,5 +219,11 @@
   <ItemGroup>
     <None Include="Resources\icon-flecha.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscador-img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MostrarResultados-img.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

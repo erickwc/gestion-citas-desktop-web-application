@@ -34,8 +34,8 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.mainPanel = new System.Windows.Forms.Panel();
             this.nombreSeccionLabel = new System.Windows.Forms.Label();
+            this.mainPanel = new System.Windows.Forms.Panel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             this.guna2Button4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Button4.Animated = true;
+            this.guna2Button4.BackColor = System.Drawing.Color.White;
             this.guna2Button4.BorderRadius = 10;
             this.guna2Button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -80,6 +81,7 @@
             // 
             this.guna2Button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Button3.Animated = true;
+            this.guna2Button3.BackColor = System.Drawing.Color.White;
             this.guna2Button3.BorderRadius = 10;
             this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -101,6 +103,7 @@
             // 
             this.guna2Button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Button2.Animated = true;
+            this.guna2Button2.BackColor = System.Drawing.Color.White;
             this.guna2Button2.BorderRadius = 10;
             this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -123,6 +126,7 @@
             // 
             this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2Button1.Animated = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.White;
             this.guna2Button1.BorderRadius = 10;
             this.guna2Button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -152,15 +156,6 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1100, 76);
             this.guna2Panel2.TabIndex = 1;
             // 
-            // mainPanel
-            // 
-            this.mainPanel.BackColor = System.Drawing.Color.White;
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(250, 76);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1100, 633);
-            this.mainPanel.TabIndex = 2;
-            // 
             // nombreSeccionLabel
             // 
             this.nombreSeccionLabel.AutoSize = true;
@@ -172,6 +167,16 @@
             this.nombreSeccionLabel.Size = new System.Drawing.Size(96, 32);
             this.nombreSeccionLabel.TabIndex = 1;
             this.nombreSeccionLabel.Text = "Seccion";
+            this.nombreSeccionLabel.Click += new System.EventHandler(this.nombreSeccionLabel_Click);
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.BackColor = System.Drawing.Color.White;
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(250, 76);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1100, 633);
+            this.mainPanel.TabIndex = 2;
             // 
             // AdminDashboardForm
             // 
@@ -185,6 +190,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BLISS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminDashboardForm_FormClosing);
             this.Load += new System.EventHandler(this.AdminDashboardForm_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);

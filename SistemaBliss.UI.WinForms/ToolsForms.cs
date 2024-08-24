@@ -12,24 +12,32 @@ namespace SistemaBliss.UI.WinForms
     public class ToolsForm
     {
         public static long ObtenerIdGrid(DataGridView pDataGridView)
-    {
-        // Metodo para obtener el id de registro seleccionado en un DataGridView
-        try
         {
-            long idTabla = 0;
-            // Obtener la PK del registro seleccionado
-            idTabla = Convert.ToInt64(pDataGridView.Rows[pDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
-            return idTabla;
+            // Metodo para obtener el id de registro seleccionado en un DataGridView
+            try
+            {
+                // Verificar si hay una fila seleccionada
+                if (pDataGridView.CurrentRow != null && pDataGridView.CurrentRow.Index >= 0)
+                {
+                    // Obtener la PK del registro seleccionado
+                    return Convert.ToInt64(pDataGridView.Rows[pDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
+                }
+                else
+                {
+                    // Si no hay fila seleccionada, retornar 0
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción y retornar 0 en caso de error
+                return 0;
+            }
         }
-        catch (Exception ex)
-        {
-            return 0;
-        }
-    }
 
-    public static DialogResult MessageBoxConfirmar()
-    {
-        return MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        public static DialogResult MessageBoxConfirmar()
+        {
+            return MessageBox.Show("¿Desea eliminar el registro seleccionado?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
     }
 }

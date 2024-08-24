@@ -9,6 +9,7 @@ namespace SistemaBliss.EN
     public class Municipio
     {
         public Int16 IdMunicipio { get; set; }
+        public byte IdDepartamento { get; set; }
         public string Nombre { get; set; }
     }
 }

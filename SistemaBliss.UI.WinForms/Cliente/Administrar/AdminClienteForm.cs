@@ -35,7 +35,7 @@ namespace SistemaBliss.UI.WinForms
 
             // Inicializar lista 
             List<object> usuarios = new List<object>();
-            usuarios.Add(new { Value = 0, Text = "SELECCIONAR" });
+            usuarios.Add(new { Value = 0, Text = "Tipo de busqueda" });
             usuarios.Add(new { Value = 1, Text = "Nombre" });
             usuarios.Add(new { Value = 2, Text = "Apellido" });
             usuarios.Add(new { Value = 3, Text = "Telefono" });
@@ -85,6 +85,8 @@ namespace SistemaBliss.UI.WinForms
                 listaClientesInactivosDataGridView.DataSource = Lista.Select(x => new UsuarioVM(x)).ToList();
                 OcultarColumnas(listaClientesInactivosDataGridView);
             }
+
+            buscadorPictureBox.Visible = false;
         }
 
         private void CargarTarjetas()
@@ -120,6 +122,7 @@ namespace SistemaBliss.UI.WinForms
                 // Limpiar las tablas
                 listaClientesDataGridView.DataSource = null;
                 listaClientesInactivosDataGridView.DataSource = null;
+                buscadorPictureBox.Visible = true;
                 return;
             }
 
@@ -204,7 +207,7 @@ namespace SistemaBliss.UI.WinForms
                 }
                 else
                 {
-                    MessageBox.Show("Primero debe seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Primero debe buscar y seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }

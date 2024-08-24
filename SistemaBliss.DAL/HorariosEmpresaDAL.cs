@@ -55,7 +55,7 @@ namespace SistemaBliss.DAL
             {
                
                 string whereSQL = " ";
-                string consulta = @"SELECT * FROM HorariosEmpresa ";
+                string consulta = @"Select * from HorariosEmpresa ";
 
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)

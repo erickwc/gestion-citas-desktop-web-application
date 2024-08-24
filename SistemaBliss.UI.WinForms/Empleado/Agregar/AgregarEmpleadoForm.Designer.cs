@@ -72,10 +72,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.direccioLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.eliminarButton = new Guna.UI2.WinForms.Guna2Button();
             this.agregarProfesionButton = new Guna.UI2.WinForms.Guna2Button();
             this.profesionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.eliminarButton = new Guna.UI2.WinForms.Guna2Button();
             this.listaProfesionesAgregadas = new System.Windows.Forms.DataGridView();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -376,10 +377,11 @@
             this.municipioComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.municipioComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.municipioComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.municipioComboBox.ItemHeight = 39;
-            this.municipioComboBox.Location = new System.Drawing.Point(0, 56);
+            this.municipioComboBox.IntegralHeight = false;
+            this.municipioComboBox.ItemHeight = 37;
+            this.municipioComboBox.Location = new System.Drawing.Point(0, 58);
             this.municipioComboBox.Name = "municipioComboBox";
-            this.municipioComboBox.Size = new System.Drawing.Size(279, 45);
+            this.municipioComboBox.Size = new System.Drawing.Size(279, 43);
             this.municipioComboBox.TabIndex = 18;
             // 
             // label17
@@ -609,10 +611,11 @@
             this.departamentosComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.departamentosComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.departamentosComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.departamentosComboBox.ItemHeight = 39;
-            this.departamentosComboBox.Location = new System.Drawing.Point(0, 56);
+            this.departamentosComboBox.IntegralHeight = false;
+            this.departamentosComboBox.ItemHeight = 37;
+            this.departamentosComboBox.Location = new System.Drawing.Point(0, 58);
             this.departamentosComboBox.Name = "departamentosComboBox";
-            this.departamentosComboBox.Size = new System.Drawing.Size(278, 45);
+            this.departamentosComboBox.Size = new System.Drawing.Size(278, 43);
             this.departamentosComboBox.TabIndex = 19;
             // 
             // label16
@@ -722,7 +725,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.eliminarButton);
             this.tabPage2.Controls.Add(this.agregarProfesionButton);
             this.tabPage2.Controls.Add(this.profesionComboBox);
             this.tabPage2.Controls.Add(this.guna2Panel3);
@@ -735,27 +737,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Profesiones";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // eliminarButton
-            // 
-            this.eliminarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.eliminarButton.Animated = true;
-            this.eliminarButton.BorderRadius = 10;
-            this.eliminarButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.eliminarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.eliminarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.eliminarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.eliminarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.eliminarButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.eliminarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.eliminarButton.ForeColor = System.Drawing.Color.White;
-            this.eliminarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.eliminarButton.Location = new System.Drawing.Point(513, 15);
-            this.eliminarButton.Name = "eliminarButton";
-            this.eliminarButton.Size = new System.Drawing.Size(271, 46);
-            this.eliminarButton.TabIndex = 24;
-            this.eliminarButton.Text = "Eliminar profesion asignada";
-            this.eliminarButton.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // agregarProfesionButton
             // 
@@ -775,7 +756,7 @@
             this.agregarProfesionButton.Name = "agregarProfesionButton";
             this.agregarProfesionButton.Size = new System.Drawing.Size(196, 46);
             this.agregarProfesionButton.TabIndex = 22;
-            this.agregarProfesionButton.Text = "Agregar profesion";
+            this.agregarProfesionButton.Text = "Asignar profesion";
             this.agregarProfesionButton.Click += new System.EventHandler(this.agregarProfesionButton_Click);
             // 
             // profesionComboBox
@@ -802,11 +783,47 @@
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
             this.guna2Panel3.BorderRadius = 10;
             this.guna2Panel3.BorderThickness = 1;
+            this.guna2Panel3.Controls.Add(this.label1);
+            this.guna2Panel3.Controls.Add(this.eliminarButton);
             this.guna2Panel3.Controls.Add(this.listaProfesionesAgregadas);
-            this.guna2Panel3.Location = new System.Drawing.Point(513, 75);
+            this.guna2Panel3.Location = new System.Drawing.Point(512, 16);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(517, 362);
+            this.guna2Panel3.Size = new System.Drawing.Size(624, 431);
             this.guna2Panel3.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
+            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 25);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Profesiones asignadas";
+            // 
+            // eliminarButton
+            // 
+            this.eliminarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.eliminarButton.Animated = true;
+            this.eliminarButton.BorderRadius = 10;
+            this.eliminarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.eliminarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.eliminarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.eliminarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.eliminarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.eliminarButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(211)))));
+            this.eliminarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.eliminarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(56)))), ((int)(((byte)(0)))));
+            this.eliminarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(211)))));
+            this.eliminarButton.Location = new System.Drawing.Point(338, 16);
+            this.eliminarButton.Name = "eliminarButton";
+            this.eliminarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(56)))), ((int)(((byte)(0)))));
+            this.eliminarButton.Size = new System.Drawing.Size(271, 46);
+            this.eliminarButton.TabIndex = 24;
+            this.eliminarButton.Text = "Eliminar profesion asignada";
+            this.eliminarButton.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // listaProfesionesAgregadas
             // 
@@ -829,6 +846,8 @@
             this.listaProfesionesAgregadas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.listaProfesionesAgregadas.ColumnHeadersHeight = 45;
             this.listaProfesionesAgregadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.listaProfesionesAgregadas.ColumnHeadersVisible = false;
+            this.listaProfesionesAgregadas.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
@@ -839,7 +858,7 @@
             this.listaProfesionesAgregadas.DefaultCellStyle = dataGridViewCellStyle2;
             this.listaProfesionesAgregadas.EnableHeadersVisualStyles = false;
             this.listaProfesionesAgregadas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
-            this.listaProfesionesAgregadas.Location = new System.Drawing.Point(14, 15);
+            this.listaProfesionesAgregadas.Location = new System.Drawing.Point(12, 87);
             this.listaProfesionesAgregadas.Name = "listaProfesionesAgregadas";
             this.listaProfesionesAgregadas.ReadOnly = true;
             this.listaProfesionesAgregadas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -859,7 +878,7 @@
             this.listaProfesionesAgregadas.RowTemplate.Height = 60;
             this.listaProfesionesAgregadas.RowTemplate.ReadOnly = true;
             this.listaProfesionesAgregadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaProfesionesAgregadas.Size = new System.Drawing.Size(490, 331);
+            this.listaProfesionesAgregadas.Size = new System.Drawing.Size(597, 331);
             this.listaProfesionesAgregadas.TabIndex = 38;
             // 
             // label19
@@ -973,10 +992,11 @@
             this.estadoComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.estadoComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estadoComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.estadoComboBox.ItemHeight = 39;
-            this.estadoComboBox.Location = new System.Drawing.Point(0, 72);
+            this.estadoComboBox.IntegralHeight = false;
+            this.estadoComboBox.ItemHeight = 37;
+            this.estadoComboBox.Location = new System.Drawing.Point(0, 74);
             this.estadoComboBox.Name = "estadoComboBox";
-            this.estadoComboBox.Size = new System.Drawing.Size(293, 45);
+            this.estadoComboBox.Size = new System.Drawing.Size(293, 43);
             this.estadoComboBox.TabIndex = 18;
             // 
             // label21
@@ -1145,10 +1165,11 @@
             this.rolComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.rolComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rolComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.rolComboBox.ItemHeight = 39;
-            this.rolComboBox.Location = new System.Drawing.Point(0, 72);
+            this.rolComboBox.IntegralHeight = false;
+            this.rolComboBox.ItemHeight = 37;
+            this.rolComboBox.Location = new System.Drawing.Point(0, 74);
             this.rolComboBox.Name = "rolComboBox";
-            this.rolComboBox.Size = new System.Drawing.Size(295, 45);
+            this.rolComboBox.Size = new System.Drawing.Size(295, 43);
             this.rolComboBox.TabIndex = 18;
             this.rolComboBox.Visible = false;
             this.rolComboBox.SelectedIndexChanged += new System.EventHandler(this.RolComboBox_SelectedIndexChanged);
@@ -1274,9 +1295,10 @@
             this.cancelarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.cancelarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.cancelarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.cancelarButton.FillColor = System.Drawing.Color.Empty;
+            this.cancelarButton.FillColor = System.Drawing.Color.White;
             this.cancelarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.cancelarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.cancelarButton.HoverState.FillColor = System.Drawing.Color.White;
             this.cancelarButton.Location = new System.Drawing.Point(899, 64);
             this.cancelarButton.Name = "cancelarButton";
             this.cancelarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
@@ -1332,10 +1354,10 @@
             // 
             this.guna2BorderlessForm1.AnimateWindow = true;
             this.guna2BorderlessForm1.AnimationInterval = 150;
-            this.guna2BorderlessForm1.BorderRadius = 20;
+            this.guna2BorderlessForm1.BorderRadius = 15;
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.Gray;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.DarkGray;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // AgregarEmpleadoForm
@@ -1372,6 +1394,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaProfesionesAgregadas)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -1471,5 +1494,6 @@
         private Guna.UI2.WinForms.Guna2Button agregarProfesionButton;
         private Guna.UI2.WinForms.Guna2ComboBox profesionComboBox;
         private System.Windows.Forms.DataGridView listaProfesionesAgregadas;
+        private System.Windows.Forms.Label label1;
     }
 }

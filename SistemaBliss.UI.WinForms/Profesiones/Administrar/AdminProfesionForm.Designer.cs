@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -174,6 +175,7 @@
             this.listaProfesionesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.listaProfesionesDataGridView.ColumnHeadersHeight = 45;
             this.listaProfesionesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.listaProfesionesDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
@@ -197,6 +199,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.listaProfesionesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.listaProfesionesDataGridView.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.listaProfesionesDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.listaProfesionesDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.listaProfesionesDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.listaProfesionesDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
@@ -210,18 +218,22 @@
             // editarButton
             // 
             this.editarButton.Animated = true;
+            this.editarButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.editarButton.BorderRadius = 10;
+            this.editarButton.BorderThickness = 1;
             this.editarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editarButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.editarButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.editarButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.editarButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.editarButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.editarButton.FillColor = System.Drawing.Color.White;
             this.editarButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.editarButton.ForeColor = System.Drawing.Color.White;
-            this.editarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
+            this.editarButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
+            this.editarButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(134)))), ((int)(((byte)(47)))));
+            this.editarButton.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(245)))), ((int)(((byte)(219)))));
             this.editarButton.Location = new System.Drawing.Point(144, 206);
             this.editarButton.Name = "editarButton";
+            this.editarButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.editarButton.Size = new System.Drawing.Size(89, 46);
             this.editarButton.TabIndex = 38;
             this.editarButton.Text = "Editar";

@@ -43,14 +43,19 @@ namespace SistemaBliss.UI.WinForms
                 validacionCampos.CampoInvalidoAparienciaTextBox(telefonoTextBox);
                 camposValidos = false;
             }
-            if (departamentosComboBox.Text.Length == 0)
+            if (Convert.ToInt32(departamentosComboBox.SelectedValue) == 0)
             {
                 validacionCampos.CampoInvalidoAparienciaComboBox(departamentosComboBox);
                 camposValidos = false;
             }
-            if (municipioComboBox.Text.Length == 0)
+            if (Convert.ToInt32(municipioComboBox.SelectedValue) == 0)
             {
                 validacionCampos.CampoInvalidoAparienciaComboBox(municipioComboBox);
+                camposValidos = false;
+            }
+            if (Convert.ToInt32(estadoComboBox.SelectedValue) == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaComboBox(estadoComboBox);
                 camposValidos = false;
             }
             if (duiTextBox.Text.Length == 0)
@@ -58,30 +63,43 @@ namespace SistemaBliss.UI.WinForms
                 validacionCampos.CampoInvalidoAparienciaTextBox(duiTextBox);
                 camposValidos = false;
             }
+            if (contrasenaEmpleadoTextBox.Text.Length == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaTextBox(contrasenaEmpleadoTextBox);
+                camposValidos = false;
+            }
+            if (correoElectronicoTextBox.Text.Length == 0)
+            {
+                validacionCampos.CampoInvalidoAparienciaTextBox(correoElectronicoTextBox);
+                camposValidos = false;
+            }
             return camposValidos;
         }
 
-        public void CargarMunicipios()
+        public void CargarMunicipios(byte idDepartamento)
         {
-            // Conexion a la tabla de Cargo en la DB
+            // Conexion a la tabla de Municipio en la DB
             MunicipioBL municipioBL = new MunicipioBL();
 
             // Inicializar lista 
             List<Municipio> municipios = new List<Municipio>();
             municipios.Add(new Municipio { IdMunicipio = 0, Nombre = "SELECCIONAR" });
 
-            // Obtener lista de Cargos de la DB
-            municipios.AddRange(municipioBL.Buscar(new Municipio()));
+            // Obtener lista de Municipios de la DB filtrada por IdDepartamento
+            municipios.AddRange(municipioBL.Buscar(new Municipio { IdDepartamento = idDepartamento }));
             municipioComboBox.DataSource = municipios;
 
             // Configurar texto y valor de la lista de seleccion
             municipioComboBox.DisplayMember = "Nombre";
             municipioComboBox.ValueMember = "IdMunicipio";
         }
+
         public void CargarDepartamento()
         {
             // Conexion a la tabla de Cargo en la DB
             DepartamentoBL departamentoBL = new DepartamentoBL();
+          
+           
 
             // Inicializar lista 
             List<Departamento> departamentos = new List<Departamento>();
@@ -94,6 +112,8 @@ namespace SistemaBliss.UI.WinForms
             // Configurar texto y valor de la lista de seleccion
             departamentosComboBox.DisplayMember = "Nombre";
             departamentosComboBox.ValueMember = "IdDepartamento";
+            
+
         }
         public void CargarRol()
         {
@@ -222,7 +242,7 @@ namespace SistemaBliss.UI.WinForms
         private void AgregarClienteForm_Load(object sender, EventArgs e)
         {
 
-            CargarMunicipios();
+            
             CargarDepartamento();
             CargarEstado();
             CargarRol();
@@ -319,6 +339,19 @@ namespace SistemaBliss.UI.WinForms
                 // Cancelar el evento si la tecla presionada no es una letra ni la tecla de retroceso
                 e.Handled = true;
             }
+        }
+
+        private void departamentosComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+                Municipio municipio = new Municipio();
+            //municipio.IdDepartamento = (byte)departamentosComboBox.SelectedValue;
+
+
+            int IdDepartamento = departamentosComboBox.SelectedIndex;
+            
+;           CargarMunicipios(Convert.ToByte(IdDepartamento));
+            
         }
     }
 }

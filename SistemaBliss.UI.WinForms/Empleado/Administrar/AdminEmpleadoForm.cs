@@ -36,7 +36,7 @@ namespace SistemaBliss.UI.WinForms
 
             // Inicializar lista 
             List<object> usuarios = new List<object>();
-            usuarios.Add(new { Value = 0, Text = "SELECCIONAR" });
+            usuarios.Add(new { Value = 0, Text = "Tipo de busqueda" });
             usuarios.Add(new { Value = 1, Text = "Nombre" });
             usuarios.Add(new { Value = 2, Text = "Apellido" });
             usuarios.Add(new { Value = 3, Text = "Telefono" });
@@ -58,7 +58,7 @@ namespace SistemaBliss.UI.WinForms
             datagrid.Columns["IdMunicipio"].Visible = false;
             datagrid.Columns["IdDepartamento"].Visible = false;
             //datagrid.Columns["IdRol"].Visible = false;
-            //datagrid.Columns["IdUsuario"].Visible = false;
+            datagrid.Columns["IdUsuario"].Visible = false;
             datagrid.Columns["Contrasena"].Visible = false;
             datagrid.Columns["Direccion"].Visible = false;
             datagrid.Columns["UrlImagen"].Visible = false;
@@ -86,6 +86,8 @@ namespace SistemaBliss.UI.WinForms
                 listaEmpleadosInactivosDataGridView.DataSource = Lista.Select(x => new UsuarioVM(x)).ToList();
                 OcultarColumnas(listaEmpleadosInactivosDataGridView);
             }
+
+            buscadorPictureBox.Visible = false;
         }
 
         private void btn_profesiones_Click(object sender, EventArgs e)
@@ -134,12 +136,12 @@ namespace SistemaBliss.UI.WinForms
 
             if (selectedTab.Text == "Activos")
             {
-                short idTabla = (short)ToolsForm.ObtenerIdGrid(listaEmpleadosDataGridView);
+                long idTabla = ToolsForm.ObtenerIdGrid(listaEmpleadosDataGridView);
                 if (idTabla > 0)
                 {
                     // Abrir formulario para modificar el empleado seleccionado
                     AgregarEmpleadoForm formModificar = new AgregarEmpleadoForm();
-                    formModificar.idUsuario = idTabla;
+                    formModificar.idUsuario = (short)idTabla;
                     formModificar.ShowDialog();
 
                     Usuario usuario = new Usuario();
@@ -164,9 +166,8 @@ namespace SistemaBliss.UI.WinForms
                 }
                 else
                 {
-                    MessageBox.Show("Primero debe seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Primero debe buscar y seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             }
             if (selectedTab.Text == "Inactivos")
             {
@@ -227,6 +228,7 @@ namespace SistemaBliss.UI.WinForms
                 listaEmpleadosDataGridView.DataSource = null;
                 listaEmpleadosInactivosDataGridView.DataSource = null;
                 return;
+                buscadorPictureBox.Visible = true;
             }
 
             // Obtener los filtros de busquedas

@@ -82,10 +82,8 @@ namespace SistemaBliss.UI.WinForms
                     // Verificación del resultado en la base de datos
                     if (resultado > 0)
                     {
-
-
                         MessageBox.Show("Registro guardado exitosamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Close();
+                        CargarLista();
                     }
                     else
                     {

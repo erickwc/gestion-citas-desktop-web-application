@@ -40,7 +40,7 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdEstado, Nombre FROM Estado ";
+                string consulta = @"SELECT TOP 2 IdEstado, Nombre FROM Estado  ";
 
                 // Validar filtros
                 if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)

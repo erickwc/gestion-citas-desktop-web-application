@@ -63,6 +63,16 @@ namespace SistemaBliss.UI.WinForms.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap buscador_img {
+            get {
+                object obj = ResourceManager.GetObject("buscador_img", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_activos {
             get {
                 object obj = ResourceManager.GetObject("icon_activos", resourceCulture);
@@ -136,6 +146,16 @@ namespace SistemaBliss.UI.WinForms.Properties {
         internal static System.Drawing.Bitmap icon_totales {
             get {
                 object obj = ResourceManager.GetObject("icon_totales", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MostrarResultados_img {
+            get {
+                object obj = ResourceManager.GetObject("MostrarResultados_img", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

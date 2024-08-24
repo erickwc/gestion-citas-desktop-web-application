@@ -146,7 +146,7 @@
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(16);
-            this.mainPanel.Size = new System.Drawing.Size(1100, 633);
+            this.mainPanel.Size = new System.Drawing.Size(1200, 700);
             this.mainPanel.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -161,7 +161,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1068, 601);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1168, 668);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // guna2Panel2
@@ -172,11 +172,11 @@
             this.guna2Panel2.Controls.Add(this.ClienteDatosPersonalesDatosDeUsuarioTabControl);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 136);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(0, 16, 16, 0);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 149);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Padding = new System.Windows.Forms.Padding(10);
-            this.guna2Panel2.Size = new System.Drawing.Size(1052, 465);
+            this.guna2Panel2.Size = new System.Drawing.Size(1168, 519);
             this.guna2Panel2.TabIndex = 3;
             // 
             // ClienteDatosPersonalesDatosDeUsuarioTabControl
@@ -189,7 +189,7 @@
             this.ClienteDatosPersonalesDatosDeUsuarioTabControl.Location = new System.Drawing.Point(10, 10);
             this.ClienteDatosPersonalesDatosDeUsuarioTabControl.Name = "ClienteDatosPersonalesDatosDeUsuarioTabControl";
             this.ClienteDatosPersonalesDatosDeUsuarioTabControl.SelectedIndex = 0;
-            this.ClienteDatosPersonalesDatosDeUsuarioTabControl.Size = new System.Drawing.Size(1032, 445);
+            this.ClienteDatosPersonalesDatosDeUsuarioTabControl.Size = new System.Drawing.Size(1148, 499);
             this.ClienteDatosPersonalesDatosDeUsuarioTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
             this.ClienteDatosPersonalesDatosDeUsuarioTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.White;
             this.ClienteDatosPersonalesDatosDeUsuarioTabControl.TabButtonHoverState.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -216,7 +216,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
-            this.tabPage1.Size = new System.Drawing.Size(1024, 397);
+            this.tabPage1.Size = new System.Drawing.Size(1140, 451);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos personales";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -237,17 +237,17 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(824, 397);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(940, 451);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 79);
+            this.panel1.Location = new System.Drawing.Point(0, 90);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(824, 178);
+            this.panel1.Size = new System.Drawing.Size(940, 202);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -260,8 +260,8 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 178F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 178);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(940, 202);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -284,7 +284,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(824, 178);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(940, 202);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // panel7
@@ -293,10 +293,10 @@
             this.panel7.Controls.Add(this.label15);
             this.panel7.Controls.Add(this.TelefonoAggClienteLabel);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(0, 89);
+            this.panel7.Location = new System.Drawing.Point(0, 101);
             this.panel7.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(239, 89);
+            this.panel7.Size = new System.Drawing.Size(278, 101);
             this.panel7.TabIndex = 19;
             // 
             // telefonoTextBox
@@ -313,13 +313,13 @@
             this.telefonoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.telefonoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telefonoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.telefonoTextBox.Location = new System.Drawing.Point(0, 46);
+            this.telefonoTextBox.Location = new System.Drawing.Point(0, 58);
             this.telefonoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.telefonoTextBox.Name = "telefonoTextBox";
             this.telefonoTextBox.PasswordChar = '\0';
             this.telefonoTextBox.PlaceholderText = "";
             this.telefonoTextBox.SelectedText = "";
-            this.telefonoTextBox.Size = new System.Drawing.Size(239, 43);
+            this.telefonoTextBox.Size = new System.Drawing.Size(278, 43);
             this.telefonoTextBox.TabIndex = 17;
             this.telefonoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telefonoTextBox_KeyPress);
             // 
@@ -328,7 +328,7 @@
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label15.Location = new System.Drawing.Point(67, 16);
+            this.label15.Location = new System.Drawing.Point(67, 28);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(19, 25);
             this.label15.TabIndex = 16;
@@ -340,7 +340,7 @@
             this.TelefonoAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TelefonoAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TelefonoAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.TelefonoAggClienteLabel.Location = new System.Drawing.Point(-4, 16);
+            this.TelefonoAggClienteLabel.Location = new System.Drawing.Point(-4, 28);
             this.TelefonoAggClienteLabel.Name = "TelefonoAggClienteLabel";
             this.TelefonoAggClienteLabel.Size = new System.Drawing.Size(152, 25);
             this.TelefonoAggClienteLabel.TabIndex = 13;
@@ -353,10 +353,10 @@
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.MunicipioAggClienteLabel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(548, 89);
+            this.panel6.Location = new System.Drawing.Point(626, 101);
             this.panel6.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(241, 89);
+            this.panel6.Size = new System.Drawing.Size(279, 101);
             this.panel6.TabIndex = 18;
             // 
             // municipioComboBox
@@ -370,10 +370,11 @@
             this.municipioComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.municipioComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.municipioComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.municipioComboBox.ItemHeight = 39;
-            this.municipioComboBox.Location = new System.Drawing.Point(0, 44);
+            this.municipioComboBox.IntegralHeight = false;
+            this.municipioComboBox.ItemHeight = 37;
+            this.municipioComboBox.Location = new System.Drawing.Point(0, 58);
             this.municipioComboBox.Name = "municipioComboBox";
-            this.municipioComboBox.Size = new System.Drawing.Size(241, 45);
+            this.municipioComboBox.Size = new System.Drawing.Size(279, 43);
             this.municipioComboBox.TabIndex = 21;
             // 
             // label17
@@ -381,7 +382,7 @@
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label17.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label17.Location = new System.Drawing.Point(77, 16);
+            this.label17.Location = new System.Drawing.Point(77, 28);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(19, 25);
             this.label17.TabIndex = 17;
@@ -393,7 +394,7 @@
             this.MunicipioAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.MunicipioAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MunicipioAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.MunicipioAggClienteLabel.Location = new System.Drawing.Point(-5, 16);
+            this.MunicipioAggClienteLabel.Location = new System.Drawing.Point(-5, 28);
             this.MunicipioAggClienteLabel.Name = "MunicipioAggClienteLabel";
             this.MunicipioAggClienteLabel.Size = new System.Drawing.Size(152, 25);
             this.MunicipioAggClienteLabel.TabIndex = 13;
@@ -409,7 +410,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(239, 89);
+            this.panel4.Size = new System.Drawing.Size(278, 101);
             this.panel4.TabIndex = 15;
             // 
             // nombresTextBox
@@ -426,13 +427,13 @@
             this.nombresTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.nombresTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nombresTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.nombresTextBox.Location = new System.Drawing.Point(0, 46);
+            this.nombresTextBox.Location = new System.Drawing.Point(0, 58);
             this.nombresTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.nombresTextBox.Name = "nombresTextBox";
             this.nombresTextBox.PasswordChar = '\0';
             this.nombresTextBox.PlaceholderText = "";
             this.nombresTextBox.SelectedText = "";
-            this.nombresTextBox.Size = new System.Drawing.Size(239, 43);
+            this.nombresTextBox.Size = new System.Drawing.Size(278, 43);
             this.nombresTextBox.TabIndex = 16;
             this.nombresTextBox.TextChanged += new System.EventHandler(this.NombresAggClienteTextBox_TextChanged);
             this.nombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apellidoTextBox_KeyPress);
@@ -442,7 +443,7 @@
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label11.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label11.Location = new System.Drawing.Point(72, 16);
+            this.label11.Location = new System.Drawing.Point(72, 28);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(19, 25);
             this.label11.TabIndex = 15;
@@ -454,7 +455,7 @@
             this.NombresAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.NombresAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NombresAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.NombresAggClienteLabel.Location = new System.Drawing.Point(-5, 16);
+            this.NombresAggClienteLabel.Location = new System.Drawing.Point(-5, 28);
             this.NombresAggClienteLabel.Name = "NombresAggClienteLabel";
             this.NombresAggClienteLabel.Size = new System.Drawing.Size(152, 25);
             this.NombresAggClienteLabel.TabIndex = 13;
@@ -467,10 +468,10 @@
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.DUIAggClienteLabel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(548, 0);
+            this.panel2.Location = new System.Drawing.Point(626, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(241, 89);
+            this.panel2.Size = new System.Drawing.Size(279, 101);
             this.panel2.TabIndex = 1;
             // 
             // duiTextBox
@@ -487,13 +488,13 @@
             this.duiTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.duiTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.duiTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.duiTextBox.Location = new System.Drawing.Point(0, 46);
+            this.duiTextBox.Location = new System.Drawing.Point(0, 58);
             this.duiTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.duiTextBox.Name = "duiTextBox";
             this.duiTextBox.PasswordChar = '\0';
             this.duiTextBox.PlaceholderText = "";
             this.duiTextBox.SelectedText = "";
-            this.duiTextBox.Size = new System.Drawing.Size(241, 43);
+            this.duiTextBox.Size = new System.Drawing.Size(279, 43);
             this.duiTextBox.TabIndex = 17;
             this.duiTextBox.TextChanged += new System.EventHandler(this.duiTextBox_TextChanged);
             this.duiTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.duiTextBox_KeyPress);
@@ -503,7 +504,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label14.Location = new System.Drawing.Point(30, 16);
+            this.label14.Location = new System.Drawing.Point(30, 28);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(19, 25);
             this.label14.TabIndex = 16;
@@ -515,7 +516,7 @@
             this.DUIAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DUIAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DUIAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.DUIAggClienteLabel.Location = new System.Drawing.Point(-5, 16);
+            this.DUIAggClienteLabel.Location = new System.Drawing.Point(-5, 28);
             this.DUIAggClienteLabel.Name = "DUIAggClienteLabel";
             this.DUIAggClienteLabel.Size = new System.Drawing.Size(174, 25);
             this.DUIAggClienteLabel.TabIndex = 7;
@@ -528,10 +529,10 @@
             this.panel13.Controls.Add(this.label13);
             this.panel13.Controls.Add(this.ApellidosAggClienteLabel);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(274, 0);
+            this.panel13.Location = new System.Drawing.Point(313, 0);
             this.panel13.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(239, 89);
+            this.panel13.Size = new System.Drawing.Size(278, 101);
             this.panel13.TabIndex = 0;
             // 
             // apellidoTextBox
@@ -548,13 +549,13 @@
             this.apellidoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.apellidoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.apellidoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.apellidoTextBox.Location = new System.Drawing.Point(0, 46);
+            this.apellidoTextBox.Location = new System.Drawing.Point(0, 58);
             this.apellidoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.apellidoTextBox.Name = "apellidoTextBox";
             this.apellidoTextBox.PasswordChar = '\0';
             this.apellidoTextBox.PlaceholderText = "";
             this.apellidoTextBox.SelectedText = "";
-            this.apellidoTextBox.Size = new System.Drawing.Size(239, 43);
+            this.apellidoTextBox.Size = new System.Drawing.Size(278, 43);
             this.apellidoTextBox.TabIndex = 17;
             this.apellidoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apellidoTextBox_KeyPress);
             // 
@@ -563,7 +564,7 @@
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label13.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label13.Location = new System.Drawing.Point(62, 16);
+            this.label13.Location = new System.Drawing.Point(62, 28);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(19, 25);
             this.label13.TabIndex = 16;
@@ -575,7 +576,7 @@
             this.ApellidosAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ApellidosAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApellidosAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.ApellidosAggClienteLabel.Location = new System.Drawing.Point(-5, 16);
+            this.ApellidosAggClienteLabel.Location = new System.Drawing.Point(-5, 28);
             this.ApellidosAggClienteLabel.Name = "ApellidosAggClienteLabel";
             this.ApellidosAggClienteLabel.Size = new System.Drawing.Size(179, 25);
             this.ApellidosAggClienteLabel.TabIndex = 8;
@@ -588,10 +589,10 @@
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.DepartamenteoAggClienteLabel);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(274, 89);
+            this.panel3.Location = new System.Drawing.Point(313, 101);
             this.panel3.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(239, 89);
+            this.panel3.Size = new System.Drawing.Size(278, 101);
             this.panel3.TabIndex = 16;
             // 
             // departamentosComboBox
@@ -605,18 +606,20 @@
             this.departamentosComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.departamentosComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.departamentosComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.departamentosComboBox.ItemHeight = 39;
-            this.departamentosComboBox.Location = new System.Drawing.Point(0, 44);
+            this.departamentosComboBox.IntegralHeight = false;
+            this.departamentosComboBox.ItemHeight = 37;
+            this.departamentosComboBox.Location = new System.Drawing.Point(0, 58);
             this.departamentosComboBox.Name = "departamentosComboBox";
-            this.departamentosComboBox.Size = new System.Drawing.Size(239, 45);
+            this.departamentosComboBox.Size = new System.Drawing.Size(278, 43);
             this.departamentosComboBox.TabIndex = 21;
+            this.departamentosComboBox.SelectedValueChanged += new System.EventHandler(this.departamentosComboBox_SelectedValueChanged);
             // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label16.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label16.Location = new System.Drawing.Point(111, 16);
+            this.label16.Location = new System.Drawing.Point(111, 28);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(19, 25);
             this.label16.TabIndex = 16;
@@ -628,7 +631,7 @@
             this.DepartamenteoAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DepartamenteoAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DepartamenteoAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.DepartamenteoAggClienteLabel.Location = new System.Drawing.Point(-5, 16);
+            this.DepartamenteoAggClienteLabel.Location = new System.Drawing.Point(-5, 28);
             this.DepartamenteoAggClienteLabel.Name = "DepartamenteoAggClienteLabel";
             this.DepartamenteoAggClienteLabel.Size = new System.Drawing.Size(152, 25);
             this.DepartamenteoAggClienteLabel.TabIndex = 13;
@@ -642,7 +645,7 @@
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(824, 79);
+            this.panel14.Size = new System.Drawing.Size(940, 90);
             this.panel14.TabIndex = 1;
             // 
             // IndicacionDatosClienteLabel
@@ -651,7 +654,7 @@
             this.IndicacionDatosClienteLabel.AutoSize = true;
             this.IndicacionDatosClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IndicacionDatosClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.IndicacionDatosClienteLabel.Location = new System.Drawing.Point(-6, 26);
+            this.IndicacionDatosClienteLabel.Location = new System.Drawing.Point(-6, 32);
             this.IndicacionDatosClienteLabel.Name = "IndicacionDatosClienteLabel";
             this.IndicacionDatosClienteLabel.Size = new System.Drawing.Size(172, 30);
             this.IndicacionDatosClienteLabel.TabIndex = 2;
@@ -661,10 +664,10 @@
             // 
             this.panel5.Controls.Add(this.tableLayoutPanel8);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 257);
+            this.panel5.Location = new System.Drawing.Point(0, 292);
             this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(789, 99);
+            this.panel5.Size = new System.Drawing.Size(905, 112);
             this.panel5.TabIndex = 17;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -680,7 +683,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(789, 99);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(905, 112);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel11
@@ -689,10 +692,10 @@
             this.panel11.Controls.Add(this.label19);
             this.panel11.Controls.Add(this.CitasAcumuladasAggClienteLabel);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(544, 0);
+            this.panel11.Location = new System.Drawing.Point(624, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(245, 99);
+            this.panel11.Size = new System.Drawing.Size(281, 112);
             this.panel11.TabIndex = 21;
             // 
             // citasAcumuladasTextBox
@@ -710,13 +713,13 @@
             this.citasAcumuladasTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.citasAcumuladasTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.citasAcumuladasTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.citasAcumuladasTextBox.Location = new System.Drawing.Point(0, 56);
+            this.citasAcumuladasTextBox.Location = new System.Drawing.Point(0, 69);
             this.citasAcumuladasTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.citasAcumuladasTextBox.Name = "citasAcumuladasTextBox";
             this.citasAcumuladasTextBox.PasswordChar = '\0';
             this.citasAcumuladasTextBox.PlaceholderText = "";
             this.citasAcumuladasTextBox.SelectedText = "";
-            this.citasAcumuladasTextBox.Size = new System.Drawing.Size(245, 43);
+            this.citasAcumuladasTextBox.Size = new System.Drawing.Size(281, 43);
             this.citasAcumuladasTextBox.TabIndex = 17;
             // 
             // label19
@@ -724,7 +727,7 @@
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label19.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label19.Location = new System.Drawing.Point(136, 25);
+            this.label19.Location = new System.Drawing.Point(136, 38);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(19, 25);
             this.label19.TabIndex = 16;
@@ -736,7 +739,7 @@
             this.CitasAcumuladasAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CitasAcumuladasAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CitasAcumuladasAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.CitasAcumuladasAggClienteLabel.Location = new System.Drawing.Point(-5, 25);
+            this.CitasAcumuladasAggClienteLabel.Location = new System.Drawing.Point(-5, 38);
             this.CitasAcumuladasAggClienteLabel.Name = "CitasAcumuladasAggClienteLabel";
             this.CitasAcumuladasAggClienteLabel.Size = new System.Drawing.Size(152, 25);
             this.CitasAcumuladasAggClienteLabel.TabIndex = 13;
@@ -752,7 +755,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(509, 99);
+            this.panel9.Size = new System.Drawing.Size(589, 112);
             this.panel9.TabIndex = 20;
             // 
             // direccionTextBox
@@ -769,13 +772,13 @@
             this.direccionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.direccionTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.direccionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.direccionTextBox.Location = new System.Drawing.Point(0, 56);
+            this.direccionTextBox.Location = new System.Drawing.Point(0, 69);
             this.direccionTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.direccionTextBox.Name = "direccionTextBox";
             this.direccionTextBox.PasswordChar = '\0';
             this.direccionTextBox.PlaceholderText = "";
             this.direccionTextBox.SelectedText = "";
-            this.direccionTextBox.Size = new System.Drawing.Size(509, 43);
+            this.direccionTextBox.Size = new System.Drawing.Size(589, 43);
             this.direccionTextBox.TabIndex = 17;
             // 
             // label9
@@ -783,7 +786,7 @@
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label9.Location = new System.Drawing.Point(73, 25);
+            this.label9.Location = new System.Drawing.Point(73, 38);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(19, 25);
             this.label9.TabIndex = 16;
@@ -795,7 +798,7 @@
             this.DireccionAggClienteLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DireccionAggClienteLabel.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DireccionAggClienteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.DireccionAggClienteLabel.Location = new System.Drawing.Point(-5, 25);
+            this.DireccionAggClienteLabel.Location = new System.Drawing.Point(-5, 38);
             this.DireccionAggClienteLabel.Name = "DireccionAggClienteLabel";
             this.DireccionAggClienteLabel.Size = new System.Drawing.Size(91, 25);
             this.DireccionAggClienteLabel.TabIndex = 13;
@@ -810,7 +813,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
-            this.tabPage3.Size = new System.Drawing.Size(1024, 397);
+            this.tabPage3.Size = new System.Drawing.Size(1140, 451);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Datos de usuario";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -827,7 +830,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.77778F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(824, 397);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(940, 451);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -838,13 +841,13 @@
             this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.guna2Panel4, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 88);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 309F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(824, 309);
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 351F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(940, 351);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -857,7 +860,7 @@
             this.tableLayoutPanel7.Controls.Add(this.panel12, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel15, 1, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(247, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(282, 0);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
@@ -865,7 +868,7 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(577, 309);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(658, 351);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // panel8
@@ -874,10 +877,10 @@
             this.panel8.Controls.Add(this.label21);
             this.panel8.Controls.Add(this.label22);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 102);
+            this.panel8.Location = new System.Drawing.Point(0, 117);
             this.panel8.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(253, 102);
+            this.panel8.Size = new System.Drawing.Size(293, 117);
             this.panel8.TabIndex = 19;
             // 
             // estadoComboBox
@@ -891,10 +894,11 @@
             this.estadoComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.estadoComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.estadoComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.estadoComboBox.IntegralHeight = false;
             this.estadoComboBox.ItemHeight = 39;
-            this.estadoComboBox.Location = new System.Drawing.Point(0, 57);
+            this.estadoComboBox.Location = new System.Drawing.Point(0, 72);
             this.estadoComboBox.Name = "estadoComboBox";
-            this.estadoComboBox.Size = new System.Drawing.Size(253, 45);
+            this.estadoComboBox.Size = new System.Drawing.Size(293, 45);
             this.estadoComboBox.TabIndex = 20;
             // 
             // label21
@@ -902,7 +906,7 @@
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label21.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label21.Location = new System.Drawing.Point(52, 29);
+            this.label21.Location = new System.Drawing.Point(52, 44);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(19, 25);
             this.label21.TabIndex = 16;
@@ -914,7 +918,7 @@
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label22.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.label22.Location = new System.Drawing.Point(-5, 29);
+            this.label22.Location = new System.Drawing.Point(-5, 44);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(152, 25);
             this.label22.TabIndex = 13;
@@ -930,7 +934,7 @@
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(253, 102);
+            this.panel10.Size = new System.Drawing.Size(293, 117);
             this.panel10.TabIndex = 15;
             // 
             // correoElectronicoTextBox
@@ -947,13 +951,13 @@
             this.correoElectronicoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.correoElectronicoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.correoElectronicoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.correoElectronicoTextBox.Location = new System.Drawing.Point(0, 59);
+            this.correoElectronicoTextBox.Location = new System.Drawing.Point(0, 74);
             this.correoElectronicoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.correoElectronicoTextBox.Name = "correoElectronicoTextBox";
             this.correoElectronicoTextBox.PasswordChar = '\0';
             this.correoElectronicoTextBox.PlaceholderText = "";
             this.correoElectronicoTextBox.SelectedText = "";
-            this.correoElectronicoTextBox.Size = new System.Drawing.Size(253, 43);
+            this.correoElectronicoTextBox.Size = new System.Drawing.Size(293, 43);
             this.correoElectronicoTextBox.TabIndex = 16;
             // 
             // label25
@@ -961,7 +965,7 @@
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label25.Location = new System.Drawing.Point(140, 29);
+            this.label25.Location = new System.Drawing.Point(140, 44);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(19, 25);
             this.label25.TabIndex = 15;
@@ -973,7 +977,7 @@
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label26.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.label26.Location = new System.Drawing.Point(-5, 29);
+            this.label26.Location = new System.Drawing.Point(-5, 44);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(152, 25);
             this.label26.TabIndex = 13;
@@ -986,10 +990,10 @@
             this.panel12.Controls.Add(this.label29);
             this.panel12.Controls.Add(this.label30);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(288, 0);
+            this.panel12.Location = new System.Drawing.Point(328, 0);
             this.panel12.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(254, 102);
+            this.panel12.Size = new System.Drawing.Size(295, 117);
             this.panel12.TabIndex = 0;
             // 
             // contrasenaEmpleadoTextBox
@@ -1006,13 +1010,13 @@
             this.contrasenaEmpleadoTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.contrasenaEmpleadoTextBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contrasenaEmpleadoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.contrasenaEmpleadoTextBox.Location = new System.Drawing.Point(0, 59);
+            this.contrasenaEmpleadoTextBox.Location = new System.Drawing.Point(0, 74);
             this.contrasenaEmpleadoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.contrasenaEmpleadoTextBox.Name = "contrasenaEmpleadoTextBox";
             this.contrasenaEmpleadoTextBox.PasswordChar = '\0';
             this.contrasenaEmpleadoTextBox.PlaceholderText = "";
             this.contrasenaEmpleadoTextBox.SelectedText = "";
-            this.contrasenaEmpleadoTextBox.Size = new System.Drawing.Size(254, 43);
+            this.contrasenaEmpleadoTextBox.Size = new System.Drawing.Size(295, 43);
             this.contrasenaEmpleadoTextBox.TabIndex = 17;
             // 
             // label29
@@ -1020,7 +1024,7 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label29.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label29.Location = new System.Drawing.Point(87, 29);
+            this.label29.Location = new System.Drawing.Point(87, 44);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(19, 25);
             this.label29.TabIndex = 16;
@@ -1032,7 +1036,7 @@
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label30.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.label30.Location = new System.Drawing.Point(-5, 29);
+            this.label30.Location = new System.Drawing.Point(-5, 44);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(179, 25);
             this.label30.TabIndex = 8;
@@ -1045,10 +1049,10 @@
             this.panel15.Controls.Add(this.label31);
             this.panel15.Controls.Add(this.label32);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(288, 102);
+            this.panel15.Location = new System.Drawing.Point(328, 117);
             this.panel15.Margin = new System.Windows.Forms.Padding(0, 0, 35, 0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(254, 102);
+            this.panel15.Size = new System.Drawing.Size(295, 117);
             this.panel15.TabIndex = 16;
             // 
             // RolComboBox
@@ -1062,10 +1066,11 @@
             this.RolComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
             this.RolComboBox.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RolComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.RolComboBox.IntegralHeight = false;
             this.RolComboBox.ItemHeight = 39;
-            this.RolComboBox.Location = new System.Drawing.Point(0, 57);
+            this.RolComboBox.Location = new System.Drawing.Point(0, 72);
             this.RolComboBox.Name = "RolComboBox";
-            this.RolComboBox.Size = new System.Drawing.Size(254, 45);
+            this.RolComboBox.Size = new System.Drawing.Size(295, 45);
             this.RolComboBox.TabIndex = 20;
             this.RolComboBox.Visible = false;
             // 
@@ -1074,7 +1079,7 @@
             this.label31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label31.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(55)))), ((int)(((byte)(49)))));
-            this.label31.Location = new System.Drawing.Point(31, 29);
+            this.label31.Location = new System.Drawing.Point(31, 44);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(19, 25);
             this.label31.TabIndex = 16;
@@ -1087,7 +1092,7 @@
             this.label32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label32.Font = new System.Drawing.Font("Yu Gothic UI", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.label32.Location = new System.Drawing.Point(-5, 29);
+            this.label32.Location = new System.Drawing.Point(-5, 44);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(44, 25);
             this.label32.TabIndex = 13;
@@ -1103,7 +1108,7 @@
             this.guna2Panel4.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel4.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(247, 309);
+            this.guna2Panel4.Size = new System.Drawing.Size(282, 351);
             this.guna2Panel4.TabIndex = 0;
             // 
             // guna2Button3
@@ -1120,7 +1125,7 @@
             this.guna2Button3.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.guna2Button3.Location = new System.Drawing.Point(48, 254);
+            this.guna2Button3.Location = new System.Drawing.Point(66, 275);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(148, 46);
             this.guna2Button3.TabIndex = 3;
@@ -1131,7 +1136,7 @@
             this.guna2CirclePictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(226)))));
             this.guna2CirclePictureBox1.ImageRotate = 0F;
-            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(24, 29);
+            this.guna2CirclePictureBox1.Location = new System.Drawing.Point(42, 50);
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CirclePictureBox1.Size = new System.Drawing.Size(200, 200);
@@ -1145,7 +1150,7 @@
             this.guna2Panel5.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel5.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.Size = new System.Drawing.Size(824, 88);
+            this.guna2Panel5.Size = new System.Drawing.Size(940, 100);
             this.guna2Panel5.TabIndex = 1;
             // 
             // label24
@@ -1154,7 +1159,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Yu Gothic UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(22)))), ((int)(((byte)(49)))));
-            this.label24.Location = new System.Drawing.Point(-5, 30);
+            this.label24.Location = new System.Drawing.Point(-5, 36);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(180, 30);
             this.label24.TabIndex = 4;
@@ -1172,9 +1177,9 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(0, 0, 16, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1052, 120);
+            this.guna2Panel1.Size = new System.Drawing.Size(1168, 133);
             this.guna2Panel1.TabIndex = 2;
             // 
             // CancelarClienteButton
@@ -1189,10 +1194,11 @@
             this.CancelarClienteButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.CancelarClienteButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.CancelarClienteButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CancelarClienteButton.FillColor = System.Drawing.Color.Empty;
+            this.CancelarClienteButton.FillColor = System.Drawing.Color.White;
             this.CancelarClienteButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.CancelarClienteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(79)))), ((int)(((byte)(217)))));
-            this.CancelarClienteButton.Location = new System.Drawing.Point(783, 51);
+            this.CancelarClienteButton.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.CancelarClienteButton.Location = new System.Drawing.Point(899, 64);
             this.CancelarClienteButton.Name = "CancelarClienteButton";
             this.CancelarClienteButton.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
             this.CancelarClienteButton.Size = new System.Drawing.Size(113, 46);
@@ -1214,7 +1220,7 @@
             this.RegistrarClienteButton.Font = new System.Drawing.Font("Yu Gothic UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.RegistrarClienteButton.ForeColor = System.Drawing.Color.White;
             this.RegistrarClienteButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(69)))), ((int)(((byte)(206)))));
-            this.RegistrarClienteButton.Location = new System.Drawing.Point(909, 51);
+            this.RegistrarClienteButton.Location = new System.Drawing.Point(1025, 64);
             this.RegistrarClienteButton.Name = "RegistrarClienteButton";
             this.RegistrarClienteButton.Size = new System.Drawing.Size(124, 46);
             this.RegistrarClienteButton.TabIndex = 2;
@@ -1247,9 +1253,10 @@
             // 
             this.guna2BorderlessForm1.AnimateWindow = true;
             this.guna2BorderlessForm1.AnimationInterval = 150;
-            this.guna2BorderlessForm1.BorderRadius = 25;
+            this.guna2BorderlessForm1.BorderRadius = 15;
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.ShadowColor = System.Drawing.Color.DarkGray;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // AgregarClienteForm
@@ -1257,7 +1264,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1100, 633);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarClienteForm";

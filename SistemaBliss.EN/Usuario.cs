@@ -28,7 +28,7 @@ namespace SistemaBliss.EN
         public virtual Departamento Departamento { get; set; }
         public virtual Municipio Municipio { get; set; }
 
-
+        public bool IsPasswordEncrypted { get; set; }
 
         public int ClientesTotales { get; set; }
         public int ClientesActivos { get; set; }

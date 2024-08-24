@@ -152,6 +152,8 @@ namespace SistemaBliss.UI.WinForms
             correoElectronicoTextBox.Text = empresa.CorreoElectronico;
             listaHorariosDatGridView.RowTemplate.Height = 50;
             CargarLista();
+            listaHorariosDatGridView.ClearSelection();
+            listaHorariosDatGridView.CurrentCell = null;
         }
 
         private void agregarHorarioButton_Click(object sender, EventArgs e)
@@ -172,7 +174,7 @@ namespace SistemaBliss.UI.WinForms
                     int minutosCierre = int.Parse(minutoCierreCombobox.Text);
 
 
-                    horariosEmpresa.HoraEntrada = new TimeSpan(horaApertura, minutosCierre, 0);
+                    horariosEmpresa.HoraEntrada = new TimeSpan(horaApertura, minutosEntrada, 0);
                     horariosEmpresa.HoraSalida = new TimeSpan(horaCierre, minutosCierre, 0);
                     
 
@@ -195,6 +197,8 @@ namespace SistemaBliss.UI.WinForms
                         minutoCierreCombobox.SelectedIndex = -1;
                         horaAperturaCombobox.SelectedIndex = -1;
                         minutoAperturaCombobox.SelectedIndex = -1;
+                        CargarLista();
+                        guardarInformacionButton.Text = "Agregar horario";
                     }
                     else
                     {
@@ -239,9 +243,7 @@ namespace SistemaBliss.UI.WinForms
                 
 
                 agregarHorarioButton.Text = "Guardar cambios";
-                modificarButton.Visible = false;
-                eliminarButton.Visible = false;
-                cancelarButton.Visible = true;
+                
             }
             else
             {
@@ -251,18 +253,38 @@ namespace SistemaBliss.UI.WinForms
 
         private void cancelarButton_Click(object sender, EventArgs e)
         {
-            agregarHorarioButton.Text = "Agregar horarios";
-            modificarButton.Visible = true;
-            cancelarButton.Visible = false;
-            eliminarButton.Visible = true;
+            
+            
         }
 
         private void eliminarButton_Click(object sender, EventArgs e)
         {
+            short idTabla = (short)ToolsForm.ObtenerIdGrid(listaHorariosDatGridView);
+            if (idTabla > 0)
+            {
+                HorariosEmpresa horariosEmpresa = new HorariosEmpresa();
+                horariosEmpresa.IdHorariosEmpresa = Convert.ToByte(idTabla);
 
+                horariosEmpresaBL.Eliminar(horariosEmpresa);
+                
+                MessageBox.Show("Horario Eliminado", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                agregarHorarioButton.Text = "Guardar cambios";
+                CargarLista();
+
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar el registro que desea editar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void horaCierreCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

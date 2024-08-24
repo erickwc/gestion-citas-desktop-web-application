@@ -51,7 +51,7 @@ namespace SistemaBliss.UI.WinForms
 
         public void CampoInvalidoAparienciaComboBox(Guna2ComboBox comboBox)
         {
-            if (comboBox.SelectedIndex == -1)
+            if (comboBox.SelectedValue == null || Convert.ToInt32(comboBox.SelectedValue) == 0)
             {
                 comboBox.FillColor = Color.MistyRose;
                 comboBox.BorderColor = Color.Red;

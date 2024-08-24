@@ -63,7 +63,19 @@ namespace SistemaBliss.UI.WinForms
         {
             AdminLoginForm login = new AdminLoginForm();
             login.Show();
-           
+            this.Visible = false;
+
+        }
+
+        private void AdminDashboardForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            
+        }
+
+        private void nombreSeccionLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

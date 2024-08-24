@@ -611,5 +611,40 @@ namespace SistemaBliss.DAL
             }
             return obj;
         }
+
+
+        public static Usuario ObtenerClavePorTelefono(string telefono)
+        {
+            Usuario obj = new Usuario();
+
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.CommandText = "SP_ObtenerClavePorTelefono";
+                comando.Parameters.AddWithValue("@Telefono", telefono);
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    obj.Contrasena = reader.GetString(0);
+                    obj.IdUsuario = reader.GetInt32(1);
+               
+                }
+            }
+            return obj;
+        }
+
+        public static int ActualizarClaveNoCifrada(Usuario pUsuario)
+        {
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                comando.CommandText = "SP_ActualizarClaveNoCifrada";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@Contrasena", pUsuario.Contrasena);
+                comando.Parameters.AddWithValue("@IdUsuario", pUsuario.IdUsuario);
+                return ComunDB.EjecutarComando(comando);
+            }
+        }
+
     }
 }
