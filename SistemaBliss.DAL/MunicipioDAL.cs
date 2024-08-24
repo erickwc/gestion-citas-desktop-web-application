@@ -37,23 +37,34 @@ namespace SistemaBliss.DAL
         {
             List<Municipio> lista = new List<Municipio>();
 
+            #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                string consulta = @"SELECT IdMunicipio, Nombre FROM Municipio WHERE IdDepartamento = @IdDepartamento";
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdMunicipio, Nombre FROM Municipio ";
 
-                comando.Parameters.AddWithValue("@IdDepartamento", pMunicipio.IdDepartamento);
-                comando.CommandText = consulta;
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
 
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
                     Municipio obj = new Municipio();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
                     obj.IdMunicipio = reader.GetInt16(0);
-                    obj.Nombre = reader.GetString(1);
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
 
                     lista.Add(obj);
                 }
+                comando.Connection.Dispose();
             }
+            #endregion
 
             return lista;
         }

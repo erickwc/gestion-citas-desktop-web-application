@@ -76,17 +76,17 @@ namespace SistemaBliss.UI.WinForms
             return camposValidos;
         }
 
-        public void CargarMunicipios(byte idDepartamento)
+        public void CargarMunicipios()
         {
-            // Conexion a la tabla de Municipio en la DB
+            // Conexion a la tabla de Cargo en la DB
             MunicipioBL municipioBL = new MunicipioBL();
 
             // Inicializar lista 
             List<Municipio> municipios = new List<Municipio>();
             municipios.Add(new Municipio { IdMunicipio = 0, Nombre = "SELECCIONAR" });
 
-            // Obtener lista de Municipios de la DB filtrada por IdDepartamento
-            municipios.AddRange(municipioBL.Buscar(new Municipio { IdDepartamento = idDepartamento }));
+            // Obtener lista de Cargos de la DB
+            municipios.AddRange(municipioBL.Buscar(new Municipio()));
             municipioComboBox.DataSource = municipios;
 
             // Configurar texto y valor de la lista de seleccion
@@ -241,8 +241,8 @@ namespace SistemaBliss.UI.WinForms
 
         private void AgregarClienteForm_Load(object sender, EventArgs e)
         {
-
             
+            CargarMunicipios();
             CargarDepartamento();
             CargarEstado();
             CargarRol();
@@ -344,13 +344,7 @@ namespace SistemaBliss.UI.WinForms
         private void departamentosComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             
-                Municipio municipio = new Municipio();
-            //municipio.IdDepartamento = (byte)departamentosComboBox.SelectedValue;
-
-
-            int IdDepartamento = departamentosComboBox.SelectedIndex;
             
-;           CargarMunicipios(Convert.ToByte(IdDepartamento));
             
         }
     }
