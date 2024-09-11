@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaBliss.PruebasUnitari
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaBliss.UI.WinForms", "SistemaBliss.UI.WinForms\SistemaBliss.UI.WinForms.csproj", "{58D3CC40-9CD6-4506-B2B7-18953B170CAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaBliss.UI.AppWebMVC", "SistemaBliss.UI.AppWebMVC\SistemaBliss.UI.AppWebMVC.csproj", "{FE02439D-0303-4747-A8E1-1DD264B520B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{58D3CC40-9CD6-4506-B2B7-18953B170CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58D3CC40-9CD6-4506-B2B7-18953B170CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58D3CC40-9CD6-4506-B2B7-18953B170CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE02439D-0303-4747-A8E1-1DD264B520B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE02439D-0303-4747-A8E1-1DD264B520B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE02439D-0303-4747-A8E1-1DD264B520B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE02439D-0303-4747-A8E1-1DD264B520B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
