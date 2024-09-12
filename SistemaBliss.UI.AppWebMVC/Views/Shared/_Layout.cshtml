@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+
+<html data-bs-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="~/Content/images/favicon.ico" />
+    <!-- Styles -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Icons -->
+    <link href="~/Content/css/all.min.css" rel="stylesheet" />
+    <script src="~/Scripts/all.min.js"></script>
+    <!-- Sweet alert -->
+    <link href="~/Content/css/sweetalert2.min.css" rel="stylesheet" />
+    <!-- Layout -->
+    <link href="~/Content/css/_layout.css" rel="stylesheet" />
+
+    @RenderSection("styles", false) <!-- Insertar CSS desde una View -->
+</head>
+<body class="sb-nav-fixed">
+    <!-- Logo and Burguer Button -->
+    <nav class="sb-topnav navbar navbar-expand navbar-light bg-white fixed-top  border-bottom border-1">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3 w-20" style="width: 80px;" href="#">
+            @*<img src="~/Content/images/logo128x128.png" alt="logo" width="24" height="24" />*@
+            BLISS
+        </a>
+        <!-- Sidebar Toggle-->
+        <button type="button" class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" title="Toggle"><i style="font-size:18px;" class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("View", "Controller")">
+                            <i class="fa fa-gear"></i>  Configuración
+                        </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("View", "Controller")">
+                            <i class="fa fa-right-to-bracket"></i>  Iniciar Sesión
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="@Url.Action("View", "Controller")">
+                            <i class="fa fa-power-off"></i> Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!-- Lateral Nav -->
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion bg-white border-end border-1" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <!-- Links -->
+                        <a class="nav-link" href="@Url.Action("Index", "Empleado")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Citas
+                        </a>
+                        <a class="nav-link" href="@Url.Action("Index", "Producto")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-d-open"></i></div>
+                            Servicios
+                        </a>
+                        <a class="nav-link" href="@Url.Action("Index", "Producto")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>
+                            Empleados
+                        </a>
+                        <a class="nav-link" href="@Url.Action("Index", "Producto")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>
+                            Clientes
+                        </a>
+                        <a class="nav-link" href="@Url.Action("Index", "Producto")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>
+                            Ventas
+                        </a>
+                        <a class="nav-link" href="@Url.Action("Index", "Producto")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>
+                            Productos
+                        </a>
+                        <a class="nav-link" href="@Url.Action("Index", "Producto")">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box-open"></i></div>
+                            Empresa
+                        </a>
+                        <div class="collapse" id="collapseEmpleado" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="@Url.Action("Create", "Empleado")">Registrar</a>
+                                <a class="nav-link" href="@Url.Action("Index", "Empleado")">Administrar</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">
+                        <i class="fas fa-user-large"></i>
+                        Usuario
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid p-3">
+                    <!-- Content -->
+                    @RenderBody()
+                </div>
+            </main>
+           
+        </div>
+    </div>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/sweetalert2.all.min.js"></script>
+    <script src="~/Scripts/_layout.js"></script>
+    <script src="~/Scripts/utilidades.js"></script>
+
+    @RenderSection("scripts", false) <!-- Insertar JS desde una View -->
+</body>
+</html>
