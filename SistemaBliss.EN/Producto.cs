@@ -8,5 +8,10 @@ namespace SistemaBliss.EN
 {
     public class Producto
     {
+        public byte IdProducto { get; set; }
+        public byte IdCategoriaProducto { get; set; }
+        public byte IdEstado { get; set; }
+        public string Nombre { get; set; }
+        public Decimal Precio { get; set; }
     }
 }

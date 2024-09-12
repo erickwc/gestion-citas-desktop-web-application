@@ -8,5 +8,6 @@ namespace SistemaBliss.EN
 {
     public class CategoriaProducto
     {
+        public string Nombre { get; set; }
     }
 }
