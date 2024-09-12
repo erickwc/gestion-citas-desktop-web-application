@@ -51,6 +51,7 @@
     <Compile Include="Departamento.cs" />
     <Compile Include="DetalleCita.cs" />
     <Compile Include="DetalleProfesión.cs" />
+    <Compile Include="DetalleVenta.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="HorariosEmpresa.cs" />
