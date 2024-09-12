@@ -40,7 +40,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Nombre", pCategoriaProducto.Nombre);
             return ComunDB.EjecutarComando(comando);
         }
-        public static int BuscarPorId(Producto pCategoriaProducto)
+        public static int BuscarPorId(CategoriaProducto pCategoriaProducto)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_ObtenerCategoriaProducto";
