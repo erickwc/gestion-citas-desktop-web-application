@@ -8,5 +8,8 @@ namespace SistemaBliss.EN
 {
     public class CategoriaServicio
     {
+        public byte IdCategoriaServicio { get; set; }
+        public string Nombre {  get; set; }
+
     }
 }
