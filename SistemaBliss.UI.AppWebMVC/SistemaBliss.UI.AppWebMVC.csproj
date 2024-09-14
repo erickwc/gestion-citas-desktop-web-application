@@ -88,10 +88,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\all.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\DashboardStyle.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="Content\css\sweetalert2.min.css" />
+    <Content Include="Content\css\tabler-icons.min.css" />
     <Content Include="Content\css\_layout.css" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\logo128x128.png" />
@@ -118,14 +120,24 @@
     <Content Include="Views\web.config" />
     <Content Include="Content\css\bootstrap.css.map" />
     <Content Include="Content\css\bootstrap.min.css.map" />
-    <Content Include="Content\webfonts\fa-brands-400.ttf" />
-    <Content Include="Content\webfonts\fa-brands-400.woff2" />
-    <Content Include="Content\webfonts\fa-regular-400.ttf" />
-    <Content Include="Content\webfonts\fa-regular-400.woff2" />
-    <Content Include="Content\webfonts\fa-solid-900.ttf" />
-    <Content Include="Content\webfonts\fa-solid-900.woff2" />
-    <Content Include="Content\webfonts\fa-v4compatibility.ttf" />
-    <Content Include="Content\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Content\webfonts\tabler-icons-filled.ttf" />
+    <Content Include="Content\webfonts\tabler-icons-filled.woff" />
+    <Content Include="Content\webfonts\tabler-icons-filled.woff2" />
+    <Content Include="Content\webfonts\tabler-icons-outline.ttf" />
+    <Content Include="Content\webfonts\tabler-icons-outline.woff" />
+    <Content Include="Content\webfonts\tabler-icons-outline.woff2" />
+    <Content Include="Content\webfonts\tabler-icons.ttf" />
+    <Content Include="Content\webfonts\tabler-icons.woff" />
+    <Content Include="Content\webfonts\tabler-icons.woff2" />
+    <Content Include="Content\fonts\tabler-icons-filled.ttf" />
+    <Content Include="Content\fonts\tabler-icons-filled.woff" />
+    <Content Include="Content\fonts\tabler-icons-filled.woff2" />
+    <Content Include="Content\fonts\tabler-icons-outline.ttf" />
+    <Content Include="Content\fonts\tabler-icons-outline.woff" />
+    <Content Include="Content\fonts\tabler-icons-outline.woff2" />
+    <Content Include="Content\fonts\tabler-icons.ttf" />
+    <Content Include="Content\fonts\tabler-icons.woff" />
+    <Content Include="Content\fonts\tabler-icons.woff2" />
     <None Include="packages.config" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />

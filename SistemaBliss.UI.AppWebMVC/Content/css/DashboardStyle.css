@@ -1,0 +1,45 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", Arial;
+}
+
+:root {
+    --gris: #B0B0B0;
+    --negro: #222222;
+    --morado: #394FD9;
+    --blanco: #ffffff;
+    --gris-bordes: #E0E0E2;
+}
+
+
+.tarjetas-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    gap: 16px;
+}
+
+.tarjeta{
+    border:var(--gris-bordes) solid 1px;
+    border-radius:10px;
+    padding:16px;
+}
+
+.nombre-tarjeta {
+    font-size: 14px;
+    color: var(--negro);
+    font-weight: 600;
+    margin-bottom:5px;
+}
+
+.descripcion-tarjeta {
+    font-size: 14px;
+    color: var(--gris);
+}
+
+.btn-morado {
+    background: var(--morado);
+    color: var(--blanco);
+    border-radius: 8px;
+    font-size:14px;
+}
