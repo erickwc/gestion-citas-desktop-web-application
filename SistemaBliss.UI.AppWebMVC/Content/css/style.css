@@ -37,6 +37,7 @@ ti {
     display: flex;
     align-items: center;
     gap: 10px;
+    border-radius: 8px;
 }
 
 .icon-button-nav:hover {
@@ -65,4 +66,8 @@ ti {
 .label-logo {
     font-size: 10px;
     color:var(--gris);
+}
+
+.modal-contenido {
+    width:700px;
 }
