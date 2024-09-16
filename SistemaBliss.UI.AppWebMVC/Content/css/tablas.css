@@ -1,0 +1,116 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", Arial;
+}
+
+:root {
+    --gris: #B0B0B0;
+    --negro: #222222;
+    --morado: #394FD9;
+    --blanco: #ffffff;
+    --gris-bordes: #E0E0E2;
+}
+
+.VistaRegistros {
+    border: solid 1px var(--gris-bordes);
+    border-radius: 10px;
+    width: 100%;
+    height: calc(100vh - 245px);
+    padding:16px;
+}
+
+.titulo-tabla{
+    font-size:16px;
+    color:var(--negro);
+    font-weight:600;
+}
+
+.descripcion-tabla {
+    font-size: 14px;
+    color: var(--gris);
+    margin:0px;
+}
+
+.encabezado-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: space-between;
+}
+
+.select-tabla{
+    width:150px;
+}
+
+.input-tabla {
+    width: 350px;
+}
+
+.seleccionar{
+    color:var(--gris-bordes);
+}
+
+.nav-item a{
+    color:var(--gris);
+}
+
+.nav-item a:focus {
+    color: var(--morado);
+    font-weight: 600;
+}
+
+
+
+.cont-tags-scroll {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+}
+
+.estado-activo {
+    background: #EDFFE4;
+    color:green;
+    padding: 4px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 80px;
+}
+
+
+@media (max-width: 900px) {
+    .encabezado-header {
+        grid-template-columns: 1fr;
+        gap:16px;
+    }
+
+    .select-tabla {
+        width: 30%;
+    }
+
+    .input-tabla {
+        width: 70%;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+    .acciones-tabla {
+        display: flex;
+        flex-direction:column;
+    }
+
+    .select-tabla {
+        width: 100%;
+    }
+
+    .input-tabla {
+        width: 100%;
+    }
+
+}
+

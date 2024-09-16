@@ -90,9 +90,11 @@
   <ItemGroup>
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\Botones.css" />
     <Content Include="Content\css\DashboardStyle.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\sweetalert2.min.css" />
+    <Content Include="Content\css\tablas.css" />
     <Content Include="Content\css\tabler-icons.min.css" />
     <Content Include="Content\css\_layout.css" />
     <Content Include="Content\images\favicon.ico" />

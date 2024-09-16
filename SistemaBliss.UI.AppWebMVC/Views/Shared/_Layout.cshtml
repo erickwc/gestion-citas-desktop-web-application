@@ -14,9 +14,11 @@
     <!-- Sweet alert -->
     <link href="~/Content/css/sweetalert2.min.css" rel="stylesheet" />
     <!-- Layout -->
-    <link href="~/Content/css/_layout.css" rel="stylesheet" />
-    <link href="~/Content/css/style.css" rel="stylesheet" />
-    <link href="~/Content/css/DashboardStyle.css" rel="stylesheet" />
+    <link href="~/Content/css/_layout.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <link href="~/Content/css/style.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <link href="~/Content/css/DashboardStyle.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <link href="~/Content/css/Botones.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
+    <link href="~/Content/css/tablas.css?v=@DateTime.Now.Ticks" rel="stylesheet" />
 
 
     @RenderSection("styles", false) <!-- Insertar CSS desde una View -->
