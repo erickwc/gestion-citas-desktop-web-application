@@ -32,5 +32,10 @@ namespace SistemaBliss.EN
 
         [Required(ErrorMessage = "Este cacmpo es requerido")]
         public Decimal PagoTotal { get; set; }
+
+        public int CantidadCitasConfirmadas { get; set; }
+        public int CantidadCitasPendientes { get; set; }
+        public int CantidadCitasFinalizadas { get; set; }
+
     }
 }

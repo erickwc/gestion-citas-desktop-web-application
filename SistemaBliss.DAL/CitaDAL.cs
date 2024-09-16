@@ -69,5 +69,54 @@ namespace SistemaBliss.DAL
             return ComunDB.EjecutarComando(comando);
         }
         #endregion
+        public static Cita CantidadCitasConfirmadas()
+        {
+            Cita obj = new Cita();
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_InsertarCita";
+            comando.CommandType = CommandType.StoredProcedure;
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.CantidadCitasConfirmadas = reader.GetInt32(0);
+
+            }
+            return obj;
+
+        }
+        public static Cita CantidadCitasPendientes()
+        {
+            Cita obj = new Cita();
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_InsertarCita";
+            comando.CommandType = CommandType.StoredProcedure;
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.CantidadCitasPendientes = reader.GetInt32(0);
+
+            }
+            return obj;
+
+        }
+        public static Cita CantidadCitasFinalizadas()
+        {
+            Cita obj = new Cita();
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandText = "SP_InsertarCita";
+            comando.CommandType = CommandType.StoredProcedure;
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.CantidadCitasFinalizadas = reader.GetInt32(0);
+
+            }
+            return obj;
+
+        }
+
     }
 }
