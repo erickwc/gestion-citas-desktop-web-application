@@ -24,39 +24,60 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             return View(lista);
         }
 
-        // GET: Servicio/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+
 
         // GET: Servicio/Create
         public ActionResult Create()
         {
+            ViewBag.Roles = DropDownListServicios();
             return View();
         }
 
         // POST: Servicio/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Servicio pServicio)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    int resultado = servicioBL.Guardar(pServicio);
 
-                return RedirectToAction("Index");
+                    if (resultado > 0)
+                    {
+                        TempData["mensaje"] = "Servicio guardado.";
+                        return RedirectToAction("Index");
+                    }
+                    else if (resultado == -1)
+                    {
+                        ModelState.AddModelError("", "Ya existe un servicio con el mismo nombre.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error al registrar, intente de nuevo o contacte al soporte.");
+                    }
+
+                }
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
+            // Cargar lista de seleccion
+            ViewBag.Roles = DropDownListServicios();
+            return View();
         }
 
         // GET: Servicio/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(byte id)
         {
+            Servicio servicio = servicioBL.ObtenerPorId(id);
+            // Cargar lista de seleccion
+            ViewBag.Roles = DropDownListServicios();
             return View();
         }
+
 
         // POST: Servicio/Edit/5
         [HttpPost]
