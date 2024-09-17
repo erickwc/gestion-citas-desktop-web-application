@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SistemaBliss.EN.Servicio>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<form method="get" action="@Url.Action("Index","Servicio")" class="row">
+    <div class="col-12 col-lg-3 mt-2">
+        <label class="form-label fw-bold" for="">Servicio:</label>
+        <input type="text" class="form-control" name="Nombre" placeholder="" />
+    </div>
+
+    <div class="col-12 col-lg-3 mt-2">
+        <label class="form-label fw-bold" for="">Categoria:</label>
+        @Html.DropDownList("IdCategoriaServicio", new SelectList(ViewBag.CategoriaServicio, "Value", "Text", null), new { @class = "form-select" })
+    </div>
+
+    <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
+        <button type="submit" class="btn btn-primary mx-2">BUSCAR</button>
+        @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCategoriaServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdEstado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripción)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCategoriaServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdEstado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripción)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Precio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

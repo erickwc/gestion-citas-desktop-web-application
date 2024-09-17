@@ -14,16 +14,49 @@ namespace SistemaBliss.DAL
 {
     public class CategoriaServicioDAL
     {
-        #region Metodos GUARDAR, MODIFICAR Y ELIMINAR
-        public static int Buscar(CategoriaServicio pcategoriaServicio)
+        public static List<Servicio> Buscar(Estado pRol)
         {
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_InsertarCategoriaServicio";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdCategoriaServicio", pcategoriaServicio.IdCategoriaServicio);
-            comando.Parameters.AddWithValue("@IdNombre", pcategoriaServicio.Nombre);
-            return ComunDB.EjecutarComando(comando);
+            List<Servicio> lista = new List<Servicio>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT TOP 100 IdCategoriaServicio, Nombre FROM CategoriaServicio  ";
+
+                // Validar filtros
+                if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)
+                {
+                    if (contador > 0)
+                        whereSQL += " AND ";
+                    contador += 1;
+                    whereSQL += " (Nombre LIKE @ValorNA) ";
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pRol.Nombre + "%");
+                }
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Estado obj = new Estado();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdEstado = Convert.ToByte(reader.GetValue(0));
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
         }
-        #endregion
     }
 }
