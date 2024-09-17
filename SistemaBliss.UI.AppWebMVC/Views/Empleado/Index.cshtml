@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SistemaBliss.EN.Usuario>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="get" action="@Url.Action("Index","Empleado")" class="row">
+    <div class="col-12 col-lg-3 mt-2">
+        <label class="form-label fw-bold" for="Nombre">Nombre, Apellido o Teléfono:</label>
+        <input type="text" class="form-control" name="Nombre" placeholder="Ingrese el dato de búsqueda" />
+    </div>
+
+    <div class="col-12 col-lg-3 mt-2">
+        <label class="form-label fw-bold" for="campoBusqueda">Buscar por:</label>
+        @Html.DropDownList("campoBusqueda", ViewBag.Options as List<SelectListItem>, new { @class = "form-select" })
+    </div>
+
+    <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
+        <button type="submit" class="btn btn-primary mx-2">BUSCAR</button>
+        @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
+    </div>
+</form>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Dui)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().IdRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().IdEstado)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dui)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rol.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado.Nombre)
+            </td>
+            <td class="d-flex d-inline-block justify-content-center">
+                <a href="@Url.Action("Edit","Cliente", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">
+                    Editar
+                </a>
+                <button type="button" class="btn btn-danger btn-sm">
+                    Eliminar
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+@section scripts {
+
+
+    <script>
+        //  codigo js
+    </script>
+
+
+    @if (TempData["mensaje"] != null)
+    {
+        <script>
+        Swal.fire({
+            icon: "@(TempData["tipo"]!= null? TempData["tipo"]: "success")",
+            title: "@TempData["mensaje"]",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        </script>
+
+        TempData["mensaje"] = null; // Vaciar memoria
+    }
+
+}

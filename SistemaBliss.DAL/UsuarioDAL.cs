@@ -291,12 +291,11 @@ namespace SistemaBliss.DAL
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
                 byte contador = 0;
-                string whereSQL = " ";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
-                            FROM Usuario ";
+                string whereSQL = "";
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion
+                            FROM Usuario WHERE IdEstado = 1 AND IdRol = 1";  // Filtro de estado activo y rol cliente
 
                 // Validar filtros
-
                 if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
                 {
                     if (contador > 0)
@@ -305,6 +304,7 @@ namespace SistemaBliss.DAL
                     whereSQL += " Nombre LIKE @Nombre ";
                     comando.Parameters.AddWithValue("@Nombre", "%" + pUsuario.Nombre + "%");
                 }
+
                 if (!string.IsNullOrWhiteSpace(pUsuario.Apellido))
                 {
                     if (contador > 0)
@@ -313,6 +313,7 @@ namespace SistemaBliss.DAL
                     whereSQL += " Apellido LIKE @Apellido ";
                     comando.Parameters.AddWithValue("@Apellido", "%" + pUsuario.Apellido + "%");
                 }
+
                 if (!string.IsNullOrWhiteSpace(pUsuario.Telefono))
                 {
                     if (contador > 0)
@@ -321,27 +322,13 @@ namespace SistemaBliss.DAL
                     whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
                     comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
                 }
-                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+
+                if (!string.IsNullOrEmpty(whereSQL))
                 {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " IdEstado=1 ";
-                }
-                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " IdRol=1 ";
-                }
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
+                    consulta += " AND " + whereSQL;
                 }
 
-                comando.CommandText = consulta + whereSQL;
+                comando.CommandText = consulta;
 
                 using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
                 {
@@ -349,21 +336,19 @@ namespace SistemaBliss.DAL
                     {
                         Usuario obj = new Usuario
                         {
-                            IdUsuario = reader.GetInt32(0),                // 0 -> IdUsuario
-                            IdRol = reader.GetByte(1),                     // 1 -> IdRol
-                            IdDepartamento = reader.GetByte(2),            // 2 -> IdDepartamento
-                            IdEstado = reader.GetByte(3),                  // 3 -> IdEstado
-                            Nombre = reader.GetString(4),                  // 4 -> Nombre
-                            Apellido = reader.GetString(5),                // 5 -> Apellido
-                            Telefono = reader.GetString(6),                // 6 -> Telefono
-                            Contrasena = reader.GetString(7),              // 7 -> Contrasena
-                            CorreoElectronico = reader.GetString(8),       // 8 -> CorreoElectronico
-                            Dui = reader.GetString(9),                     // 9 -> Dui
-                            Direccion = reader.GetString(10),              // 10 -> Direccion
-                            //UrlImagen = reader.GetString(11)               // 11 -> UrlImagen
+                            IdUsuario = reader.GetInt32(0),
+                            IdRol = reader.GetByte(1),
+                            IdDepartamento = reader.GetByte(2),
+                            IdEstado = reader.GetByte(3),
+                            Nombre = reader.GetString(4),
+                            Apellido = reader.GetString(5),
+                            Telefono = reader.GetString(6),
+                            Contrasena = reader.GetString(7),
+                            CorreoElectronico = reader.GetString(8),
+                            Dui = reader.GetString(9),
+                            Direccion = reader.GetString(10)
                         };
 
-                        // Agregar el objeto Usuario a la lista
                         lista.Add(obj);
                     }
                 }
