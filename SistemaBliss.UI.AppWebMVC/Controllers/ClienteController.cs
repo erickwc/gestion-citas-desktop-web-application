@@ -115,9 +115,9 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             Usuario usuario = usuarioBL.ObtenerPorId(id);
 
             // Cargar lista de seleccion
-            ViewBag.Cargos = DropDownListEstados(usuario.IdEstado);
-            ViewBag.Cargos = DropDownListRoles(usuario.IdRol);
-            ViewBag.Cargos = DropDownListDepartamentos(usuario.IdDepartamento);
+            ViewBag.Estados = DropDownListEstados(usuario.IdEstado);
+            ViewBag.Roles = DropDownListRoles(usuario.IdRol);
+            ViewBag.Departamentos = DropDownListDepartamentos(usuario.IdDepartamento);
             ViewBag.Municipios = DropDownListMunicipios(Convert.ToByte(usuario.IdMunicipio));
 
             return View(usuario);
