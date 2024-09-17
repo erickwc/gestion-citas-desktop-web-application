@@ -129,7 +129,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             try
             {
                 // TODO: Add insert logic here
-                ModelState.Remove("Clave");
+                ModelState.Remove("Contrasena");
 
                 if (ModelState.IsValid)
                 {

@@ -84,5 +84,7 @@ namespace SistemaBliss.EN
         public int EmpleadosActivos { get; set; }
         public int EmpleadosInactivos { get; set; }
 
+        public List<DetalleProfesión> DetalleProfesiones { get; set; }
+
     }
 }

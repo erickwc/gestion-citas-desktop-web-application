@@ -31,7 +31,7 @@ namespace SistemaBliss.BL
         }
         public int Modificar(Usuario pUsuario)
         {
-            pUsuario.Contrasena = CifrarHashSha256(pUsuario.Contrasena);
+            //pUsuario.Contrasena = CifrarHashSha256(pUsuario.Contrasena);
             return UsuarioDAL.Modificar(pUsuario);
         }
 
