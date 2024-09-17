@@ -46,7 +46,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Nombre", pUsuario.Nombre);
             comando.Parameters.AddWithValue("@Apellido", pUsuario.Apellido);
             comando.Parameters.AddWithValue("@Telefono", pUsuario.Telefono);
-            comando.Parameters.AddWithValue("@Contrasena", pUsuario.Contrasena);
+            //comando.Parameters.AddWithValue("@Contrasena", pUsuario.Contrasena);
             comando.Parameters.AddWithValue("@CorreoElectronico", pUsuario.CorreoElectronico);
             comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
             comando.Parameters.AddWithValue("@Direccion", pUsuario.Direccion);
@@ -77,10 +77,10 @@ namespace SistemaBliss.DAL
                 obj.Nombre = reader.GetString(5); // Columna [4] cuatro
                 obj.Apellido = reader.GetString(6); // Columna [4] cuatro
                 obj.Telefono = reader.GetString(7); // Columna [4] cuatro
-                obj.Contrasena = reader.GetString(8); // Columna [4] cuatro
-                obj.CorreoElectronico = reader.GetString(9); // Columna [4] cuatro
-                obj.Dui = reader.GetString(10); // Columna [4] cuatro
-                obj.Direccion = reader.GetString(11); // Columna [4] cuatro
+               // obj.Contrasena = reader.GetString(8); // Columna [4] cuatro
+                obj.CorreoElectronico = reader.GetString(8); // Columna [4] cuatro
+                obj.Dui = reader.GetString(9); // Columna [4] cuatro
+                obj.Direccion = reader.GetString(10); // Columna [4] cuatro
                 //obj.UrlImagen = reader.GetString(12); // Columna [4] cuatro
             }
             return obj;
