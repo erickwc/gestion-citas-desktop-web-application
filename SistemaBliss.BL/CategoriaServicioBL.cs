@@ -10,9 +10,9 @@ namespace SistemaBliss.BL
 {
     public class CategoriaServicioBL
     {
-        public int Buscar (CategoriaServicio pcategoriaServicio)
+        public List<CategoriaServicio> Buscar(CategoriaServicio pCategoriaServcio)
         {
-            return CategoriaServicioDAL.Buscar(pcategoriaServicio);
+            return CategoriaServicioDAL.Buscar(pCategoriaServcio);
         }
     }
 }

@@ -31,9 +31,5 @@ namespace SistemaBliss.BL
             return ServicioDAL.Buscar(pServicio);
         }
 
-        public List<Servicio> CargarCategoriaServicio(Servicio pServicio)
-        {
-            return ServicioDAL.CargarCategoriaServicio(pServicio);
-        }
     }
 }

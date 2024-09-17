@@ -14,9 +14,9 @@ namespace SistemaBliss.DAL
 {
     public class CategoriaServicioDAL
     {
-        public static List<Servicio> Buscar(Estado pRol)
+        public static List<CategoriaServicio> Buscar(CategoriaServicio pCategoriaServicio)
         {
-            List<Servicio> lista = new List<Servicio>();
+            List<CategoriaServicio> lista = new List<CategoriaServicio>();
 
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
@@ -25,15 +25,7 @@ namespace SistemaBliss.DAL
                 string whereSQL = " ";
                 string consulta = @"SELECT TOP 100 IdCategoriaServicio, Nombre FROM CategoriaServicio  ";
 
-                // Validar filtros
-                if (pRol.Nombre != null && pRol.Nombre.Trim() != string.Empty)
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " (Nombre LIKE @ValorNA) ";
-                    comando.Parameters.AddWithValue("@ValorNA", "%" + pRol.Nombre + "%");
-                }
+                
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)
                 {
@@ -44,10 +36,10 @@ namespace SistemaBliss.DAL
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
-                    Estado obj = new Estado();
+                    CategoriaServicio obj = new CategoriaServicio();
 
                     // Manejar posibles valores nulos y conversiones adecuadas
-                    obj.IdEstado = Convert.ToByte(reader.GetValue(0));
+                    obj.IdCategoriaServicio = Convert.ToByte(reader.GetValue(0));
                     obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
 
                     lista.Add(obj);
