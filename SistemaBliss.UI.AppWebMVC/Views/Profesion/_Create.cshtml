@@ -1,0 +1,12 @@
+﻿@model SistemaBliss.EN.Profesion
+
+@using (Html.BeginForm("_Create", "Profesion", FormMethod.Post, new { @class = "form" }))
+{
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Nombre, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nombre)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}

@@ -14,25 +14,25 @@ namespace SistemaBliss.BL
     {
       
         
-        public int Guardar(Profesión pProfesion)
+        public int Guardar(Profesion pProfesion)
         {
             return ProfesionDAL.Guardar(pProfesion);
         }
 
-        public int Modificar(Profesión pProfesion)
+        public int Modificar(Profesion pProfesion)
         {
             return ProfesionDAL.Modificar(pProfesion);
         }
-        public Profesión ObtenerPorId(byte pProfesion)
+        public Profesion ObtenerPorId(byte pProfesion)
         {
             return ProfesionDAL.ObtenerPorId(pProfesion);
         }
-        public  List<Profesión> Buscar(Profesión pProfesion)
+        public  List<Profesion> Buscar(Profesion pProfesion)
         {
             return ProfesionDAL.Buscar(pProfesion);
         }
 
-        public List<Profesión> BuscarSinParametro()
+        public List<Profesion> BuscarSinParametro()
         {
             return ProfesionDAL.BuscarSinParametro();
         }

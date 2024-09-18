@@ -167,11 +167,11 @@ namespace SistemaBliss.UI.WinForms
             ProfesionBL profesionesBL = new ProfesionBL();
 
             // Inicializar lista 
-            List<Profesión> profesion = new List<Profesión>();
-            profesion.Add(new Profesión { IdProfesión = 0, Nombre = "SELECCIONAR" });
+            List<Profesion> profesion = new List<Profesion>();
+            profesion.Add(new Profesion { IdProfesión = 0, Nombre = "SELECCIONAR" });
 
             // Obtener lista de Cargos de la DB
-            profesion.AddRange(profesionesBL.Buscar(new Profesión()));
+            profesion.AddRange(profesionesBL.Buscar(new Profesion()));
             profesionComboBox.DataSource = profesion;
 
             // Configurar texto y valor de la lista de seleccion
@@ -400,7 +400,7 @@ namespace SistemaBliss.UI.WinForms
             if (idUsuario == 0)
             {
                 // Paso 2: Obtener la opción seleccionada del ComboBox como objeto
-                var profesionSeleccionada = profesionComboBox.SelectedItem as Profesión;
+                var profesionSeleccionada = profesionComboBox.SelectedItem as Profesion;
 
                 // Paso 3: Verificar que no sea null y agregar la propiedad deseada al DataGridView
                 if (profesionSeleccionada != null)

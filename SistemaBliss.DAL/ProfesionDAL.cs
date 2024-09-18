@@ -13,7 +13,7 @@ namespace SistemaBliss.DAL
     public class ProfesionDAL
     {
         #region Metodos GUARDAR, MODIFICAR Y ELIMINAR
-        public static int Guardar(Profesión pProfesion)
+        public static int Guardar(Profesion pProfesion)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_InsertarProfesion";
@@ -22,7 +22,7 @@ namespace SistemaBliss.DAL
             return ComunDB.EjecutarComando(comando);
         }
         #endregion
-        public static int Modificar(Profesión pProfesion)
+        public static int Modificar(Profesion pProfesion)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_ModificarProfesion";
@@ -31,9 +31,9 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Nombre", pProfesion.Nombre);
             return ComunDB.EjecutarComando(comando);
         }
-        public static Profesión ObtenerPorId(byte pProfesion)
+        public static Profesion ObtenerPorId(byte pProfesion)
         {
-            Profesión obj = new Profesión();
+            Profesion obj = new Profesion();
 
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
@@ -49,9 +49,9 @@ namespace SistemaBliss.DAL
             }
             return obj;
         }
-        public static List<Profesión> Buscar(Profesión pProfesion)
+        public static List<Profesion> Buscar(Profesion pProfesion)
         {
-            List<Profesión> lista = new List<Profesión>();
+            List<Profesion> lista = new List<Profesion>();
 
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
@@ -76,7 +76,7 @@ namespace SistemaBliss.DAL
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
-                    Profesión obj = new Profesión();
+                    Profesion obj = new Profesion();
                     // Orden de las columnas depende de la Consulta SELECT utilizada
                     obj.IdProfesión = reader.GetByte(0);
                     obj.Nombre = reader.GetString(1);
@@ -90,39 +90,31 @@ namespace SistemaBliss.DAL
 
 
 
-        public static List<Profesión> BuscarSinParametro()
+        public static List<Profesion> BuscarSinParametro()
         {
-            List<Profesión> lista = new List<Profesión>();
+            List<Profesion> lista = new List<Profesion>();
 
-            #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-              
-                string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdProfesion, Nombre
-                            FROM Profesion  ";
+                string consulta = @"SELECT TOP 100 IdProfesion, Nombre FROM Profesion";
 
-              
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
-                }
-                comando.CommandText = consulta + whereSQL;
+                comando.CommandText = consulta;
 
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
-                    Profesión obj = new Profesión();
-                    // Orden de las columnas depende de la Consulta SELECT utilizada
-                    obj.IdProfesión = reader.GetByte(0);
-                    obj.Nombre = reader.GetString(1);
+                    Profesion obj = new Profesion
+                    {
+                        IdProfesión = reader.GetByte(0),
+                        Nombre = reader.GetString(1)
+                    };
                     lista.Add(obj);
                 }
-                comando.Connection.Dispose();
+                reader.Close();
             }
-            #endregion
+
             return lista;
         }
+
     }
 }

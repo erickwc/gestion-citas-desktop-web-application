@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="get" action="@Url.Action("Index","Empleado")" class="row">
+
+
+<form method="get" action="@Url.Action("Index", "Empleado")" class="row">
     <div class="col-12 col-lg-3 mt-2">
         <label class="form-label fw-bold" for="Nombre">Nombre, Apellido o Teléfono:</label>
         <input type="text" class="form-control" name="Nombre" placeholder="Ingrese el dato de búsqueda" />
@@ -20,87 +22,152 @@
         <button type="submit" class="btn btn-primary mx-2">BUSCAR</button>
         @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
     </div>
+
+
 </form>
 
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
-    </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">...</div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+<div class="col-12 col-lg-2 d-flex align-items-end mt-2">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Open first modal</button>
 </div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.First().IdUsuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Apellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Telefono)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().Dui)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().IdRol)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.First().IdEstado)
-        </th>
 
-        <th></th>
-    </tr>
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">Agregar Profesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("Create", new SistemaBliss.EN.Profesion())
+            </div>
+        </div>
+    </div>
+</div>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuario)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dui)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rol.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado.Nombre)
-            </td>
-            <td class="d-flex d-inline-block justify-content-center">
-                <a href="@Url.Action("Edit","Empleado", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">
-                    Editar
-                </a>
 
-            </td>
-        </tr>
-    }
-</table>
+
+
+<ul class="nav d-flex nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-activos-tab" data-bs-toggle="pill" data-bs-target="#pills-activos" type="button" role="tab" aria-controls="pills-activos" aria-selected="true">
+            Empleados Activos
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-inactivos-tab" data-bs-toggle="pill" data-bs-target="#pills-inactivos" type="button" role="tab" aria-controls="pills-inactivos" aria-selected="false">
+            Empleados Inactivos
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+    <!-- Tab para Empleados Activos -->
+    <div class="tab-pane fade" id="pills-activos" role="tabpanel" aria-labelledby="pills-activos-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>DUI</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.EmpleadosActivos != null)
+                {
+                    foreach (var item in ViewBag.EmpleadosActivos)
+                    {
+                        <tr>
+                            <td>@item.IdUsuario</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Apellido</td>
+                            <td>@item.Telefono</td>
+                            <td>@item.Dui</td>
+                            <td>@item.Rol.Nombre</td>
+                            <td>@item.Estado.Nombre</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tab para Empleados Inactivos -->
+    <div class="tab-pane fade" id="pills-inactivos" role="tabpanel" aria-labelledby="pills-inactivos-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Teléfono</th>
+                    <th>DUI</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.EmpleadosInactivos != null)
+                {
+                    foreach (var item in ViewBag.EmpleadosInactivos)
+                    {
+                        <tr>
+                            <td>@item.IdUsuario</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Apellido</td>
+                            <td>@item.Telefono</td>
+                            <td>@item.Dui</td>
+                            <td>@item.Rol.Nombre</td>
+                            <td>@item.Estado.Nombre</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 @section scripts {
 
 
     <script>
-        //  codigo js
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('#pills-tab button');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    localStorage.setItem('selectedTab', this.getAttribute('id'));
+                });
+            });
+
+            const selectedTab = localStorage.getItem('selectedTab');
+            if (selectedTab) {
+                const tabToActivate = document.querySelector(`#${selectedTab}`);
+                if (tabToActivate) {
+                    tabToActivate.click();
+                }
+            } else {
+                // Activar por defecto el tab de Empleados Activos
+                const defaultTab = document.querySelector('#pills-activos-tab');
+                if (defaultTab) {
+                    defaultTab.click();
+                }
+            }
+        });
+
     </script>
 
 

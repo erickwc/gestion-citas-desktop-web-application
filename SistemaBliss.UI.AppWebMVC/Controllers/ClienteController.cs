@@ -18,7 +18,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             Usuario pUsuario = new Usuario();
 
-            // Según el valor de campoBusqueda, asignamos el filtro adecuado
+            // Filtros basados en la selección del usuario
             switch (campoBusqueda)
             {
                 case "1": // Nombres
@@ -32,17 +32,21 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                     break;
             }
 
-            // Obtener la lista filtrada de usuarios
-            List<Usuario> lista = usuarioBL.BuscarClientesActivos(pUsuario);
+            // Obtener empleados activos e inactivos
+            List<Usuario> clientesActivos = usuarioBL.BuscarClientesActivos(pUsuario);
+            List<Usuario> clientesInactivos = usuarioBL.BuscarClientesInctivos(pUsuario);
 
-            
-                // Cargar Estado y Rol
-            usuarioBL.CargarEstadoVirtual(lista);
-            usuarioBL.CargarRolVirtual(lista);
-               
-           
+            // Cargar estado y rol virtual para cada lista
+            usuarioBL.CargarEstadoVirtual(clientesActivos);
+            usuarioBL.CargarRolVirtual(clientesActivos);
+            usuarioBL.CargarEstadoVirtual(clientesInactivos);
+            usuarioBL.CargarRolVirtual(clientesInactivos);
 
-            // Opciones para el DropDownList
+            // Pasar las listas a la vista a través de ViewBag
+            ViewBag.ClientesActivos = clientesActivos;
+            ViewBag.ClientesInactivos = clientesInactivos;
+
+            // Opciones del DropDownList
             List<SelectListItem> options = new List<SelectListItem>
     {
         new SelectListItem { Value = null, Text = "Seleccionar" },
@@ -53,8 +57,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
             ViewBag.Options = options;
 
-            // Devolver la lista filtrada al modelo de la vista
-            return View(lista);
+            return View();
         }
 
 

@@ -18,7 +18,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             Usuario pUsuario = new Usuario();
 
-            // Según el valor de campoBusqueda, asignamos el filtro adecuado
+            // Filtros basados en la selección del usuario
             switch (campoBusqueda)
             {
                 case "1": // Nombres
@@ -32,30 +32,34 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                     break;
             }
 
-            // Obtener la lista filtrada de usuarios
-            List<Usuario> lista = usuarioBL.BuscarEmpleadosActivos(pUsuario);
+            // Obtener empleados activos e inactivos
+            List<Usuario> empleadosActivos = usuarioBL.BuscarEmpleadosActivos(pUsuario);
+            List<Usuario> empleadosInactivos = usuarioBL.BuscarEmpleadosInactivos(pUsuario);
 
+            // Cargar estado y rol virtual para cada lista
+            usuarioBL.CargarEstadoVirtual(empleadosActivos);
+            usuarioBL.CargarRolVirtual(empleadosActivos);
+            usuarioBL.CargarEstadoVirtual(empleadosInactivos);
+            usuarioBL.CargarRolVirtual(empleadosInactivos);
 
-            // Cargar Estado y Rol
-            usuarioBL.CargarEstadoVirtual(lista);
-            usuarioBL.CargarRolVirtual(lista);
+            // Pasar las listas a la vista a través de ViewBag
+            ViewBag.EmpleadosActivos = empleadosActivos;
+            ViewBag.EmpleadosInactivos = empleadosInactivos;
 
-
-
-            // Opciones para el DropDownList
+            // Opciones del DropDownList
             List<SelectListItem> options = new List<SelectListItem>
-    {
-        new SelectListItem { Value = null, Text = "Seleccionar" },
-        new SelectListItem { Value = "1", Text = "Nombres" },
-        new SelectListItem { Value = "2", Text = "Apellidos" },
-        new SelectListItem { Value = "3", Text = "Teléfono" }
-    };
+            {
+                new SelectListItem { Value = null, Text = "Seleccionar" },
+                new SelectListItem { Value = "1", Text = "Nombres" },
+                new SelectListItem { Value = "2", Text = "Apellidos" },
+                new SelectListItem { Value = "3", Text = "Teléfono" }
+            };
 
             ViewBag.Options = options;
 
-            // Devolver la lista filtrada al modelo de la vista
-            return View(lista);
+            return View();
         }
+
 
         // GET: Empleado/Create
         public ActionResult Create()
@@ -99,11 +103,15 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             {
                 ModelState.AddModelError("", ex.Message);
             }
+
+            Profesion profesion = new Profesion();
+
             // Cargar lista de seleccion
             ViewBag.Roles = DropDownListRoles(pUsuario.IdRol);
             ViewBag.Estados = DropDownListEstados(pUsuario.IdEstado);
             ViewBag.Municipios = DropDownListMunicipios(Convert.ToByte(pUsuario.IdMunicipio));
             ViewBag.Departamentos = DropDownListDepartamentos(pUsuario.IdDepartamento);
+            ViewBag.Profesiones = DropDownListProfesiones(profesion.IdProfesión);
 
             return View(pUsuario);
         }
@@ -244,6 +252,27 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                 Value = x.IdDepartamento.ToString(), // PK
                 Text = x.Nombre,
                 Selected = (x.IdDepartamento == pId),
+            }).ToList());
+
+            return options;
+        }
+
+        public static List<SelectListItem> DropDownListProfesiones(byte pId = 0)
+        {
+            List<SelectListItem> options = new List<SelectListItem>
+                {
+                        new SelectListItem { Value = null, Text = "Seleccionar" }
+                };
+
+            // Buscar registros en la DB
+            List<Profesion> lista = new ProfesionBL().Buscar(new Profesion { });
+
+            // Agregar opciones
+            options.AddRange(lista.OrderBy(x => x.Nombre).Select(x => new SelectListItem
+            {
+                Value = x.IdProfesión.ToString(), // PK
+                Text = x.Nombre,
+                Selected = (x.IdProfesión == pId),
             }).ToList());
 
             return options;

@@ -25,7 +25,7 @@ namespace SistemaBliss.UI.WinForms
         ValidacionCampos validacionCampos = new ValidacionCampos();
         ProfesionBL profesionBL = new ProfesionBL();
         public byte idUsuario;
-        List<Profesión> lista = new List<Profesión>();
+        List<Profesion> lista = new List<Profesion>();
 
         private bool ValidarCampos()
         {
@@ -65,7 +65,7 @@ namespace SistemaBliss.UI.WinForms
                 {
 
                     // Capturar datos del formulario
-                    Profesión profesion = new Profesión(); // instancia de empleado
+                    Profesion profesion = new Profesion(); // instancia de empleado
                     profesion.Nombre = profesionTextBox.Text;
                  
 

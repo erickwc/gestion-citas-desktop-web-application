@@ -59,7 +59,7 @@
     <Compile Include="Login.cs" />
     <Compile Include="Municipio.cs" />
     <Compile Include="Producto.cs" />
-    <Compile Include="Profesión.cs" />
+    <Compile Include="Profesion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Servicio.cs" />

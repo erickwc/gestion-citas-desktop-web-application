@@ -27,7 +27,7 @@ namespace SistemaBliss.EN
 
 
         // Propiedades virtuales para llaves foraneas (FK) para representar la Asociacion
-        public virtual Profesión Profesión { get; set; }
+        public virtual Profesion Profesión { get; set; }
         public virtual Usuario Usuario { get; set; }
 
 

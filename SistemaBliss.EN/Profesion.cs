@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBliss.EN
 {
-    public class Profesión
+    public class Profesion
     {
         public byte IdProfesión { get; set; } 
         public string Nombre  { get; set; }
