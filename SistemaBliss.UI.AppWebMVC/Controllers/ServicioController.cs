@@ -81,40 +81,38 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
         // POST: Servicio/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Servicio pServicio)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    int resultado = servicioBL.Modificar(pServicio);
 
-                return RedirectToAction("Index");
+                    if (resultado > 0)
+                    {
+                        TempData["mensaje"] = "Registro actualizado.";
+                        return RedirectToAction("Index");
+                    }
+                    else if (resultado == -1)
+                    {
+                        ModelState.AddModelError("", "Ya existe un registro con el mismo nombre.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error al registrar servicio, intente de nuevo o contacte al soporte.");
+                    }
+
+                }
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
             }
-        }
-
-        // GET: Servicio/Delete/5
-        public ActionResult Delete(int id)
-        {
+            // Cargar lista de seleccion
+            ViewBag.Roles = DropDownListServicios();
             return View();
-        }
-
-        // POST: Servicio/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public static List<SelectListItem> DropDownListServicios(byte pId = 0)
