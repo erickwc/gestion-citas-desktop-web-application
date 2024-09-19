@@ -34,28 +34,35 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Profesion pProfesion)
         {
-            if (ModelState.IsValid)
+            try
             {
-                int resultado = profesionBL.Guardar(pProfesion);
-                if (resultado > 0)
+                if (ModelState.IsValid)
                 {
-                    TempData["mensaje"] = "Registro guardado.";
-                    return RedirectToAction("Index"); // Redirige a la acción adecuada
-                }
-                else if (resultado == -1)
-                {
-                    ModelState.AddModelError("", "Ya existe un registro con el mismo nombre.");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Error al registrar, intente de nuevo o contacte al soporte.");
+                    int resultado = profesionBL.Guardar(pProfesion);
+
+                    if (resultado > 0)
+                    {
+                        TempData["mensaje"] = "Registro guardado.";
+                        return RedirectToAction("Index", "Empleado");
+                    }
+                    else if (resultado == -1)
+                    {
+                        ModelState.AddModelError("", "Ya existe un registro con el mismo nombre.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error al registrar, intente de nuevo o contacte al soporte.");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
 
-            // Si hay errores, vuelve a mostrar el modal con errores
-            return PartialView("Create", pProfesion);
+            return View("Index"); // Asegúrate de redirigir a la vista adecuada
         }
-   
+
 
 
 

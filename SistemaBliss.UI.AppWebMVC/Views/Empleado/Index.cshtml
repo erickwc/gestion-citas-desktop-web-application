@@ -31,17 +31,24 @@
 </div>
 
 
-<!-- Modal -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModalToggle" tabindex="-1" aria-labelledby="exampleModalToggleLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel">Agregar Profesión</h5>
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Agregar Profesión</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @Html.Partial("Create", new SistemaBliss.EN.Profesion())
+                @using (Html.BeginForm("Create", "Profesion", FormMethod.Post, new { @class = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        @Html.Label("Nombre", new { @class = "form-label" })
+                        <input type="text" class="form-control" name="Nombre" id="validationCustom03" required placeholder="Ingrese el nombre de la profesión" />
+                        @Html.ValidationMessage("Nombre", "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                }
             </div>
         </div>
     </div>
