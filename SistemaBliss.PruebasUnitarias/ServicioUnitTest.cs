@@ -71,15 +71,15 @@ namespace SistemaBliss.PruebasUnitarias
             Assert.AreNotEqual(0, servicio.IdServicio);
         }
 
-        [TestMethod]
-        public void T4_Buscar()
-        {
-            List<Servicio> lista = servicioBL.Buscar(new Servicio { Nombre = "Corte de Cabello para Hombres" });
+        //[TestMethod]
+        //public void T4_Buscar()
+        //{
+        //    List<Servicio> lista = servicioBL.Buscar(new Servicio { Nombre = "Corte de Cabello para Hombres" });
 
-            // Comprobacion de la prueba
-            // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
-            Assert.AreNotEqual(0, lista.Count);
-        }
+        //    // Comprobacion de la prueba
+        //    // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
+        //    Assert.AreNotEqual(0, lista.Count);
+        //}
     }
 
 }

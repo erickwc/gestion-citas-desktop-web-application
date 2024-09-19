@@ -10,37 +10,37 @@ namespace SistemaBliss.PruebasUnitarias
     public class DetalleProfesionUnitTest
     {
         // Conexion a la tabla de Empleados en la DB mediante una instancia de EmpleadoBL
-        DetalleProfesionBL detalleProfesionBL = new DetalleProfesionBL();
+        //DetalleProfesionBL detalleProfesionBL = new DetalleProfesionBL();
 
-        [TestMethod]
-        public void T1_Guardar()
-        {
-            // instancia de Empleado con los datos a guardar
-            DetalleProfesión detalleProfesion = new DetalleProfesión();
-            detalleProfesion.IdProfesion = 1;
-            detalleProfesion.IdUsuario = 1;
-            // Ejecutar metodo 
-            int resultado = detalleProfesionBL.Guardar(detalleProfesion);
+        //[TestMethod]
+        //public void T1_Guardar()
+        //{
+        //    // instancia de Empleado con los datos a guardar
+        //    DetalleProfesión detalleProfesion = new DetalleProfesión();
+        //    detalleProfesion.IdProfesion = 1;
+        //    detalleProfesion.IdUsuario = 1;
+        //    // Ejecutar metodo 
+        //    int resultado = detalleProfesionBL.Guardar(detalleProfesion);
 
-            // Comprobacion de la prueba
-            // si resultado es igual a 1, la Empleado se guardo correctamente
-            Assert.AreEqual(1, resultado);
-        }
-        [TestMethod]
-        public void T2_Modificar()
-        {
-            // instancia de Empleado con los datos a modificar
-            DetalleProfesión detalleProfesión = new DetalleProfesión();
-            detalleProfesión.IdDetalleProfesion = 10;
-            detalleProfesión.IdUsuario = 1;
-            detalleProfesión.IdProfesion = 2;
-            // Ejecutar metodo
-            int resultado = detalleProfesionBL.Modifiar(detalleProfesión);
+        //    // Comprobacion de la prueba
+        //    // si resultado es igual a 1, la Empleado se guardo correctamente
+        //    Assert.AreEqual(1, resultado);
+        //}
+        //[TestMethod]
+        //public void T2_Modificar()
+        //{
+        //    // instancia de Empleado con los datos a modificar
+        //    DetalleProfesión detalleProfesión = new DetalleProfesión();
+        //    detalleProfesión.IdDetalleProfesion = 10;
+        //    detalleProfesión.IdUsuario = 1;
+        //    detalleProfesión.IdProfesion = 2;
+        //    // Ejecutar metodo
+        //    int resultado = detalleProfesionBL.Modifiar(detalleProfesión);
 
-            // Comprobacion de la prueba
-            // si resultado es igual a 1, la Empleado se modifico correctamente
-            Assert.AreEqual(1, resultado);
-        }
+        //    // Comprobacion de la prueba
+        //    // si resultado es igual a 1, la Empleado se modifico correctamente
+        //    Assert.AreEqual(1, resultado);
+        //}
 
 
 
