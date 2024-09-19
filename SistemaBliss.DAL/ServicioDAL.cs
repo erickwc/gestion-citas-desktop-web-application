@@ -45,7 +45,7 @@ namespace SistemaBliss.DAL
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_ModificarServicio";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdServicio", pServicio.IdCategoriaServicio);
+            comando.Parameters.AddWithValue("@IdServicio", pServicio.IdServicio);
             comando.Parameters.AddWithValue("@IdCategoriaServicio", pServicio.IdCategoriaServicio);
             comando.Parameters.AddWithValue("@IdEstado", pServicio.IdEstado);
             comando.Parameters.AddWithValue("@Nombre", pServicio.Nombre);
