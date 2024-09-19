@@ -5,17 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h3>Servicios</h3>
 
-<form method="get" action="@Url.Action("Index","Servicio")" class="row">
+<form method="get" action="@Url.Action("Index","Servicio")" class="row mt-3">
+
+    <p>Buscador</p>
+
     <div class="col-12 col-lg-3 mt-2">
         <label class="form-label fw-bold" for="">Servicio:</label>
-        <input type="text" class="form-control" name="Nombre" placeholder="" />
+        <input type="text" class="form-control" name="filtroNombre" placeholder="Ingrese el dato de búsqueda" />
     </div>
 
     <div class="col-12 col-lg-3 mt-2">
         <label class="form-label fw-bold" for="">Categoria:</label>
-        @Html.DropDownList("IdCategoriaServicio", new SelectList(ViewBag.CategoriaServicio, "Value", "Text", null), new { @class = "form-select" })
+        @Html.DropDownList("IdCategoriaServicio", new SelectList(ViewBag.Categorias, "Value", "Text", null), new { @class = "form-select" })
     </div>
 
     <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
@@ -23,55 +26,140 @@
         @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
     </div>
 </form>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IdServicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdCategoriaServicio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdEstado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripción)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdServicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdCategoriaServicio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdEstado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripción)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+
+<ul class="nav d-flex mt-3 nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-activos-tab" data-bs-toggle="pill" data-bs-target="#pills-activos" type="button" role="tab" aria-controls="pills-activos" aria-selected="true">
+            Servicios Activos
+        </button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-inactivos-tab" data-bs-toggle="pill" data-bs-target="#pills-inactivos" type="button" role="tab" aria-controls="pills-inactivos" aria-selected="false">
+            Servicios Inactivos
+        </button>
+    </li>
+</ul>
+
+
+
+<div class="tab-content" id="pills-tabContent">
+    <!-- Tab para Servicios Activos -->
+    <div class="tab-pane fade" id="pills-activos" role="tabpanel" aria-labelledby="pills-activos-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ServiciosActivos != null)
+                {
+                    foreach (var item in ViewBag.ServiciosActivos)
+                    {
+                        <tr>
+                            <td>@item.IdServicio</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Descripción</td>
+                            <td>@item.Precio</td>
+                            <td>@item.CategoriaServicio.Nombre</td>
+                            <td>@item.Estado.Nombre</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Servicio", new { id = item.IdServicio })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tab para Servicios Inactivos -->
+    <div class="tab-pane fade" id="pills-inactivos" role="tabpanel" aria-labelledby="pills-inactivos-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.ServiciosInactivos != null)
+                {
+                    foreach (var item in ViewBag.ServiciosInactivos)
+                    {
+                        <tr>
+                            <td>@item.IdServicio</td>
+                            <td>@item.Nombre</td>
+                            <td>@item.Descripción</td>
+                            <td>@item.Precio</td>
+                            <td>@item.CategoriaServicio.Nombre</td>
+                            <td>@item.Estado.Nombre</td>
+                            <td>
+                                <a href="@Url.Action("Edit", "Servicio", new { id = item.IdServicio })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section scripts {
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('#pills-tab button');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    localStorage.setItem('selectedTab', this.getAttribute('id'));
+                });
+            });
+
+            const selectedTab = localStorage.getItem('selectedTab');
+            if (selectedTab) {
+                const tabToActivate = document.querySelector(`#${selectedTab}`);
+                if (tabToActivate) {
+                    tabToActivate.click();
+                }
+            } else {
+                // Activar por defecto el tab de Empleados Activos
+                const defaultTab = document.querySelector('#pills-activos-tab');
+                if (defaultTab) {
+                    defaultTab.click();
+                }
+            }
+        });
+
+    </script>
+
+
+    @if (TempData["mensaje"] != null)
+    {
+        <script>
+        Swal.fire({
+            icon: "@(TempData["tipo"]!= null? TempData["tipo"]: "success")",
+            title: "@TempData["mensaje"]",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        </script>
+
+        TempData["mensaje"] = null; // Vaciar memoria
+    }
+
 }
-
-</table>

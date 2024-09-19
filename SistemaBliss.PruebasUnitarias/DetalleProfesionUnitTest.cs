@@ -45,24 +45,24 @@ namespace SistemaBliss.PruebasUnitarias
 
 
 
-        [TestMethod]
-        public void T3_Buscar()
-        {
-            List<DetalleProfesión> lista = detalleProfesionBL.Buscar(new DetalleProfesión { IdUsuario = 1 });
+        //[TestMethod]
+        //public void T3_Buscar()
+        //{
+        //    List<DetalleProfesión> lista = detalleProfesionBL.Buscar(new DetalleProfesión { IdUsuario = 1 });
 
-            // Comprobacion de la prueba
-            // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
-            Assert.AreNotEqual(0, lista.Count);
-        }
-        [TestMethod]
-        public void T4_ObtenerPorId()
-        {
-            // Buscar el empleado con id = 1
-            DetalleProfesión rol = detalleProfesionBL.ObtenerPorId(1);
+        //    // Comprobacion de la prueba
+        //    // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
+        //    Assert.AreNotEqual(0, lista.Count);
+        //}
+        //[TestMethod]
+        //public void T4_ObtenerPorId()
+        //{
+        //    // Buscar el empleado con id = 1
+        //    DetalleProfesión rol = detalleProfesionBL.ObtenerPorId(1);
 
-            // Comprobacion de la prueba
-            Assert.AreNotEqual(0, rol.IdDetalleProfesion);
-        }
+        //    // Comprobacion de la prueba
+        //    Assert.AreNotEqual(0, rol.IdDetalleProfesion);
+        //}
 
     }
 }

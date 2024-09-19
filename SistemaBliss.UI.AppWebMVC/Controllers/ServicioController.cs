@@ -11,25 +11,50 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
     public class ServicioController : Controller
     {
         ServicioBL servicioBL = new ServicioBL();
-        public ActionResult Index(Servicio pServicio)
+        public ActionResult Index(string filtroNombre, byte? IdCategoriaServicio)
         {
+            Servicio pServicio = new Servicio();
 
-            // Obtener la lista filtrada de usuarios
-            List<Servicio> lista = servicioBL.Buscar(pServicio);
+            // Filtro por nombre de servicio
+            if (!string.IsNullOrEmpty(filtroNombre))
+            {
+                pServicio.Nombre = filtroNombre;
+            }
 
-            // Listas de seleccion filtros
-            ViewBag.CategoriaServicio = DropDownListServicios();
+            // Filtro por categoría de servicio
+            if (IdCategoriaServicio.HasValue)
+            {
+                pServicio.IdCategoriaServicio = IdCategoriaServicio.Value;
+            }
 
-            // Devolver la lista filtrada al modelo de la vista
-            return View(lista);
+            // Obtener la lista filtrada de servicios
+            List<Servicio> serviciosActivos = servicioBL.BuscarServiciosActivos(pServicio);
+            List<Servicio> serviciosInactivos = servicioBL.BuscarServiciosInactivos(pServicio);
+
+            // Listas de selección filtros
+            ViewBag.Categorias = DropDownListCategorias();
+
+            // Cargar estado y categoría virtual
+            servicioBL.CargarEstadoVirtual(serviciosActivos);
+            servicioBL.CargarCategoriaVirtual(serviciosActivos);
+            servicioBL.CargarEstadoVirtual(serviciosInactivos);
+            servicioBL.CargarCategoriaVirtual(serviciosInactivos);
+
+            ViewBag.ServiciosActivos = serviciosActivos;
+            ViewBag.ServiciosInactivos = serviciosInactivos;
+
+            return View();
         }
+
+
 
 
 
         // GET: Servicio/Create
         public ActionResult Create()
         {
-            ViewBag.Roles = DropDownListServicios();
+            ViewBag.Categorias = DropDownListCategorias();
+            ViewBag.Estados = DropDownListEstados();
             return View();
         }
 
@@ -39,6 +64,9 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
+                ModelState.Remove("UrlImagen");
+
+
                 if (ModelState.IsValid)
                 {
                     int resultado = servicioBL.Guardar(pServicio);
@@ -65,7 +93,8 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
             // Cargar lista de seleccion
-            ViewBag.Roles = DropDownListServicios();
+            ViewBag.Categorias = DropDownListCategorias();
+            ViewBag.Estados = DropDownListEstados();
             return View();
         }
 
@@ -74,8 +103,9 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             Servicio servicio = servicioBL.ObtenerPorId(id);
             // Cargar lista de seleccion
-            ViewBag.Roles = DropDownListServicios();
-            return View();
+            ViewBag.Categorias = DropDownListCategorias();
+            ViewBag.Estados = DropDownListEstados();
+            return View(servicio);
         }
 
 
@@ -85,6 +115,8 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
+                ModelState.Remove("UrlImagen");
+
                 if (ModelState.IsValid)
                 {
                     int resultado = servicioBL.Modificar(pServicio);
@@ -111,11 +143,12 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
             // Cargar lista de seleccion
-            ViewBag.Roles = DropDownListServicios();
+            ViewBag.Categorias = DropDownListCategorias();
+            ViewBag.Estados = DropDownListEstados();
             return View();
         }
 
-        public static List<SelectListItem> DropDownListServicios(byte pId = 0)
+        public static List<SelectListItem> DropDownListCategorias(byte pId = 0)
         {
             List<SelectListItem> options = new List<SelectListItem>
                 {
@@ -131,6 +164,27 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                 Value = x.IdCategoriaServicio.ToString(), // PK
                 Text = x.Nombre,
                 Selected = (x.IdCategoriaServicio == pId),
+            }).ToList());
+
+            return options;
+        }
+
+        public static List<SelectListItem> DropDownListEstados(byte pId = 0)
+        {
+            List<SelectListItem> options = new List<SelectListItem>
+                {
+                        new SelectListItem { Value = null, Text = "Seleccionar" }
+                };
+
+            // Buscar registros en la DB
+            List<Estado> lista = new EstadoBL().Buscar(new Estado { });
+
+            // Agregar opciones
+            options.AddRange(lista.OrderBy(x => x.Nombre).Select(x => new SelectListItem
+            {
+                Value = x.IdEstado.ToString(), // PK
+                Text = x.Nombre,
+                Selected = (x.IdEstado == pId),
             }).ToList());
 
             return options;

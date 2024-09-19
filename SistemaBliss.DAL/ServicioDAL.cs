@@ -28,7 +28,14 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Restricciones", pServicio.Restricciones);
             comando.Parameters.AddWithValue("@Precio", pServicio.Precio);
             comando.Parameters.AddWithValue("@Duracion", pServicio.Duracion);
-            comando.Parameters.AddWithValue("@UrlImagen", pServicio.Imagen);
+            if (string.IsNullOrEmpty(pServicio.Imagen))
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", DBNull.Value);
+            }
+            else
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", pServicio.Imagen);
+            }
             return ComunDB.EjecutarComando(comando);
 
         }
@@ -47,7 +54,14 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@Restricciones", pServicio.Restricciones);
             comando.Parameters.AddWithValue("@Precio", pServicio.Precio);
             comando.Parameters.AddWithValue("@Duracion", pServicio.Duracion);
-            comando.Parameters.AddWithValue("@UrlImagen", pServicio.Imagen);
+            if (string.IsNullOrEmpty(pServicio.Imagen))
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", DBNull.Value);
+            }
+            else
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", pServicio.Imagen);
+            }
             return ComunDB.EjecutarComando(comando);
         }
 
@@ -63,8 +77,8 @@ namespace SistemaBliss.DAL
             SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
             while (reader.Read())
             {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.IdServicio = reader.GetByte(0); // Columna [0] cero
+              
+                obj.IdServicio = reader.GetByte(0); 
                 obj.IdCategoriaServicio = reader.GetByte(1); // Columna [0] cero
                 obj.IdEstado = reader.GetByte(2); //Colummna [1] uno
                 obj.Nombre = reader.GetString(3);  // Columna [2] uno
@@ -79,77 +93,113 @@ namespace SistemaBliss.DAL
 
         }
 
-        public static List<Servicio> Buscar(Servicio pServicio)
+        public static List<Servicio> BuscarServiciosActivos(Servicio pServicio)
         {
             List<Servicio> lista = new List<Servicio>();
 
-            #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                byte contador = 0;
-                string whereSQL = " ";
-                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion FROM Servicio ";
+                List<string> condiciones = new List<string>();
+                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion FROM Servicio WHERE IdEstado = 1";
 
-                // Validar filtros
+                // Validar filtros y agregar condiciones
                 if (pServicio.IdCategoriaServicio > 0)
                 {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " IdCategoriaServicio = @IdCategoriaServicio ";
+                    condiciones.Add("IdCategoriaServicio = @IdCategoriaServicio");
                     comando.Parameters.AddWithValue("@IdCategoriaServicio", pServicio.IdCategoriaServicio);
                 }
-                if (pServicio.Nombre != null && pServicio.Nombre.Trim() != string.Empty)
+                if (!string.IsNullOrEmpty(pServicio.Nombre))
                 {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " (Nombre LIKE @ValorNA) ";
+                    condiciones.Add("Nombre LIKE @ValorNA");
                     comando.Parameters.AddWithValue("@ValorNA", "%" + pServicio.Nombre + "%");
                 }
-                if (pServicio.IdEstado > 0)
+
+                // Si hay condiciones adicionales, las agregamos a la consulta
+                if (condiciones.Count > 0)
                 {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " IdEstado = @IdEstado ";
-                    comando.Parameters.AddWithValue("@IdEstado", pServicio.IdEstado);
+                    consulta += " AND " + string.Join(" AND ", condiciones);
                 }
 
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
-                }
-                comando.CommandText = consulta + whereSQL;
+                comando.CommandText = consulta;
 
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
                     Servicio obj = new Servicio();
 
-                    obj.IdServicio = reader.GetByte(0); // Columna [0] cero
-                    obj.IdCategoriaServicio = reader.GetByte(1); // Columna [0] cero
-                    obj.IdEstado = reader.GetByte(2); //Colummna [1] uno
-                    obj.Nombre = reader.GetString(3);  // Columna [2] uno
-                    obj.Descripción = reader.GetString(4); // Columna [3] dos
-                                                           //   obj.DiasAnticipacion = reader.GetInt16(5); // Columna [4] cuatro
-                    obj.Restricciones = reader.GetString(6); // Columna [5] cuatro
-                    obj.Precio = reader.GetDecimal(7); // Columna [6] cuatro
-                    obj.Duracion = reader.GetTimeSpan(8); // Columna [7] cuatro
-                                                          //  obj.Imagen = reader.GetString(9); // Columna [8] cuatro
+                    obj.IdServicio = reader.GetByte(0);
+                    obj.IdCategoriaServicio = reader.GetByte(1);
+                    obj.IdEstado = reader.GetByte(2);
+                    obj.Nombre = reader.GetString(3);
+                    obj.Descripción = reader.GetString(4);
+                    obj.Restricciones = reader.GetString(6);
+                    obj.Precio = reader.GetDecimal(7);
+                    obj.Duracion = reader.GetTimeSpan(8);
 
-                    // Agregar el objeto Servicio a la lista
                     lista.Add(obj);
                 }
                 comando.Connection.Dispose();
             }
-            #endregion
 
             return lista;
         }
 
-       
+
+
+        public static List<Servicio> BuscarServiciosInactivos(Servicio pServicio)
+        {
+            List<Servicio> lista = new List<Servicio>();
+
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                List<string> condiciones = new List<string>();
+                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion FROM Servicio WHERE IdEstado = 2";
+
+                // Validar filtros y agregar condiciones
+                if (pServicio.IdCategoriaServicio > 0)
+                {
+                    condiciones.Add("IdCategoriaServicio = @IdCategoriaServicio");
+                    comando.Parameters.AddWithValue("@IdCategoriaServicio", pServicio.IdCategoriaServicio);
+                }
+                if (!string.IsNullOrEmpty(pServicio.Nombre))
+                {
+                    condiciones.Add("Nombre LIKE @ValorNA");
+                    comando.Parameters.AddWithValue("@ValorNA", "%" + pServicio.Nombre + "%");
+                }
+
+                // Si hay condiciones adicionales, las agregamos a la consulta
+                if (condiciones.Count > 0)
+                {
+                    consulta += " AND " + string.Join(" AND ", condiciones);
+                }
+
+                comando.CommandText = consulta;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Servicio obj = new Servicio();
+
+                    obj.IdServicio = reader.GetByte(0);
+                    obj.IdCategoriaServicio = reader.GetByte(1);
+                    obj.IdEstado = reader.GetByte(2);
+                    obj.Nombre = reader.GetString(3);
+                    obj.Descripción = reader.GetString(4);
+                    obj.Restricciones = reader.GetString(6);
+                    obj.Precio = reader.GetDecimal(7);
+                    obj.Duracion = reader.GetTimeSpan(8);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+
+            return lista;
+        }
+
+
+
+
 
         #endregion
 

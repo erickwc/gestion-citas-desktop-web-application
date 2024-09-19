@@ -29,7 +29,16 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@CorreoElectronico", pUsuario.CorreoElectronico);
             comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
             comando.Parameters.AddWithValue("@Direccion", pUsuario.Direccion);
-            comando.Parameters.AddWithValue("@UrlImagen", pUsuario.UrlImagen);
+
+            if (string.IsNullOrEmpty(pUsuario.UrlImagen))
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", DBNull.Value);
+            }
+            else
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", pUsuario.UrlImagen);
+            }
+
             return ComunDB.EjecutarComando(comando);
         }
 
@@ -50,7 +59,16 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@CorreoElectronico", pUsuario.CorreoElectronico);
             comando.Parameters.AddWithValue("@Dui", pUsuario.Dui);
             comando.Parameters.AddWithValue("@Direccion", pUsuario.Direccion);
-            comando.Parameters.AddWithValue("@UrlImagen", pUsuario.UrlImagen);
+
+            if (string.IsNullOrEmpty(pUsuario.UrlImagen))
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", DBNull.Value);
+            }
+            else
+            {
+                comando.Parameters.AddWithValue("@UrlImagen", pUsuario.UrlImagen);
+            }
+
             return ComunDB.EjecutarComando(comando);
         }
 

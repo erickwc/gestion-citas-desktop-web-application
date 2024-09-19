@@ -138,6 +138,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             {
                 // TODO: Add insert logic here
                 ModelState.Remove("Contrasena");
+                ModelState.Remove("UrlImagen");
 
                 if (ModelState.IsValid)
                 {
