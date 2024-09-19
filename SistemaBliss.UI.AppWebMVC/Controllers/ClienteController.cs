@@ -134,7 +134,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             try
             {
                 // TODO: Add insert logic here
-                ModelState.Remove("Clave");
+                ModelState.Remove("Contrasena");
 
                 if (ModelState.IsValid)
                 {
@@ -162,9 +162,9 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            ViewBag.Cargos = DropDownListEstados(pUsuario.IdEstado);
-            ViewBag.Cargos = DropDownListRoles(pUsuario.IdRol);
-            ViewBag.Cargos = DropDownListDepartamentos(pUsuario.IdDepartamento);
+            ViewBag.Estados = DropDownListEstados(pUsuario.IdEstado);
+            ViewBag.Roles = DropDownListRoles(pUsuario.IdRol);
+            ViewBag.Departamentos = DropDownListDepartamentos(pUsuario.IdDepartamento);
             ViewBag.Municipios = DropDownListMunicipios(Convert.ToByte(pUsuario.IdMunicipio));
 
             return View(pUsuario);
