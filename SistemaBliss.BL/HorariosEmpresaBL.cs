@@ -25,9 +25,10 @@ namespace SistemaBliss.BL
             return HorariosEmpresaDAL.Eliminar(pHorariosEmpresa);
         }
 
-        public List<HorariosEmpresa> Buscar(HorariosEmpresa pHorariosEmpresa)
+        public List<HorariosEmpresa> Buscar()
         {
-            return HorariosEmpresaDAL.Buscar(pHorariosEmpresa);
+            return HorariosEmpresaDAL.Buscar();
         }
+
     }
 }

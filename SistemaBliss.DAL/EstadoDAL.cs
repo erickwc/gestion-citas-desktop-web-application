@@ -76,6 +76,42 @@ namespace SistemaBliss.DAL
             return lista;
         }
 
+        public static List<Estado> BuscarEstadosCitas(Estado pRol)
+        {
+            List<Estado> lista = new List<Estado>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                byte contador = 0;
+                string whereSQL = " ";
+                string consulta = @"SELECT * FROM Estado WHERE Nombre IN ('finalizado', 'pendiente', 'confirmado') ";
+
+                // Agregar filtros
+                if (whereSQL.Trim().Length > 0)
+                {
+                    whereSQL = " WHERE " + whereSQL;
+                }
+                comando.CommandText = consulta + whereSQL;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Estado obj = new Estado();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdEstado = Convert.ToByte(reader.GetValue(0));
+                    obj.Nombre = reader.IsDBNull(1) ? string.Empty : reader.GetString(1);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
         // TRATAMIENTO DE DATOS
         public static Dictionary<byte, Estado> ObtenerDiccionario(byte[] pArrayIdEstado)
         {

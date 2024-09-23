@@ -48,12 +48,12 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
             // Opciones del DropDownList
             List<SelectListItem> options = new List<SelectListItem>
-    {
-        new SelectListItem { Value = null, Text = "Seleccionar" },
-        new SelectListItem { Value = "1", Text = "Nombres" },
-        new SelectListItem { Value = "2", Text = "Apellidos" },
-        new SelectListItem { Value = "3", Text = "Teléfono" }
-    };
+            {
+                new SelectListItem { Value = null, Text = "Seleccionar" },
+                new SelectListItem { Value = "1", Text = "Nombres" },
+                new SelectListItem { Value = "2", Text = "Apellidos" },
+                new SelectListItem { Value = "3", Text = "Teléfono" }
+            };
 
             ViewBag.Options = options;
 
@@ -80,6 +80,12 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
+                    string finalPath = "\\UploadedFile\\" + strDateTime + pUsuario.UploadImage.FileName;
+
+                    pUsuario.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
+                    pUsuario.UrlImagen = finalPath;
+
                     int resultado = usuarioBL.Guardar(pUsuario);
 
                     if (resultado > 0)
@@ -133,11 +139,28 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
                 ModelState.Remove("Contrasena");
+                ModelState.Remove("UrlImagen");
 
                 if (ModelState.IsValid)
                 {
+                    // Si no se subió una nueva imagen, mantén la ruta de la imagen existente
+                    if (pUsuario.UploadImage == null)
+                    {
+                        // Recupera la imagen existente para no perderla
+                        var usuarioExistente = usuarioBL.ObtenerPorId(id);
+                        pUsuario.UrlImagen = usuarioExistente.UrlImagen;
+                    }
+                    else
+                    {
+                        // Si se subió una nueva imagen, guarda la nueva ruta
+                        string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
+                        string finalPath = "\\UploadedFile\\" + strDateTime + pUsuario.UploadImage.FileName;
+
+                        pUsuario.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
+                        pUsuario.UrlImagen = finalPath; // Actualiza el path de la imagen
+                    }
+
                     int resultado = usuarioBL.Modificar(pUsuario);
 
                     if (resultado > 0)
@@ -153,9 +176,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                     {
                         ModelState.AddModelError("", "Error al registrar, intente de nuevo o contacte al soporte.");
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -169,6 +190,8 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
             return View(pUsuario);
         }
+
+
 
         public static List<SelectListItem> DropDownListRoles(byte pId = 0)
         {

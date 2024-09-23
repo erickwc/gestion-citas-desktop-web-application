@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SistemaBliss.EN.Profesion>
+
+<div>
+    @using (Html.BeginForm("Create", "Profesion", FormMethod.Post, new { @class = "form", id = "profesionForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            @Html.Label("Nombre", new { @class = "form-label" })
+            <input type="text" class="form-control" name="Nombre" id="profesionNombre" required placeholder="Ingrese el nombre de la profesión" />
+            @Html.ValidationMessage("Nombre", "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitButton">Guardar</button>
+    }
+
+    <div class="mt-3" style="max-height: 300px; overflow-y: auto;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="d-none" >ID</th>
+                    <th>Profesion</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="d-none">@item.IdProfesión</td>
+                        <td>@item.Nombre</td>
+                        <td>
+                            <button type="button" class="btn btn-warning btn-sm mx-2" onclick="editProfesion(@item.IdProfesión, '@item.Nombre')">Editar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function editProfesion(id, nombre) {
+        var form = document.getElementById("profesionForm");
+
+        var inputId = document.getElementById("profesionId");
+
+        if (!inputId) {
+            inputId = document.createElement("input");
+            inputId.type = "hidden";
+            inputId.name = "IdProfesión";
+            inputId.id = "profesionId";
+            form.appendChild(inputId);
+        }
+
+        inputId.value = id;
+        document.getElementById("profesionNombre").value = nombre;
+
+        document.getElementById("submitButton").innerText = "Guardar cambios";
+
+        form.action = '@Url.Action("Edit", "Profesion")';
+    }
+</script>

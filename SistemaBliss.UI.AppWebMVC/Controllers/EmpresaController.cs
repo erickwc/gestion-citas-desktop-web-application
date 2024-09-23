@@ -12,6 +12,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
     public class EmpresaController : Controller
     {
         EmpresaBL empresaBL = new EmpresaBL();
+
         // GET: Empresa
         public ActionResult Index(Empresa pEmpresa)
         {
@@ -22,6 +23,8 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             List<Empresa> lista = empresaBL.Buscar(pEmpresa);
             return View(lista);
         }
+
+       
 
         // GET: Empresa/Create
         public ActionResult Create()

@@ -69,6 +69,12 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
+                    string finalPath = "\\UploadedFile\\" + strDateTime + pServicio.UploadImage.FileName;
+
+                    pServicio.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
+                    pServicio.Imagen = finalPath;
+
                     int resultado = servicioBL.Guardar(pServicio);
 
                     if (resultado > 0)
@@ -111,7 +117,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
         // POST: Servicio/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Servicio pServicio)
+        public ActionResult Edit(byte id, Servicio pServicio)
         {
             try
             {
@@ -119,6 +125,23 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    // Si no se subió una nueva imagen, mantén la ruta de la imagen existente
+                    if (pServicio.UploadImage == null)
+                    {
+                        // Recupera la imagen existente para no perderla
+                        var usuarioExistente = servicioBL.ObtenerPorId(id);
+                        pServicio.Imagen = usuarioExistente.Imagen;
+                    }
+                    else
+                    {
+                        // Si se subió una nueva imagen, guarda la nueva ruta
+                        string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
+                        string finalPath = "\\UploadedFile\\" + strDateTime + pServicio.UploadImage.FileName;
+
+                        pServicio.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
+                        pServicio.Imagen = finalPath; // Actualiza el path de la imagen
+                    }
+
                     int resultado = servicioBL.Modificar(pServicio);
 
                     if (resultado > 0)

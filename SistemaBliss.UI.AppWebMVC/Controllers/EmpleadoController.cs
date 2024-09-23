@@ -14,6 +14,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
     public class EmpleadoController : Controller
     {
         UsuarioBL usuarioBL = new UsuarioBL();
+        DetalleProfesionBL detalleProfesionBL = new DetalleProfesionBL();
         public ActionResult Index(string Nombre, string campoBusqueda)
         {
             Usuario pUsuario = new Usuario();
@@ -68,6 +69,8 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             ViewBag.Estados = DropDownListEstados();
             ViewBag.Municipios = DropDownListMunicipios();
             ViewBag.Departamentos = DropDownListDepartamentos();
+            ViewBag.Profesiones = DropDownListProfesiones();
+
             return View();
 
         }
@@ -80,6 +83,13 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
+                    string finalPath = "\\UploadedFile\\" + strDateTime + pUsuario.UploadImage.FileName;
+
+                    pUsuario.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
+                    pUsuario.UrlImagen = finalPath;
+
+
                     int resultado = usuarioBL.Guardar(pUsuario);
 
                     if (resultado > 0)
@@ -116,6 +126,43 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             return View(pUsuario);
         }
 
+        // POST: Empleado/Create
+        [HttpPost]
+        public ActionResult CreateDetalleProfesion(DetalleProfesión pDetalleProfesion)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    int resultado = detalleProfesionBL.Guardar(pDetalleProfesion);
+
+                    if (resultado > 0)
+                    {
+                        TempData["mensaje"] = "Registro guardado.";
+                        return RedirectToAction("Index");
+                    }
+                    else if (resultado == -1)
+                    {
+                        ModelState.AddModelError("", "Ya existe un registro con el mismo teléfono.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Error al registrar, intente de nuevo o contacte al soporte.");
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+
+            Profesion profesion = new Profesion();
+
+            return View(pDetalleProfesion);
+        }
+
         // GET: Empleado/Edit/5
         public ActionResult Edit(int id)
         {
@@ -142,6 +189,23 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    // Si no se subió una nueva imagen, mantén la ruta de la imagen existente
+                    if (pUsuario.UploadImage == null)
+                    {
+                        // Recupera la imagen existente para no perderla
+                        var usuarioExistente = usuarioBL.ObtenerPorId(id);
+                        pUsuario.UrlImagen = usuarioExistente.UrlImagen;
+                    }
+                    else
+                    {
+                        // Si se subió una nueva imagen, guarda la nueva ruta
+                        string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
+                        string finalPath = "\\UploadedFile\\" + strDateTime + pUsuario.UploadImage.FileName;
+
+                        pUsuario.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
+                        pUsuario.UrlImagen = finalPath; // Actualiza el path de la imagen
+                    }
+
                     int resultado = usuarioBL.Modificar(pUsuario);
 
                     if (resultado > 0)

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 // Referencias
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 
 namespace SistemaBliss.EN
 {
@@ -67,6 +68,7 @@ namespace SistemaBliss.EN
 
         [Display(Name = "Imagen")]
         public string UrlImagen { get; set; }
+        public HttpPostedFileBase UploadImage { get; set; }
 
         //Propiedades virtuales para llaves foraneas (FK) para representar la asociacion
         public virtual Rol Rol { get; set; }

@@ -46,40 +46,32 @@ namespace SistemaBliss.DAL
             return ComunDB.EjecutarComando(comando);
         }
 
-        public static List<HorariosEmpresa> Buscar(HorariosEmpresa pHorariosEmpresa)
+        public static List<HorariosEmpresa> Buscar()
         {
             List<HorariosEmpresa> lista = new List<HorariosEmpresa>();
 
-            #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-               
-                string whereSQL = " ";
-                string consulta = @"Select * from HorariosEmpresa ";
+                string consulta = @"Select IdHorariosEmpresa, IdEmpresa, Dia, HoraEntrada, HoraSalida from HorariosEmpresa";
 
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
-                }
-                comando.CommandText = consulta + whereSQL;
+                comando.CommandText = consulta;
 
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
-                    HorariosEmpresa obj = new HorariosEmpresa();
-                    // Manejar posibles valores nulos y conversiones adecuadas
-                    obj.IdHorariosEmpresa = reader.GetByte(0);
-                    obj.IdEmpresa = reader.GetByte(1);
-                    obj.Dias = reader.IsDBNull(2) ? string.Empty : reader.GetString(2);
-                    obj.HoraEntrada = reader.GetTimeSpan(3);
-                    obj.HoraSalida = reader.GetTimeSpan(4);
+                    HorariosEmpresa obj = new HorariosEmpresa
+                    {
+                        IdHorariosEmpresa = reader.GetByte(0),
+                        IdEmpresa = reader.GetByte(1),
+                        Dias = reader.GetString(2),
+                        HoraEntrada = reader.GetTimeSpan(3),
+                        HoraSalida = reader.GetTimeSpan(4),
+                    };
 
                     lista.Add(obj);
                 }
-                comando.Connection.Dispose();
+                reader.Close();
             }
-            #endregion
 
             return lista;
         }

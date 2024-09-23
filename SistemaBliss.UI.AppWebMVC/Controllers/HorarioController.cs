@@ -5,53 +5,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SistemaBliss.EN;
-using SistemaBliss.BL;
 
 namespace SistemaBliss.UI.AppWebMVC.Controllers
 {
-    public class ProfesionController : Controller
+    public class HorarioController : Controller
     {
-        ProfesionBL profesionBL = new ProfesionBL();
+        HorariosEmpresaBL horarioEmpresaBL = new HorariosEmpresaBL();
+        // GET: Horario
 
-        // GET: Profesion
-        public ActionResult Index()
+        public ActionResult HorariosLista()
         {
-            List<Profesion> profesiones = profesionBL.BuscarSinParametro();
-            ViewBag.Profesiones = profesiones;
-
-            return View(profesiones); // Devuelve las profesiones como modelo
+            List<HorariosEmpresa> horariosEmpresa = horarioEmpresaBL.Buscar();
+            return PartialView("_Horarios", horariosEmpresa);
         }
 
-
-        // Nueva acción que devuelve la vista parcial
-        public ActionResult ListaProfesiones()
-        {
-            List<Profesion> profesiones = profesionBL.BuscarSinParametro(); // Obtener las profesiones
-            return PartialView("_ListaProfesiones", profesiones);
-        }
-
-        // GET: Profesion/Create
+        // GET: Horario/Create
         public ActionResult Create()
         {
-            return PartialView("Create", new Profesion());
+            return PartialView("Create", new HorariosEmpresa());
         }
 
-        // POST: Profesion/Create
+        // POST: Horario/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Profesion pProfesion)
+        public ActionResult Create(HorariosEmpresa pHorariosEmpresa)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    int resultado = profesionBL.Guardar(pProfesion);
+                    int resultado = horarioEmpresaBL.Guardar(pHorariosEmpresa);
 
                     if (resultado > 0)
                     {
                         TempData["mensaje"] = "Registro guardado.";
-                        return RedirectToAction("Index", "Empleado");
+                        return RedirectToAction("Edit", "Empresa");
                     }
                     else if (resultado == -1)
                     {
@@ -68,30 +56,29 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                 ModelState.AddModelError("", ex.Message);
             }
 
-            return View("Index"); // Asegúrate de redirigir a la vista adecuada
+            return View(); 
         }
 
-
-        // GET: Profesion/Edit/5
+        // GET: Horario/Edit/5
         public ActionResult Edit()
         {
-            return PartialView("Edit", new Profesion());
+            return PartialView("Edit", new HorariosEmpresa());
         }
 
-        // POST: Profesion/Edit/5
+        // POST: Horario/Edit/5
         [HttpPost]
-        public ActionResult Edit(Profesion pProfesion)
+        public ActionResult Edit(HorariosEmpresa pHorariosEmpresa)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    int resultado = profesionBL.Modificar(pProfesion);
+                    int resultado = horarioEmpresaBL.Modificar(pHorariosEmpresa);
 
                     if (resultado > 0)
                     {
                         TempData["mensaje"] = "Registro actualizado.";
-                        return RedirectToAction("Index", "Empleado");
+                        return RedirectToAction("Edit", "Empresa");
                     }
                     else if (resultado == -1)
                     {
@@ -111,6 +98,35 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             return View("Index");
         }
 
-        
+        // POST: Horario/Edit/5
+        [HttpPost]
+        public ActionResult Delete(byte id)
+        {
+            try
+            {
+                    int resultado = horarioEmpresaBL.Eliminar(new HorariosEmpresa { IdHorariosEmpresa = id });
+
+                    if (resultado > 0)
+                    {
+                        TempData["mensaje"] = "Registro eliminado.";
+                        return RedirectToAction("Edit", "Empresa");
+                    }
+                    
+                    else
+                    {
+                    TempData["tipo"] = "error";
+                    TempData["mensaje"] = "Error al eliminar, intente de nuevo o contacte al soporte.";
+                    }
+               
+            }
+            catch (Exception ex)
+            {
+                TempData["tipo"] = "error";
+                TempData["mensaje"] = ex.Message;
+            }
+
+            return View("Index");
+        }
+
     }
 }

@@ -45,6 +45,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Teléfono</th>
@@ -61,6 +62,16 @@
                     {
                         <tr>
                             <td>@item.IdUsuario</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.UrlImagen))
+                                {
+                                    <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span> </span>
+                                }
+                            </td>
                             <td>@item.Nombre</td>
                             <td>@item.Apellido</td>
                             <td>@item.Telefono</td>
@@ -83,6 +94,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Teléfono</th>
@@ -99,6 +111,16 @@
                     {
                         <tr>
                             <td>@item.IdUsuario</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.UrlImagen))
+                                {
+                                    <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span> </span>
+                                }
+                            </td>
                             <td>@item.Nombre</td>
                             <td>@item.Apellido</td>
                             <td>@item.Telefono</td>

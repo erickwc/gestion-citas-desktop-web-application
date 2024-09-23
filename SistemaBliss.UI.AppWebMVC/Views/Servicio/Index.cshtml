@@ -50,6 +50,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
@@ -65,6 +66,16 @@
                     {
                         <tr>
                             <td>@item.IdServicio</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.Imagen))
+                                {
+                                    <img src="@Url.Content(item.Imagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span> </span>
+                                }
+                            </td>
                             <td>@item.Nombre</td>
                             <td>@item.Descripción</td>
                             <td>@item.Precio</td>
@@ -86,6 +97,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
@@ -101,6 +113,16 @@
                     {
                         <tr>
                             <td>@item.IdServicio</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.Imagen))
+                                {
+                                    <img src="@Url.Content(item.Imagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span> </span>
+                                }
+                            </td>
                             <td>@item.Nombre</td>
                             <td>@item.Descripción</td>
                             <td>@item.Precio</td>

@@ -77,7 +77,6 @@ namespace SistemaBliss.DAL
         public static Usuario ObtenerPorId(int pIdUsuario)
         {
             Usuario obj = new Usuario();
-
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "SP_ObtenerUsuarioPorId";
@@ -95,11 +94,10 @@ namespace SistemaBliss.DAL
                 obj.Nombre = reader.GetString(5); // Columna [4] cuatro
                 obj.Apellido = reader.GetString(6); // Columna [4] cuatro
                 obj.Telefono = reader.GetString(7); // Columna [4] cuatro
-               // obj.Contrasena = reader.GetString(8); // Columna [4] cuatro
                 obj.CorreoElectronico = reader.GetString(8); // Columna [4] cuatro
                 obj.Dui = reader.GetString(9); // Columna [4] cuatro
                 obj.Direccion = reader.GetString(10); // Columna [4] cuatro
-                //obj.UrlImagen = reader.GetString(12); // Columna [4] cuatro
+                obj.UrlImagen = reader.IsDBNull(11) ? null : reader.GetString(11);
             }
             return obj;
         }
@@ -136,8 +134,8 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = "";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion
-                            FROM Usuario WHERE IdEstado = 1 AND IdRol = 2";  // Filtro de estado activo y rol cliente
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
+                    FROM Usuario WHERE IdEstado = 1 AND IdRol = 2"; 
 
                 // Validar filtros
                 if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
@@ -190,7 +188,8 @@ namespace SistemaBliss.DAL
                             Contrasena = reader.GetString(7),
                             CorreoElectronico = reader.GetString(8),
                             Dui = reader.GetString(9),
-                            Direccion = reader.GetString(10)
+                            Direccion = reader.GetString(10),
+                            UrlImagen = reader.IsDBNull(11) ? null : reader.GetString(11)
                         };
 
                         lista.Add(obj);
@@ -214,7 +213,7 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = "";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
                             FROM Usuario WHERE IdEstado = 2 AND IdRol = 2";  // Filtro de estado activo y rol cliente
 
                 // Validar filtros
@@ -268,7 +267,8 @@ namespace SistemaBliss.DAL
                             Contrasena = reader.GetString(7),
                             CorreoElectronico = reader.GetString(8),
                             Dui = reader.GetString(9),
-                            Direccion = reader.GetString(10)
+                            Direccion = reader.GetString(10),
+                            UrlImagen = reader.IsDBNull(11) ? null : reader.GetString(11)
                         };
 
                         lista.Add(obj);
@@ -296,8 +296,8 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = "";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion
-                            FROM Usuario WHERE IdEstado = 1 AND IdRol = 1";  // Filtro de estado activo y rol cliente
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
+                            FROM Usuario WHERE IdEstado = 1 AND IdRol = 1"; 
 
                 // Validar filtros
                 if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
@@ -350,7 +350,8 @@ namespace SistemaBliss.DAL
                             Contrasena = reader.GetString(7),
                             CorreoElectronico = reader.GetString(8),
                             Dui = reader.GetString(9),
-                            Direccion = reader.GetString(10)
+                            Direccion = reader.GetString(10),
+                            UrlImagen = reader.IsDBNull(11) ? null : reader.GetString(11)
                         };
 
                         lista.Add(obj);
@@ -373,7 +374,7 @@ namespace SistemaBliss.DAL
             {
                 byte contador = 0;
                 string whereSQL = "";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion
+                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
                             FROM Usuario WHERE IdEstado = 2 AND IdRol = 1";  // Filtro de estado activo y rol cliente
 
                 // Validar filtros
@@ -427,7 +428,8 @@ namespace SistemaBliss.DAL
                             Contrasena = reader.GetString(7),
                             CorreoElectronico = reader.GetString(8),
                             Dui = reader.GetString(9),
-                            Direccion = reader.GetString(10)
+                            Direccion = reader.GetString(10),
+                            UrlImagen = reader.IsDBNull(11) ? null : reader.GetString(11)
                         };
 
                         lista.Add(obj);
@@ -445,9 +447,6 @@ namespace SistemaBliss.DAL
         public static Usuario ObtenerUltimoIdUsuario(string pCorreoElectronico)
         {
             Usuario obj = new Usuario();
-
-
-
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandType = CommandType.StoredProcedure;
             comando.CommandText = "SP_ObtenerIdUltimoUsuario";

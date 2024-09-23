@@ -19,7 +19,7 @@ namespace SistemaBliss.BL
         {
             return DetalleProfesionDAL.Buscar(pIdDetalleProfesion);
         }
-        public static int Guardar(DetalleProfesión pDetalleProfesion)
+        public int Guardar(DetalleProfesión pDetalleProfesion)
         {
             return DetalleProfesionDAL.Guardar(pDetalleProfesion);
         }

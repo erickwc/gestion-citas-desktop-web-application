@@ -10,27 +10,27 @@ namespace SistemaBliss.EN
     public class Cita
     {
         [Display(Name = "Id")]
-        public int IdCita { get; set; }
+        public long IdCita { get; set; }
 
         [Display(Name = "Cliente")]
         [Required(ErrorMessage = "Este campo es requerido")]
-        public int IdCliente { get; set; }
+        public int IdUsuario { get; set; }
+        public string Cliente { get; set; }
 
-
-        [Required(ErrorMessage = "Este cacmpo es requerido")]
+        [Display(Name = "Estado")]
+        [Required(ErrorMessage = "Este campo es requerido")]
         public byte IdEstado { get; set; }
 
-
-        [Required(ErrorMessage = "Este cacmpo es requerido")]
+        [Required(ErrorMessage = "Este campo es requerido")]
         public DateTime Fecha { get; set; }
 
-        [Required(ErrorMessage = "Este cacmpo es requerido")]
+        [Required(ErrorMessage = "Este campo es requerido")]
         public TimeSpan Hora { get; set; }
 
-        [Required(ErrorMessage = "Este cacmpo es requerido")]
+        [Required(ErrorMessage = "Este campo es requerido")]
         public TimeSpan TiempoTotal { get; set; }
 
-        [Required(ErrorMessage = "Este cacmpo es requerido")]
+        [Required(ErrorMessage = "Este campo es requerido")]
         public Decimal PagoTotal { get; set; }
 
         public int CantidadCitasConfirmadas { get; set; }

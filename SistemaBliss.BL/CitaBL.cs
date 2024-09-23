@@ -20,16 +20,30 @@ namespace SistemaBliss.BL
             return CitaDAL.Modificar(pCita);
         }
 
-        public int ObtenerPorId(Cita pIdCita)
+        public Cita ObtenerPorId(int pIdCita)
         {
-            return CitaDAL.BuscarPorId(pIdCita);
+            return CitaDAL.ObtenerPorId(pIdCita);
         }
 
-        public int Buscar(Cita pIdCita)
+        public List<Cita> BuscarCitasPendientes(Cita pCita, DateTime? fechaInicio = null, DateTime? fechaFin = null)
         {
-            return CitaDAL.Buscar(pIdCita);
+            return CitaDAL.BuscarCitasPendientes(pCita, fechaInicio, fechaFin);
         }
 
+        public List<Cita> BuscarCitasConfirmadas(Cita pCita, DateTime? fechaInicio = null, DateTime? fechaFin = null)
+        {
+            return CitaDAL.BuscarCitasConfirmadas(pCita, fechaInicio, fechaFin);
+        }
+
+        public List<Cita> BuscarCitasFinalizadas(Cita pCita, DateTime? fechaInicio = null, DateTime? fechaFin = null)
+        {
+            return CitaDAL.BuscarCitasFinalizadas(pCita, fechaInicio, fechaFin);
+        }
+
+        public List<Cita> BuscarClientes(Cita pCita)
+        {
+            return CitaDAL.BuscarClientes(pCita);
+        }
 
 
     }

@@ -89,14 +89,13 @@ namespace SistemaBliss.DAL
         }
 
 
-
         public static List<Profesion> BuscarSinParametro()
         {
             List<Profesion> lista = new List<Profesion>();
 
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                string consulta = @"SELECT TOP 100 IdProfesion, Nombre FROM Profesion";
+                string consulta = @"SELECT TOP 100 IdProfesion, Nombre FROM Profesion ORDER BY IdProfesion DESC;";
 
                 comando.CommandText = consulta;
 

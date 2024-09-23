@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace SistemaBliss.EN
 {
@@ -48,6 +49,7 @@ namespace SistemaBliss.EN
 
         [Display(Name = "Imagen")]
         public string Imagen { get; set; }
+        public HttpPostedFileBase UploadImage { get; set; }
 
 
         // Propiedades virtuales para llaves foraneas (FK) para representar la Asociacion

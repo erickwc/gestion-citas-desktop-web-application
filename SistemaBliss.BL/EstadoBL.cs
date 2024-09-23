@@ -18,5 +18,10 @@ namespace SistemaBliss.BL
         {
             return EstadoDAL.Buscar(pEstado);
         }
+
+        public List<Estado> BuscarEstadosCitas(Estado pEstado)
+        {
+            return EstadoDAL.BuscarEstadosCitas(pEstado);
+        }
     }
 }

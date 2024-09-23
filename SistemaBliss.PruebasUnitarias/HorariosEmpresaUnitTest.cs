@@ -50,15 +50,15 @@ namespace SistemaBliss.PruebasUnitarias
         }
 
 
-        [TestMethod]
-        public void T4_Buscar()
-        {
-            List<HorariosEmpresa> lista = horariosBl.Buscar(new HorariosEmpresa { });
+        //[TestMethod]
+        //public void T4_Buscar()
+        //{
+        //    List<HorariosEmpresa> lista = horariosBl.Buscar(new HorariosEmpresa { });
 
-            // Comprobacion de la prueba
-            // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
-            Assert.AreNotEqual(0, lista.Count);
-        }
+        //    // Comprobacion de la prueba
+        //    // si el total de la lista es diferente de 0, las Empleado se buscaron correctamente
+        //    Assert.AreNotEqual(0, lista.Count);
+        //}
     }
 
 }

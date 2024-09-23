@@ -26,35 +26,26 @@
         @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
     </div>
 
-
 </form>
 
 <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Profesiones</button>
 </div>
-
-<div class="modal mt-3 fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Agregar Profesión</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @using (Html.BeginForm("Create", "Profesion", FormMethod.Post, new { @class = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="mb-3">
-                        @Html.Label("Nombre", new { @class = "form-label" })
-                        <input type="text" class="form-control" name="Nombre" id="validationCustom03" required placeholder="Ingrese el nombre de la profesión" />
-                        @Html.ValidationMessage("Nombre", "", new { @class = "text-danger" })
-                    </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                }
+                <div id="professions-list" class="mt-2">
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 
@@ -79,6 +70,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Teléfono</th>
@@ -95,6 +87,16 @@
                     {
                         <tr>
                             <td>@item.IdUsuario</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.UrlImagen))
+                                {
+                                    <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span> </span>
+                                }
+                            </td>
                             <td>@item.Nombre</td>
                             <td>@item.Apellido</td>
                             <td>@item.Telefono</td>
@@ -117,6 +119,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Teléfono</th>
@@ -133,6 +136,16 @@
                     {
                         <tr>
                             <td>@item.IdUsuario</td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.UrlImagen))
+                                {
+                                    <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span> </span>
+                                }
+                            </td>
                             <td>@item.Nombre</td>
                             <td>@item.Apellido</td>
                             <td>@item.Telefono</td>
@@ -179,6 +192,31 @@
 
     </script>
 
+    <script>
+    // Asegúrate de que esta función se llama cuando se abre el modal
+    function loadProfessionsList() {
+        $.ajax({
+            url: '@Url.Action("ListaProfesiones", "Profesion")', // Llama a la acción del controlador que carga la vista parcial
+            type: 'GET',
+            success: function (data) {
+                // Cargar la vista parcial dentro del modal
+                $('#professions-list').html(data);
+            },
+            error: function () {
+                alert('Error al cargar el listado de profesiones.');
+            }
+        });
+    }
+
+    // Vincula el evento de carga de la lista al abrir el modal
+    $('#exampleModalToggle').on('shown.bs.modal', function () {
+        loadProfessionsList(); // Llama a la función cuando el modal se muestre
+    });
+    </script>
+
+
+
+
 
     @if (TempData["mensaje"] != null)
     {
@@ -195,3 +233,4 @@
     }
 
 }
+

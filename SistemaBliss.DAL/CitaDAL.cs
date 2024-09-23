@@ -18,7 +18,7 @@ namespace SistemaBliss.DAL
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_InsertarCita";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdCliente", pCita.IdCliente);
+            comando.Parameters.AddWithValue("@IdUsuario", pCita.IdUsuario);
             comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
             comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
             comando.Parameters.AddWithValue("@Hora", pCita.Hora);
@@ -32,7 +32,8 @@ namespace SistemaBliss.DAL
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_ModificarCita";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdCliente", pCita.IdCliente);
+            comando.Parameters.AddWithValue("@IdCita", pCita.IdCita);
+            comando.Parameters.AddWithValue("@IdUsuario", pCita.IdUsuario);
             comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
             comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
             comando.Parameters.AddWithValue("@Hora", pCita.Hora);
@@ -40,165 +41,78 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
             return ComunDB.EjecutarComando(comando);
         }
+
+        public static Cita ObtenerPorId(int IdCita)
+        {
+            Cita obj = new Cita();
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_ObtenerCitaPorId";
+            comando.Parameters.AddWithValue("@IdCita", IdCita);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                obj.IdCita = reader.GetInt64(0);
+                obj.IdUsuario = reader.GetInt32(1);
+                obj.IdEstado = reader.GetByte(2);
+                obj.Fecha = reader.GetDateTime(3);
+                obj.Hora = reader.GetTimeSpan(4);
+                obj.TiempoTotal = reader.GetTimeSpan(5);
+                obj.PagoTotal = reader.GetDecimal(6);
+            }
+            return obj;
+        }
+
         #endregion
         #region METODOS DE BUSQUEDA
-        public static int Buscar(Cita pCita)
+
+        public static List<Cita> BuscarCitasPendientes(Cita pCita, DateTime? fechaInicio = null, DateTime? fechaFin = null)
         {
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_BuscarCitaCita";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdCliente", pCita.IdCliente);
-            comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
-            comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
-            comando.Parameters.AddWithValue("@Hora", pCita.Hora);
-            comando.Parameters.AddWithValue("@TiempoTotal", pCita.TiempoTotal);
-            comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
-            return ComunDB.EjecutarComando(comando);
-        }
-        public static int BuscarPorId(Cita pCita)
-        {
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_ObtenerCitaPorId";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdCliente", pCita.IdCliente);
-            comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
-            comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
-            comando.Parameters.AddWithValue("@Hora", pCita.Hora);
-            comando.Parameters.AddWithValue("@TiempoTotal", pCita.TiempoTotal);
-            comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
-            return ComunDB.EjecutarComando(comando);
-        }
-        #endregion
-        public static Cita CantidadCitasConfirmadas()
-        {
-            Cita obj = new Cita();
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_InsertarCita";
-            comando.CommandType = CommandType.StoredProcedure;
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
-            {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.CantidadCitasConfirmadas = reader.GetInt32(0);
-
-            }
-            return obj;
-
-        }
-        public static Cita CantidadCitasPendientes()
-        {
-            Cita obj = new Cita();
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_InsertarCita";
-            comando.CommandType = CommandType.StoredProcedure;
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
-            {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.CantidadCitasPendientes = reader.GetInt32(0);
-
-            }
-            return obj;
-
-        }
-        public static Cita CantidadCitasFinalizadas()
-        {
-            Cita obj = new Cita();
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_InsertarCita";
-            comando.CommandType = CommandType.StoredProcedure;
-            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
-            while (reader.Read())
-            {
-                // Orden de las columnas depende de la Consulta SELECT utilizada
-                obj.CantidadCitasFinalizadas = reader.GetInt32(0);
-
-            }
-            return obj;
-
-        }
-
-        public static List<Usuario> BuscarEmpleadosActivos(Usuario pUsuario)
-        {
-            List<Usuario> lista = new List<Usuario>();
+            List<Cita> lista = new List<Cita>();
 
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                byte contador = 0;
-                string whereSQL = " ";
-                string consulta = @"SELECT DISTINCT TOP 100 IdUsuario, IdRol, IdDepartamento, IdEstado, Nombre, Apellido, Telefono, Contrasena, CorreoElectronico, Dui, Direccion, UrlImagen
-                            FROM Usuario ";
+                string whereSQL = " WHERE c.IdEstado = 3";  // Condición inicial para IdEstado
 
-                // Validar filtros
-
-                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
+                // Agregamos los filtros de fecha si se proporcionan
+                if (fechaInicio.HasValue)
                 {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " Nombre LIKE @Nombre ";
-                    comando.Parameters.AddWithValue("@Nombre", "%" + pUsuario.Nombre + "%");
-                }
-                if (!string.IsNullOrWhiteSpace(pUsuario.Apellido))
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " Apellido LIKE @Apellido ";
-                    comando.Parameters.AddWithValue("@Apellido", "%" + pUsuario.Apellido + "%");
-                }
-                if (!string.IsNullOrWhiteSpace(pUsuario.Telefono))
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " CAST(Telefono AS VARCHAR(8)) LIKE @Telefono ";
-                    comando.Parameters.AddWithValue("@Telefono", "%" + pUsuario.Telefono.Trim() + "%");
-                }
-                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " IdEstado=1 ";
-                }
-                if (!string.IsNullOrWhiteSpace(pUsuario.Nombre))
-                {
-                    if (contador > 0)
-                        whereSQL += " AND ";
-                    contador += 1;
-                    whereSQL += " IdRol=1 ";
-                }
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
+                    whereSQL += " AND c.Fecha >= @FechaInicio";
+                    comando.Parameters.AddWithValue("@FechaInicio", fechaInicio.Value);
                 }
 
-                comando.CommandText = consulta + whereSQL;
+                if (fechaFin.HasValue)
+                {
+                    whereSQL += " AND c.Fecha <= @FechaFin";
+                    comando.Parameters.AddWithValue("@FechaFin", fechaFin.Value);
+                }
+
+                string consulta = $@"SELECT DISTINCT TOP 100 c.IdCita, c.IdUsuario, u.Nombre + ' ' + u.Apellido AS 'Cliente', 
+                             c.IdEstado, c.Fecha, c.Hora, c.TiempoTotal, c.PagoTotal 
+                             FROM Cita c 
+                             INNER JOIN Usuario u ON u.IdUsuario = c.IdUsuario 
+                             {whereSQL};";  // Se inserta la cláusula WHERE con los filtros
+
+                comando.CommandText = consulta;
 
                 using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
                 {
                     while (reader.Read())
                     {
-                        Usuario obj = new Usuario
+                        Cita obj = new Cita
                         {
-                            IdUsuario = reader.GetInt32(0),                // 0 -> IdUsuario
-                            IdRol = reader.GetByte(1),                     // 1 -> IdRol
-                            IdDepartamento = reader.GetByte(2),            // 2 -> IdDepartamento
-                            IdEstado = reader.GetByte(3),                  // 3 -> IdEstado
-                            Nombre = reader.GetString(4),                  // 4 -> Nombre
-                            Apellido = reader.GetString(5),                // 5 -> Apellido
-                            Telefono = reader.GetString(6),                // 6 -> Telefono
-                            Contrasena = reader.GetString(7),              // 7 -> Contrasena
-                            CorreoElectronico = reader.GetString(8),       // 8 -> CorreoElectronico
-                            Dui = reader.GetString(9),                     // 9 -> Dui
-                            Direccion = reader.GetString(10),              // 10 -> Direccion
-                            //UrlImagen = reader.GetString(11)               // 11 -> UrlImagen
+                            IdCita = reader.GetInt64(0), // Cambiado a GetInt64
+                            IdUsuario = reader.GetInt32(1),
+                            Cliente = reader.GetString(2),
+                            IdEstado = reader.GetByte(3),
+                            Fecha = reader.GetDateTime(4),
+                            Hora = !reader.IsDBNull(5) ? reader.GetTimeSpan(5) : TimeSpan.Zero,
+                            TiempoTotal = !reader.IsDBNull(6) ? reader.GetTimeSpan(6) : TimeSpan.Zero,
+                            PagoTotal = !reader.IsDBNull(7) ? reader.GetDecimal(7) : 0m,
                         };
 
-                        // Agregar el objeto Usuario a la lista
                         lista.Add(obj);
                     }
                 }
@@ -209,6 +123,156 @@ namespace SistemaBliss.DAL
 
             return lista;
         }
+
+        public static List<Cita> BuscarCitasConfirmadas(Cita pCita, DateTime? fechaInicio = null, DateTime? fechaFin = null)
+        {
+            List<Cita> lista = new List<Cita>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string whereSQL = " WHERE c.IdEstado = 4";  // Condición inicial para IdEstado
+
+                // Agregamos los filtros de fecha si se proporcionan
+                if (fechaInicio.HasValue)
+                {
+                    whereSQL += " AND c.Fecha >= @FechaInicio";
+                    comando.Parameters.AddWithValue("@FechaInicio", fechaInicio.Value);
+                }
+
+                if (fechaFin.HasValue)
+                {
+                    whereSQL += " AND c.Fecha <= @FechaFin";
+                    comando.Parameters.AddWithValue("@FechaFin", fechaFin.Value);
+                }
+
+                string consulta = $@"SELECT DISTINCT TOP 100 c.IdCita, c.IdUsuario, u.Nombre + ' ' + u.Apellido AS 'Cliente', 
+                             c.IdEstado, CAST(c.Fecha AS DATE) AS Fecha, c.Hora, c.TiempoTotal, c.PagoTotal 
+                             FROM Cita c 
+                             INNER JOIN Usuario u ON u.IdUsuario = c.IdUsuario 
+                             {whereSQL};";  // Se inserta la cláusula WHERE con los filtros
+
+                comando.CommandText = consulta;
+
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
+                {
+                    while (reader.Read())
+                    {
+                        Cita obj = new Cita
+                        {
+                            IdCita = reader.GetInt64(0), // Cambiado a GetInt64
+                            IdUsuario = reader.GetInt32(1),
+                            Cliente = reader.GetString(2),
+                            IdEstado = reader.GetByte(3),
+                            Fecha = reader.GetDateTime(4),
+                            Hora = !reader.IsDBNull(5) ? reader.GetTimeSpan(5) : TimeSpan.Zero,
+                            TiempoTotal = !reader.IsDBNull(6) ? reader.GetTimeSpan(6) : TimeSpan.Zero,
+                            PagoTotal = !reader.IsDBNull(7) ? reader.GetDecimal(7) : 0m,
+                        };
+
+                        lista.Add(obj);
+                    }
+                }
+
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
+        public static List<Cita> BuscarCitasFinalizadas(Cita pCita, DateTime? fechaInicio = null, DateTime? fechaFin = null)
+        {
+            List<Cita> lista = new List<Cita>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string whereSQL = " WHERE c.IdEstado = 5";  // Condición inicial para IdEstado
+
+                // Agregamos los filtros de fecha si se proporcionan
+                if (fechaInicio.HasValue)
+                {
+                    whereSQL += " AND c.Fecha >= @FechaInicio";
+                    comando.Parameters.AddWithValue("@FechaInicio", fechaInicio.Value);
+                }
+
+                if (fechaFin.HasValue)
+                {
+                    whereSQL += " AND c.Fecha <= @FechaFin";
+                    comando.Parameters.AddWithValue("@FechaFin", fechaFin.Value);
+                }
+
+                string consulta = $@"SELECT DISTINCT TOP 100 c.IdCita, c.IdUsuario, u.Nombre + ' ' + u.Apellido AS 'Cliente', 
+                             c.IdEstado, CAST(c.Fecha AS DATE) AS Fecha, c.Hora, c.TiempoTotal, c.PagoTotal 
+                             FROM Cita c 
+                             INNER JOIN Usuario u ON u.IdUsuario = c.IdUsuario 
+                             {whereSQL};";  // Se inserta la cláusula WHERE con los filtros
+
+                comando.CommandText = consulta;
+
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
+                {
+                    while (reader.Read())
+                    {
+                        Cita obj = new Cita
+                        {
+                            IdCita = reader.GetInt64(0), // Cambiado a GetInt64
+                            IdUsuario = reader.GetInt32(1),
+                            Cliente = reader.GetString(2),
+                            IdEstado = reader.GetByte(3),
+                            Fecha = reader.GetDateTime(4),
+                            Hora = !reader.IsDBNull(5) ? reader.GetTimeSpan(5) : TimeSpan.Zero,
+                            TiempoTotal = !reader.IsDBNull(6) ? reader.GetTimeSpan(6) : TimeSpan.Zero,
+                            PagoTotal = !reader.IsDBNull(7) ? reader.GetDecimal(7) : 0m,
+                        };
+
+                        lista.Add(obj);
+                    }
+                }
+
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
+        public static List<Cita> BuscarClientes(Cita pCita)
+        {
+            List<Cita> lista = new List<Cita>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string consulta = @" select top 100 IdUsuario, Nombre + ' ' + Apellido 'Cliente' from Usuario";  // Filtro de estado activo y rol cliente
+
+                comando.CommandText = consulta;
+
+                using (SqlDataReader reader = ComunDB.EjecutarComandoReader(comando))
+                {
+                    while (reader.Read())
+                    {
+                        Cita obj = new Cita
+                        {
+                            IdUsuario = reader.GetInt32(0),
+                            Cliente = reader.GetString(1),
+                        };
+
+                        lista.Add(obj);
+                    }
+                }
+
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
+
+        #endregion
+
 
     }
 }

@@ -87,7 +87,7 @@ namespace SistemaBliss.DAL
                 obj.Restricciones = reader.GetString(6); // Columna [5] cuatro
                 obj.Precio = reader.GetDecimal(7); // Columna [6] cuatro
                 obj.Duracion = reader.GetTimeSpan(8); // Columna [7] cuatro
-                //obj.Imagen = reader.GetString(9); // Columna [8] cuatro
+                obj.Imagen = reader.IsDBNull(9) ? null : reader.GetString(9);
             }
             return obj;
 
@@ -100,7 +100,7 @@ namespace SistemaBliss.DAL
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
                 List<string> condiciones = new List<string>();
-                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion FROM Servicio WHERE IdEstado = 1";
+                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion, UrlImagen FROM Servicio WHERE IdEstado = 1";
 
                 // Validar filtros y agregar condiciones
                 if (pServicio.IdCategoriaServicio > 0)
@@ -135,6 +135,7 @@ namespace SistemaBliss.DAL
                     obj.Restricciones = reader.GetString(6);
                     obj.Precio = reader.GetDecimal(7);
                     obj.Duracion = reader.GetTimeSpan(8);
+                    obj.Imagen = reader.IsDBNull(9) ? null : reader.GetString(9);
 
                     lista.Add(obj);
                 }
@@ -153,7 +154,7 @@ namespace SistemaBliss.DAL
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
                 List<string> condiciones = new List<string>();
-                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion FROM Servicio WHERE IdEstado = 2";
+                string consulta = @"SELECT TOP 100 IdServicio, IdCategoriaServicio, IdEstado, Nombre, Descripcion, DiasAnticipacion, Restricciones, Precio, Duracion, UrlImagen FROM Servicio WHERE IdEstado = 2";
 
                 // Validar filtros y agregar condiciones
                 if (pServicio.IdCategoriaServicio > 0)
@@ -188,6 +189,7 @@ namespace SistemaBliss.DAL
                     obj.Restricciones = reader.GetString(6);
                     obj.Precio = reader.GetDecimal(7);
                     obj.Duracion = reader.GetTimeSpan(8);
+                    obj.Imagen = reader.IsDBNull(9) ? null : reader.GetString(9);
 
                     lista.Add(obj);
                 }
