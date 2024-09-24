@@ -113,6 +113,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CitaController.cs" />
+    <Compile Include="Controllers\CitaControllerfake.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />

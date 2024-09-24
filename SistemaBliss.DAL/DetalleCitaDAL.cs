@@ -13,7 +13,7 @@ namespace SistemaBliss.DAL
     public class DetalleCitaDAL
     {
         #region METODOS GUARDAR, MODIFICAR
-        public static int Guardar(DetalleCita pDetalleCita)
+        public static SqlCommand Guardar(DetalleCita pDetalleCita, SqlTransaction pTransaccion)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_InsertarDetalleCita";
@@ -22,7 +22,7 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@IdCita", pDetalleCita.IdCita);
             comando.Parameters.AddWithValue("@IdUsuario", pDetalleCita.IdUsuario);
             comando.Parameters.AddWithValue("@IdEstado", pDetalleCita.IdEstado);
-            return ComunDB.EjecutarComando(comando);
+            return comando;
 
         }
         public static int Modificar(DetalleCita pDetalleCita)

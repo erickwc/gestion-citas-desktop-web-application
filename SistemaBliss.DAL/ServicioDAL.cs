@@ -210,7 +210,7 @@ namespace SistemaBliss.DAL
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                string consulta = @"Select IdServicio, Nombre from Servicio  ";
+                string consulta = @"Select IdServicio, Nombre, Precio, Duracion from Servicio  ";
 
                 comando.CommandText = consulta;
 

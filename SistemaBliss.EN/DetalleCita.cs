@@ -13,5 +13,8 @@ namespace SistemaBliss.EN
         public Int64 IdCita { get; set; }
         public int IdUsuario { get; set; }
         public byte IdEstado { get; set; }
+        public TimeSpan TiempoEstimado{ get; set; }
+        public Decimal Precio { get; set; }
+        public Decimal Subtotal { get; set; }
     }
 }
