@@ -49,6 +49,8 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@IdEstado", pDetalleCita.IdEstado);
             return ComunDB.EjecutarComando(comando);
         }
+
+       
         #endregion
     }
 }

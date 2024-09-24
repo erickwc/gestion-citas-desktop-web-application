@@ -36,6 +36,11 @@ namespace SistemaBliss.BL
             return ServicioDAL.BuscarServiciosInactivos(pServicio);
         }
 
+        public List<Servicio> BuscarServiciosCita(Servicio pServicio)
+        {
+            return ServicioDAL.BuscarServiciosCita(pServicio);
+        }
+
         public void CargarEstadoVirtual(List<Servicio> pLista, Action<List<Estado>> pAccion = null)
         {
             // Método para cargar los datos de la propiedad virtual de Cargo

@@ -606,5 +606,34 @@ namespace SistemaBliss.DAL
             }
         }
 
+        public static List<Usuario> BuscarEmpleadosCita(Usuario pUsuario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string consulta = @"select IdUsuario, Nombre + ' ' + Apellido 'Empleados' from Usuario where IdRol = 1 ";
+
+                comando.CommandText = consulta;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Usuario obj = new Usuario();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdUsuario = reader.GetInt32(0);
+                    obj.Nombre = reader.GetString(1);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
     }
 }

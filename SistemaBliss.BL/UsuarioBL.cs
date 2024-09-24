@@ -101,6 +101,11 @@ namespace SistemaBliss.BL
             return UsuarioDAL.BuscarEmpleadosInactivos(pUsuario);
         }
 
+        public List<Usuario> BuscarEmpleadosCita(Usuario pUsuario)
+        {
+            return UsuarioDAL.BuscarEmpleadosCita(pUsuario);
+        }
+
         public void CargarEstadoVirtual(List<Usuario> pLista, Action<List<Estado>> pAccion = null)
         {
             // Método para cargar los datos de la propiedad virtual de Cargo

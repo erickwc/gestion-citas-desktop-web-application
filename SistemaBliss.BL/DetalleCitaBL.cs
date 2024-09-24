@@ -24,5 +24,8 @@ namespace SistemaBliss.BL
         {
             return DetalleCitaDAL.BuscarPorId(pIdDetalleCita);
         }
+
+
+        
     }
 }

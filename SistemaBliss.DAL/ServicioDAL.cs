@@ -203,6 +203,35 @@ namespace SistemaBliss.DAL
 
 
 
+        public static List<Servicio> BuscarServiciosCita(Servicio pServicio)
+        {
+            List<Servicio> lista = new List<Servicio>();
+
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                string consulta = @"Select IdServicio, Nombre from Servicio  ";
+
+                comando.CommandText = consulta;
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    Servicio obj = new Servicio();
+
+                    // Manejar posibles valores nulos y conversiones adecuadas
+                    obj.IdServicio = reader.GetByte(0);
+                    obj.Nombre = reader.GetString(1);
+
+                    lista.Add(obj);
+                }
+                comando.Connection.Dispose();
+            }
+            #endregion
+
+            return lista;
+        }
+
         #endregion
 
     }
