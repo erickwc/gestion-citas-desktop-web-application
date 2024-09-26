@@ -57,27 +57,15 @@ namespace SistemaBliss.DAL
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
               
-                string whereSQL = " ";
                 string consulta = @"SELECT TOP 100 IdProfesion, Nombre
-                            FROM Profesion  ";
-
-                // Validar filtros
-                if (pProfesion.Nombre != null && pProfesion.Nombre.Trim() != string.Empty)
-                {
-                    
-                }
-                // Agregar filtros
-                if (whereSQL.Trim().Length > 0)
-                {
-                    whereSQL = " WHERE " + whereSQL;
-                }
-                comando.CommandText = consulta + whereSQL;
+                            FROM Profesion";
+                
+                comando.CommandText = consulta;
 
                 SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
                 while (reader.Read())
                 {
                     Profesion obj = new Profesion();
-                    // Orden de las columnas depende de la Consulta SELECT utilizada
                     obj.IdProfesión = reader.GetByte(0);
                     obj.Nombre = reader.GetString(1);
                     lista.Add(obj);
@@ -114,6 +102,8 @@ namespace SistemaBliss.DAL
 
             return lista;
         }
+
+
 
     }
 }

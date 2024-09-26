@@ -121,7 +121,7 @@ namespace SistemaBliss.DAL
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
                 string whereSQL = " ";
-                string consulta = @"SELECT * FROM Estado WHERE Nombre IN ('Asignado', 'Sin Asignar') ";
+                string consulta = @"SELECT IdEstado, Nombre FROM Estado WHERE Nombre IN ('Asignado', 'Sin Asignar') ";
 
                 // Agregar filtros
                 if (whereSQL.Trim().Length > 0)

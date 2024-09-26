@@ -5,162 +5,78 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
-
-<div class="form-group mb-4">
-    <button type="button" class="btn btn-primary me-2" id="submitBothForms">Guardar</button>
-    @Html.ActionLink("Cancelar", "Index", "Cita", new { @class = "btn btn-danger" })
-</div>
-
-<ul class="nav d-flex nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Cita</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Detalle</button>
-    </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-        @using (Html.BeginForm("Create", "Cita", FormMethod.Post, new { id = "formCita" }))
-        {
-            @Html.AntiForgeryToken()
-
-            <div class="form-horizontal">
-
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.IdUsuario, new SelectList(ViewBag.Clientes, "Value", "Text", null), new { @class = "form-select" })
-                        @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.IdEstado, new SelectList(ViewBag.Estados, "Value", "Text", null), new { @class = "form-select" })
-                        @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date", step = "2" })
-                        @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.Hora, new { @class = "form-control", type = "time" })
-                        @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TiempoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.TiempoTotal, new { @class = "form-control", type = "time" })
-                        @Html.ValidationMessageFor(model => model.TiempoTotal, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PagoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.PagoTotal, new { @class = "form-control", type = "number", min = "0", step = "0.01" })
-                        @Html.ValidationMessageFor(model => model.PagoTotal, "", new { @class = "text-danger" })
-                    </div>
-                </div>
 
 
 
-            </div>
-        }
+@using (Html.BeginForm())
+{
+    <div class="seccion-registro-header">
+        <h2 class="titulo">Registro de una nueva cita</h2>
+        <p class="parrafo">Registra una nueva cita y luego agrega sus detalles en la pantalla principal</p>
+
+        <div class="form-group">
+            <button type="submit" class="btn-morado">Enviar</button>
+            @Html.ActionLink("Cancelar", "Index", "Cita", new { @class = "btn-second" })
+        </div>
     </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-        @using (Html.BeginForm("CreateDetalleCita", "Cita", FormMethod.Post, new { id = "formDetalleCita" }))
-        {
 
-            <div class="form-group mt-3">
-                <label for="IdServicio" class="control-label col-md-2">Servicios</label>
+    @Html.AntiForgeryToken()
+
+    <div class="form-inputs mt-4">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="">
+            @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IdUsuario, new SelectList(ViewBag.Clientes, "Value", "Text", null), new { @class = "form-select" })
+                @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.IdEstado, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IdEstado, new SelectList(ViewBag.Estados, "Value", "Text", null), new { @class = "form-select" })
+                @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Hora, new { @class = "form-control", type = "time" })
+                @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.TiempoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <select id="IdServicioDetalle" @*name="IdServicio"*@ class="form-select">
-                        @foreach (var item in ViewBag.Servicios)
-                        {
-                            <option value="@item.Value">@item.Text</option>
-                        }
-                    </select>
+                    @Html.TextBoxFor(model => model.TiempoTotal, new { @class = "form-control", type = "time" })
+                    @Html.ValidationMessageFor(model => model.TiempoTotal, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <input type="hidden" name="IdCita" value="12" />
-
-            <div class="form-group mt-3">
-                <label for="IdUsuario" class="control-label col-md-2">Empleado</label>
+            <div class="form-group">
+                @Html.LabelFor(model => model.PagoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <select id="IdUsuarioDetalle" @*name="IdUsuario"*@ class="form-select">
-                        @foreach (var item in ViewBag.Empleados)
-                        {
-                            <option value="@item.Value">@item.Text</option>
-                        }
-                    </select>
-                    @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(model => model.PagoTotal, new { @class = "form-control", type = "number", min = "0", step = "0.01" })
+                    @Html.ValidationMessageFor(model => model.PagoTotal, "", new { @class = "text-danger" })
                 </div>
-            </div>
-
-            <div class="form-group mt-3">
-                <label for="IdEstado" class="control-label col-md-2">Estado del servicio</label>
-                <div class="col-md-10">
-                    <select id="IdEstadoDetalle" @*name="IdEstado"*@ class="form-select">
-                        @foreach (var item in ViewBag.EstadosDetalleCita)
-                        {
-                            <option value="@item.Value">@item.Text</option>
-                        }
-                    </select>
-                    @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div Id="divConceptos">
-                <table>
-                    <tr>
-                        <th>IdEmpleado</th>
-                        <th>IdServicio</th>
-                        <th>IdEstado</th>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>3</td>
-                        <td>6</td>
-                    </tr>
-                </table>
-
-                <input type="hidden" name="IdsDetalles.Index" id="idsDetalles.Index" value="0" />
-                <input type="hidden" name="IdsDetalles[0].IdEmpleado" id="IdsDetalles[0].IdEmpleado" value="8" />
-                <input type="hidden" name="IdsDetalles[0].IdServicio" id="IdsDetalles[0].IdServicio" value="3" />
-                <input type="hidden" name="IdsDetalles[0].IdEstado" id="IdsDetalles[0].IdEstado" value="6" />
-            </div>
-        }
+            </div>*@
     </div>
-</div>
+
+
+}
 
 
 
-<script>
-    document.getElementById("submitBothForms").addEventListener("click", function () {
-        const formCita = document.getElementById("formCita");
-        const formDetalleCita = document.getElementById("formDetalleCita");
-
-        formCita.submit();
-
-        setTimeout(function() {
-            formDetalleCita.submit();
-        }, 500); 
-    });
-</script>

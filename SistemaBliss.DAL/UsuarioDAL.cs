@@ -635,5 +635,30 @@ namespace SistemaBliss.DAL
             return lista;
         }
 
+
+        #region Autenticacion
+        public static Usuario AutenticarCredenciales(Usuario pUsuario)
+        {
+            Usuario obj = new Usuario();
+
+            SqlCommand comando = ComunDB.ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = "SP_AutenticarCredenciales";
+            comando.Parameters.AddWithValue("@Telefono", pUsuario.Telefono);
+            comando.Parameters.AddWithValue("@Contrasena", pUsuario.Contrasena);
+
+            SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+            while (reader.Read())
+            {
+                // Orden de las columnas depende de la Consulta SELECT utilizada
+                obj.IdUsuario = reader.GetInt32(0); // Columna [0] cero
+                obj.IdRol = reader.GetByte(1); // Columna [0] cero
+                obj.Nombre = reader.GetString(2);  // Columna [1] uno
+                obj.Apellido = reader.GetString(3); // Columna [2] dos
+                obj.Telefono = reader.GetString(4); // Columna [4] cuatro
+            }
+            return obj;
+        }
+        #endregion
     }
 }

@@ -1,0 +1,26 @@
+﻿@model SistemaBliss.EN.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Inicio de sesion</h2>
+
+@if (ViewBag.mensaje != null)
+{
+    <div class="alert alert-danger">@ViewBag.mensaje</div>
+}
+
+<form method="post" action="@Url.Action("Index","Auth")" class="d-inline-flex">
+
+    <input type="text" class="form-control" placeholder="Teléfono"
+           name="Telefono" value="@Model.Telefono" required />
+
+    <input type="password" class="form-control mx-3" placeholder="Contraseña"
+           name="Contrasena" required />
+
+    <button type="submit" class="btn btn-primary">Entrar</button>
+
+</form>
+

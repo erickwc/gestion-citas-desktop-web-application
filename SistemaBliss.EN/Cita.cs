@@ -27,10 +27,10 @@ namespace SistemaBliss.EN
         [Required(ErrorMessage = "Este campo es requerido")]
         public TimeSpan Hora { get; set; }
 
-        [Required(ErrorMessage = "Este campo es requerido")]
+        //[Required(ErrorMessage = "Este campo es requerido")]
         public TimeSpan TiempoTotal { get; set; }
 
-        [Required(ErrorMessage = "Este campo es requerido")]
+        //[Required(ErrorMessage = "Este campo es requerido")]
         public Decimal PagoTotal { get; set; }
 
         public List<DetalleCita> DetallesCita { get; set; }

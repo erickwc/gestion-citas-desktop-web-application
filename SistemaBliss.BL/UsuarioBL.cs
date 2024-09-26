@@ -189,6 +189,12 @@ namespace SistemaBliss.BL
             return contrasena.Length == 64;
         }
 
+        public Usuario AutenticarCredenciales(Usuario pUsuario)
+        {
+            pUsuario.Contrasena = CifrarHashSha256(pUsuario.Contrasena);
+            return UsuarioDAL.AutenticarCredenciales(pUsuario);
+        }
+
 
     }
 }

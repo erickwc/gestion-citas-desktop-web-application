@@ -78,13 +78,22 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (pUsuario.UploadImage != null && pUsuario.UploadImage.ContentLength > 0)
                 {
                     string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
                     string finalPath = "\\UploadedFile\\" + strDateTime + pUsuario.UploadImage.FileName;
 
+                    // Guardar el archivo
                     pUsuario.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
-                    pUsuario.UrlImagen = finalPath;
+                    pUsuario.UrlImagen = finalPath; // Guardar la URL de la imagen
+                }
+                else
+                {
+                    pUsuario.UrlImagen = null;
+                }
+
+                if (ModelState.IsValid)
+                {
 
                     int resultado = usuarioBL.Guardar(pUsuario);
 

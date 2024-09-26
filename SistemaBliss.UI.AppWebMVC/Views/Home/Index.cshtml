@@ -1,5 +1,23 @@
-﻿
+﻿@using SistemaBliss.EN
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string ObtenerNombreEmpleado()
+    {
+        if (Session["usuario"] != null)
+        {
+            Usuario empleado = (Usuario)Session["usuario"];
+            return empleado.Nombre + " " + empleado.Apellido;
+        }
+        return "";
+    }
+}
+
+<h2>Inicio</h2>
+
+@if (ObtenerNombreEmpleado() != "")
+{
+    <p>Bienvenido @ObtenerNombreEmpleado()</p>
 }

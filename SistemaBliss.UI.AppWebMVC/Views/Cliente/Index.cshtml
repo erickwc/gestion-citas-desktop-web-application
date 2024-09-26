@@ -5,23 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Clientes</h3>
 
 <form method="get" action="@Url.Action("Index", "Cliente")" class="row  mt-3">
 
-    <p>Buscador</p>
+    <h3 class="titulo">Clientes</h3>
+    <p class="parrafo">Busca un cliente en los siguientes filtros</p>
 
     <div class="col-12 col-lg-3 mt-2">
+        <label class="form-label fw-bold" for="campoBusqueda">Dato de busqueda:</label>
         <input type="text" class="form-control" name="Nombre" placeholder="Ingrese el dato de búsqueda" />
     </div>
 
     <div class="col-12 col-lg-3 mt-2">
+        <label class="form-label fw-bold" for="campoBusqueda">Tipo de busqueda:</label>
         @Html.DropDownList("campoBusqueda", ViewBag.Options as List<SelectListItem>, new { @class = "form-select" })
     </div>
 
-    <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
-        <button type="submit" class="btn btn-primary mx-2">BUSCAR</button>
-        @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
+    <div class="col-12 col-lg-2 d-flex gap-2 align-items-end mt-2">
+        <button type="submit" class="btn-second">Buscar</button>
+        @Html.ActionLink("Nuevo", "Create", null, new { @Class = "btn-morado" })
     </div>
 </form>
 
@@ -69,7 +71,7 @@
                                 }
                                 else
                                 {
-                                    <span> </span>
+                                    <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
                                 }
                             </td>
                             <td>@item.Nombre</td>
@@ -79,7 +81,7 @@
                             <td>@item.Rol.Nombre</td>
                             <td>@item.Estado.Nombre</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Cliente", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                                <a href="@Url.Action("Edit", "Cliente", new { id = item.IdUsuario })" class="btn btn-editar btn-sm mx-2">Editar</a>
                             </td>
                         </tr>
                     }
@@ -118,7 +120,7 @@
                                 }
                                 else
                                 {
-                                    <span> </span>
+                                    <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
                                 }
                             </td>
                             <td>@item.Nombre</td>
@@ -128,7 +130,7 @@
                             <td>@item.Rol.Nombre</td>
                             <td>@item.Estado.Nombre</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Cliente", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                                <a href="@Url.Action("Edit", "Cliente", new { id = item.IdUsuario })" class="btn  btn-editar btn-sm mx-2">Editar</a>
                             </td>
                         </tr>
                     }

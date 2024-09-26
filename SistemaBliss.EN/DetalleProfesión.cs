@@ -13,11 +13,9 @@ namespace SistemaBliss.EN
         public int IdDetalleProfesion { get; set; }
 
         [Display(Name = "Empleado")]
-        [Required(ErrorMessage = "Este campo es requerido")]
         public int IdUsuario { get; set; }
 
         [Display(Name = "Profesion")]
-        [Required(ErrorMessage = "Este campo es requerido")]
         public int IdProfesion { get; set; }
 
         [Display(Name = "Profesion")]

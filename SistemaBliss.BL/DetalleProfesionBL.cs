@@ -29,11 +29,15 @@ namespace SistemaBliss.BL
             return DetalleProfesionDAL.Modificar(pDetalleProfesion);
         }
 
-        public static int Eliminar(int pDetalleProfesion)
+        public int Eliminar(DetalleProfesión pDetalleProfesion)
         {
             return DetalleProfesionDAL.Eliminar(pDetalleProfesion);
         }
 
-        
+        public List<DetalleProfesión> BuscarProfesionesPorUsuario(int Id)
+        {
+            return DetalleProfesionDAL.BuscarProfesionesPorUsuario(Id);
+        }
+
     }
 }

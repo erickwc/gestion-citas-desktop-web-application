@@ -23,10 +23,14 @@ namespace SistemaBliss.EN
 
         [Display(Name = "Telefono")]
         [RegularExpression(@"^\d{8}$", ErrorMessage = "El número de teléfono debe contener 8 dígitos.")]
+        [Required(ErrorMessage = "Este campo es requerido")]
+
         public string Telefono { get; set; }
 
         [Display(Name = "Correo Electronico")]
         [EmailAddress(ErrorMessage = "Ingresa un correo electronico valido")]
+        [Required(ErrorMessage = "Este campo es requerido")]
+
         public string CorreoElectronico { get; set; }
     }
 }

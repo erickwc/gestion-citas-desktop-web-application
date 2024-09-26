@@ -64,16 +64,24 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
-                ModelState.Remove("UrlImagen");
-
-
-                if (ModelState.IsValid)
+                if (pServicio.UploadImage != null && pServicio.UploadImage.ContentLength > 0)
                 {
+                    // Generar la ruta para la imagen
                     string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
                     string finalPath = "\\UploadedFile\\" + strDateTime + pServicio.UploadImage.FileName;
 
+                    // Guardar la imagen en el servidor
                     pServicio.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
-                    pServicio.Imagen = finalPath;
+                    pServicio.Imagen = finalPath; // Guardar la ruta de la imagen
+                }
+                else
+                {
+                    // Si no se subió ninguna imagen, puedes dejar la propiedad Imagen vacía o asignar un valor por defecto
+                    pServicio.Imagen = null; // O una imagen por defecto, como "\\UploadedFile\\default.jpg";
+                }
+
+                if (ModelState.IsValid)
+                {
 
                     int resultado = servicioBL.Guardar(pServicio);
 

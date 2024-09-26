@@ -1,35 +1,46 @@
 ﻿@model IEnumerable<SistemaBliss.EN.HorariosEmpresa>
 
+
+
 <div>
     @using (Html.BeginForm("Create", "Horario", FormMethod.Post, new { @class = "form", id = "horarioForm" }))
     {
         @Html.AntiForgeryToken()
 
-        <input id="IdEmpresa" type="hidden" class="form-control" name="IdEmpresa" value="1" required />
+        <div class="form-inputs mt-4">
 
-        <div class="mb-3">
-            <select id="DiasId" name="Dias" class="form-select">
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miercoles">Miércoles</option>
-                <option value="Jueves">Jueves</option>
-                <option value="Viernes">Viernes</option>
-                <option value="Sabado">Sabado</option>
-                <option value="Domingo">Domingo</option>
-            </select>
+
+
+            <input id="IdEmpresa" type="hidden" class="form-control" name="IdEmpresa" value="1" required />
+
+
+            <div>
+                <label class="mb-2">Dia</label>
+                <div class="mb-3">
+                    <select id="DiasId" name="Dias" class="form-select">
+                        <option value="Lunes">Lunes</option>
+                        <option value="Martes">Martes</option>
+                        <option value="Miercoles">Miércoles</option>
+                        <option value="Jueves">Jueves</option>
+                        <option value="Viernes">Viernes</option>
+                        <option value="Sabado">Sabado</option>
+                        <option value="Domingo">Domingo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="mb-2">Hora de entrada</label>
+                <input id="HoraEntradaId" type="time" class="form-control" name="HoraEntrada" required />
+            </div>
+
+            <div class="mb-3">
+                <label class="mb-2">Hora de salida</label>
+                <input id="HoraSalidaId" type="time" class="form-control" name="HoraSalida" required />
+            </div>
+
         </div>
-
-
-        <div class="mb-3">
-            <input id="HoraEntradaId" type="time" class="form-control" name="HoraEntrada" required />
-        </div>
-
-        <div class="mb-3">
-            <input id="HoraSalidaId" type="time" class="form-control" name="HoraSalida" required />
-        </div>
-
-
-        <button type="submit" class="btn btn-primary" id="submitButton">Guardar</button>
+        <button type="submit" class="btn-morado mt-3" id="submitButton">Agregar</button>
     }
 
 
@@ -55,7 +66,7 @@
                         <td>@DateTime.Today.Add(item.HoraEntrada).ToString("hh:mm tt")</td>
                         <td>@DateTime.Today.Add(item.HoraSalida).ToString("hh:mm tt")</td>
                         <td>
-                            <button type="button" class="btn btn-warning btn-sm mx-2"
+                            <button type="button" class="btn btn-editar btn-sm mx-2"
                                     onclick="editProfesion(@item.IdHorariosEmpresa, @item.IdEmpresa, '@item.Dias', '@item.HoraEntrada.ToString(@"hh\:mm")', '@item.HoraSalida.ToString(@"hh\:mm")')">
                                 Editar
                             </button>

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SistemaBliss.BL;
-using SistemaBliss.EN;
 using System.Security.Cryptography.X509Certificates;
+using SistemaBliss.UI.AppWebMVC.App_Start;
 
 namespace SistemaBliss.UI.AppWebMVC.Controllers
 {
     public class EmpleadoController : Controller
     {
+        [AuthorizeCustom("ADMINISTRADOR")]
         UsuarioBL usuarioBL = new UsuarioBL();
         DetalleProfesionBL detalleProfesionBL = new DetalleProfesionBL();
         public ActionResult Index(string Nombre, string campoBusqueda)
@@ -72,7 +72,6 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             ViewBag.Profesiones = DropDownListProfesiones();
 
             return View();
-
         }
 
         // POST: Empleado/Create
@@ -81,15 +80,22 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
+                if (pUsuario.UploadImage != null && pUsuario.UploadImage.ContentLength > 0)
                 {
                     string strDateTime = System.DateTime.Now.ToString("ddMMyyyyHHMMss");
                     string finalPath = "\\UploadedFile\\" + strDateTime + pUsuario.UploadImage.FileName;
 
+                    // Guardar el archivo
                     pUsuario.UploadImage.SaveAs(Server.MapPath("~") + finalPath);
-                    pUsuario.UrlImagen = finalPath;
+                    pUsuario.UrlImagen = finalPath; // Guardar la URL de la imagen
+                }
+                else
+                {
+                    pUsuario.UrlImagen = null; 
+                }
 
-
+                if (ModelState.IsValid)
+                {
                     int resultado = usuarioBL.Guardar(pUsuario);
 
                     if (resultado > 0)
@@ -126,20 +132,37 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             return View(pUsuario);
         }
 
+
+        public ActionResult AgregarProfesion(int id)
+        {
+            List<DetalleProfesión> detallesProfesion = detalleProfesionBL.BuscarProfesionesPorUsuario(id);
+            ViewBag.DetallesProfesion = detallesProfesion;
+
+            Usuario usuario = usuarioBL.ObtenerPorId(id);
+
+            ViewBag.Estados = DropDownListEstados(usuario.IdEstado);
+            ViewBag.Roles = DropDownListRoles(usuario.IdRol);
+            ViewBag.Departamentos = DropDownListDepartamentos(usuario.IdDepartamento);
+            ViewBag.Municipios = DropDownListMunicipios(Convert.ToByte(usuario.IdMunicipio));
+            ViewBag.Profesiones = DropDownListProfesiones();
+
+            return View(usuario);
+        }
+
+
         // POST: Empleado/Create
         [HttpPost]
         public ActionResult CreateDetalleProfesion(DetalleProfesión pDetalleProfesion)
         {
             try
             {
-                if (ModelState.IsValid)
-                {
+                
                     int resultado = detalleProfesionBL.Guardar(pDetalleProfesion);
 
                     if (resultado > 0)
                     {
                         TempData["mensaje"] = "Registro guardado.";
-                        return RedirectToAction("Index");
+                        return RedirectToAction("AgregarProfesion", "Empleado", new { id = pDetalleProfesion.IdUsuario });
                     }
                     else if (resultado == -1)
                     {
@@ -150,7 +173,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
                         ModelState.AddModelError("", "Error al registrar, intente de nuevo o contacte al soporte.");
                     }
 
-                }
+             
 
             }
             catch (Exception ex)
@@ -166,18 +189,20 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         // GET: Empleado/Edit/5
         public ActionResult Edit(int id)
         {
+            List<DetalleProfesión> detallesProfesion = detalleProfesionBL.BuscarProfesionesPorUsuario(id);
+            ViewBag.DetallesProfesion = detallesProfesion;
+            
             Usuario usuario = usuarioBL.ObtenerPorId(id);
 
-            // Cargar lista de seleccion
             ViewBag.Estados = DropDownListEstados(usuario.IdEstado);
             ViewBag.Roles = DropDownListRoles(usuario.IdRol);
             ViewBag.Departamentos = DropDownListDepartamentos(usuario.IdDepartamento);
             ViewBag.Municipios = DropDownListMunicipios(Convert.ToByte(usuario.IdMunicipio));
+            ViewBag.Profesiones = DropDownListProfesiones();
 
             return View(usuario);
         }
 
-        // POST: Empleado/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Usuario pUsuario)
         {
@@ -234,9 +259,38 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
             ViewBag.Roles = DropDownListRoles(pUsuario.IdRol);
             ViewBag.Departamentos = DropDownListDepartamentos(pUsuario.IdDepartamento);
             ViewBag.Municipios = DropDownListMunicipios(Convert.ToByte(pUsuario.IdMunicipio));
+            ViewBag.Profesiones = DropDownListProfesiones();
 
             return View(pUsuario);
         }
+
+
+        [HttpPost]
+        public ActionResult DeleteDetalleProfesion(int id, int idUsuario)
+        {
+            try
+            {
+                int resultado = detalleProfesionBL.Eliminar(new DetalleProfesión { IdDetalleProfesion = id });
+
+                if (resultado > 0)
+                {
+                    TempData["mensaje"] = "Registro eliminado.";
+                    return RedirectToAction("AgregarProfesion", "Empleado", new { id = idUsuario }); 
+                }
+                else
+                {
+                    TempData["tipo"] = "error";
+                    TempData["mensaje"] = "Error al eliminar, intente de nuevo o contacte al soporte.";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["tipo"] = "error";
+                TempData["mensaje"] = ex.Message;
+            }
+            return View("Index");
+        }
+
         public static List<SelectListItem> DropDownListRoles(byte pId = 0)
         {
             List<SelectListItem> options = new List<SelectListItem>
@@ -278,7 +332,6 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
             return options;
         }
-
 
         public static List<SelectListItem> DropDownListMunicipios(byte pId = 0)
         {
@@ -342,5 +395,6 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
             return options;
         }
+
     }
 }

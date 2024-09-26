@@ -5,31 +5,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Empleados</h3>
 
 <form method="get" action="@Url.Action("Index", "Empleado")" class="row">
 
-    <p>Buscador</p>
+    <h3 class="titulo">Empleados</h3>
+    <p class="parrafo">Busca un empleado en los siguientes filtros</p>
 
     <div class="col-12 col-lg-3 mt-2">
-        <label class="form-label fw-bold" for="Nombre">Nombre, Apellido o Teléfono:</label>
+        <label class="form-label fw-bold" for="Nombre">Dato de busqueda:</label>
         <input type="text" class="form-control" name="Nombre" placeholder="Ingrese el dato de búsqueda" />
     </div>
 
     <div class="col-12 col-lg-3 mt-2">
-        <label class="form-label fw-bold" for="campoBusqueda">Buscar por:</label>
+        <label class="form-label fw-bold" for="campoBusqueda">Tipo de busqueda:</label>
         @Html.DropDownList("campoBusqueda", ViewBag.Options as List<SelectListItem>, new { @class = "form-select" })
     </div>
 
     <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
-        <button type="submit" class="btn btn-primary mx-2">BUSCAR</button>
-        @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
+        <button type="submit" class="btn-second me-3">Buscar</button>
+        @Html.ActionLink("Nuevo", "Create", null, new { @Class = "btn-morado" })
     </div>
 
 </form>
 
-<div class="col-12 col-lg-2 d-flex align-items-end mt-2">
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Profesiones</button>
+<div class="col-12 col-lg-2 d-flex align-items-end mt-3">
+    <button class="btn-morado" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Profesiones</button>
 </div>
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -94,7 +94,7 @@
                                 }
                                 else
                                 {
-                                    <span> </span>
+                            <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
                                 }
                             </td>
                             <td>@item.Nombre</td>
@@ -104,7 +104,8 @@
                             <td>@item.Rol.Nombre</td>
                             <td>@item.Estado.Nombre</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                                <a href="@Url.Action("AgregarProfesion", "Empleado", new { id = item.IdUsuario })" class="btn btn-morado btn-sm mx-2">Profesiones</a>
+                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-editar btn-sm mx-2">Editar</a>
                             </td>
                         </tr>
                     }
@@ -143,7 +144,7 @@
                                 }
                                 else
                                 {
-                                    <span> </span>
+                            <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
                                 }
                             </td>
                             <td>@item.Nombre</td>
@@ -153,7 +154,8 @@
                             <td>@item.Rol.Nombre</td>
                             <td>@item.Estado.Nombre</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                                <a href="@Url.Action("AgregarProfesion", "Empleado", new { id = item.IdUsuario })" class="btn btn-morado btn-sm mx-2">Profesiones</a>
+                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-editar btn-sm mx-2">Editar</a>
                             </td>
                         </tr>
                     }

@@ -210,7 +210,7 @@ namespace SistemaBliss.DAL
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                string consulta = @"Select IdServicio, Nombre, Precio, Duracion from Servicio  ";
+                string consulta = @"Select IdServicio, Nombre, Precio, Duracion from Servicio";
 
                 comando.CommandText = consulta;
 
@@ -222,6 +222,8 @@ namespace SistemaBliss.DAL
                     // Manejar posibles valores nulos y conversiones adecuadas
                     obj.IdServicio = reader.GetByte(0);
                     obj.Nombre = reader.GetString(1);
+                    obj.Precio = reader.GetDecimal(2);
+                    obj.Duracion = reader.GetTimeSpan(3);
 
                     lista.Add(obj);
                 }

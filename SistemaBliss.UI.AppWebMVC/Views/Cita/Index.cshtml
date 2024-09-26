@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
 <form method="get" action="@Url.Action("Index", "Cita")" class="row">
 
-    <p>Buscador</p>
+    <h3 class="titulo">Citas</h3>
+    <p class="parrafo">Busca una cita en los siguientes filtros de fecha</p>
 
     <div class="col-12 col-lg-3 mt-2">
         <label class="form-label fw-bold" for="FechaInicioPendientes">Fecha de inicio:</label>
@@ -21,21 +21,17 @@
         <input type="date" class="form-control" name="FechaFinPendientes" placeholder="Seleccione la fecha de fin" />
     </div>
 
-    @*<div class="col-12 col-lg-3 mt-2">
-            <label class="form-label fw-bold" for="campoBusqueda">Buscar por:</label>
-            @Html.DropDownList("campoBusqueda", ViewBag.Options as List<SelectListItem>, new { @class = "form-select" })
-        </div>*@
 
-    <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
-        <button type="submit" class="btn btn-primary mx-2">BUSCAR</button>
-        @Html.ActionLink("NUEVO", "Create", null, new { @Class = "btn btn-secondary" })
+    <div class="col-12 col-lg-2 d-flex gap-3 align-items-end mt-2">
+        <button type="submit" class="btn btn-second mx-2">Buscar</button>
+        @Html.ActionLink("Nuevo", "Create", null, new { @Class = "btn-morado" })
     </div>
 
 
 </form>
 
 
-<ul class="nav d-flex nav-pills mb-3" id="pills-tab" role="tablist">
+<ul class="nav d-flex nav-pills mt-4 mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Confirmadas</button>
     </li>
@@ -73,7 +69,7 @@
                             <td>@item.TiempoTotal.ToString(@"hh\:mm")</td>
                             <td class="d-flex"> <p>$</p> @item.PagoTotal</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Cita", new { id = item.IdCita })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                                <a href="@Url.Action("Edit", "Cita", new { id = item.IdCita })" class="btn btn-editar btn-sm mx-2">Administrar</a>
                             </td>
                         </tr>
                     }
@@ -107,7 +103,7 @@
                             <td>@item.TiempoTotal.ToString(@"hh\:mm")</td> <!-- Formato de tiempo total -->
                             <td class="d-flex"> <p>$</p> @item.PagoTotal</td>
                             <td>
-                                <a href="@Url.Action("Edit", "Cita", new { id = item.IdCita })" class="btn btn-warning btn-sm mx-2">Editar</a>
+                                <a href="@Url.Action("Edit", "Cita", new { id = item.IdCita })" class="btn btn-editar btn-sm mx-2">Administrar</a>
                             </td>
                         </tr>
                     }
@@ -125,7 +121,6 @@
                     <th>Hora</th>
                     <th>Tiempo</th>
                     <th>Pago</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -140,9 +135,6 @@
                             <td>@DateTime.Today.Add(item.Hora).ToString("hh:mm tt")</td> <!-- Hora con AM/PM -->
                             <td>@item.TiempoTotal.ToString(@"hh\:mm")</td> <!-- Formato de tiempo total -->
                             <td class="d-flex"> <p>$</p> @item.PagoTotal</td>
-                            <td>
-                                <a href="@Url.Action("Edit", "Cita", new { id = item.IdCita })" class="btn btn-warning btn-sm mx-2">Editar</a>
-                            </td>
                         </tr>
                     }
                 }

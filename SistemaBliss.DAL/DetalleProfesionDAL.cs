@@ -32,12 +32,12 @@ namespace SistemaBliss.DAL
             comando.Parameters.AddWithValue("@IdUsuario", pDetalleProfesion.IdUsuario);
             return ComunDB.EjecutarComando(comando);
         }
-        public static int Eliminar(int pDetalleProfesion)
+        public static int Eliminar(DetalleProfesión pDetalleProfesion)
         {
             SqlCommand comando = ComunDB.ObtenerComando();
             comando.CommandText = "SP_EliminarDetalleProfesion";
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdDetalleProfesion", pDetalleProfesion);
+            comando.Parameters.AddWithValue("@IdDetalleProfesion", pDetalleProfesion.IdDetalleProfesion);
             return ComunDB.EjecutarComando(comando);
         }
 
@@ -83,7 +83,33 @@ namespace SistemaBliss.DAL
             return lista;
         }
 
+        public static List<DetalleProfesión> BuscarProfesionesPorUsuario(int idUsuario)
+        {
+            List<DetalleProfesión> lista = new List<DetalleProfesión>();
 
+            #region Proceso
+            using (SqlCommand comando = ComunDB.ObtenerComando())
+            {
+                comando.CommandText = @"select dp.IdDetalleProfesion, p.Nombre from DetalleProfesion dp
+                INNER JOIN Profesion p ON p.IdProfesion = dp.IdProfesion where IdUsuario = @IdUsuario";
+
+                comando.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+                SqlDataReader reader = ComunDB.EjecutarComandoReader(comando);
+                while (reader.Read())
+                {
+                    DetalleProfesión obj = new DetalleProfesión
+                    {
+                        IdDetalleProfesion = reader.GetInt32(0),
+                        NombreProfesion = reader.GetString(1),
+                    };
+                    lista.Add(obj);
+                }
+            }
+            #endregion
+
+            return lista;
+        }
 
 
     }

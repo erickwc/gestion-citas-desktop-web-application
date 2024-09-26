@@ -1,0 +1,52 @@
+﻿@model SistemaBliss.EN.Usuario
+
+@{
+    ViewBag.Title = "AgregarProfesion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AgregarProfesion</h2>
+
+@using (Html.BeginForm("CreateDetalleProfesion", "Empleado", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.Hidden("IdUsuario", Model.IdUsuario)
+
+    @Html.DropDownList("IdProfesion", (IEnumerable<SelectListItem>)ViewBag.Profesiones, "Seleccionar", new { @class = "form-control" })
+
+<div class="form-group">
+    <button class="btn btn-primary me-2">Agregar</button>
+    @Html.ActionLink("Cancelar", "Index", "Empleado", new { @class = "btn btn-danger" })
+</div>
+
+}
+
+@Html.HiddenFor(model => model.IdUsuario)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Profesion</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.DetallesProfesion != null)
+        {
+            foreach (var item in ViewBag.DetallesProfesion)
+            {
+                <tr>
+                    <td>@item.IdDetalleProfesion</td>
+                    <td>@item.NombreProfesion</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm"
+                                onclick="funcEliminar('@Url.Action("DeleteDetalleProfesion", "Empleado", new { id = item.IdDetalleProfesion, idUsuario = Model.IdUsuario })')">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

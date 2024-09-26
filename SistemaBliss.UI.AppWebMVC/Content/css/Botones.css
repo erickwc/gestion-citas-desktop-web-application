@@ -15,10 +15,20 @@
 
 a {
     text-decoration: none;
-    padding: 6px 8px;
+    padding: 9px 12px;
     font-size: 14px;
     transition: ease-in-out 0.1s;
     color: var(--gris);
+    /*justify-self: center;*/
+}
+
+button {
+    text-decoration: none;
+    padding: 9px 12px;
+    font-size: 14px;
+    transition: ease-in-out 0.1s;
+    color: var(--gris);
+    border:none;
     /*justify-self: center;*/
 }
 
@@ -32,3 +42,62 @@ a {
     color: var(--blanco);
 }
 
+.btn-second {
+    background: var(--blanco);
+    border: 1px solid var(--morado);
+    border-radius: 8px;
+    color: var(--morado);
+}
+
+.titulo{
+    font-size:20px;
+}
+
+.parrafo {
+    font-size: 16px;
+}
+
+.seccion-registro-header{
+    padding:20px;
+    border:1px solid var(--gris-bordes);
+    border-radius:10px;
+}
+
+.form-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px;
+    border: 1px solid var(--gris-bordes);
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.control-label{
+    margin-bottom:8px;
+}
+
+.nav-pills .nav-link.active {
+    background: var(--blanco);
+    color: var(--morado);
+    border-bottom: 4px solid var(--morado);
+    border-radius:0px;
+    font-weight:600;
+    transition:ease 0.1s;
+}
+
+.nav-pills .nav-link {
+    color: var(--morado);
+}
+
+.btn-editar {
+    background: #FFF0DB;
+    border-radius: 8px;
+    color: #FE862F;
+    font-weight:600;
+}
+
+.btn-editar:hover {
+    background: #FFF0DB;
+    border-radius: 8px;
+    color: #FE862F;
+}
