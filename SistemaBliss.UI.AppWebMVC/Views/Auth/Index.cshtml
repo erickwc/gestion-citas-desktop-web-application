@@ -5,22 +5,51 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Inicio de sesion</h2>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 85vh;">
+    <div class="p-4" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center" style="font-size:24px; font-weight:600;">Bienvenido de nuevo</h2>
+        <p style="font-size:16px;" class="text-center text-muted">Ingresa tus credenciales para iniciar sesión</p>
 
-@if (ViewBag.mensaje != null)
-{
-    <div class="alert alert-danger">@ViewBag.mensaje</div>
-}
+        @if (ViewBag.mensaje != null)
+        {
+            <div class="alert alert-danger">@ViewBag.mensaje</div>
+        }
 
-<form method="post" action="@Url.Action("Index","Auth")" class="d-inline-flex">
+        <form method="post" action="@Url.Action("Index", "Auth")" class="mt-4">
+            <div class="form-group mb-3">
+                <label style="margin-bottom:8px;" for="Telefono">Teléfono</label>
+                <input type="text" id="Telefono" class="form-control" placeholder="Ingresa tu teléfono"
+                       name="Telefono" value="@Model.Telefono" required />
+            </div>
 
-    <input type="text" class="form-control" placeholder="Teléfono"
-           name="Telefono" value="@Model.Telefono" required />
+            <div class="form-group mb-4 position-relative">
+                <label style="margin-bottom:8px;" for="Contrasena">Contraseña</label>
+                <div class="input-group">
+                    <input type="password" id="Contrasena" class="form-control rounded-end" placeholder="Ingresa tu contraseña"
+                           name="Contrasena" required />
+                    <button type="button" class="btn position-absolute rounded-end"
+                            style="right: 10px; top: 50%; transform: translateY(-50%); padding: 0;"
+                            onclick="togglePasswordVisibility()">
+                        <i id="password-icon" class="bi bi-eye-slash" style="font-size: 1.25rem;"></i>
+                    </button>
+                </div>
+            </div>
 
-    <input type="password" class="form-control mx-3" placeholder="Contraseña"
-           name="Contrasena" required />
+            <button style="margin-top:16px;" type="submit" class="btn-morado w-100">Iniciar Sesión</button>
+        </form>
+    </div>
+</div>
 
-    <button type="submit" class="btn btn-primary">Entrar</button>
-
-</form>
-
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('Contrasena');
+        const passwordIcon = document.getElementById('password-icon');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordIcon.className = 'bi bi-eye';
+        } else {
+            passwordInput.type = 'password';
+            passwordIcon.className = 'bi bi-eye-slash';
+        }
+    }
+</script>
