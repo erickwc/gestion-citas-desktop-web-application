@@ -6,334 +6,340 @@
 }
 
 <div class="seccion-registro-header">
-    <h2 class="titulo">Administra la cita</h2>
+    <h2 class="titulo">Administración de la cita</h2>
     <p class="parrafo">Administra los servicios y datos generales de la cita</p>
-    @Html.ActionLink("Cancelar", "Index", "Cita", new { @class = "btn-second" })
+
+    <div class="form-group d-flex gap-3">
+        @Html.ActionLink("Regresar", "Index", "Cita", new { @class = "btn-morado" })
+    </div>
 </div>
 
-<ul class="nav d-flex  mt-4 nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Registro</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Servicios</button>
-    </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-        @using (Html.BeginForm("Edit", "Cita", FormMethod.Post, new { @class = "form" }))
-        {
-            @Html.AntiForgeryToken()
+<div style="padding: 20px; border: 1px solid #E0E0E2; border-radius:10px; height:67vh; margin-top:16px;">
+    <ul class="nav d-flex   nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Registro</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Servicios</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            @using (Html.BeginForm("Edit", "Cita", FormMethod.Post, new { @class = "form" }))
+            {
+                @Html.AntiForgeryToken()
 
-            <div class="form-inputs mt-4">
+                <div class="d-grid" style="grid-template-columns:1fr 1fr 1fr 1fr; gap:16px;">
 
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(model => model.IdCita)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.IdUsuario, new SelectList(ViewBag.Clientes, "Value", "Text", null), new { @class = "form-select" })
+                            @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.IdEstado, new SelectList(ViewBag.Estados, "Value", "Text", null), new { @class = "form-select" })
+                            @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date", Value = Model.Fecha.ToString("yyyy-MM-dd") })
+                            @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Hora, new { @class = "form-control", type = "time" })
+                            @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div style="pointer-events:none;" class="form-group">
+                        @Html.LabelFor(model => model.TiempoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.TiempoTotal, new { @class = "form-control", type = "time" })
+                            @Html.ValidationMessageFor(model => model.TiempoTotal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div style="pointer-events:none;" class="form-group">
+                        @Html.LabelFor(model => model.PagoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.PagoTotal, new { @class = "form-control", type = "number", min = "1", step = "0.01" })
+                            @Html.ValidationMessageFor(model => model.PagoTotal, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn-morado mt-5">Guardar cambios</button>
+                </div>
+            }
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+
+
+
+            @using (Html.BeginForm("CreateDetalleCita", "Cita", FormMethod.Post, new { @class = "form" }))
+            {
+                <div class="d-flex flex-column" style="gap:24px;">
+
+                    @Html.Hidden("IdCita", Model.IdCita)
+
+                    <div class="d-grid" style="grid-template-columns:1fr 1fr 1fr; gap:16px;">
+                        <div>
+                            <label class="mb-2">Servicio</label>
+                            <select name="IdServicio" id="IdServicio" class="form-select me-2" onchange="actualizarPrecio()">
+                                <option name="IdServicio">Seleccionar</option>
+                                @foreach (var item in ViewBag.Servicios as List<SistemaBliss.EN.Servicio>)
+                                {
+                                    <option value="@item.IdServicio" data-precio="@item.Precio" data-duracion="@item.Duracion">@item.Nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="mb-2">Empleado que gestionara</label>
+                            <select name="IdUsuario" id="IdEmpleado" class="form-select me-2">
+                                <option>Seleccionar</option>
+                                @foreach (var item in ViewBag.Empleados as List<SistemaBliss.EN.Usuario>)
+                                {
+                                    <option value="@item.IdUsuario">@item.Nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="mb-2">Estado del servicio solicitado</label>
+                            <select name="IdEstado" id="IdEstadoCita" class="form-select me-2">
+                                <option>Seleccionar</option>
+                                @foreach (var item in ViewBag.EstadosCita as List<SistemaBliss.EN.Estado>)
+                                {
+                                    <option value="@item.IdEstado">@item.Nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="d-grid" style="grid-template-columns:1fr 1fr; gap:16px;">
+                        <div>
+                            <label class="mb-2">Precio del servicio</label>
+                            <input class="form-select me-2" name="Precio" type="number" id="Precio" />
+                        </div>
+
+                        <div>
+                            <label class="mb-2">Tiempo estimado del servicio</label>
+                            <input class="form-select me-2" name="TiempoEstimado" type="text" id="Duracion" />
+                        </div>
+                    </div>
+
+                    <button style="width:143px; margin-top:0px;" type="submit" class="btn-morado">Agregar servicio</button>
+
+                </div>
+                    }
+
+                
 
                 @Html.HiddenFor(model => model.IdCita)
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.IdUsuario, new SelectList(ViewBag.Clientes, "Value", "Text", null), new { @class = "form-select" })
-                        @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownListFor(model => model.IdEstado, new SelectList(ViewBag.Estados, "Value", "Text", null), new { @class = "form-select" })
-                        @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date", Value = Model.Fecha.ToString("yyyy-MM-dd") })
-                        @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.Hora, new { @class = "form-control", type = "time" })
-                        @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.TiempoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.TiempoTotal, new { @class = "form-control", type = "time" })
-                        @Html.ValidationMessageFor(model => model.TiempoTotal, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PagoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.PagoTotal, new { @class = "form-control", type = "number", min = "1", step = "0.01" })
-                        @Html.ValidationMessageFor(model => model.PagoTotal, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn-morado">Guardar</button>
-                </div>
-            </div>
-        }
-    </div>
-    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-
-      
-            @*<legend>Detalles</legend>*@
-            <div class="d-inline-flex">
-                @using (Html.BeginForm("CreateDetalleCita", "Cita", FormMethod.Post, new { @class = "form" }))
-                {
-                    @Html.Hidden("IdCita", Model.IdCita)
-
-                <div class="form-inputs mt-3">
-                    <div>
-                        <label class="mb-2">Servicio</label>
-                        <select name="IdServicio" id="IdServicio" class="form-select me-2" onchange="actualizarPrecio()">
-                            <option name="IdServicio">Seleccionar</option>
-                            @foreach (var item in ViewBag.Servicios as List<SistemaBliss.EN.Servicio>)
-                            {
-                                <option value="@item.IdServicio" data-precio="@item.Precio" data-duracion="@item.Duracion">@item.Nombre</option>
-                            }
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="mb-2">Empleado que gestionara</label>
-                        <select name="IdUsuario" id="IdEmpleado" class="form-select me-2">
-                            <option>Seleccionar</option>
-                            @foreach (var item in ViewBag.Empleados as List<SistemaBliss.EN.Usuario>)
-                            {
-                                <option value="@item.IdUsuario">@item.Nombre</option>
-                            }
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="mb-2">Estado del servicio solicitado</label>
-                        <select name="IdEstado" id="IdEstadoCita" class="form-select me-2">
-                            <option>Seleccionar</option>
-                            @foreach (var item in ViewBag.EstadosCita as List<SistemaBliss.EN.Estado>)
-                            {
-                                <option value="@item.IdEstado">@item.Nombre</option>
-                            }
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="mb-2">Precio del servicio</label>
-                        <input class="form-select me-2" name="Precio" type="number" id="Precio" />
-                    </div>
-
-                    <div>
-                        <label class="mb-2">Tiempo estimado del servicio</label>
-                        <input class="form-select me-2" name="TiempoEstimado" type="text" id="Duracion" />
-                    </div>
-                    </div>
-
-                    <p  class="mt-4">Pago Total: <b> @ViewBag.TotalPrecio</b></p>
-                    <p>Tiempo Estimado: <b> @ViewBag.TiempoEstimado</b> </p>
-
-
-
-
-                    <button type="submit" class="btn-morado mt-4">Agregar</button>
-
-                    }
-
-                </div>
-
-        @Html.HiddenFor(model => model.IdCita)
-
-        <table class="table mt-3">
-            <thead>
-                <tr>
-                    <th class="d-none">ID</th>
-                    <th>Servicio</th>
-                    <th>Empleado</th>
-                    <th>Estado</th>
-                    <th>Precio</th>
-                    <th>Duración</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (ViewBag.DetallesCita != null)
-                {
-                    foreach (var item in ViewBag.DetallesCita)
-                    {
+                <table class="table mt-3">
+                    <thead>
                         <tr>
-                            <td class="d-none">@item.IdDetalleCita</td>
-                            <td>@item.Servicio</td>
-                            <td>@item.Empleado</td>
-                            <td>@item.Estado</td>
-                            <td class="d-flex"> <p>$</p> @item.Precio</td>
-                            <td>@item.TiempoEstimado</td>
-                            <td>
-                                <button type="button" class="btn btn-danger btn-sm"
-                                        onclick="funcEliminar('@Url.Action("DeleteDetalleCita", "Cita", new { id = item.IdDetalleCita, idCita = Model.IdCita })')">
-                                    Eliminar
-                                </button>
-                            </td>
+                            <th class="d-none">ID</th>
+                            <th>Servicio</th>
+                            <th>Empleado</th>
+                            <th>Estado</th>
+                            <th>Precio</th>
+                            <th>Duración</th>
+                            <th></th>
                         </tr>
-                    }
-                }
-                else
-                {
-                    <tr>
-                        <td colspan="8">No se encontraron detalles para esta cita.</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.DetallesCita != null)
+                        {
+                            foreach (var item in ViewBag.DetallesCita)
+                            {
+                                <tr>
+                                    <td class="d-none">@item.IdDetalleCita</td>
+                                    <td>@item.Servicio</td>
+                                    <td>@item.Empleado</td>
+                                    <td>@item.Estado</td>
+                                    <td class="d-flex"> <p>$</p> @item.Precio</td>
+                                    <td>@item.TiempoEstimado</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                                onclick="funcEliminar('@Url.Action("DeleteDetalleCita", "Cita", new { id = item.IdDetalleCita, idCita = Model.IdCita })')">
+                                            Eliminar
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="8">No se encontraron detalles para esta cita.</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
     </div>
 </div>
 
-<script>
-    function numeroValido(valor) {
-        if (!isNaN(parseFloat(valor)) && parseFloat(valor) > 0) {
-            return true;
+    <script>
+        function numeroValido(valor) {
+            if (!isNaN(parseFloat(valor)) && parseFloat(valor) > 0) {
+                return true;
+            }
+            return false;
         }
-        return false;
-    }
 
-    function calcularTotal() {
-        // Obtener todas las filas del cuerpo de la tabla
-        const filas = document.querySelectorAll('#detalleCitaBody tr');
-        let total = 0;
+        function calcularTotal() {
+            // Obtener todas las filas del cuerpo de la tabla
+            const filas = document.querySelectorAll('#detalleCitaBody tr');
+            let total = 0;
 
-        // Iterar sobre las filas y sumar los precios
-        filas.forEach(fila => {
-            const precioCelda = fila.querySelector('.precio');
-            if (precioCelda) {
-                // Obtener el precio (sin el símbolo '$')
-                const precio = parseFloat(precioCelda.textContent.replace('$', '').trim());
-                if (!isNaN(precio)) {
-                    total += precio;
+            // Iterar sobre las filas y sumar los precios
+            filas.forEach(fila => {
+                const precioCelda = fila.querySelector('.precio');
+                if (precioCelda) {
+                    // Obtener el precio (sin el símbolo '$')
+                    const precio = parseFloat(precioCelda.textContent.replace('$', '').trim());
+                    if (!isNaN(precio)) {
+                        total += precio;
+                    }
+                }
+            });
+
+            // Actualizar el input oculto con el total
+            document.getElementById('TotalPrecio').value = total;
+        }
+
+        // Calcular el total al cargar la página
+        document.addEventListener('DOMContentLoaded', calcularTotal);
+
+        function actualizarPrecio() {
+            let producto = document.querySelector("#IdServicio > option:checked");
+            let IdProducto = producto.value;
+
+            console.log("Producto seleccionado:", producto); // Verificar el producto seleccionado
+            console.log("IdProducto:", IdProducto); // Verificar el ID del producto seleccionado
+
+            let Precio = "";
+            let Duracion = "";
+
+            if (numeroValido(IdProducto)) {
+                Precio = producto.getAttribute("data-precio");
+                Duracion = producto.getAttribute("data-duracion");
+
+                console.log("Precio:", Precio); // Verificar el precio
+                console.log("Duracion:", Duracion); // Verificar la duración
+            }
+
+            document.querySelector("#Precio").value = Precio;
+            document.querySelector("#Duracion").value = Duracion;
+
+            actualizarSubtotal();
+        }
+
+
+        function actualizarDuracion() {
+            // mostrar precio del producto seleccionado
+            let producto = document.querySelector("#IdEmpleado > option:checked");
+            let IdProducto = producto.value;
+
+            let Precio = "";
+            if (numeroValido(IdProducto)) {
+                Precio = producto.getAttribute("data-Precio");
+            }
+            document.querySelector("#Precio").value = Precio;
+            actualizarSubtotal();
+        }
+
+        function actualizarSubtotal() {
+            // Actualizar SubTotal del detalle
+            let Cantidad = document.querySelector("#Cantidad").value;
+            let Precio = document.querySelector("#Precio").value;
+
+            let Subtotal = "";
+            if (numeroValido(Cantidad) && numeroValido(Precio)) {
+                Subtotal = parseFloat(Cantidad) * parseFloat(Precio);
+            }
+            document.querySelector("#Subtotal").value = Subtotal;
+        }
+
+        function actualizarTotalAcumulado(nuevoPrecio) {
+            let totalAcumulado = parseFloat(document.querySelector("#totalAcumulado").value) || 0;
+            totalAcumulado += nuevoPrecio;
+            document.querySelector("#totalAcumulado").value = totalAcumulado.toFixed(2);
+        }
+
+        function actualizarDuracionTotal(nuevaDuracion) {
+            let totalDuracion = parseInt(document.querySelector("#DuracionTotal").value) || 0; // Crear un nuevo campo para Duración Total
+            totalDuracion += nuevaDuracion;
+            document.querySelector("#DuracionTotal").value = totalDuracion;
+        }
+
+        function parseTime(timeString) {
+            const parts = timeString.split(':');
+            return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+        }
+
+        function formatTime(minutes) {
+            const hours = Math.floor(minutes / 60);
+            const mins = minutes % 60;
+            return `${hours} horas ${mins} minutos`;
+        }
+    </script>
+
+    <script>
+        // Función para guardar el tab activo en localStorage
+        function guardarTabActivo(tabId) {
+            localStorage.setItem('tabActivo', tabId);
+        }
+
+        // Función para recuperar el tab activo de localStorage
+        function recuperarTabActivo() {
+            return localStorage.getItem('tabActivo');
+        }
+
+        // Al cargar la página, establecer el tab activo
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabActivo = recuperarTabActivo();
+            if (tabActivo) {
+                // Si hay un tab activo guardado, activarlo
+                const tab = document.getElementById(tabActivo);
+                if (tab) {
+                    tab.click(); // Simula el clic en el tab
                 }
             }
         });
 
-        // Actualizar el input oculto con el total
-        document.getElementById('TotalPrecio').value = total;
-    }
-
-    // Calcular el total al cargar la página
-    document.addEventListener('DOMContentLoaded', calcularTotal);
-
-    function actualizarPrecio() {
-        let producto = document.querySelector("#IdServicio > option:checked");
-        let IdProducto = producto.value;
-
-        console.log("Producto seleccionado:", producto); // Verificar el producto seleccionado
-        console.log("IdProducto:", IdProducto); // Verificar el ID del producto seleccionado
-
-        let Precio = "";
-        let Duracion = "";
-
-        if (numeroValido(IdProducto)) {
-            Precio = producto.getAttribute("data-precio");
-            Duracion = producto.getAttribute("data-duracion");
-
-            console.log("Precio:", Precio); // Verificar el precio
-            console.log("Duracion:", Duracion); // Verificar la duración
-        }
-
-        document.querySelector("#Precio").value = Precio;
-        document.querySelector("#Duracion").value = Duracion;
-
-        actualizarSubtotal();
-    }
-
-
-    function actualizarDuracion() {
-        // mostrar precio del producto seleccionado
-        let producto = document.querySelector("#IdEmpleado > option:checked");
-        let IdProducto = producto.value;
-
-        let Precio = "";
-        if (numeroValido(IdProducto)) {
-            Precio = producto.getAttribute("data-Precio");
-        }
-        document.querySelector("#Precio").value = Precio;
-        actualizarSubtotal();
-    }
-
-    function actualizarSubtotal() {
-        // Actualizar SubTotal del detalle
-        let Cantidad = document.querySelector("#Cantidad").value;
-        let Precio = document.querySelector("#Precio").value;
-
-        let Subtotal = "";
-        if (numeroValido(Cantidad) && numeroValido(Precio)) {
-            Subtotal = parseFloat(Cantidad) * parseFloat(Precio);
-        }
-        document.querySelector("#Subtotal").value = Subtotal;
-    }
-
-    function actualizarTotalAcumulado(nuevoPrecio) {
-        let totalAcumulado = parseFloat(document.querySelector("#totalAcumulado").value) || 0;
-        totalAcumulado += nuevoPrecio;
-        document.querySelector("#totalAcumulado").value = totalAcumulado.toFixed(2);
-    }
-
-    function actualizarDuracionTotal(nuevaDuracion) {
-        let totalDuracion = parseInt(document.querySelector("#DuracionTotal").value) || 0; // Crear un nuevo campo para Duración Total
-        totalDuracion += nuevaDuracion;
-        document.querySelector("#DuracionTotal").value = totalDuracion;
-    }
-
-    function parseTime(timeString) {
-        const parts = timeString.split(':');
-        return parseInt(parts[0]) * 60 + parseInt(parts[1]);
-    }
-
-    function formatTime(minutes) {
-        const hours = Math.floor(minutes / 60);
-        const mins = minutes % 60;
-        return `${hours} horas ${mins} minutos`;
-    }
-</script>
-
-<script>
-    // Función para guardar el tab activo en localStorage
-    function guardarTabActivo(tabId) {
-        localStorage.setItem('tabActivo', tabId);
-    }
-
-    // Función para recuperar el tab activo de localStorage
-    function recuperarTabActivo() {
-        return localStorage.getItem('tabActivo');
-    }
-
-    // Al cargar la página, establecer el tab activo
-    document.addEventListener('DOMContentLoaded', function () {
-        const tabActivo = recuperarTabActivo();
-        if (tabActivo) {
-            // Si hay un tab activo guardado, activarlo
-            const tab = document.getElementById(tabActivo);
-            if (tab) {
-                tab.click(); // Simula el clic en el tab
-            }
-        }
-    });
-
-    // Agregar evento de cambio de tab
-    document.querySelectorAll('.nav-link').forEach(tab => {
-        tab.addEventListener('click', function () {
-            guardarTabActivo(this.id); // Guardar el id del tab activo
+        // Agregar evento de cambio de tab
+        document.querySelectorAll('.nav-link').forEach(tab => {
+            tab.addEventListener('click', function () {
+                guardarTabActivo(this.id); // Guardar el id del tab activo
+            });
         });
-    });
-</script>
+    </script>
 
 
 

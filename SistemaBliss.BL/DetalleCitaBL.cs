@@ -14,7 +14,7 @@ namespace SistemaBliss.BL
     {
         public int Guardar(DetalleCita pDetalleCita)
         {
-            return DetalleCitaDAL.GuardarDetalle(pDetalleCita);
+            return DetalleCitaDAL.Guardar(pDetalleCita);
         }
 
         //public int Modificar(DetalleCita pDetalleCita)

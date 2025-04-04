@@ -7,76 +7,437 @@
 
 
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Cita", FormMethod.Post, new { @class = "form" }))
 {
+
     <div class="seccion-registro-header">
-        <h2 class="titulo">Registro de una nueva cita</h2>
-        <p class="parrafo">Registra una nueva cita y luego agrega sus detalles en la pantalla principal</p>
+        <h2 class="titulo">Registra una cita</h2>
+        <p class="parrafo">Completa ambas secciones para registrar una nueva cita</p>
 
-        <div class="form-group">
-            <button type="submit" class="btn-morado">Enviar</button>
-            @Html.ActionLink("Cancelar", "Index", "Cita", new { @class = "btn-second" })
-        </div>
-    </div>
-
-    @Html.AntiForgeryToken()
-
-    <div class="form-inputs mt-4">
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        <div class="">
-            @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdUsuario, new SelectList(ViewBag.Clientes, "Value", "Text", null), new { @class = "form-select" })
-                @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="">
-            @Html.LabelFor(model => model.IdEstado, htmlAttributes: new { @class = "control-label" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.IdEstado, new SelectList(ViewBag.Estados, "Value", "Text", null), new { @class = "form-select" })
-                @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="">
-            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date" })
-                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="">
-            @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Hora, new { @class = "form-control", type = "time" })
-                @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.TiempoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.TiempoTotal, new { @class = "form-control", type = "time" })
-                    @Html.ValidationMessageFor(model => model.TiempoTotal, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
+        <div class="form-group d-flex gap-3">
             <div class="form-group">
-                @Html.LabelFor(model => model.PagoTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.PagoTotal, new { @class = "form-control", type = "number", min = "0", step = "0.01" })
-                    @Html.ValidationMessageFor(model => model.PagoTotal, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+                <button type="submit" class="btn-morado">Guardar cita</button>
+            </div>
+            @Html.ActionLink("Cancelar", "Index", "Cliente", new { @class = "btn-second" })
+        </div>
     </div>
 
+    <div style="padding: 20px; border: 1px solid #E0E0E2; border-radius:10px; height:67vh; margin-top:16px;">
+        <ul style="margin-bottom:60px;" class="nav d-flex   nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Registro</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Servicios</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
-}
+                @Html.AntiForgeryToken()
+
+                <div class="d-grid" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(model => model.IdCita)
+
+                    <div class="">
+                        @Html.LabelFor(model => model.IdUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.IdUsuario, new SelectList(ViewBag.Clientes, "Value", "Text", null), new { @class = "form-select" })
+                            @Html.ValidationMessageFor(model => model.IdUsuario, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="">
+                        @Html.LabelFor(model => model.IdEstado, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.IdEstado, new SelectList(ViewBag.Estados, "Value", "Text", null), new { @class = "form-select" })
+                            @Html.ValidationMessageFor(model => model.IdEstado, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="">
+                        @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Fecha, new { @class = "form-control", type = "date", Value = Model.Fecha.ToString("yyyy-MM-dd") })
+                            @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
 
+                    <div class="">
+                        @Html.LabelFor(model => model.Hora, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Hora, new { @class = "form-control", type = "time" })
+                            @Html.ValidationMessageFor(model => model.Hora, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+
+                <div class="d-flex flex-column" style="gap:24px;">
+
+                    <div class="d-grid" style="grid-template-columns:1fr 1fr 1fr; gap:16px;">
+
+                        <div>
+                            <label class="mb-2">Servicio</label>
+                            <select name="IdServicio" id="IdServicio" class="form-select me-2" onchange="actualizarPrecio()">
+                                <option name="IdServicio">Seleccionar</option>
+                                @foreach (var item in ViewBag.Servicios as List<SistemaBliss.EN.Servicio>)
+                                {
+                                    <option value="@item.IdServicio" data-precio="@item.Precio" data-duracion="@item.Duracion">@item.Nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="mb-2">Empleado que gestionara</label>
+                            <select name="IdUsuario" id="IdEmpleado" class="form-select me-2">
+                                <option>Seleccionar</option>
+                                @foreach (var item in ViewBag.Empleados as List<SistemaBliss.EN.Usuario>)
+                                {
+                                    <option value="@item.IdUsuario">@item.Nombre</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="mb-2">Estado del servicio solicitado</label>
+                            <select name="IdEstado" id="IdEstadoCita" class="form-select me-2">
+                                <option>Seleccionar</option>
+                                @foreach (var item in ViewBag.EstadosCita as List<SistemaBliss.EN.Estado>)
+                                {
+                                    <option value="@item.IdEstado">@item.Nombre</option>
+                                }
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="d-grid" style="grid-template-columns:1fr 1fr; gap:16px;">
+                        <div>
+                            <label class="mb-2">Precio del servicio</label>
+                            <input style="pointer-events:none;" class="form-control me-2" name="Precio" type="text" id="Precio" />
+                        </div>
+
+                        <div>
+                            <label class="mb-2">Tiempo estimado del servicio</label>
+                            <input style="pointer-events:none;" class="form-control me-2" name="TiempoEstimado" type="text" id="Duracion" />
+                        </div>
+                    </div>
+
+                    <button style="width:143px; margin-top:0px;" onclick="agregarDetalle()" type="button" class="btn-morado">Agregar servicio</button>
+
+                </div>
+
+                @*@Html.HiddenFor(model => model.IdCita)*@
+
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th class="d-none">ID</th>
+                            <th>Servicio</th>
+                            <th>Empleado</th>
+                            <th>Estado</th>
+                            <th>Precio</th>
+                            <th>Duración</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyDetalles">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+        }
+
+
+        <script>
+            function numeroValido(valor) {
+                if (!isNaN(parseFloat(valor)) && parseFloat(valor) > 0) {
+                    return true;
+                }
+                return false;
+            }
+
+            function calcularTotal() {
+                // Obtener todas las filas del cuerpo de la tabla
+                const filas = document.querySelectorAll('#detalleCitaBody tr');
+                let total = 0;
+
+                // Iterar sobre las filas y sumar los precios
+                filas.forEach(fila => {
+                    const precioCelda = fila.querySelector('.precio');
+                    if (precioCelda) {
+                        // Obtener el precio (sin el símbolo '$')
+                        const precio = parseFloat(precioCelda.textContent.replace('$', '').trim());
+                        if (!isNaN(precio)) {
+                            total += precio;
+                        }
+                    }
+                });
+
+                // Actualizar el input oculto con el total
+                document.getElementById('TotalPrecio').value = total;
+            }
+
+            // Calcular el total al cargar la página
+            //document.addEventListener('DOMContentLoaded', calcularTotal);
+
+            function actualizarPrecio() {
+                let producto = document.querySelector("#IdServicio > option:checked");
+                let IdProducto = producto.value;
+
+                console.log("Producto seleccionado:", producto); // Verificar el producto seleccionado
+                console.log("IdProducto:", IdProducto); // Verificar el ID del producto seleccionado
+
+                let Precio = "";
+                let Duracion = "";
+
+                if (numeroValido(IdProducto)) {
+                    Precio = producto.getAttribute("data-precio");
+                    Duracion = producto.getAttribute("data-duracion");
+
+                    console.log("Precio:", Precio); // Verificar el precio
+                    console.log("Duracion:", Duracion); // Verificar la duración
+                }
+
+                document.querySelector("#Precio").value = Precio;
+                document.querySelector("#Duracion").value = Duracion;
+
+                /* actualizarSubtotal();*/
+            }
+
+
+            function actualizarDuracion() {
+                // mostrar precio del producto seleccionado
+                let producto = document.querySelector("#IdEmpleado > option:checked");
+                let IdProducto = producto.value;
+
+                let Precio = "";
+                if (numeroValido(IdProducto)) {
+                    Precio = producto.getAttribute("data-Precio");
+                }
+                document.querySelector("#Precio").value = Precio;
+                /*actualizarSubtotal();*/
+            }
+
+            function actualizarSubtotal() {
+                // Actualizar SubTotal del detalle
+                let Cantidad = document.querySelector("#Cantidad").value;
+                let Precio = document.querySelector("#Precio").value;
+
+                let Subtotal = "";
+                if (numeroValido(Cantidad) && numeroValido(Precio)) {
+                    Subtotal = parseFloat(Cantidad) * parseFloat(Precio);
+                }
+                document.querySelector("#Subtotal").value = Subtotal;
+            }
+
+            function actualizarTotalAcumulado(nuevoPrecio) {
+                let totalAcumulado = parseFloat(document.querySelector("#totalAcumulado").value) || 0;
+                totalAcumulado += nuevoPrecio;
+                document.querySelector("#totalAcumulado").value = totalAcumulado.toFixed(2);
+            }
+
+            function actualizarDuracionTotal(nuevaDuracion) {
+                let totalDuracion = parseInt(document.querySelector("#DuracionTotal").value) || 0; // Crear un nuevo campo para Duración Total
+                totalDuracion += nuevaDuracion;
+                document.querySelector("#DuracionTotal").value = totalDuracion;
+            }
+
+            function parseTime(timeString) {
+                const parts = timeString.split(':');
+                return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+            }
+
+            function formatTime(minutes) {
+                const hours = Math.floor(minutes / 60);
+                const mins = minutes % 60;
+                return `${hours} horas ${mins} minutos`;
+            }
+        </script>
+
+        <script>
+            // Función para guardar el tab activo en localStorage
+            function guardarTabActivo(tabId) {
+                localStorage.setItem('tabActivo', tabId);
+            }
+
+            // Función para recuperar el tab activo de localStorage
+            function recuperarTabActivo() {
+                return localStorage.getItem('tabActivo');
+            }
+
+            // Al cargar la página, establecer el tab activo
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabActivo = recuperarTabActivo();
+                if (tabActivo) {
+                    // Si hay un tab activo guardado, activarlo
+                    const tab = document.getElementById(tabActivo);
+                    if (tab) {
+                        tab.click(); // Simula el clic en el tab
+                    }
+                }
+            });
+
+            // Agregar evento de cambio de tab
+            document.querySelectorAll('.nav-link').forEach(tab => {
+                tab.addEventListener('click', function () {
+                    guardarTabActivo(this.id); // Guardar el id del tab activo
+                });
+            });
+
+
+            //inicio
+            function crearTD(name, index, value, show = true) {
+                // Crear columna con datos serializados
+                let html = "<td class=" + (show == false ? "d-none" : "") + ">";
+                html += "       " + value + "";
+                html += "       <input type='hidden' name='DetallesCita[" + index + "]." + name + "' value='" + value + "' />";
+                html += "   </td>";
+                return html;
+            }
+
+            let _total = 0; // total de la venta
+            let _totalTiempo = 0; // total de la venta
+            let _index = 0; // indice del array de DetallesCita
+            function agregarFila(detalle) {
+
+                let idTR = "trDetalle_" + detalle.IdServicio;
+                var tbody = document.querySelector("#tbodyDetalles");
+
+                let tr = "";
+                tr += "<tr id='" + idTR + "' data-index='" + _index + "'>";
+                tr += crearTD("IdServicio", _index, detalle.IdServicio, false);
+                tr += crearTD("IdUsuario", _index, detalle.IdUsuario, false);
+                tr += crearTD("IdEstado", _index, detalle.IdEstado, false);
+                tr += crearTD("Servicio", _index, detalle.Servicio);
+                tr += crearTD("Empleado", _index, detalle.Empleado);
+                tr += crearTD("Estado", _index, detalle.Estado);
+                tr += crearTD("Precio", _index, detalle.Precio);
+                tr += crearTD("TiempoEstimado", _index, detalle.TiempoEstimado);
+                tr += "     <td>";
+                tr += "         <button type='button' onclick='quitarDetalle(" + detalle.IdServicio + ")' class='btn btn-danger btn-sm'>Eliminar</button>";
+                tr += "     </td>";
+                tr += "</tr>";
+
+                tbody.innerHTML += tr;
+                _index++;
+                // Actualizar Total
+                _total += detalle.Precio;
+                _totalTiempo += detalle.TiempoEstimado;
+                document.querySelector("#Total").value = _total;
+                document.querySelector("#TiempoEstimado").value = _totalTiempo;
+            }
+
+            function agregarDetalle() {
+                // Capturar valores
+                let servicio = document.querySelector("#IdServicio > option:checked");
+                let empleado = document.querySelector("#IdEmpleado > option:checked");
+                let estadoCita = document.querySelector("#IdEstadoCita > option:checked");
+                let IdServicio = servicio.value;
+                let IdUsuario = empleado.value;
+                let IdEstado = estadoCita.value;
+
+                // Validaciones
+                if (!numeroValido(IdServicio)) {
+                    return alert("Seleccione un servicio");
+                }
+
+                if (!numeroValido(IdUsuario)) {
+                    return alert("Seleccione un empleado");
+                }
+
+                if (!numeroValido(IdEstado)) {
+                    return alert("Seleccione un estado para la cita");
+                }
+
+                let idTR = "trDetalle_" + IdServicio;
+                if (document.querySelector("#" + idTR) != null) {
+                    return alert("El servicio seleccionado, ya se encuentra en los detalles");
+                }
+
+                // Obtener datos del detalle
+                let servicioNombre = servicio.textContent;
+                let empleadoNombre = empleado.textContent;
+                let estadoNombre = estadoCita.textContent;
+                let Precio = servicio.getAttribute("data-precio");
+                let TiempoEstimado = servicio.getAttribute("data-duracion");
+
+
+                // Crear objeto y agregarlo como fila
+                let detalle = {
+                    IdServicio,
+                    IdUsuario,
+                    IdEstado,
+                    Servicio: servicioNombre,
+                    Empleado: empleadoNombre,
+                    Estado: estadoNombre,
+                    Precio,
+                    TiempoEstimado,
+
+                };
+                agregarFila(detalle);
+                // Resetear sub formulario
+                document.querySelector("#IdServicio option").selected = true;
+                document.querySelector("#IdEmpleado option").selected = true;
+                document.querySelector("#IdEstadoCita option").selected = true;
+                document.querySelector("#IdServicio").onchange();
+            }
+
+
+            function actualizarIndex() {
+                _index = 0;
+                _total = 0;
+                let filas = document.querySelectorAll("#tbodyDetalles tr");
+                for (var i = 0; i < filas.length; i++) {
+
+                    let indexTR = filas[i].getAttribute("data-index");
+                    filas[i].innerHTML = filas[i].innerHTML.replaceAll("[" + indexTR + "]", "[" + i + "]");
+
+                    filas[i].setAttribute("data-index", i);
+                    _index++;
+                    // Actualizar Total
+                    let precio = filas[i].querySelector("input[name='DetallesCita[" + i + "].Precio']").value;
+                    _total += parseFloat(precio);
+
+                    document.querySelector("#Total").value = _total;
+
+                    let tiempoDuracion = filas[i].querySelector("input[name='DetallesCita[" + i + "].TiempoEstimado']").value;
+                    _totalTiempo += parseFloat(tiempoDuracion);
+
+                    document.querySelector("#TiempoDuracion").value = _totalTiempo;
+                }
+            }
+
+            function quitarDetalle(IdServicio) {
+                let tr = document.querySelector("#trDetalle_" + IdServicio);
+                tr.remove();
+                actualizarIndex();
+            }
+
+        </script>
+
+        <!-- Permite agregar las filas si se recarga la vista -->
+        @if (Model.DetallesCita != null && Model.DetallesCita.Count > 0)
+        {
+            foreach (var item in Model.DetallesCita)
+            {
+                <script>
+            // Agregar detalles convertidos en objetos
+            agregarFila( @Html.Raw(Json.Encode(item)) );
+                </script>
+            }
+
+        }
 

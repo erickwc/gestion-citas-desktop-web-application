@@ -141,7 +141,6 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
         {
             try
             {
-               
                     int resultado = detallecitaBL.Guardar(pDetalleCita);
 
                     if (resultado > 0)

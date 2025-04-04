@@ -6,31 +6,6 @@
 }
 
 
-<form method="get" action="@Url.Action("Index", "Empleado")" class="row">
-
-    <h3 class="titulo">Empleados</h3>
-    <p class="parrafo">Busca un empleado en los siguientes filtros</p>
-
-    <div class="col-12 col-lg-3 mt-2">
-        <label class="form-label fw-bold" for="Nombre">Dato de busqueda:</label>
-        <input type="text" class="form-control" name="Nombre" placeholder="Ingrese el dato de búsqueda" />
-    </div>
-
-    <div class="col-12 col-lg-3 mt-2">
-        <label class="form-label fw-bold" for="campoBusqueda">Tipo de busqueda:</label>
-        @Html.DropDownList("campoBusqueda", ViewBag.Options as List<SelectListItem>, new { @class = "form-select" })
-    </div>
-
-    <div class="col-12 col-lg-2 d-flex align-items-end mt-2">
-        <button type="submit" class="btn-second me-3">Buscar</button>
-        @Html.ActionLink("Nuevo", "Create", null, new { @Class = "btn-morado" })
-    </div>
-
-</form>
-
-<div class="col-12 col-lg-2 d-flex align-items-end mt-3">
-    <button class="btn-morado" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Profesiones</button>
-</div>
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -46,122 +21,176 @@
     </div>
 </div>
 
+<div class="d-grid" style="gap:16px; grid-template-columns:2fr 1fr 1fr 1fr; margin-bottom:16px;">
+    <div style="padding: 16px; gap:16px; display:flex; flex-direction:column;  border: 1px solid #E0E0E2; border-radius:16px;">
+        <div>
+            <h3 class="titulo">Agregar empleado</h3>
+            <p class="parrafo">Agrega un nuevo empleado a la barberia</p>
+        </div>
+        <div class="d-flex justify-content-end">
+            @Html.ActionLink("Nuevo empleado", "Create", null, new { @Class = "btn-morado" })
+        </div>
+    </div>
+    <div style="padding: 24px; display:grid; justify-content:space-between; border: 1px solid #E0E0E2; border-radius:16px;">
+        <p style="margin-bottom: 0px;" class="parrafo">Empleados activos</p>
+        <p style="font-size:42px; margin-bottom:0px; font-weight:600;">3</p>
+        <p style="margin-bottom: 0px;" class="parrafo">Registros</p>
+    </div>
+    <div style="padding: 24px; display:grid; justify-content:space-between; border: 1px solid #E0E0E2; border-radius:16px;">
+        <p style="margin-bottom: 0px;" class="parrafo">Empleados inactivos</p>
+        <p style="font-size:42px; margin-bottom:0px; font-weight:600;">2</p>
+        <p style="margin-bottom: 0px;" class="parrafo">Registros</p>
+    </div>
+    <div style="padding: 24px; display:grid; justify-content:space-between; border: 1px solid #E0E0E2; border-radius:16px;">
+        <p style="margin-bottom: 0px;" class="parrafo">Empleados totales</p>
+        <p style="font-size:42px; margin-bottom:0px; font-weight:600;">5</p>
+        <p style="margin-bottom: 0px;" class="parrafo">Registros</p>
+    </div>
+</div>
 
 
+<div style="padding: 16px; border: 1px solid #E0E0E2; border-radius:16px; height:100vh;">
+    <div class="d-flex justify-content-between" style="width:100%;">
+        <div>
+            <h3 class="titulo">Empleados registrados</h3>
+            <p class="parrafo">Administra todos los empleados registrados</p>
+        </div>
 
+        <div class="d-flex" style="gap:16px;">
+            <form method="get" action="@Url.Action("Index", "Empleado")" style="gap:16px;" class="d-flex align-items-start">
 
-<ul class="nav d-flex nav-pills mt-3 mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-activos-tab" data-bs-toggle="pill" data-bs-target="#pills-activos" type="button" role="tab" aria-controls="pills-activos" aria-selected="true">
-            Empleados Activos
-        </button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-inactivos-tab" data-bs-toggle="pill" data-bs-target="#pills-inactivos" type="button" role="tab" aria-controls="pills-inactivos" aria-selected="false">
-            Empleados Inactivos
-        </button>
-    </li>
-</ul>
+                <div class="">
+                    @Html.DropDownList("campoBusqueda", ViewBag.Options as List<SelectListItem>, new { @class = "form-select", style = "width:200px;" })
+                </div>
 
-<div class="tab-content" id="pills-tabContent">
-    <!-- Tab para Empleados Activos -->
-    <div class="tab-pane fade" id="pills-activos" role="tabpanel" aria-labelledby="pills-activos-tab">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>DUI</th>
-                    <th>Rol</th>
-                    <th>Estado</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (ViewBag.EmpleadosActivos != null)
-                {
-                    foreach (var item in ViewBag.EmpleadosActivos)
-                    {
-                        <tr>
-                            <td>@item.IdUsuario</td>
-                            <td>
-                                @if (!string.IsNullOrEmpty(item.UrlImagen))
-                                {
-                                    <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                                else
-                                {
-                            <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                            </td>
-                            <td>@item.Nombre</td>
-                            <td>@item.Apellido</td>
-                            <td>@item.Telefono</td>
-                            <td>@item.Dui</td>
-                            <td>@item.Rol.Nombre</td>
-                            <td>@item.Estado.Nombre</td>
-                            <td>
-                                <a href="@Url.Action("AgregarProfesion", "Empleado", new { id = item.IdUsuario })" class="btn btn-morado btn-sm mx-2">Profesiones</a>
-                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-editar btn-sm mx-2">Editar</a>
-                            </td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
+                <div class="">
+                    <input style="width:300px;" type="text" class="form-control" name="Nombre" placeholder="Buscador" />
+                </div>
+
+                <div class="">
+                    <button type="submit" class="btn-second">Buscar</button>
+                </div>
+            </form>
+
+            <div class="">
+                <button class="btn-morado" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">Profesiones</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Tab para Empleados Inactivos -->
-    <div class="tab-pane fade" id="pills-inactivos" role="tabpanel" aria-labelledby="pills-inactivos-tab">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Teléfono</th>
-                    <th>DUI</th>
-                    <th>Rol</th>
-                    <th>Estado</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (ViewBag.EmpleadosInactivos != null)
-                {
-                    foreach (var item in ViewBag.EmpleadosInactivos)
+    <ul class="nav d-flex nav-pills mt-3 mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-activos-tab" data-bs-toggle="pill" data-bs-target="#pills-activos" type="button" role="tab" aria-controls="pills-activos" aria-selected="true">
+                Empleados Activos
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-inactivos-tab" data-bs-toggle="pill" data-bs-target="#pills-inactivos" type="button" role="tab" aria-controls="pills-inactivos" aria-selected="false">
+                Empleados Inactivos
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+        <!-- Tab para Empleados Activos -->
+        <div class="tab-pane fade" id="pills-activos" role="tabpanel" aria-labelledby="pills-activos-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="d-none">ID</th>
+                        <th>Foto</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Teléfono</th>
+                        <th>DUI</th>
+                        <th class="d-none">Rol</th>
+                        <th class="d-none">Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.EmpleadosActivos != null)
                     {
-                        <tr>
-                            <td>@item.IdUsuario</td>
-                            <td>
-                                @if (!string.IsNullOrEmpty(item.UrlImagen))
-                                {
-                                    <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                                else
-                                {
-                            <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                            </td>
-                            <td>@item.Nombre</td>
-                            <td>@item.Apellido</td>
-                            <td>@item.Telefono</td>
-                            <td>@item.Dui</td>
-                            <td>@item.Rol.Nombre</td>
-                            <td>@item.Estado.Nombre</td>
-                            <td>
-                                <a href="@Url.Action("AgregarProfesion", "Empleado", new { id = item.IdUsuario })" class="btn btn-morado btn-sm mx-2">Profesiones</a>
-                                <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" class="btn btn-editar btn-sm mx-2">Editar</a>
-                            </td>
-                        </tr>
+                        foreach (var item in ViewBag.EmpleadosActivos)
+                        {
+                            <tr>
+                                <td class="d-none">@item.IdUsuario</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.UrlImagen))
+                                    {
+                                        <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                </td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Apellido</td>
+                                <td>@item.Telefono</td>
+                                <td>@item.Dui</td>
+                                <td class="d-none">@item.Rol.Nombre</td>
+                                <td class="d-none">@item.Estado.Nombre</td>
+                                <td>
+                                    <a href="@Url.Action("AgregarProfesion", "Empleado", new { id = item.IdUsuario })" style="padding:8px 12px;" class="btn btn-morado btn-sm mx-2">Profesion</a>
+                                    <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" style="padding:8px 12px;" class="btn btn-editar btn-sm mx-2">Editar</a>
+                                </td>
+                            </tr>
+                        }
                     }
-                }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab para Empleados Inactivos -->
+        <div class="tab-pane fade" id="pills-inactivos" role="tabpanel" aria-labelledby="pills-inactivos-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="d-none">ID</th>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Teléfono</th>
+                        <th>DUI</th>
+                        <th class="d-none">Rol</th>
+                        <th class="d-none">Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.EmpleadosInactivos != null)
+                    {
+                        foreach (var item in ViewBag.EmpleadosInactivos)
+                        {
+                            <tr>
+                                <td class="d-none">@item.IdUsuario</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.UrlImagen))
+                                    {
+                                        <img src="@Url.Content(item.UrlImagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                </td>
+                                <td >@item.Nombre</td>
+                                <td>@item.Apellido</td>
+                                <td>@item.Telefono</td>
+                                <td>@item.Dui</td>
+                                <td class="d-none">@item.Rol.Nombre</td>
+                                <td class="d-none">@item.Estado.Nombre</td>
+                                <td>
+                                    <a href="@Url.Action("AgregarProfesion", "Empleado", new { id = item.IdUsuario })" style="padding:8px 12px;" class="btn btn-morado btn-sm mx-2">Profesion</a>
+                                    <a href="@Url.Action("Edit", "Empleado", new { id = item.IdUsuario })" style="padding:8px 12px;" class="btn btn-editar btn-sm mx-2">Editar</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

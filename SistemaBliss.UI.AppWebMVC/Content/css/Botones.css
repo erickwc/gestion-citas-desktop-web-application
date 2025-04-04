@@ -24,7 +24,7 @@ a {
 
 button {
     text-decoration: none;
-    padding: 9px 12px;
+    padding: 8px 12px;
     font-size: 14px;
     transition: ease-in-out 0.1s;
     color: var(--gris);
@@ -36,11 +36,13 @@ button {
     background: var(--morado);
     color: var(--blanco);
     border-radius: 8px;
+    border: 1px solid var(--morado);
 }
 
-.btn-morado:hover {
-    color: var(--blanco);
-}
+    .btn-morado:hover {
+        color: var(--blanco);
+        background: var(--morado);
+    }
 
 .btn-second {
     background: var(--blanco);
@@ -49,12 +51,15 @@ button {
     color: var(--morado);
 }
 
-.titulo{
-    font-size:20px;
+.titulo {
+    font-size: 16px;
+    color: var(--negro);
+    font-weight:600;
 }
 
 .parrafo {
     font-size: 16px;
+    color:var(--gris);
 }
 
 .seccion-registro-header{
@@ -67,13 +72,15 @@ button {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 20px;
-    border: 1px solid var(--gris-bordes);
-    border-radius: 10px;
-    gap: 20px;
+    gap: 30px;
+    max-width:1200px;
 }
 
-.control-label{
-    margin-bottom:8px;
+
+
+.control-label {
+    margin-bottom: 8px;
+    font-weight:500;
 }
 
 .nav-pills .nav-link.active {
@@ -92,12 +99,21 @@ button {
 .btn-editar {
     background: #FFF0DB;
     border-radius: 8px;
-    color: #FE862F;
-    font-weight:600;
+    color: #db6004;
+    
 }
 
-.btn-editar:hover {
-    background: #FFF0DB;
-    border-radius: 8px;
-    color: #FE862F;
+    .btn-editar:hover {
+        background: #FFF0DB;
+        border-radius: 8px;
+        color: #db6004;
+    }
+
+
+.container-inputs {
+    height: calc(79vh - 100px);
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--gris-bordes);
+    border-radius: 10px;
 }

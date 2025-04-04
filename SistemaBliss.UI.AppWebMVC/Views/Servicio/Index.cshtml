@@ -6,182 +6,215 @@
 }
 
 
-<form method="get" action="@Url.Action("Index","Servicio")" class="row mt-3">
 
-    <h3 class="titulo">Servicios</h3>
-    <p class="parrafo">Busca un servicio en los siguientes filtros</p>
 
-    <div class="col-12 col-lg-3 mt-2">
-        <label class="form-label fw-bold" for="">Dato de busqueda:</label>
-        <input type="text" class="form-control" name="filtroNombre" placeholder="Ingrese el dato de búsqueda" />
+<div class="d-grid" style="gap:16px; grid-template-columns:2fr 1fr 1fr 1fr; margin-bottom:16px;">
+    <div style="padding: 16px; gap:16px; display:flex; flex-direction:column;  border: 1px solid #E0E0E2; border-radius:16px;">
+        <div>
+            <h3 class="titulo">Agregar servicio</h3>
+            <p class="parrafo">Agrega un nuevo servicio a la barberia</p>
+        </div>
+        <div class="d-flex justify-content-end">
+            @Html.ActionLink("Nuevo servicio", "Create", null, new { @Class = "btn-morado" })
+        </div>
     </div>
-
-    <div class="col-12 col-lg-3 mt-2">
-        <label class="form-label fw-bold" for="">Categoria de servicio:</label>
-        @Html.DropDownList("IdCategoriaServicio", new SelectList(ViewBag.Categorias, "Value", "Text", null), new { @class = "form-select" })
+    <div style="padding: 24px; display:grid; justify-content:space-between; border: 1px solid #E0E0E2; border-radius:16px;">
+        <p style="margin-bottom: 0px;" class="parrafo">Servicios activos</p>
+        <p style="font-size:42px; margin-bottom:0px; font-weight:600;">7</p>
+        <p style="margin-bottom: 0px;" class="parrafo">Registros</p>
     </div>
-
-    <div class="col-12 col-lg-2 d-flex gap-2 align-items-end mt-2">
-        <button type="submit" class="btn-second">Buscar</button>
-        @Html.ActionLink("Nuevo", "Create", null, new { @Class = "btn-morado" })
+    <div style="padding: 24px; display:grid; justify-content:space-between; border: 1px solid #E0E0E2; border-radius:16px;">
+        <p style="margin-bottom: 0px;" class="parrafo">Servicios inactivos</p>
+        <p style="font-size:42px; margin-bottom:0px; font-weight:600;">3</p>
+        <p style="margin-bottom: 0px;" class="parrafo">Registros</p>
     </div>
-</form>
-
-
-<ul class="nav d-flex mt-3 nav-pills mb-3" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-activos-tab" data-bs-toggle="pill" data-bs-target="#pills-activos" type="button" role="tab" aria-controls="pills-activos" aria-selected="true">
-            Servicios Activos
-        </button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-inactivos-tab" data-bs-toggle="pill" data-bs-target="#pills-inactivos" type="button" role="tab" aria-controls="pills-inactivos" aria-selected="false">
-            Servicios Inactivos
-        </button>
-    </li>
-</ul>
-
-
-
-<div class="tab-content" id="pills-tabContent">
-    <!-- Tab para Servicios Activos -->
-    <div class="tab-pane fade" id="pills-activos" role="tabpanel" aria-labelledby="pills-activos-tab">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Categoría</th>
-                    <th>Estado</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (ViewBag.ServiciosActivos != null)
-                {
-                    foreach (var item in ViewBag.ServiciosActivos)
-                    {
-                        <tr>
-                            <td>@item.IdServicio</td>
-                            <td>
-                                @if (!string.IsNullOrEmpty(item.Imagen))
-                                {
-                                    <img src="@Url.Content(item.Imagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                                else
-                                {
-                            <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                            </td>
-                            <td>@item.Nombre</td>
-                            <td>@item.Descripción</td>
-                            <td>@item.Precio</td>
-                            <td>@item.CategoriaServicio.Nombre</td>
-                            <td>@item.Estado.Nombre</td>
-                            <td>
-                                <a href="@Url.Action("Edit", "Servicio", new { id = item.IdServicio })" class="btn-editar btn btn-sm mx-2">Editar</a>
-                            </td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Tab para Servicios Inactivos -->
-    <div class="tab-pane fade" id="pills-inactivos" role="tabpanel" aria-labelledby="pills-inactivos-tab">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Foto</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Categoría</th>
-                    <th>Estado</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (ViewBag.ServiciosInactivos != null)
-                {
-                    foreach (var item in ViewBag.ServiciosInactivos)
-                    {
-                        <tr>
-                            <td>@item.IdServicio</td>
-                            <td>
-                                @if (!string.IsNullOrEmpty(item.Imagen))
-                                {
-                                    <img src="@Url.Content(item.Imagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                                else
-                                {
-                            <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
-                                }
-                            </td>
-                            <td>@item.Nombre</td>
-                            <td>@item.Descripción</td>
-                            <td>@item.Precio</td>
-                            <td>@item.CategoriaServicio.Nombre</td>
-                            <td>@item.Estado.Nombre</td>
-                            <td>
-                                <a href="@Url.Action("Edit", "Servicio", new { id = item.IdServicio })" class="btn btn-editar  btn-sm mx-2">Editar</a>
-                            </td>
-                        </tr>
-                    }
-                }
-            </tbody>
-        </table>
+    <div style="padding: 24px; display:grid; justify-content:space-between; border: 1px solid #E0E0E2; border-radius:16px;">
+        <p style="margin-bottom: 0px;" class="parrafo">Servicios totales</p>
+        <p style="font-size:42px; margin-bottom:0px; font-weight:600;">10</p>
+        <p style="margin-bottom: 0px;" class="parrafo">Registros</p>
     </div>
 </div>
 
 
-@section scripts {
+<div style="padding: 16px; border: 1px solid #E0E0E2; border-radius:16px; height:100vh;">
+    <div class="d-flex justify-content-between" style="width:100%;">
+        <div>
+            <h3 class="titulo">Servicios registrados</h3>
+            <p class="parrafo">Administra todos los servicios registrados</p>
+        </div>
+
+        <div class="d-flex" style="gap:16px;">
+            <form method="get" action="@Url.Action("Index","Servicio")" style="gap:16px;" class="d-flex align-items-start">
+
+                <div class="">
+                    @Html.DropDownList("IdCategoriaServicio", new SelectList(ViewBag.Categorias, "Value", "Text", null), new { @class = "form-select", style = "width:250px;" })
+                </div>
+                <div class="">
+                    <input style="width:300px;" type="text" class="form-control" name="filtroNombre" placeholder="Ingrese el dato de búsqueda" />
+                </div>
+
+                <div class="">
+                    <button type="submit" class="btn-second">Buscar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('#pills-tab button');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    localStorage.setItem('selectedTab', this.getAttribute('id'));
+    <ul class="nav d-flex mt-3 nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-activos-tab" data-bs-toggle="pill" data-bs-target="#pills-activos" type="button" role="tab" aria-controls="pills-activos" aria-selected="true">
+                Servicios Activos
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-inactivos-tab" data-bs-toggle="pill" data-bs-target="#pills-inactivos" type="button" role="tab" aria-controls="pills-inactivos" aria-selected="false">
+                Servicios Inactivos
+            </button>
+        </li>
+    </ul>
+
+
+
+    <div class="tab-content" id="pills-tabContent">
+        <!-- Tab para Servicios Activos -->
+        <div class="tab-pane fade" id="pills-activos" role="tabpanel" aria-labelledby="pills-activos-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="d-none">ID</th>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th class="d-none">Descripción</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+                        <th class="d-none">Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.ServiciosActivos != null)
+                    {
+                        foreach (var item in ViewBag.ServiciosActivos)
+                        {
+                            <tr>
+                                <td class="d-none">@item.IdServicio</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.Imagen))
+                                    {
+                                        <img src="@Url.Content(item.Imagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                </td>
+                                <td>@item.Nombre</td>
+                                <td class="d-none">@item.Descripción</td>
+                                <td>@item.Precio</td>
+                                <td>@item.CategoriaServicio.Nombre</td>
+                                <td class="d-none">@item.Estado.Nombre</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Servicio", new { id = item.IdServicio })" style="padding:8px 12px;"  class="btn-editar btn btn-sm mx-2">Editar</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab para Servicios Inactivos -->
+        <div class="tab-pane fade" id="pills-inactivos" role="tabpanel" aria-labelledby="pills-inactivos-tab">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="d-none">ID</th>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th class="d-none">Descripción</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+                        <th class="d-none">Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.ServiciosInactivos != null)
+                    {
+                        foreach (var item in ViewBag.ServiciosInactivos)
+                        {
+                            <tr>
+                                <td class="d-none">@item.IdServicio</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.Imagen))
+                                    {
+                                        <img src="@Url.Content(item.Imagen)" alt="Imagen de @item.Nombre" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@Url.Content("~/Content/Images/DefaultImage.png")" alt="Imagen predeterminada" style="width:50px; height:50px; border-radius:100px; object-fit:cover;" />
+                                    }
+                                </td>
+                                <td>@item.Nombre</td>
+                                <td class="d-none">@item.Descripción</td>
+                                <td>@item.Precio</td>
+                                <td>@item.CategoriaServicio.Nombre</td>
+                                <td class="d-none">@item.Estado.Nombre</td>
+                                <td>
+                                    <a href="@Url.Action("Edit", "Servicio", new { id = item.IdServicio })" style="padding:8px 12px;"  class="btn btn-editar  btn-sm mx-2">Editar</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    @section scripts {
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabs = document.querySelectorAll('#pills-tab button');
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', function () {
+                        localStorage.setItem('selectedTab', this.getAttribute('id'));
+                    });
                 });
+
+                const selectedTab = localStorage.getItem('selectedTab');
+                if (selectedTab) {
+                    const tabToActivate = document.querySelector(`#${selectedTab}`);
+                    if (tabToActivate) {
+                        tabToActivate.click();
+                    }
+                } else {
+                    // Activar por defecto el tab de Empleados Activos
+                    const defaultTab = document.querySelector('#pills-activos-tab');
+                    if (defaultTab) {
+                        defaultTab.click();
+                    }
+                }
             });
 
-            const selectedTab = localStorage.getItem('selectedTab');
-            if (selectedTab) {
-                const tabToActivate = document.querySelector(`#${selectedTab}`);
-                if (tabToActivate) {
-                    tabToActivate.click();
-                }
-            } else {
-                // Activar por defecto el tab de Empleados Activos
-                const defaultTab = document.querySelector('#pills-activos-tab');
-                if (defaultTab) {
-                    defaultTab.click();
-                }
-            }
-        });
-
-    </script>
+        </script>
 
 
-    @if (TempData["mensaje"] != null)
-    {
-        <script>
+        @if (TempData["mensaje"] != null)
+        {
+            <script>
         Swal.fire({
             icon: "@(TempData["tipo"]!= null? TempData["tipo"]: "success")",
             title: "@TempData["mensaje"]",
             showConfirmButton: false,
             timer: 1500
         });
-        </script>
+            </script>
 
-        TempData["mensaje"] = null; // Vaciar memoria
+            TempData["mensaje"] = null; // Vaciar memoria
+        }
+
     }
-
-}

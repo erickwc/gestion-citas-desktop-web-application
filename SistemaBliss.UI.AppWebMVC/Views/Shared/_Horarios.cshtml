@@ -2,17 +2,14 @@
 
 
 
-<div>
+<div style="padding:16px;">
     @using (Html.BeginForm("Create", "Horario", FormMethod.Post, new { @class = "form", id = "horarioForm" }))
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-inputs mt-4">
-
-
+        <div class="d-grid justify-content-between align-items-center" style="border: none; gap:24px; grid-template-columns: 1fr 1fr 1fr; ">
 
             <input id="IdEmpresa" type="hidden" class="form-control" name="IdEmpresa" value="1" required />
-
 
             <div>
                 <label class="mb-2">Dia</label>
@@ -40,49 +37,55 @@
             </div>
 
         </div>
-        <button type="submit" class="btn-morado mt-3" id="submitButton">Agregar</button>
+        <button type="submit" class="btn-morado" id="submitButton">Agregar horario</button>
     }
 
+    <div style="padding: 16px; border: 1px solid #E0E0E2; margin-top:24px; border-radius:16px; height:70vh;">
+        <div>
+            <h3 class="titulo">Horarios registrados</h3>
+            <p class="parrafo">Administra todos los horarios registrados</p>
+        </div>
 
-    <div class="mt-4" style="max-height: 300px; overflow-y: auto;">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="d-none">ID</th>
-                    <th class="d-none">IDEmpresa</th>
-                    <th>Dias</th>
-                    <th>Hora de entrada</th>
-                    <th>Hora de salida</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+        <div class="mt-4" style="max-height: 300px; overflow-y: auto;">
+            <table class="table">
+                <thead>
                     <tr>
-                        <td class="d-none">@item.IdHorariosEmpresa</td>
-                        <td class="d-none">@item.IdEmpresa</td>
-                        <td>@item.Dias</td>
-                        <td>@DateTime.Today.Add(item.HoraEntrada).ToString("hh:mm tt")</td>
-                        <td>@DateTime.Today.Add(item.HoraSalida).ToString("hh:mm tt")</td>
-                        <td>
-                            <button type="button" class="btn btn-editar btn-sm mx-2"
-                                    onclick="editProfesion(@item.IdHorariosEmpresa, @item.IdEmpresa, '@item.Dias', '@item.HoraEntrada.ToString(@"hh\:mm")', '@item.HoraSalida.ToString(@"hh\:mm")')">
-                                Editar
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm"
-                                    onclick="funcEliminar('@Url.Action("Delete", "Horario", new { id = item.IdHorariosEmpresa })')">
-                                Eliminar
-                            </button>
-                        </td>
+                        <th class="d-none">ID</th>
+                        <th class="d-none">IDEmpresa</th>
+                        <th style="font-weight:600;">Dias</th>
+                        <th  style="font-weight:600;">Hora de entrada</th>
+                        <th  style="font-weight:600;">Hora de salida</th>
+                        <th  style="font-weight:600;">Acciones</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="d-none">@item.IdHorariosEmpresa</td>
+                            <td class="d-none">@item.IdEmpresa</td>
+                            <td>@item.Dias</td>
+                            <td>@DateTime.Today.Add(item.HoraEntrada).ToString("hh:mm tt")</td>
+                            <td>@DateTime.Today.Add(item.HoraSalida).ToString("hh:mm tt")</td>
+                            <td>
+                                <button style="padding:8px 12px;" type="button" class="btn btn-editar btn-sm mx-2"
+                                        onclick="editProfesion(@item.IdHorariosEmpresa, @item.IdEmpresa, '@item.Dias', '@item.HoraEntrada.ToString(@"hh\:mm")', '@item.HoraSalida.ToString(@"hh\:mm")')">
+                                    Editar
+                                </button>
+                                <button style="padding: 8px 12px; color: #FF2E00; background: #FFDBD3; border:none; border-radius: 8px; " type="button" class="btn btn-danger btn-sm"
+                                        onclick="funcEliminar('@Url.Action("Delete", "Horario", new { id = item.IdHorariosEmpresa })')">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 
+    </div>
 </div>
-<script>
+    <script>
 function editProfesion(id, empresaId, dias, horaentrada, horasalida) {
     // Convertir las horas al formato HH:mm
     let horaEntradaFormateada = horaentrada.substring(0, 5);
@@ -111,5 +114,5 @@ function editProfesion(id, empresaId, dias, horaentrada, horasalida) {
     // Cambiamos a la acción Edit del controlador Horario
     form.action = '@Url.Action("Edit", "Horario")';
 }
-</script>
+    </script>
 

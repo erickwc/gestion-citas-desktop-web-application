@@ -5,59 +5,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="titulo">Empresa</h2>
-<p class="parrafo">Edita los datos necesarios de la empresa para mantener actualizada la información</p>
-
-
 <ul class="nav d-flex nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Empresa</button>
+        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Información</button>
     </li>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Horarios</button>
     </li>
 </ul>
+
 <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-
 
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-inputs mt-4">
+            <div class="d-grid" style="">
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 @Html.HiddenFor(model => model.IdEmpresa)
 
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
+                <div class="form-group d-flex align-items-center " style="border-bottom: 1px solid #E0E0E2; padding: 38px 0px; gap: 350px;">
+                    <div style="width:350px;">
+                        <p style="margin-bottom: 0px; color: #222222;" class="parrafo">Nombre de la empresa</p>
+                        <p  style="margin-bottom: 0px;" class="parrafo">Puedes cambiar el nombre de la empresa</p>
+                    </div>
+                    <div style="width:450px;" class="">
                         @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
+                <div class="form-group d-flex align-items-center " style="border-bottom: 1px solid #E0E0E2; padding: 38px 0px; gap: 350px;">
+                    <div style="width:350px;">
+                        <p style="margin-bottom: 0px; color: #222222;" class="parrafo">Dirección de la empresa</p>
+                        <p style="margin-bottom: 0px;" class="parrafo">Puedes cambiar la dirección de la empresa</p>
+                    </div>
+                    <div style="width:450px;" class="">
                         @Html.EditorFor(model => model.Direccion, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
+                <div class="form-group d-flex align-items-center " style="border-bottom: 1px solid #E0E0E2; padding:38px 0px; gap:350px;">
+                    <div style="width:350px;">
+                        <p style="margin-bottom: 0px; color: #222222;" class="parrafo">Telefono</p>
+                        <p style="margin-bottom: 0px;" class="parrafo">Puedes cambiar el numero de la empresa</p>
+                    </div>
+                    <div style="width:450px;" class="">
                         @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CorreoElectronico, htmlAttributes: new { @class = "control-label" })
-                    <div class="col-md-10">
+                <div class="form-group d-flex align-items-center " style="border-bottom: 1px solid #E0E0E2; padding: 38px 0px; gap: 350px;">
+                    <div style="width:350px;">
+                        <p style="margin-bottom: 0px; color: #222222;" class="parrafo">Correo electronico</p>
+                        <p style="margin-bottom: 0px;" class="parrafo">Puedes cambiar el correo electronido de la empresa</p>
+                    </div>
+                    <div style="width:450px;" class="">
                         @Html.EditorFor(model => model.CorreoElectronico, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.CorreoElectronico, "", new { @class = "text-danger" })
                     </div>
@@ -66,8 +74,8 @@
 
             </div>
 
-            <div class="form-group mt-3">
-                <button type="submit" class="btn-morado">Guardar</button>
+            <div class="form-group " style="margin-top:32px;">
+                <button type="submit" class="btn-morado">Guardar cambios</button>
             </div>
         }
     </div>

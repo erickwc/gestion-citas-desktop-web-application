@@ -43,7 +43,7 @@ namespace SistemaBliss.UI.AppWebMVC.Controllers
 
                 // Guardar la sesion del empleado
                 FormsAuthentication.RedirectFromLoginPage(empleadoSesion.Telefono, false);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Cita");
             }
             else
             {

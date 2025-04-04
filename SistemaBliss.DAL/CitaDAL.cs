@@ -13,64 +13,66 @@ namespace SistemaBliss.DAL
     public class CitaDAL
     {
         #region METODOS GUARDAR, MODIFICAR
-        //public static int Guardar(Cita pCita)
-        //{
-           
-        //    try
-        //    {
-        //        SqlCommand comando = ComunDB.ObtenerComando();
-        //        comando.CommandText = "SP_InsertarCita";
-        //        comando.CommandType = CommandType.StoredProcedure;
-        //        comando.Parameters.AddWithValue("@IdUsuario", pCita.IdUsuario);
-        //        comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
-        //        comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
-        //        comando.Parameters.AddWithValue("@Hora", pCita.Hora);
-        //        comando.Parameters.AddWithValue("@TiempoTotal", pCita.TiempoTotal);
-        //        comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
-
-        //        long idCita = Convert.ToInt64(comando.ExecuteScalar());
-
-        //        foreach (var detalle in pCita.DetallesCita)
-        //        {
-        //        // detalle: representa al producto que se agrego a la venta
-        //            detalle.IdCita = idCita;
-        //            SqlCommand comandoDetalle = DetalleCitaDAL.Guardar(detalle, transaccion);
-
-        //        // Confirmar Guardar detalle de la venta
-        //        comandoDetalle.ExecuteNonQuery();
-        //        }
-
-        //        transaccion.Commit();
-
-        //        return ComunDB.EjecutarComando(comando);
-        //        }
-        //    catch (Exception ex)
-        //        {
-        //            // Revertir cambios en la DB
-        //            transaccion.Rollback();
-        //            return 0;
-        //        }
-        //    finally
-        //        {
-        //        transaccion.Dispose();
-        //        }
-
-        //    return 1;
-        //}
 
         public static int Guardar(Cita pCita)
         {
-            SqlCommand comando = ComunDB.ObtenerComando();
-            comando.CommandText = "SP_InsertarCita";
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@IdUsuario", pCita.IdUsuario);
-            comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
-            comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
-            comando.Parameters.AddWithValue("@Hora", pCita.Hora);
-            comando.Parameters.AddWithValue("@TiempoTotal", pCita.TiempoTotal);
-            comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
-            return ComunDB.EjecutarComando(comando);
+            SqlTransaction transaccion = ComunDB.CrearTransaction();
+
+            try
+            {
+                SqlCommand comando = ComunDB.ObtenerComando(transaccion);
+                comando.CommandText = "SP_InsertarCita";
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@IdUsuario", pCita.IdUsuario);
+                comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
+                comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
+                comando.Parameters.AddWithValue("@Hora", pCita.Hora);
+                comando.Parameters.AddWithValue("@TiempoTotal", pCita.TiempoTotal);
+                comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
+
+                long idCita = Convert.ToInt64(comando.ExecuteScalar());
+
+                foreach (var detalle in pCita.DetallesCita)
+                {
+                    // detalle: representa al producto que se agrego a la venta
+                    detalle.IdCita = idCita;
+                    SqlCommand comandoDetalle = DetalleCitaDAL.GuardarDetalle(detalle, transaccion);
+
+                    // Confirmar Guardar detalle de la venta
+                    comandoDetalle.ExecuteNonQuery();
+                }
+
+                transaccion.Commit();
+
+       
+            }
+            catch (Exception ex)
+            {
+                // Revertir cambios en la DB
+                transaccion.Rollback();
+                return 0;
+            }
+            finally
+            {
+                transaccion.Dispose();
+            }
+
+            return 1;
         }
+
+        //public static int Guardar(Cita pCita)
+        //{
+        //    SqlCommand comando = ComunDB.ObtenerComando();
+        //    comando.CommandText = "SP_InsertarCita";
+        //    comando.CommandType = CommandType.StoredProcedure;
+        //    comando.Parameters.AddWithValue("@IdUsuario", pCita.IdUsuario);
+        //    comando.Parameters.AddWithValue("@IdEstado", pCita.IdEstado);
+        //    comando.Parameters.AddWithValue("@Fecha", pCita.Fecha);
+        //    comando.Parameters.AddWithValue("@Hora", pCita.Hora);
+        //    comando.Parameters.AddWithValue("@TiempoTotal", pCita.TiempoTotal);
+        //    comando.Parameters.AddWithValue("@PagoTotal", pCita.PagoTotal);
+        //    return ComunDB.EjecutarComando(comando);
+        //}
 
         public static int Modificar(Cita pCita)
         {
@@ -290,7 +292,7 @@ namespace SistemaBliss.DAL
             #region Proceso
             using (SqlCommand comando = ComunDB.ObtenerComando())
             {
-                string consulta = @" select top 100 IdUsuario, Nombre + ' ' + Apellido 'Cliente' from Usuario";  // Filtro de estado activo y rol cliente
+                string consulta = @" select top 100 IdUsuario, Nombre + ' ' + Apellido 'Cliente' from Usuario where IdRol = 2";  // Filtro de estado activo y rol cliente
 
                 comando.CommandText = consulta;
 
