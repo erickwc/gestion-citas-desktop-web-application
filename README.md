@@ -29,6 +29,8 @@ la gestión de pedidos de comida, envíos, compras en supermercados, farmacias, 
 - 📲 **Contacto Directo:** Comunicación fácil mediante WhatsApp o Facebook desde la plataforma.
 
 - 💸 **Consulta de Tarifas de Envío:** Visualiza la tarifa de entrega según tu municipio.
+  
+- 📱 **Responsiva:** La web es completamente responsiva para telefono, tablet y computadora
 
 # Imagenes de prototipos
 Las siguientes imágenes corresponden al prototipo inicial de la aplicación. 
